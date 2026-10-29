@@ -195,3 +195,5 @@ figcaption { color: var(--muted); font-size: .9rem; margin-top: 6px; }
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; }
 }
+.scores td:nth-child(2) { width: 60%; }
+.cover .button.primary { background: #ffe14d; color: #111; border-color: #ffe14d; }

@@ -11,7 +11,7 @@
       "slug": "gold-master",
       "visible": true,
       "order": 1,
-      "featured": false
+      "featured": true
     },
     {
       "slug": "tiger-gorilla",
