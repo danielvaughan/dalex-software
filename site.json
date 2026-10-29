@@ -208,9 +208,10 @@
       "order": 6,
       "featured": false,
       "demo": {
-        "milestone": 1,
-        "sha256": "f977ca08f76be13316a95f97976805e78999d7c523b93b665697c89045b74073",
-        "contains": "January's session with Stevo: the warm-up, the squat block and the sled."
+        "milestone": null,
+        "sha256": "b622fe5877658adbff61a53f57a43aa03275e1a78192c5cd60b28293cb79a416",
+        "contains": "Level 1 demo: January with Stevo",
+        "source_tape": "wolf-demo.tap"
       },
       "touch": {
         "dpad": {

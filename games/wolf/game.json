@@ -49,11 +49,11 @@
   },
   "demo": {
     "src": "demo.bin",
-    "sha256": "f977ca08f76be13316a95f97976805e78999d7c523b93b665697c89045b74073",
-    "size": 60624,
-    "milestone": 1,
-    "source_tape": "wolf-m1.tap",
-    "contains": "January's session with Stevo: the warm-up, the squat block and the sled."
+    "sha256": "b622fe5877658adbff61a53f57a43aa03275e1a78192c5cd60b28293cb79a416",
+    "size": 41314,
+    "milestone": null,
+    "source_tape": "wolf-demo.tap",
+    "contains": "Level 1 demo: January with Stevo"
   },
   "review": {
     "magazine": "INK & PAPER",
@@ -135,7 +135,7 @@
   },
   "source": {
     "repo": "danielvaughan/zx-wolf",
-    "commit": "2dc2b5f0e22f0e77467ba5548b5196dcce79092b",
+    "commit": "6fc0dbb24a4d62f32d76e310340145663fde4d6b",
     "kit": "game/media-kit/m5"
   }
 }
