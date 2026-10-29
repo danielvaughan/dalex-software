@@ -4,12 +4,12 @@
   "title": "Gold Master",
   "machine": "ZX Spectrum 128K",
   "jsspeccy_machine": 128,
-  "tagline": "The tape is due and the office runs on tea!",
-  "blurb": "The tape is due and the office runs on tea! As Mo the producer, carry the work from desk to desk, keep the coders' mugs full, squash the bugs and shoo Percy the cat, then hand the finished Gold Master to Omnibot before his clock runs out. Four games, seven rooms, three floors, and a teacup setting for those who'd rather not rush.",
+  "tagline": "The courier's at the door and the games aren't finished!",
+  "blurb": "The courier's at the door and the games aren't finished! Guide Mo round seven rooms of the Dalex office, carrying work from desk to desk, brewing tea, squashing bugs and shooing Percy the cat. Beat the courier's clock, or pick a relaxed game and let him wait. Every game you ship earns a review mark!",
   "controls": [
     [
       "Q / A / O / P",
-      "Walk up / down / left / right"
+      "Walk (two together for diagonals)"
     ],
     [
       "SPACE",
@@ -25,17 +25,17 @@
     ],
     [
       "M",
-      "Music on/off"
+      "Music on / off"
     ],
     [
       "D (title)",
-      "Deadline or Relaxed mode"
+      "Deadline or relaxed game"
     ]
   ],
   "release": {
-    "source_tape": "gold-master-m4-6775baaa.tap",
-    "sha256": "6775baaaaca90754590880215a1565fcb5695b5e829831fd9e5bbefecd3adca3",
-    "size": 34290,
+    "source_tape": "gold-master.tap",
+    "sha256": "6c39989adb21daf5043e78f893561a4ee03aad71a965cdbc96e52bf5a041c144",
+    "size": 34437,
     "milestone": 4,
     "date": "2026-10-29"
   },
@@ -49,19 +49,19 @@
   },
   "review": {
     "magazine": "INK & PAPER",
-    "overall": 72,
+    "overall": 71,
     "scores": {
-      "presentation": 80,
-      "graphics": 71,
+      "presentation": 76,
+      "graphics": 69,
       "sound": 72,
-      "playability": 75,
-      "addictive_qualities": 65,
-      "overall": 72
+      "playability": 72,
+      "addictive_qualities": 66,
+      "overall": 71
     },
     "award": null,
-    "verdict": "A friendly office juggle that's fair to a fault, let down by a little clash and a short shelf life. Not quite gold, but a shiny silver.",
+    "verdict": "Not quite solid gold, but this busy little office game is well worth a copy.",
     "quote": {
-      "text": "Worth a go",
+      "text": "Still, I kept going back for one more go",
       "reviewer": "Kev Mallin"
     }
   },
@@ -94,44 +94,44 @@
       {
         "src": "shots/shot-1.png",
         "size": [
-          256,
-          192
+          320,
+          240
         ],
-        "caption": "Brian hands out 91% and a nod. Steady on, Brian, that's our job.",
-        "alt": "Gold Master screenshot: Brian hands out 91% and a nod. Steady on, Brian, that's our job."
+        "caption": "Mo, the cat and the courier strike a pose before the tea runs out.",
+        "alt": "Gold Master screenshot: Mo, the cat and the courier strike a pose before the tea runs out."
       },
       {
         "src": "shots/shot-2.png",
         "size": [
-          256,
-          192
+          320,
+          240
         ],
-        "caption": "The dial's gone red with 25 seconds to go. Get a move on, Mo!",
-        "alt": "Gold Master screenshot: The dial's gone red with 25 seconds to go. Get a move on, Mo!"
+        "caption": "A bug on the loose and Percy on the prowl: just another Monday in the office.",
+        "alt": "Gold Master screenshot: A bug on the loose and Percy on the prowl: just another Monday in the office."
       },
       {
         "src": "shots/shot-3.png",
         "size": [
-          256,
-          192
+          320,
+          240
         ],
-        "caption": "The courier has gone, but nobody shouts. Try again, with tea.",
-        "alt": "Gold Master screenshot: The courier has gone, but nobody shouts. Try again, with tea."
+        "caption": "Shipped, and 89% from INK & PAPER. A reviewer of rare taste, clearly.",
+        "alt": "Gold Master screenshot: Shipped, and 89% from INK & PAPER. A reviewer of rare taste, clearly."
       },
       {
         "src": "shots/shot-4.png",
         "size": [
-          256,
-          192
+          320,
+          240
         ],
-        "caption": "All four games on the shelf and the whole office in a knees-up.",
-        "alt": "Gold Master screenshot: All four games on the shelf and the whole office in a knees-up."
+        "caption": "Exit stage left, and the bottom of the room blacks out early.",
+        "alt": "Gold Master screenshot: Exit stage left, and the bottom of the room blacks out early."
       }
     ]
   },
   "source": {
     "repo": "danielvaughan/zx-gold-master",
-    "commit": "38bd49fec0fef030fabc5139cd9ef20ea9a3bd54",
+    "commit": "b524e46c60199a40c585d205bfbf9e382021b960",
     "kit": "game/media-kit/m4"
   }
 }
