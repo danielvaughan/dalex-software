@@ -1,0 +1,555 @@
+{
+ "task": "About page standing cast sprites (dalex-software D-15), requested by the owner 2026-10-29",
+ "tool": "dalex-studio devtools/dalex/generate_art.py --login-key --aspect 16:9 (Gemini image API)",
+ "model": "gemini-nano-banana-2.1",
+ "gemini_calls": 5,
+ "sheets": {
+  "sheet-a-v1.png": {
+   "generation": {
+    "model": "gemini-nano-banana-2.1",
+    "generated_utc": "2026-10-29T12:50:06Z",
+    "seconds": 21.5,
+    "prompt_sha256": "5ed4fce464e340e897798fe4df9d4a2ee8b5978889453619499e2852656b22bd",
+    "references": [
+     {
+      "file": "cast-neil-source-v1.png",
+      "sha256": "44a9cab709502b2e02ad7a83baa7e99c6821351fabfb388ab6ae575672218668"
+     },
+     {
+      "file": "cast-colin-source-v1.png",
+      "sha256": "b5aab230a9a7d53cf6e14c196ffec9922a0660434ed9bfddce510019da315be1"
+     },
+     {
+      "file": "identity-a.png",
+      "sha256": "a788eabe6f5ac9554ae1456c7069f162e2db60911e9790db41fd038a747cbca6"
+     }
+    ],
+    "output": "sheet-a-v1.png",
+    "output_sha256": "c19479159680a27756dfe3efdc7f963ead7860692e4a21b7d7bd1c8b304c9e9a",
+    "aspect": "16:9"
+   },
+   "prompt": "sheet-a-prompt.txt",
+   "references_role": {
+    "cast-neil-source-v1.png": "style only: dalex-studio assets/source (Neil, established cast)",
+    "cast-colin-source-v1.png": "style only: dalex-studio assets/source (Colin, established cast)",
+    "identity-a.png": "identity only: the Studio packed front talking frames (dists/dalex/cast-<id>-talk-0.pix, decoded by the former tools/portraits.py) at 3x on magenta, numbered and labelled"
+   },
+   "atlas_check": {
+    "tool": "dalex-studio plugins/scummvm/skills/scummvm-character-art/scripts/prepare_generated_atlas.py --cells 4 --band 0 768",
+    "cell": [
+     344,
+     768
+    ],
+    "poses": [
+     {
+      "cell": 0,
+      "bounds": [
+       45,
+       26,
+       280,
+       724
+      ],
+      "touches_edge": false
+     },
+     {
+      "cell": 1,
+      "bounds": [
+       34,
+       48,
+       303,
+       730
+      ],
+      "touches_edge": false
+     },
+     {
+      "cell": 2,
+      "bounds": [
+       63,
+       71,
+       303,
+       730
+      ],
+      "touches_edge": false
+     },
+     {
+      "cell": 3,
+      "bounds": [
+       6,
+       48,
+       292,
+       730
+      ],
+      "touches_edge": false
+     }
+    ]
+   },
+   "used": {
+    "malcolm": 0,
+    "colin": 1,
+    "mo": 2,
+    "neil": 3
+   }
+  },
+  "sheet-b-v1.png": {
+   "generation": {
+    "model": "gemini-nano-banana-2.1",
+    "generated_utc": "2026-10-29T12:51:53Z",
+    "seconds": 43.0,
+    "prompt_sha256": "6d50d92282f98626593037bcef06920f2b04f450d2270681d0b391b5ce9cc776",
+    "references": [
+     {
+      "file": "cast-neil-source-v1.png",
+      "sha256": "44a9cab709502b2e02ad7a83baa7e99c6821351fabfb388ab6ae575672218668"
+     },
+     {
+      "file": "cast-colin-source-v1.png",
+      "sha256": "b5aab230a9a7d53cf6e14c196ffec9922a0660434ed9bfddce510019da315be1"
+     },
+     {
+      "file": "identity-b.png",
+      "sha256": "7ecb5e4d220cbeaa9bc4a937491538deb85f046576bd40e5309ae5a3196f647f"
+     }
+    ],
+    "output": "sheet-b-v1.png",
+    "output_sha256": "8afaa313ac40a0bad185d7f96e9f455479270cce5c55f322bbf71b907e267603",
+    "aspect": "16:9"
+   },
+   "prompt": "sheet-b-prompt.txt",
+   "references_role": {
+    "cast-neil-source-v1.png": "style only: dalex-studio assets/source (Neil, established cast)",
+    "cast-colin-source-v1.png": "style only: dalex-studio assets/source (Colin, established cast)",
+    "identity-b.png": "identity only: the Studio packed front talking frames (dists/dalex/cast-<id>-talk-0.pix, decoded by the former tools/portraits.py) at 3x on magenta, numbered and labelled"
+   },
+   "atlas_check": {
+    "tool": "dalex-studio plugins/scummvm/skills/scummvm-character-art/scripts/prepare_generated_atlas.py --cells 4 --band 0 768",
+    "cell": [
+     344,
+     768
+    ],
+    "poses": [
+     {
+      "cell": 0,
+      "bounds": [
+       40,
+       48,
+       263,
+       730
+      ],
+      "touches_edge": false
+     },
+     {
+      "cell": 1,
+      "bounds": [
+       40,
+       48,
+       257,
+       730
+      ],
+      "touches_edge": false
+     },
+     {
+      "cell": 2,
+      "bounds": [
+       51,
+       54,
+       303,
+       730
+      ],
+      "touches_edge": false
+     },
+     {
+      "cell": 3,
+      "bounds": [
+       51,
+       48,
+       297,
+       730
+      ],
+      "touches_edge": false
+     }
+    ]
+   },
+   "used": {
+    "gareth": 0,
+    "yvonne": 1,
+    "emeka": 2,
+    "derek": 3
+   }
+  },
+  "sheet-c-v1.png": {
+   "generation": {
+    "model": "gemini-nano-banana-2.1",
+    "generated_utc": "2026-10-29T12:51:39Z",
+    "seconds": 29.1,
+    "prompt_sha256": "77779dd316e0eb4d5b745bef1d753937f1bbcf05a1af38b32607e0b572dcf07b",
+    "references": [
+     {
+      "file": "cast-neil-source-v1.png",
+      "sha256": "44a9cab709502b2e02ad7a83baa7e99c6821351fabfb388ab6ae575672218668"
+     },
+     {
+      "file": "cast-colin-source-v1.png",
+      "sha256": "b5aab230a9a7d53cf6e14c196ffec9922a0660434ed9bfddce510019da315be1"
+     },
+     {
+      "file": "identity-c.png",
+      "sha256": "32023a9f366eb1cdbfadf7ac14c564c60695f2f24d01924b44a5cbd4600dfe68"
+     }
+    ],
+    "output": "sheet-c-v1.png",
+    "output_sha256": "e79047debeb5916dc5e94dc65a00be4a926b7263cddcc2820f2998b90bc988ec",
+    "aspect": "16:9"
+   },
+   "prompt": "sheet-c-prompt.txt",
+   "references_role": {
+    "cast-neil-source-v1.png": "style only: dalex-studio assets/source (Neil, established cast)",
+    "cast-colin-source-v1.png": "style only: dalex-studio assets/source (Colin, established cast)",
+    "identity-c.png": "identity only: the Studio packed front talking frames (dists/dalex/cast-<id>-talk-0.pix, decoded by the former tools/portraits.py) at 3x on magenta, numbered and labelled"
+   },
+   "atlas_check": {
+    "tool": "dalex-studio plugins/scummvm/skills/scummvm-character-art/scripts/prepare_generated_atlas.py --cells 4 --band 0 768",
+    "cell": [
+     344,
+     768
+    ],
+    "poses": [
+     {
+      "cell": 0,
+      "bounds": [
+       61,
+       69,
+       270,
+       732
+      ],
+      "touches_edge": false
+     },
+     {
+      "cell": 1,
+      "bounds": [
+       37,
+       50,
+       275,
+       731
+      ],
+      "touches_edge": false
+     },
+     {
+      "cell": 2,
+      "bounds": [
+       34,
+       11,
+       300,
+       730
+      ],
+      "touches_edge": false
+     },
+     {
+      "cell": 3,
+      "bounds": [
+       52,
+       42,
+       297,
+       729
+      ],
+      "touches_edge": false
+     }
+    ]
+   },
+   "used": {
+    "hyunjoo": 0,
+    "dez": 3
+   }
+  },
+  "sheet-d-v1.png": {
+   "generation": {
+    "model": "gemini-nano-banana-2.1",
+    "generated_utc": "2026-10-29T12:52:17Z",
+    "seconds": 67.0,
+    "prompt_sha256": "9607e6d7f1546672cf360de91a02fdb1d3ee619229577471d0481664a351e5d9",
+    "references": [
+     {
+      "file": "cast-neil-source-v1.png",
+      "sha256": "44a9cab709502b2e02ad7a83baa7e99c6821351fabfb388ab6ae575672218668"
+     },
+     {
+      "file": "cast-colin-source-v1.png",
+      "sha256": "b5aab230a9a7d53cf6e14c196ffec9922a0660434ed9bfddce510019da315be1"
+     },
+     {
+      "file": "identity-d.png",
+      "sha256": "6690822b8efca7664ee9d524cbb42337069e554a0c8d6b1884df312e10b6b533"
+     }
+    ],
+    "output": "sheet-d-v1.png",
+    "output_sha256": "2cb9dcb606fb6770a00e7e6b62e9efbd4fdc28205982c1fc89a612354726b88a",
+    "aspect": "16:9"
+   },
+   "prompt": "sheet-d-prompt.txt",
+   "references_role": {
+    "cast-neil-source-v1.png": "style only: dalex-studio assets/source (Neil, established cast)",
+    "cast-colin-source-v1.png": "style only: dalex-studio assets/source (Colin, established cast)",
+    "identity-d.png": "identity only: the Studio packed front talking frames (dists/dalex/cast-<id>-talk-0.pix, decoded by the former tools/portraits.py) at 3x on magenta, numbered and labelled"
+   },
+   "atlas_check": {
+    "tool": "dalex-studio plugins/scummvm/skills/scummvm-character-art/scripts/prepare_generated_atlas.py --cells 4 --band 0 768",
+    "cell": [
+     344,
+     768
+    ],
+    "poses": [
+     {
+      "cell": 0,
+      "bounds": [
+       40,
+       42,
+       263,
+       730
+      ],
+      "touches_edge": false
+     },
+     {
+      "cell": 1,
+      "bounds": [
+       34,
+       48,
+       263,
+       730
+      ],
+      "touches_edge": false
+     },
+     {
+      "cell": 2,
+      "bounds": [
+       57,
+       48,
+       286,
+       730
+      ],
+      "touches_edge": false
+     },
+     {
+      "cell": 3,
+      "bounds": [
+       69,
+       48,
+       315,
+       730
+      ],
+      "touches_edge": false
+     }
+    ]
+   },
+   "used": {
+    "vik": 0,
+    "ken": 1
+   }
+  },
+  "sheet-e-v1.png": {
+   "generation": {
+    "model": "gemini-nano-banana-2.1",
+    "generated_utc": "2026-10-29T12:54:00Z",
+    "seconds": 30.8,
+    "prompt_sha256": "a47ee466be1be2781d7bb14b5f98ba2fc589bf4f48e969c7f782d78622b390f3",
+    "references": [
+     {
+      "file": "cast-neil-source-v1.png",
+      "sha256": "44a9cab709502b2e02ad7a83baa7e99c6821351fabfb388ab6ae575672218668"
+     },
+     {
+      "file": "cast-colin-source-v1.png",
+      "sha256": "b5aab230a9a7d53cf6e14c196ffec9922a0660434ed9bfddce510019da315be1"
+     },
+     {
+      "file": "identity-e.png",
+      "sha256": "c9eec37702704a9aba11ffac6b9d919c8987af20ba52f480e39b9793c6a2fd5d"
+     }
+    ],
+    "output": "sheet-e-v1.png",
+    "output_sha256": "8c868cbe6e0f3c50650b34d1831e79e7c7eb6762223434feaf5502eb29c406d0",
+    "aspect": "16:9"
+   },
+   "prompt": "sheet-e-prompt.txt",
+   "references_role": {
+    "cast-neil-source-v1.png": "style only: dalex-studio assets/source (Neil, established cast)",
+    "cast-colin-source-v1.png": "style only: dalex-studio assets/source (Colin, established cast)",
+    "identity-e.png": "identity only: the Studio packed front talking frames (dists/dalex/cast-<id>-talk-0.pix, decoded by the former tools/portraits.py) at 3x on magenta, numbered and labelled"
+   },
+   "atlas_check": {
+    "tool": "dalex-studio plugins/scummvm/skills/scummvm-character-art/scripts/prepare_generated_atlas.py --cells 4 --band 0 768",
+    "cell": [
+     344,
+     768
+    ],
+    "poses": [
+     {
+      "cell": 0,
+      "bounds": [
+       44,
+       50,
+       273,
+       731
+      ],
+      "touches_edge": false
+     },
+     {
+      "cell": 1,
+      "bounds": [
+       38,
+       50,
+       267,
+       730
+      ],
+      "touches_edge": false
+     },
+     {
+      "cell": 2,
+      "bounds": [
+       34,
+       43,
+       287,
+       729
+      ],
+      "touches_edge": false
+     },
+     {
+      "cell": 3,
+      "bounds": [
+       71,
+       49,
+       303,
+       729
+      ],
+      "touches_edge": false
+     }
+    ]
+   },
+   "used": {
+    "simon": 0,
+    "brian": 3
+   }
+  }
+ },
+ "notes": {
+  "sheet-c-v1.png": "drew Dez twice (cells 2 and 3); cell 3 used. Simon (cell 1) rejected: stern and side-eyed, against VISION section 12.",
+  "sheet-d-v1.png": "drew Brian twice (cells 2 and 3); neither used, unsmiling.",
+  "sheet-e-v1.png": "redo of Simon and Brian; drew each twice; Simon cell 0 and Brian cell 3 used (front-facing, smiling)."
+ },
+ "reused_sources": {
+  "cast-percy-poses-source-v1.png": {
+   "from": "dalex-studio assets/source (issue dalex-studio#61), provenance cast-percy-poses-source-v1.json",
+   "used": "row 4, column 3: sitting upright, front-facing",
+   "box": [
+    632,
+    636,
+    948,
+    848
+   ]
+  },
+  "omnibot-generated-v1.png": {
+   "from": "dalex-studio assets/source, provenance omnibot-generated-v1.json",
+   "used": "cell 0: front, full body",
+   "box": [
+    0,
+    0,
+    272,
+    724
+   ],
+   "cleanup": "violet dome recoloured to blue-grey glass"
+  }
+ },
+ "cleanup": [
+  "key flat magenta and its anti-aliased fringe to alpha (prepare_generated_atlas.py rule)",
+  "peel magenta-tinted outline pixels and pull back near-edge tint (dalex-studio cast_art.keyed, #61)",
+  "split the sheet into equal cells (or the listed box); keep the largest 8-connected shape and shapes at least 1/50 its size",
+  "scale with nearest-neighbour to the manifest height; alpha hardened at 128",
+  "centre on a 96x192 transparent canvas, lowest pixel on baseline row y=191"
+ ],
+ "build": "tools/people.py (reads people.json)",
+ "canvas": [
+  96,
+  192
+ ],
+ "baseline": 191,
+ "outputs": {
+  "malcolm": {
+   "path": "static/assets/people/malcolm.png",
+   "figure_height": 182,
+   "sha256": "c0e60bbb66414e2b3f0fd5c9c4f1c7b270542fe8d1a65f8374d6465c57a3d680"
+  },
+  "colin": {
+   "path": "static/assets/people/colin.png",
+   "figure_height": 172,
+   "sha256": "ea03b91a22c2717a00a64b6aba490ff4f997ccd261ba2655d04593323fdeee22"
+  },
+  "mo": {
+   "path": "static/assets/people/mo.png",
+   "figure_height": 162,
+   "sha256": "3d3902b29568fce0f0208b402a74e558e33f7494a4a96e0b17bc3c5d464bb0b2"
+  },
+  "neil": {
+   "path": "static/assets/people/neil.png",
+   "figure_height": 172,
+   "sha256": "752c049f31c6e35032f0b22dd5571d252a212e88248a1d79ebde24165eeeb23e"
+  },
+  "gareth": {
+   "path": "static/assets/people/gareth.png",
+   "figure_height": 172,
+   "sha256": "423abcae440e07eb63edcfdaadfeb21fbca614333fd135513ceab66787fc2049"
+  },
+  "yvonne": {
+   "path": "static/assets/people/yvonne.png",
+   "figure_height": 166,
+   "sha256": "78794cb9afa70cc6976b033ffa537d0466ba276dee101ba56903a5490e336053"
+  },
+  "emeka": {
+   "path": "static/assets/people/emeka.png",
+   "figure_height": 172,
+   "sha256": "b54f7ea51eba79547dfe2bffdafb6b5bc1aebde175e0a3ff3289d5ff22c9d042"
+  },
+  "derek": {
+   "path": "static/assets/people/derek.png",
+   "figure_height": 170,
+   "sha256": "083a356a3a34aafac3269620270beaa410281fc5b78124f44ef6651fafc80655"
+  },
+  "hyunjoo": {
+   "path": "static/assets/people/hyunjoo.png",
+   "figure_height": 166,
+   "sha256": "3da71f31fbaeadebff06ebb6c4363a38268fa21ac5918fd164478205462b30c1"
+  },
+  "simon": {
+   "path": "static/assets/people/simon.png",
+   "figure_height": 172,
+   "sha256": "fdac9e556802aa6b783b3281c8ca041c40db136a0ba0ab146babe22551f3a1ec"
+  },
+  "dez": {
+   "path": "static/assets/people/dez.png",
+   "figure_height": 180,
+   "sha256": "a5811e7b067785efb84567bf4f277ec5103686faf8c181be4899db6855753eb0"
+  },
+  "vik": {
+   "path": "static/assets/people/vik.png",
+   "figure_height": 164,
+   "sha256": "217c36bf2d12c3f5d8df05240deae1e883a501109b8cbc54df127c242447ad39"
+  },
+  "ken": {
+   "path": "static/assets/people/ken.png",
+   "figure_height": 174,
+   "sha256": "cd2ad524751246104772f1c36a8973f976048be83c7a3b232c10c9b3e6752814"
+  },
+  "brian": {
+   "path": "static/assets/people/brian.png",
+   "figure_height": 182,
+   "sha256": "d6b124ddf17dcd06a38f28dc30c8358812852022ef79b927ed90f7e89ac43343"
+  },
+  "percy": {
+   "path": "static/assets/people/percy.png",
+   "figure_height": 64,
+   "sha256": "1e88375c1ac9cc186ec9f1773ceb97e78d8f584e7ff80249a265b3444cfead50"
+  },
+  "omnibot": {
+   "path": "static/assets/people/omnibot.png",
+   "figure_height": 112,
+   "sha256": "88a53cd9c537e6308aa3e2007298d05a075612b0b67fcd094ab5d045f9fa8c55"
+  }
+ }
+}

@@ -1,0 +1,15 @@
+Make ONE new sprite sheet for a 1987-set point-and-click adventure game, in exactly the art style, pixel density, outline weight, shading, lighting, cartoon proportions and head-to-body ratio of the FIRST and SECOND images (two existing cast members, Neil and Colin, standing). Those two images supply STYLE ONLY.
+
+The THIRD image is the IDENTITY reference: 2 people, numbered left to right, as they already appear in the game. Draw exactly these 2 people, in this order, keeping each one's face, hair, skin tone, build, glasses, clothes and colours exactly as in the third image. Everyone dresses as a person in Britain in 1987 would.
+
+Pose for every figure: a full-body STANDING character portrait, facing the viewer (front view, at most a slight turn), standing still with natural weight on both feet, arms relaxed at the sides, a genuine friendly smile and kind eyes, looking at the viewer. FULL BODY from the top of the head to the soles of the shoes, both feet visible, all feet on ONE common baseline. Both people drawn at the same scale, so normal adult heights are about the same (within a few percent).
+
+People:
+1. Simon Ainscough, the loading-screen artist, about 60: short swept-back white hair and short white beard, black jacket over a beige shirt, blue jeans, brown shoes; holding a pencil in one hand. Facing straight at the viewer, both eyes looking at the viewer, a broad warm smile showing he is pleased to see you; never stern, frowning or side-eyed.
+2. Brian Openshaw, the magazine reviewer, tall and older: balding with grey hair at the sides, glasses, brown tweed jacket, brown shirt and tie, brown trousers, brown shoes; holding a rolled magazine at his side in one hand. Facing straight at the viewer, a genuine kind smile.
+
+Draw exactly TWO figures, no more: one in each column.
+
+Layout: exactly 2 equal-width columns side by side, one standing figure centred in each column, with clear background between neighbours; no limb, prop or hair may cross into another column. Leave a margin of background above the tallest head and below the feet.
+
+Background: flat solid magenta #FF00FF everywhere outside the figures, with no floor, shadow, glow, gradient or texture. No text, labels, numbers or border. No chairs, stools, exercise balls or furniture. Original characters only; no real people, brands or logos.

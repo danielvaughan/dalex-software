@@ -1,0 +1,23 @@
+{
+ "model": "gemini-nano-banana-2.1",
+ "generated_utc": "2026-10-29T12:52:17Z",
+ "seconds": 67.0,
+ "prompt_sha256": "9607e6d7f1546672cf360de91a02fdb1d3ee619229577471d0481664a351e5d9",
+ "references": [
+  {
+   "file": "cast-neil-source-v1.png",
+   "sha256": "44a9cab709502b2e02ad7a83baa7e99c6821351fabfb388ab6ae575672218668"
+  },
+  {
+   "file": "cast-colin-source-v1.png",
+   "sha256": "b5aab230a9a7d53cf6e14c196ffec9922a0660434ed9bfddce510019da315be1"
+  },
+  {
+   "file": "identity-d.png",
+   "sha256": "6690822b8efca7664ee9d524cbb42337069e554a0c8d6b1884df312e10b6b533"
+  }
+ ],
+ "output": "sheet-d-v1.png",
+ "output_sha256": "2cb9dcb606fb6770a00e7e6b62e9efbd4fdc28205982c1fc89a612354726b88a",
+ "aspect": "16:9"
+}

@@ -1,0 +1,22 @@
+{
+ "canvas": [96, 192],
+ "baseline": 191,
+ "figures": [
+  {"id": "malcolm", "source": "sheet-a-v1.png", "cells": 4, "cell": 0, "height": 182},
+  {"id": "colin", "source": "sheet-a-v1.png", "cells": 4, "cell": 1, "height": 172},
+  {"id": "mo", "source": "sheet-a-v1.png", "cells": 4, "cell": 2, "height": 162},
+  {"id": "neil", "source": "sheet-a-v1.png", "cells": 4, "cell": 3, "height": 172},
+  {"id": "gareth", "source": "sheet-b-v1.png", "cells": 4, "cell": 0, "height": 172},
+  {"id": "yvonne", "source": "sheet-b-v1.png", "cells": 4, "cell": 1, "height": 166},
+  {"id": "emeka", "source": "sheet-b-v1.png", "cells": 4, "cell": 2, "height": 172},
+  {"id": "derek", "source": "sheet-b-v1.png", "cells": 4, "cell": 3, "height": 170},
+  {"id": "hyunjoo", "source": "sheet-c-v1.png", "cells": 4, "cell": 0, "height": 166},
+  {"id": "simon", "source": "sheet-e-v1.png", "cells": 4, "cell": 0, "height": 172},
+  {"id": "dez", "source": "sheet-c-v1.png", "cells": 4, "cell": 3, "height": 180},
+  {"id": "vik", "source": "sheet-d-v1.png", "cells": 4, "cell": 0, "height": 164},
+  {"id": "ken", "source": "sheet-d-v1.png", "cells": 4, "cell": 1, "height": 174},
+  {"id": "brian", "source": "sheet-e-v1.png", "cells": 4, "cell": 3, "height": 182},
+  {"id": "percy", "source": "cast-percy-poses-source-v1.png", "box": [632, 636, 948, 848], "height": 64},
+  {"id": "omnibot", "source": "omnibot-generated-v1.png", "box": [0, 0, 272, 724], "height": 112, "glass": true}
+ ]
+}

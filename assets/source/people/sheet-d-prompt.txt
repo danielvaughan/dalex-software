@@ -1,0 +1,14 @@
+Make ONE new sprite sheet for a 1987-set point-and-click adventure game, in exactly the art style, pixel density, outline weight, shading, lighting, cartoon proportions and head-to-body ratio of the FIRST and SECOND images (two existing cast members, Neil and Colin, standing). Those two images supply STYLE ONLY.
+
+The THIRD image is the IDENTITY reference: 3 people, numbered left to right, as they already appear in the game. Draw exactly these 3 people, in this order, keeping each one's face, hair, skin tone, build, glasses, clothes and colours exactly as in the third image. Everyone dresses as a person in Britain in 1987 would.
+
+Pose for every figure: a full-body STANDING character portrait, facing the viewer (front view, at most a slight turn), standing still with natural weight on both feet, arms relaxed at the sides, a genuine friendly smile and kind eyes, looking at the viewer. FULL BODY from the top of the head to the soles of the shoes, both feet visible, all feet on ONE common baseline. All 3 people drawn at the same scale, so normal adult heights are about the same (within a few percent).
+
+People:
+1. Vik Bassi, the tester, a slim South Asian man, a little shorter than the others: short black hair and short beard, light blue shirt, dark grey trousers, dark shoes; arms relaxed.
+2. Ken Ramsbottom, the accountant, older: grey hair, glasses, moustache, brown cardigan over a shirt and tie, grey trousers, brown shoes; holding a green ledger card at his side in one hand.
+3. Brian Openshaw, the magazine reviewer, tall and older: balding with grey hair, glasses, brown tweed jacket, brown shirt and tie, brown trousers, brown shoes; holding a rolled magazine at his side in one hand.
+
+Layout: exactly 3 equal-width columns side by side, one standing figure centred in each column, with clear background between neighbours; no limb, prop or hair may cross into another column. Leave a margin of background above the tallest head and below the feet.
+
+Background: flat solid magenta #FF00FF everywhere outside the figures, with no floor, shadow, glow, gradient or texture. No text, labels, numbers or border. No chairs, stools, exercise balls or furniture. Original characters only; no real people, brands or logos.

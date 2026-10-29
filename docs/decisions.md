@@ -106,3 +106,21 @@ tour frames), Percy sitting and Omnibot's close-up from the Studio's packed art 
 figure's largest shape and cropping to it. The PNGs are committed under `static/assets/people/`, so the site build
 stays standard-library only; rerun the tool with the Studio's Python when the cast art changes. Portraits are
 shown at native scale on a shared floor line, so relative heights hold (Percy is small because he is a cat).
+
+## D-15 Standing cast sprites on the About page
+
+Supersedes D-13's portraits. The owner asked for new sprites of each character, all standing and at a consistent
+size: the Studio's tour frames mixed seated, standing and close-up poses at different heights. Each person is now
+a full-body, front-facing standing figure drawn for the site in the Studio's house style (VISION section 12, "One
+cast, one hand"): Gemini image sheets on flat magenta, with the Studio's Neil and Colin strips as the style
+reference and each person's Studio front frame as the identity reference. Five calls made the 14 people (Brian
+included); Percy (sitting up) and Omnibot (full body) are cut from their existing Studio source sheets.
+Prompts, raw sheets, identity strips, the manifest and provenance are in `assets/source/people/`.
+
+`tools/people.py` rebuilds `static/assets/people/<id>.png` deterministically from those sources (Pillow and NumPy,
+run with the Studio's interpreter; the site build stays standard-library only) and replaces `tools/portraits.py`.
+Every PNG is one 96x192 canvas with the feet on the bottom row. People are scaled to a set height of 172 px give or
+take 6% (Malcolm and Brian 182, Mo 162); Percy is 64 px and Omnibot 112 px, sized to sit well beside people rather
+than at true scale. The page shows them at 2x with pixelated rendering, an integer scale that fits the narrowest
+card (192 px of at least 222), every card's figure box the same height so the feet share one floor line. Brian stands beside his INK & PAPER paragraph rather than in the staff grid,
+because he is not one of ours.

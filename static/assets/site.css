@@ -172,9 +172,14 @@ figcaption { color: var(--muted); font-size: .9rem; margin-top: 6px; }
 
 /* about page */
 .people { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
-.people li { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--z-cyan); padding: 10px 14px; display: grid; grid-template-rows: 196px auto auto; }
-/* Portraits are the Studio's own cast pixels at native scale, standing on a shared floor line so heights compare. */
-.people img { justify-self: center; align-self: end; max-height: 190px; width: auto; image-rendering: pixelated; margin-bottom: 8px; }
+.people li { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--z-cyan); padding: 10px 14px; display: grid; grid-template-rows: auto auto auto; align-content: start; }
+/* Standing cast sprites (D-15): every PNG is the same 96x192 canvas with the feet on its bottom row, so the figures
+   share one floor line. Shown at 2x (integer scale) so the pixels stay crisp. */
+.people img, .critic img { justify-self: center; width: 192px; height: 384px; image-rendering: pixelated; margin-bottom: 8px; }
+.critic { display: grid; grid-template-columns: 192px 1fr; gap: 18px; align-items: end; max-width: 760px; }
+.critic img { margin-bottom: 0; }
+.critic p { margin: 0; }
+@media (max-width: 520px) { .critic { grid-template-columns: 1fr; } .critic img { justify-self: start; } }
 .people li:nth-child(4n+1) { border-top-color: var(--z-red); }
 .people li:nth-child(4n+2) { border-top-color: var(--z-yellow); }
 .people li:nth-child(4n+3) { border-top-color: var(--z-green); }

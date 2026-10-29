@@ -1,0 +1,9 @@
+Make ONE new sprite sheet for a 1987-set point-and-click adventure game, in exactly the art style of the FIRST image (the studio cat Percy in his bed, from the game's established cast) and the SECOND image (the art director Neil, same cast): the same pixel density, cartoon proportions, bold dark outlines and flat-with-one-highlight shading. Percy is an adult male dark brown Burmese with a darker face, ears and paws and pale green-gold eyes, exactly as in the FIRST image. Use the THIRD image ONLY for the poses and their order; never copy its realistic soft style.
+
+Sixteen poses of Percy in a 4 x 4 grid of equal cells, the same cat at the same size in every cell, every cell's paws on the same baseline near the bottom of its cell, facing right unless stated, each whole cat well inside its own cell with clear magenta all round it (nothing crosses into a neighbouring cell):
+Row 1: four walk phases, right-facing side view, opposing legs, one paw lifted in turn.
+Row 2: standing side view; standing with head turned to the viewer; sitting side view; sitting side view with eyes in a slow blink.
+Row 3: sitting, licking a raised front paw; the same with the paw lower; a forward stretch with front legs out and rear raised; lowering from standing to sitting.
+Row 4: curled asleep on the floor; curled with head raised and eyes open; sitting facing the viewer; sitting side view with mouth open in a soft meow.
+
+Background: flat solid magenta #FF00FF everywhere outside the cat, with no floor, shadow, gradient or texture. No text, labels, grid lines or border.

@@ -1,0 +1,15 @@
+Make ONE new sprite sheet for a 1987-set point-and-click adventure game, in exactly the art style, pixel density, outline weight, shading, lighting, cartoon proportions and head-to-body ratio of the FIRST and SECOND images (two existing cast members, Neil and Colin, standing). Those two images supply STYLE ONLY.
+
+The THIRD image is the IDENTITY reference: 4 people, numbered left to right, as they already appear in the game. Draw exactly these 4 people, in this order, keeping each one's face, hair, skin tone, build, glasses, clothes and colours exactly as in the third image. Everyone dresses as a person in Britain in 1987 would.
+
+Pose for every figure: a full-body STANDING character portrait, facing the viewer (front view, at most a slight turn), standing still with natural weight on both feet, arms relaxed at the sides, a genuine friendly smile and kind eyes, looking at the viewer. FULL BODY from the top of the head to the soles of the shoes, both feet visible, all feet on ONE common baseline. All 4 people drawn at the same scale, so normal adult heights are about the same (within a few percent).
+
+People:
+1. Gareth Cadwaladr, the game coder: brown mop of hair, blue sweatshirt, blue jeans, white trainers; arms relaxed, empty hands. STANDING, not sitting, no chair.
+2. Yvonne Standish, the studio tools engineer: shoulder-length brown hair, mustard-yellow jumper with a white collar, brown trousers, dark shoes; arms relaxed. STANDING, not sitting, no chair.
+3. Emeka Ezeani, the playtester, a young Black man: short black hair, navy jumper over a white collar, grey trousers, dark trainers; holding a small joystick at his side in one hand. STANDING, not sitting, no exercise ball.
+4. Derek Tattersall, the sign-off manager, older: grey hair, glasses, maroon jumper over a white collar, grey trousers, brown shoes; holding a single sheet of paper at his side. STANDING, not sitting, no chair.
+
+Layout: exactly 4 equal-width columns side by side, one standing figure centred in each column, with clear background between neighbours; no limb, prop or hair may cross into another column. Leave a margin of background above the tallest head and below the feet.
+
+Background: flat solid magenta #FF00FF everywhere outside the figures, with no floor, shadow, glow, gradient or texture. No text, labels, numbers or border. No chairs, stools, exercise balls or furniture. Original characters only; no real people, brands or logos.

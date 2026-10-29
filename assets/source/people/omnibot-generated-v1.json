@@ -1,0 +1,16 @@
+{
+ "model": "Tomy Omnibot 5402 (MK1), 1984",
+ "measured_mm": {"height": 390, "width": 340, "depth": 330},
+ "identity_sources": ["https://collections.vam.ac.uk/item/O7792", "https://www.manualslib.com/manual/4079993/Tomy-Omnibot.html"],
+ "generation": {"tool": "Codex CLI image generation (codex exec), 26 October 2026", "prompt": "omnibot-generated-v1-prompt.txt",
+   "codex_image": "~/.codex/generated_images/01a17789-d752-7a22-9072-3d757f59955c/exec-c730c8c2-07a6-45b9-a1f7-c366bd349c83.png",
+   "raw": "omnibot-generated-v1.png", "raw_size": [2172, 724], "layout_reference": "the earlier procedural Studio sketch (proportions and cell order only); no photograph traced"},
+ "cleanup": ["pad to 2176 x 724 (8 cells of 272)", "key flat magenta and its anti-aliased fringe to alpha", "crop y 160-560 (all robots, clear margins)",
+   "recolour the generated violet dome to blue-grey clear glass at equal luminance (the catalogue describes a transparent dome)",
+   "register with plugins/scummvm/skills/scummvm-character-art/scripts/register_contact_atlas.py: one uniform scale, wheel-contact baseline"],
+ "registered": {"room": "omnibot-room-v1.png (8 x 48x64, contact y=62, scale 1/6.25)", "closeup": "omnibot-closeup-v1.png (8 x 150x200, contact y=196, scale 1/2)"},
+ "poses": ["front-0", "front-1", "front-blink", "front-eject", "back-0", "back-1", "side-0", "side-1"],
+ "scale_check": {"lane_feet_y": 366, "px_per_cm": 1.31, "dome_top_to_wheels_px": 51, "expected_px": 51, "drawn_width_px": 39, "expected_width_px": 45,
+   "note": "generated body about 12% narrower than the catalogue width; accepted for the first version"},
+ "unverified": ["front panel and eye lamp colours", "exact arm and claw proportions"]
+}

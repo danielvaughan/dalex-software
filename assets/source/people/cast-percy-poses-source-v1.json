@@ -1,0 +1,31 @@
+{
+ "model": "gemini-nano-banana-2.1",
+ "generated_utc": "2026-10-27T19:47:05Z",
+ "seconds": 15.5,
+ "prompt_sha256": "fd3391a1bb7c864c3f144d0fbfdc63e8454a95f4f5154da2922cb7e3951b17da",
+ "references": [
+  {
+   "file": "prod-percy-source-v1.png",
+   "sha256": "4291ed6fff3296c05f6fe6ab7a23bb1491f9d928e1cdbed6adba9336d6d19902"
+  },
+  {
+   "file": "cast-neil-source-v1.png",
+   "sha256": "44a9cab709502b2e02ad7a83baa7e99c6821351fabfb388ab6ae575672218668"
+  },
+  {
+   "file": "old-poses.png",
+   "sha256": "2e28560be97cb4d02cbf2cc508c3115903eb993c5a2f849ae7c6925d26b0e3dd"
+  }
+ ],
+ "output": "cast-percy-poses-source-v1.png",
+ "output_sha256": "e55857ee0b2f7e03e90efbd4077a731a8b0de8a8c09e98205bcc0aa86637e287",
+ "aspect": "3:2",
+ "prompt": "cast-percy-poses-prompt.txt",
+ "issue": "danielvaughan/dalex-studio#61",
+ "replaces": "percy-adult-registered.png",
+ "references_role": {
+  "prod-percy-source-v1.png": "cast style and Percy identity",
+  "cast-neil-source-v1.png": "cast style",
+  "old-poses.png": "pose order only (the replaced atlas on white)"
+ }
+}

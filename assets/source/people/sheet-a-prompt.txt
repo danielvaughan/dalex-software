@@ -1,0 +1,15 @@
+Make ONE new sprite sheet for a 1987-set point-and-click adventure game, in exactly the art style, pixel density, outline weight, shading, lighting, cartoon proportions and head-to-body ratio of the FIRST and SECOND images (two existing cast members, Neil and Colin, standing). Those two images supply STYLE ONLY.
+
+The THIRD image is the IDENTITY reference: 4 people, numbered left to right, as they already appear in the game. Draw exactly these 4 people, in this order, keeping each one's face, hair, skin tone, build, glasses, clothes and colours exactly as in the third image. Everyone dresses as a person in Britain in 1987 would.
+
+Pose for every figure: a full-body STANDING character portrait, facing the viewer (front view, at most a slight turn), standing still with natural weight on both feet, arms relaxed at the sides, a genuine friendly smile and kind eyes, looking at the viewer. FULL BODY from the top of the head to the soles of the shoes, both feet visible, all feet on ONE common baseline. All 4 people drawn at the same scale, so normal adult heights are about the same (within a few percent).
+
+People:
+1. Malcolm Winstanley, the commissioning editor, tall and slim: dark grey suit, white shirt, dark tie, short dark hair; holding a slim black folder at his side in one hand.
+2. Colin Ollerenshaw, the designer: long sandy-brown hair, glasses, green field jacket over a dark T-shirt, blue jeans, trainers; holding a sheet of graph paper at his side in one hand.
+3. Mo Greenhalgh, the producer, a little shorter than the others: dark curly hair, light grey jacket, dark trousers, dark shoes; holding a clipboard at her side in one hand.
+4. Neil Whitworth, the art director: shaggy fair hair and moustache, red-and-white check shirt open over a white T-shirt, blue jeans, trainers; holding a small colour palette swatch card at waist height in one hand.
+
+Layout: exactly 4 equal-width columns side by side, one standing figure centred in each column, with clear background between neighbours; no limb, prop or hair may cross into another column. Leave a margin of background above the tallest head and below the feet.
+
+Background: flat solid magenta #FF00FF everywhere outside the figures, with no floor, shadow, glow, gradient or texture. No text, labels, numbers or border. No chairs, stools, exercise balls or furniture. Original characters only; no real people, brands or logos.

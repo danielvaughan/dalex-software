@@ -1,0 +1,17 @@
+Use your image generation tool to create ONE new original pixel-art sprite sheet, then copy the generated PNG to ./omnibot-atlas.png in the current directory and print its pixel size. Do not write code to draw it; it must be a generated image.
+
+Subject: the 1984 Tomy Omnibot 5402 (MK1) home robot, as a character for a 1987-style point-and-click adventure game (LucasArts SCUMM era, like Day of the Tentacle / Sam & Max pixel art: clean dark outlines, compact square pixel clusters, 2-3 tone shading, warm room lighting from the upper left).
+
+Model facts (museum catalogue, V&A O7792; do not trace photographs): 39 cm tall, 34 cm wide, 33 cm deep. Off-white/cream ABS body. A transparent clear domed top with two round strobe eye lights visible underneath. A squared front panel in the chest holding a cassette tape deck with a small window, a small red digital clock, a speaker grille and a row of small switches. Two arms that hang at the sides, matching the body colour, ending in black plastic claw grippers. A square base on four black wheels with grey tread and a protective dark rubber band around the base. A thin antenna at the rear left. No tray, no glasses, no Omnibot 2000 / MKII features.
+
+Layout: a single row of 8 equally sized cells on a flat pure magenta (#FF00FF) background, no text, no labels, no shadows on the background, one robot per cell, all at the same scale with wheels touching the same baseline at the bottom of each cell:
+1 front view, eyes lit, standing still
+2 front view, wheels mid-roll (tread pattern shifted)
+3 front view, eyes dimmed (blink)
+4 front view, cassette deck unit pulled forward slightly as if for EJECT
+5 rear view (antenna visible at the robot's rear left), still
+6 rear view, wheels mid-roll
+7 side view facing LEFT, driving
+8 side view facing LEFT, driving, wheels mid-roll
+
+Keep the robot identical in every cell (same proportions, colours and outline). The attached image is my own rough layout and proportion sketch: match its cell order and proportions but make the art much more polished and charming, as finished game art.
