@@ -1,0 +1,160 @@
+{
+  "schema": "dalex-site-game/1",
+  "slug": "wolf",
+  "title": "WOLF",
+  "machine": "ZX Spectrum 128K",
+  "jsspeccy_machine": 128,
+  "tagline": "Dex is 49 and has joined the WOLF Pack for the first quarter of the year.",
+  "blurb": "Dex is 49 and has joined the WOLF Pack for the first quarter of the year. Pump O and P, hit SPACE on the lamps and keep the red dots off the board, because three dots means 500 metres on the bike or ski machine in a minute and a half. Miss it, or sneak for the door, and it's a strap for two sessions!",
+  "price": "£7.95",
+  "controls": [
+    [
+      "O / P",
+      "Walk left / right"
+    ],
+    [
+      "O and P in turn",
+      "Pump (in a set, on the sled, bike or ski machine, or to break away from a chat)"
+    ],
+    [
+      "SPACE",
+      "Beat at the top and bottom of each rep"
+    ],
+    [
+      "SPACE",
+      "Start a set, drink, ring the bell, take on the finisher; start and skip on the title"
+    ],
+    [
+      "A",
+      "Ask for more weight (after a clean set)"
+    ],
+    [
+      "B",
+      "Sneak off (finisher card)"
+    ],
+    [
+      "H",
+      "Pause: H resume, B board, M music, Q quit to title"
+    ],
+    [
+      "M",
+      "Music on / off (title and pause)"
+    ]
+  ],
+  "release": {
+    "tape": "wolf.tap",
+    "source_tape": "wolf-m5.tap",
+    "sha256": "ca8ca9c6c11f66259bf33583f2153e0c5b05c22fc503cb150e144987473361ca",
+    "size": 41125,
+    "milestone": 5,
+    "date": "2026-10-20"
+  },
+  "review": {
+    "magazine": "INK & PAPER",
+    "overall": 64,
+    "scores": {
+      "presentation": 64,
+      "graphics": 61,
+      "sound": 71,
+      "playability": 64,
+      "addictive_qualities": 62,
+      "overall": 64
+    },
+    "award": null,
+    "verdict": "A cheery workout with a proper punishment at last, but too many rough edges and only three months of it. Worth a spot, not yet a personal best.",
+    "quote": {
+      "text": "Three dots and up comes the card: FINISHER TIME",
+      "reviewer": "Mick Dunsby"
+    },
+    "pdf": "review.pdf"
+  },
+  "credits": [
+    {
+      "role": "Published by",
+      "name": "Dalex Software"
+    },
+    {
+      "role": "Reviewed by",
+      "name": "Mick Dunsby, Prue Fairley and Norm Crabtree for INK & PAPER"
+    }
+  ],
+  "in_game_credits": [],
+  "licenses": [],
+  "images": {
+    "cover": {
+      "src": "cover.jpg",
+      "size": [
+        848,
+        1264
+      ],
+      "alt": "WOLF cover painting"
+    },
+    "shots": [
+      {
+        "src": "shots/shot-1.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Three dots, and Stevo's bike awaits. Sneaking off is an option, sort of",
+        "alt": "WOLF screenshot: Three dots, and Stevo's bike awaits. Sneaking off is an option, sort of"
+      },
+      {
+        "src": "shots/shot-2.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Tim picks the ski machine, with a word about pyramids thrown in",
+        "alt": "WOLF screenshot: Tim picks the ski machine, with a word about pyramids thrown in"
+      },
+      {
+        "src": "shots/shot-3.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Four seconds to spare and the dots are wiped, but the PB board scribbles itself over the studio",
+        "alt": "WOLF screenshot: Four seconds to spare and the dots are wiped, but the PB board scribbles itself over the studio"
+      },
+      {
+        "src": "shots/shot-4.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Weight up to 45 kilos at the pull-down. Dex looks thrilled",
+        "alt": "WOLF screenshot: Weight up to 45 kilos at the pull-down. Dex looks thrilled"
+      }
+    ],
+    "inlay": {
+      "src": "inlay.jpg",
+      "size": [
+        1600,
+        1031
+      ],
+      "alt": "WOLF cassette inlay"
+    },
+    "advert": {
+      "src": "advert.jpg",
+      "size": [
+        1131,
+        1600
+      ],
+      "alt": "WOLF magazine advert"
+    },
+    "poster": {
+      "src": "poster.jpg",
+      "size": [
+        1067,
+        1600
+      ],
+      "alt": "WOLF poster"
+    }
+  },
+  "source": {
+    "repo": "danielvaughan/zx-wolf",
+    "commit": "2dc2b5f0e22f0e77467ba5548b5196dcce79092b",
+    "kit": "game/media-kit/m5"
+  }
+}

@@ -36,6 +36,12 @@
       "visible": true,
       "order": 5,
       "featured": false
+    },
+    {
+      "slug": "wolf",
+      "visible": true,
+      "order": 6,
+      "featured": false
     }
   ]
 }
