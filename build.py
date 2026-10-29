@@ -4,11 +4,12 @@
     python3 build.py [--config site.json] [--out _site]
 
 Reads site.json (which games exist and which are shown), games/<slug>/game.json (written by the
-toolkit's zx-website skill), content/about.html and static/. Only games with "visible": true are
+toolkit's zx-website skill), content/about.html, static/ (with the studio film in static/media/) and
+content/studio.html. Only games with "visible": true are
 built into any page, the sitemap or the feed, and only their files are copied to the output, so a
 hidden game is not deployed at all. The output is deterministic: the same inputs give the same bytes.
 """
-import argparse, html, json, shutil, sys
+import argparse, html, json, re, shutil, sys
 from datetime import date
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -82,7 +83,7 @@ def page(site, *, root, path, title, body, description='', current='', extra_hea
     """A whole HTML page. root is the relative prefix back to the site root ('' / '../' / ...);
     path is this page's path below the site root, for the canonical URL."""
     full_title = f'{title} · {site["name"]}' if title != site['name'] else title
-    nav = [('', 'Home', 'home'), ('games/', 'Games', 'games'), ('about/', 'About', 'about')]
+    nav = [('', 'Home', 'home'), ('games/', 'Games', 'games'), ('studio/', 'The Studio', 'studio'), ('about/', 'About', 'about')]
     links = ''.join(
         f'<li><a href="{root}{href}"{CURRENT if key == current else ""}>{label}</a></li>'
         for href, label, key in nav)
@@ -190,6 +191,11 @@ def home(site, games, featured):
 <section aria-labelledby="all-games">
   <h2 id="all-games">The games</h2>
   <ul class="grid">{cards}</ul>
+</section>
+<section class="studio-link" aria-labelledby="studio-film">
+  <h2 id="studio-film">How the studio works</h2>
+  <p>Take the five-minute tour of the studio where these games are made, from the first idea to the magazine review.
+  <a href="studio/">Watch the film</a>.</p>
 </section>'''
     return page(site, root=root, path='', title=site['name'], body=body, current='home')
 
@@ -337,6 +343,50 @@ def about(site, root_dir: Path):
                 description='Dalex Software, a small Spectrum games house in a Manchester mill, and the people who make its games.')
 
 
+FILM = 'media/studio-documentary'   # the studio documentary's MP4, poster (-poster.jpg) and captions (.vtt)
+
+
+def transcript(vtt: str) -> str:
+    """The film's captions as a readable transcript: one paragraph per turn, the speaker named once."""
+    turns = []
+    for block in vtt.replace('\r', '').split('\n\n'):
+        rows = block.strip().split('\n')
+        if '-->' not in ''.join(rows[:2]):
+            continue
+        text = ' '.join(rows[[i for i, r in enumerate(rows) if '-->' in r][0] + 1:])
+        m = re.match(r'<v ([^>]+)>(.*)', text)
+        who, said = (m.group(1), m.group(2)) if m else ('', text)
+        if turns and turns[-1][0] == who and who:
+            turns[-1][1].append(said)
+        else:
+            turns.append((who, [said]))
+    return '\n'.join(f'<p>{"<strong>" + e(w) + ":</strong> " if w else ""}{e(" ".join(t))}</p>' for w, t in turns)
+
+
+def studio(site, root_dir: Path, games):
+    """The Studio: the documentary film of how Dalex makes its games, with captions and a transcript. A link to a
+    game that is hidden in site.json becomes plain text, so a hidden game is never linked."""
+    root = '../'
+    shown = {g['slug'] for g in games}
+    frag = (root_dir / 'content' / 'studio.html').read_text(encoding='utf-8')
+    frag = re.sub(r'<a href="\.\./games/([a-z0-9-]+)/">(.*?)</a>',
+                  lambda m: m.group(0) if m.group(1) in shown else m.group(2), frag)
+    vtt = (root_dir / 'static' / (FILM + '.vtt')).read_text(encoding='utf-8')
+    film = f'''<figure class="film">
+  <video controls preload="none" playsinline width="1280" height="960" poster="{root}{FILM}-poster.jpg">
+    <source src="{root}{FILM}.mp4" type="video/mp4">
+    <track kind="captions" srclang="en" label="English" src="{root}{FILM}.vtt" default>
+    <p>Your browser cannot play this film here. <a href="{root}{FILM}.mp4">Download it (MP4)</a>.</p>
+  </video>
+  <figcaption>How the studio works: a five-minute film recorded in the Dalex Studio. Captions are on; use the
+  player&rsquo;s controls to turn them off. <a href="{root}{FILM}.mp4" download>Download the film (MP4)</a>.</figcaption>
+</figure>'''
+    body = frag.replace('<!-- film -->', film).replace('<!-- transcript -->', transcript(vtt))
+    return page(site, root=root, path='studio/', title='The Studio', body=body, current='studio',
+                description='A five-minute film of how Dalex Software makes its games: every role carried out by AI agents, '
+                            'with people steering.')
+
+
 def not_found(site):
     base = urlsplit(site['base_url']).path or '/'
     body = f'''<h1>R Tape loading error, 0:1</h1>
@@ -346,7 +396,7 @@ def not_found(site):
 
 
 def sitemap(site, games):
-    urls = [('', None), ('games/', None), ('about/', None)]
+    urls = [('', None), ('games/', None), ('studio/', None), ('about/', None)]
     urls += [(f'games/{g["slug"]}/', (g.get('release') or {}).get('date')) for g in games]
     items = ''.join(f'  <url><loc>{e(site["base_url"] + u)}</loc>'
                     + (f'<lastmod>{e(d)}</lastmod>' if d else '') + '</url>\n' for u, d in urls)
@@ -407,6 +457,7 @@ def build(root: Path = ROOT, config: Path = None, out: Path = None) -> Path:
                 shutil.copyfile(f, d)
         write(out, f'games/{g["slug"]}/index.html', game_page(site, g))
     write(out, 'about/index.html', about(site, root))
+    write(out, 'studio/index.html', studio(site, root, games))
     write(out, '404.html', not_found(site))
     write(out, 'sitemap.xml', sitemap(site, games))
     write(out, 'feed.xml', feed(site, games))

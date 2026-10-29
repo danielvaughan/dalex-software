@@ -107,6 +107,19 @@ figure's largest shape and cropping to it. The PNGs are committed under `static/
 stays standard-library only; rerun the tool with the Studio's Python when the cast art changes. Portraits are
 shown at native scale on a shared floor line, so relative heights hold (Percy is small because he is a cat).
 
+## D-14 The Studio film
+
+The owner asked for a five-minute documentary of how the studio works, naming no customers, for this site
+(dalex-studio#104). It is published on its own page, `studio/`, linked from the home page, the About page and the
+main navigation. The film, its poster and its WebVTT captions are made by the Studio
+(`record_studio_tour.py --tour documentary`, then `check_documentary.py`) and committed under `static/media/`, which
+`build.py` already copies, so the site stays standard-library only and nothing is hosted by a third party. The page
+uses `<video controls preload="none">` with the poster and a default English captions track, never autoplays, and
+prints the captions as a transcript for anyone who would rather read. The MP4 is H.264/AAC with `+faststart` and is
+re-made, not edited here, whenever the Studio changes. The Studio checked it before publication: public fixture data
+only on screen (a frame every 2 s inspected), every line confirmed by Whisper, and a deny-list over the script,
+captions and sidecar. `tests/test_studio.py` repeats the deploy and deny-list checks on every build.
+
 ## D-15 Standing cast sprites on the About page
 
 Supersedes D-13's portraits. The owner asked for new sprites of each character, all standing and at a consistent

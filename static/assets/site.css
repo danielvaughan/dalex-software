@@ -204,3 +204,11 @@ figcaption { color: var(--muted); font-size: .9rem; margin-top: 6px; }
 }
 .scores td:nth-child(2) { width: 60%; }
 .cover .button.primary { background: #ffe14d; color: #111; border-color: #ffe14d; }
+
+/* The Studio film */
+.film { margin: 1.5rem 0; }
+.film video { display: block; width: 100%; max-width: 960px; height: auto; aspect-ratio: 4 / 3; background: #000; image-rendering: pixelated; }
+.film figcaption { margin-top: .5rem; color: var(--muted); font-size: .9rem; max-width: 70ch; }
+.transcript { margin: 1.5rem 0; max-width: 70ch; }
+.transcript summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; }
+.studio-link { margin-top: 2rem; }

@@ -1,0 +1,388 @@
+WEBVTT
+
+NOTE Dalex Software: how the studio works. Generated from the script timings by check_documentary.py.
+
+1
+00:00:01.180 --> 00:00:04.230
+<v Gareth>Hiya, and welcome to Dalex Software!
+
+2
+00:00:04.280 --> 00:00:06.130
+<v Gareth>I'm Gareth, your guide.
+
+3
+00:00:06.180 --> 00:00:08.790
+<v Gareth>This is a software factory.
+
+4
+00:00:08.840 --> 00:00:15.890
+<v Gareth>Every desk is a role, every role is carried
+out by AI agents, and people steer.
+
+5
+00:00:15.940 --> 00:00:20.560
+<v Gareth>Let's follow a game from the first
+idea to the magazine review.
+
+6
+00:00:20.610 --> 00:00:22.120
+<v Gareth>In we go!
+
+7
+00:00:23.670 --> 00:00:26.420
+<v Gareth>Every game starts up here, in
+commissioning.
+
+8
+00:00:27.130 --> 00:00:29.820
+<v Malcolm>Malcolm Winstanley. I
+commission the games.
+
+9
+00:00:29.870 --> 00:00:33.060
+<v Malcolm>An agent grills each idea,
+question by question,
+
+10
+00:00:33.110 --> 00:00:35.980
+<v Malcolm>until it becomes a proper specification.
+
+11
+00:00:36.690 --> 00:00:39.530
+<v Colin>Colin Ollerenshaw, game design.
+
+12
+00:00:39.580 --> 00:00:44.350
+<v Colin>Agents turn that spec into
+requirements, a design and milestones,
+
+13
+00:00:44.400 --> 00:00:47.270
+<v Colin>and check it for gaps before
+anyone builds.
+
+14
+00:00:47.320 --> 00:00:48.940
+<v Colin>The plan's on my wall.
+
+15
+00:00:50.480 --> 00:00:54.620
+<v Gareth>Down to Production, the factory floor,
+where every game is built.
+
+16
+00:00:55.270 --> 00:00:57.430
+<v Mo>I'm Mo Greenhalgh, the producer.
+
+17
+00:00:57.480 --> 00:01:02.370
+<v Mo>That board is our GitHub project,
+kept live by agents.
+
+18
+00:01:02.420 --> 00:01:07.510
+<v Mo>Ask me for something, even out loud, and
+my agent drafts the issue.
+
+19
+00:01:07.560 --> 00:01:09.960
+<v Mo>Nothing is sent until a
+person confirms it.
+
+20
+00:01:10.670 --> 00:01:13.710
+<v Gareth>Gareth Cadwaladr, programmer.
+
+21
+00:01:13.760 --> 00:01:16.670
+<v Gareth>A coding agent writes the Z80
+from the design,
+
+22
+00:01:16.720 --> 00:01:20.840
+<v Gareth>and my screen shows the code
+it's working on, live.
+
+23
+00:01:21.520 --> 00:01:22.990
+<v Yvonne>I'm Yvonne Standish.
+
+24
+00:01:23.040 --> 00:01:25.410
+<v Yvonne>Agents build the studio's own tools too,
+
+25
+00:01:25.460 --> 00:01:28.320
+<v Yvonne>and my terminal shows that
+code as it changes.
+
+26
+00:01:29.020 --> 00:01:31.760
+<v Vik>Vik Bassi, verification.
+
+27
+00:01:31.810 --> 00:01:37.370
+<v Vik>An agent checks every build in an emulator:
+frame rate, input lag, crashes.
+
+28
+00:01:37.420 --> 00:01:39.660
+<v Vik>Missing evidence is missing, not passed.
+
+29
+00:01:40.320 --> 00:01:42.810
+<v Emeka>I'm Emeka Ezeani, playtest.
+
+30
+00:01:42.860 --> 00:01:47.230
+<v Emeka>A playtester agent plays each verified tape
+and writes up what it finds.
+
+31
+00:01:47.280 --> 00:01:49.740
+<v Emeka>And you can have a go
+yourself, on that telly.
+
+32
+00:01:50.440 --> 00:01:54.130
+<v Derek>Derek Tattersall, sign-off.
+
+33
+00:01:54.180 --> 00:01:58.920
+<v Derek>A separate reviewer agent checks every
+milestone against its acceptance criteria
+
+34
+00:01:58.970 --> 00:02:00.120
+<v Derek>and evidence.
+
+35
+00:02:00.880 --> 00:02:05.690
+<v Gareth>Omnibot, our courier, carries every
+verified test copy over to Emeka,
+
+36
+00:02:05.740 --> 00:02:06.760
+<v Gareth>with a receipt.
+
+37
+00:02:07.360 --> 00:02:09.760
+[Omnibot beeps]
+
+38
+00:02:10.570 --> 00:02:11.970
+<v Gareth>And that's Percy.
+
+39
+00:02:12.020 --> 00:02:14.200
+<v Gareth>Even a software factory needs a cat.
+
+40
+00:02:14.800 --> 00:02:17.200
+[Percy meows]
+
+41
+00:02:18.730 --> 00:02:23.520
+<v Gareth>Up the stairs to Assets, where every desk
+shows its owner's latest work.
+
+42
+00:02:24.220 --> 00:02:26.170
+<v Neil>Neil Whitworth, art director.
+
+43
+00:02:26.220 --> 00:02:31.060
+<v Neil>An agent sets each game's look from its
+spec: a style bible, the palette,
+
+44
+00:02:31.110 --> 00:02:33.320
+<v Neil>and the master character art.
+
+45
+00:02:34.030 --> 00:02:35.940
+<v Hyun-joo>I'm Hyun-joo Lee.
+
+46
+00:02:35.990 --> 00:02:39.470
+<v Hyun-joo>Agents turn that art into Spectrum
+sprites and animation.
+
+47
+00:02:39.520 --> 00:02:42.840
+<v Hyun-joo>My screen shows the newest
+sprite, frame by frame.
+
+48
+00:02:43.600 --> 00:02:45.150
+<v Simon>Simon Ainscough.
+
+49
+00:02:45.200 --> 00:02:50.430
+<v Simon>Loading screens, cassette inlays and adverts,
+straight from each game's media kit.
+
+50
+00:02:50.480 --> 00:02:52.840
+<v Simon>It all looks better on a telly.
+
+51
+00:02:54.310 --> 00:02:56.640
+<v Gareth>Next door, it's audio. Listen!
+
+52
+00:02:57.310 --> 00:02:59.190
+<v Dez>I'm Dez Mulvaney.
+
+53
+00:02:59.240 --> 00:03:03.210
+<v Dez>An agent writes the music and effects for
+the Spectrum's sound chip.
+
+54
+00:03:03.260 --> 00:03:08.800
+<v Dez>When the hi-fi plays one of my own songs, my
+music computer follows it, bar by bar.
+
+55
+00:03:09.490 --> 00:03:12.000
+<v Bev>And I'm Bev, your DJ on the hi-fi.
+
+56
+00:03:12.050 --> 00:03:14.710
+<v Bev>I introduce the records and I
+give you the time.
+
+57
+00:03:14.760 --> 00:03:16.680
+<v Bev>This one's one of Dez's own!
+
+58
+00:03:18.030 --> 00:03:19.660
+<v Gareth>Up again, to management.
+
+59
+00:03:20.420 --> 00:03:22.210
+<v Ken>Ken Ramsbottom.
+
+60
+00:03:22.260 --> 00:03:25.390
+<v Ken>My ledger estimates what all the
+AI work would cost,
+
+61
+00:03:25.440 --> 00:03:30.190
+<v Ken>and a meter downstairs shows how much of
+this week's allowance is used.
+
+62
+00:03:30.240 --> 00:03:33.220
+<v Ken>Estimates, mind. Not invoices.
+
+63
+00:03:34.820 --> 00:03:37.640
+<v Gareth>Across the yard is the
+independent magazine.
+
+64
+00:03:38.360 --> 00:03:41.670
+<v Brian>Brian Openshaw, editor of Ink and Paper.
+
+65
+00:03:41.720 --> 00:03:45.870
+<v Brian>A reviewer agent plays the tape that
+shipped and writes an honest review.
+
+66
+00:03:45.920 --> 00:03:50.370
+<v Brian>My word processor types it out, and our
+latest issues hang on the wall.
+
+67
+00:03:50.420 --> 00:03:52.320
+<v Brian>We're independent of Dalex.
+
+68
+00:03:53.880 --> 00:03:55.390
+<v Gareth>So does it work?
+
+69
+00:03:55.440 --> 00:04:01.990
+<v Gareth>Here's a worked example: Gold Master, our
+own game about this very studio.
+
+70
+00:04:02.040 --> 00:04:05.970
+<v Gareth>Specified at half past nine one evening,
+then designed, built, verified,
+
+71
+00:04:06.020 --> 00:04:10.220
+<v Gareth>playtested and reviewed overnight,
+right through these desks.
+
+72
+00:04:10.900 --> 00:04:12.750
+<v Emeka>That's Gold Master on the telly.
+
+73
+00:04:12.800 --> 00:04:15.580
+<v Emeka>My agent played it round after
+round, all night.
+
+74
+00:04:16.270 --> 00:04:19.240
+<v Mo>And there it is on the board, at
+the magazine review.
+
+75
+00:04:20.040 --> 00:04:23.020
+<v Gareth>Ink and Paper gave it seventy-two percent.
+
+76
+00:04:23.070 --> 00:04:25.040
+<v Gareth>Not bad for one night's work!
+
+77
+00:04:26.570 --> 00:04:29.010
+<v Gareth>And you don't need to read to
+use the studio.
+
+78
+00:04:29.060 --> 00:04:32.420
+<v Gareth>There are pictures for every verb, a
+microphone for questions,
+
+79
+00:04:32.470 --> 00:04:36.360
+<v Gareth>and with spoken help switched on, a
+narrator reads out every name,
+
+80
+00:04:36.410 --> 00:04:38.560
+<v Gareth>message and control. Listen.
+
+81
+00:04:39.810 --> 00:04:41.560
+<v Narrator>Mo.
+
+82
+00:04:42.110 --> 00:04:43.860
+<v Narrator>Playtest TV.
+
+83
+00:04:47.180 --> 00:04:49.810
+<v Gareth>So that's Dalex Software.
+
+84
+00:04:49.860 --> 00:04:52.540
+<v Gareth>Spectrum games today, but the same roles,
+
+85
+00:04:52.590 --> 00:04:55.670
+<v Gareth>agents and checks can build
+software of any kind.
+
+86
+00:04:55.720 --> 00:04:58.440
+<v Gareth>So, what could we build for you?
