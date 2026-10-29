@@ -5,7 +5,7 @@
   "machine": "ZX Spectrum 128K",
   "jsspeccy_machine": 128,
   "tagline": "Letters tumble one at a time into a narrow well.",
-  "blurb": "Letters tumble one at a time into a narrow well. Steer each one home and spell a three- or four-letter word across or down to score it and clear it, with triple-letter, double-letter and double-word squares to aim for. Letters drop after every word and may spell another for a cascade, and every thirty letters the pace quickens.",
+  "blurb": "Letters tumble one at a time into a narrow well. Steer each one home and spell a three- or four-letter word across or down to score and clear it, with treble-letter, double-letter and double-word squares to aim for. A shadow shows where it will land, falling letters can spell a fresh word for a cascade, and every thirty letters the pace quickens.",
   "controls": [
     [
       "O",
@@ -41,11 +41,11 @@
     ]
   ],
   "release": {
-    "source_tape": "wordris-m3-ccdf44ed.tap",
+    "source_tape": "wordris-m3.tap",
     "sha256": "ccdf44ed979e4c94313ac67ddffcb3458149cb3bebbcc467752e060c05583892",
     "size": 20794,
     "milestone": 3,
-    "date": "2026-10-26"
+    "date": "2026-10-29"
   },
   "demo": {
     "src": "demo.bin",
@@ -57,14 +57,14 @@
   },
   "review": {
     "magazine": "INK & PAPER",
-    "overall": 67,
+    "overall": 68,
     "scores": {
-      "presentation": 72,
+      "presentation": 71,
       "graphics": 70,
       "sound": 66,
-      "playability": 70,
+      "playability": 72,
       "addictive_qualities": 62,
-      "overall": 67
+      "overall": 68
     },
     "award": null,
     "verdict": "",
@@ -119,8 +119,8 @@
           320,
           240
         ],
-        "caption": "Cubes tumble down the shaft while the owl looks on. Time for a cuppa while it loads.",
-        "alt": "Wordris screenshot: Cubes tumble down the shaft while the owl looks on. Time for a cuppa while it loads."
+        "caption": "HEN pays fifteen once the H sits on a treble square. Egg-cellent.",
+        "alt": "Wordris screenshot: HEN pays fifteen once the H sits on a treble square. Egg-cellent."
       },
       {
         "src": "shots/shot-2.png",
@@ -128,8 +128,8 @@
           256,
           192
         ],
-        "caption": "NOTE goes down the side for 32 points. Kev made a note of it, loudly.",
-        "alt": "Wordris screenshot: NOTE goes down the side for 32 points. Kev made a note of it, loudly."
+        "caption": "NOTE goes down for 32 while three Zeds snooze at the bottom of the well",
+        "alt": "Wordris screenshot: NOTE goes down for 32 while three Zeds snooze at the bottom of the well"
       },
       {
         "src": "shots/shot-3.png",
@@ -137,23 +137,23 @@
           256,
           192
         ],
-        "caption": "Cascade! APE drops into place for six more. Monkey business, but rare monkey business.",
-        "alt": "Wordris screenshot: Cascade! APE drops into place for six more. Monkey business, but rare monkey business."
+        "caption": "CASCADE X2: APE drops into place for six more. Savour it, they're rare.",
+        "alt": "Wordris screenshot: CASCADE X2: APE drops into place for six more. Savour it, they're rare."
       },
       {
         "src": "shots/shot-4.png",
         "size": [
-          256,
-          192
+          320,
+          240
         ],
-        "caption": "Game over at 17 points, but it's a new high score. Stan says it still counts.",
-        "alt": "Wordris screenshot: Game over at 17 points, but it's a new high score. Stan says it still counts."
+        "caption": "A wise old owl in a mortarboard minds the letters while the tape loads",
+        "alt": "Wordris screenshot: A wise old owl in a mortarboard minds the letters while the tape loads"
       }
     ]
   },
   "source": {
     "repo": "danielvaughan/zx-wordris",
-    "commit": "68561d9a4a2c669dd4c6664b557af413fb3e8016",
+    "commit": "08a40e9b15e938017b8484f31bc6cd122b83bd9f",
     "kit": "game/media-kit/m3"
   }
 }
