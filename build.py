@@ -70,6 +70,7 @@ def load(root: Path, config: Path):
             data['blurb'] = g['blurb']
         data.pop('price', None)                      # prices are never shown (D-19)
         data['_demo'] = demo_of(root, slug, g, data)
+        data['_touch'] = touch_of(slug, g, data) if data['_demo'] else None
         data['_entry'] = g
         if g['visible']:
             check_no_price(slug, data)
@@ -139,6 +140,76 @@ def demo_of(root: Path, slug: str, entry: dict, data: dict):
         raise BuildError(f'games/{slug}/{DEMO_FILE} does not decode to the recorded demo sha256')
     return {'sha256': gd['sha256'], 'milestone': gd.get('milestone'),
             'contains': (sd or {}).get('contains') or gd.get('contains') or ''}
+
+
+# ------------------------------------------------------------------ touch controls (D-22)
+
+TOUCH_DIRS = ('up', 'down', 'left', 'right')
+_KEY_TOKEN = re.compile(r'^(?:[A-Z0-9]|SPACE|ENTER)$')
+
+
+def control_keys(controls) -> set:
+    """The Spectrum keys a game's controls list names: "Q / A / O / P" -> Q A O P, "Q (paused)" -> Q,
+    "O and P in turn" -> O P, "SPACE" -> SPACE; descriptions such as "Two keys together" name none."""
+    keys = set()
+    for k, _v in controls or []:
+        text = re.sub(r'\([^)]*\)', ' ', str(k or '')).upper()
+        for tok in re.split(r'[\s/,+]+|\bAND\b|\bOR\b', text):
+            if _KEY_TOKEN.match(tok.strip()):
+                keys.add(tok.strip())
+    return keys
+
+
+def touch_of(slug: str, entry: dict, data: dict):
+    """The game's on-screen controls from site.json "touch": {"dpad": {dir: key}, "diagonals": bool,
+    "buttons": [{"keys": "SPACE", "label": "Fire"}]}, or None. Every key must be one the game's own
+    controls list names: the pad never invents a control."""
+    t = entry.get('touch')
+    if not t:
+        return None
+    allowed = control_keys(data.get('controls'))
+    dpad = {d: str(k).upper() for d, k in (t.get('dpad') or {}).items()}
+    bad = [d for d in dpad if d not in TOUCH_DIRS]
+    if bad:
+        raise BuildError(f'site.json: {slug}: touch dpad has unknown directions {bad}')
+    buttons = []
+    for b in t.get('buttons') or []:
+        keys = str(b.get('keys', '')).upper().split()
+        if not keys or not b.get('label'):
+            raise BuildError(f'site.json: {slug}: every touch button needs "keys" and a "label"')
+        buttons.append({'keys': keys, 'label': str(b['label'])})
+    used = set(dpad.values()) | {k for b in buttons for k in b['keys']}
+    extra = sorted(used - allowed)
+    if extra:
+        raise BuildError(f'site.json: {slug}: touch keys {extra} are not in the game\'s controls '
+                         f'({" ".join(sorted(allowed))})')
+    return {'dpad': dpad, 'diagonals': bool(t.get('diagonals')), 'buttons': buttons}
+
+
+def pad_html(touch, controls) -> str:
+    if not touch:
+        return ''
+    say = {}
+    for k, v in controls or []:
+        ks = control_keys([[k, v]])
+        if len(ks) == 1:                 # "Walk up / down / left / right" describes four keys: say none
+            say.setdefault(ks.pop(), v)
+    arrow = {'up': '&#9650;', 'down': '&#9660;', 'left': '&#9664;', 'right': '&#9654;'}
+    dirs = ''.join(
+        f'<button type="button" class="dir {d}" data-dir="{d}" data-keys="{e(k)}" '
+        f'aria-label="{e(d.capitalize())}: key {e(k)}{(", " + e(say[k])) if say.get(k) else ""}">'
+        f'<span aria-hidden="true">{arrow[d]}</span><small aria-hidden="true">{e(k)}</small></button>'
+        for d, k in ((d, touch['dpad'].get(d)) for d in TOUCH_DIRS) if k)
+    dpad = (f'<div class="dpad{" eight" if touch["diagonals"] else ""}" data-diagonals="{str(touch["diagonals"]).lower()}" '
+            f'role="group" aria-label="Direction pad{" (slide to a corner for a diagonal)" if touch["diagonals"] else ""}">{dirs}</div>'
+            if dirs else '')
+    btns = ''.join(
+        f'<button type="button" class="pad-btn{" main" if i == 0 else ""}" data-keys="{e(" ".join(b["keys"]))}" '
+        f'aria-label="{e(b["label"])}: key {e(" and ".join(b["keys"]))}">'
+        f'<span aria-hidden="true">{e(b["label"])}</span><small aria-hidden="true">{e(" ".join(b["keys"]))}</small></button>'
+        for i, b in enumerate(touch['buttons']))
+    return (f'\n    <div id="pad" class="pad" role="group" aria-label="Touch controls" hidden>{dpad}'
+            f'<div class="pad-actions" role="group" aria-label="Buttons">{btns}</div></div>')
 
 
 def check_no_price(slug: str, data: dict):
@@ -349,26 +420,37 @@ def game_page(site, game):
     contains = (f'<p class="demo-contains"><strong>The demo:</strong> {e(demo["contains"])}</p>'
                 if demo and demo.get('contains') else '')
     if demo:
+        touch = game.get('_touch')
+        pad = pad_html(touch, game.get('controls'))
+        pad_toggle = ('\n    <button id="pad-toggle" type="button" class="button" aria-controls="pad" aria-pressed="false">'
+                      'Show touch controls</button>') if touch else ''
+        keyboard_line = ('Play with a keyboard, or with the on-screen controls on a phone or tablet.' if touch
+                         else 'You will need a keyboard.')
+        earlier = ('The demo is an earlier milestone build of the game, so it may differ from the finished tape.'
+                   if demo.get('milestone') else
+                   'The demo is the first level of the game; the finished tape has more.')
         player = f'''<section id="play-now" class="player" aria-labelledby="play-h">
   <h2 id="play-h" class="sr-only">Play the {e(game["title"])} demo</h2>
+  <div id="stage" class="stage">
   <div class="screen">
-    <div id="emulator" tabindex="0" role="application" aria-label="The {e(game["title"])} demo running on an emulated ZX Spectrum. Click here, then use the keys listed under Controls."
+    <div id="emulator" tabindex="0" role="application" aria-label="The {e(game["title"])} demo running on an emulated ZX Spectrum. Click here, then use the keys listed under Controls. Press Tab to leave the game."
       data-demo="{DEMO_FILE}" data-machine="{machine_n}" data-title="{e(game["title"])}" data-jsspeccy="{root}jsspeccy/jsspeccy.js"></div>
     <div id="cover" class="cover"{cover_style}>
       <div class="cover-in">
         <p>{e(game.get("tagline", ""))}</p>
         <button id="play" type="button" class="button primary big">&#9654; Play the demo</button>
-        <p class="small">Free. Loads the demo in a {machine_n}K Spectrum, with sound. You will need a keyboard.</p>
+        <p class="small">Free. Loads the demo in a {machine_n}K Spectrum, with sound. {keyboard_line}</p>
       </div>
     </div>
+  </div>{pad}
   </div>
   <div class="toolbar">
     <button id="pause" type="button" class="button" disabled>Pause</button>
     <button id="fullscreen" type="button" class="button" disabled>Full screen</button>
-    <button id="restart" type="button" class="button" disabled>Restart</button>
+    <button id="restart" type="button" class="button" disabled>Restart</button>{pad_toggle}
   </div>
   {contains}
-  <p class="small">The demo is an earlier milestone build of the game, so it may differ from the finished tape.</p>
+  <p class="small">{earlier}</p>
   <p id="status" role="status">Press Play to load the demo. Nothing plays until you do.</p>
   <noscript><p>The in-browser Spectrum needs JavaScript.</p></noscript>
 </section>'''

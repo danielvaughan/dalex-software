@@ -16,6 +16,33 @@
         "milestone": 1,
         "sha256": "f63311eaed9b03a6d40de63d82d42e708a8f55150181cbd0ed787e37636c48b6",
         "contains": "Level 1 of 4: the Production room, from the Design Doc to the Gold Master."
+      },
+      "touch": {
+        "dpad": {
+          "up": "Q",
+          "down": "A",
+          "left": "O",
+          "right": "P"
+        },
+        "diagonals": false,
+        "buttons": [
+          {
+            "keys": "SPACE",
+            "label": "Put down"
+          },
+          {
+            "keys": "H",
+            "label": "Pause"
+          },
+          {
+            "keys": "M",
+            "label": "Music"
+          },
+          {
+            "keys": "D",
+            "label": "Mode"
+          }
+        ]
       }
     },
     {
@@ -23,7 +50,42 @@
       "visible": true,
       "order": 2,
       "featured": false,
-      "demo": null
+      "demo": null,
+      "touch": {
+        "dpad": {
+          "up": "Q",
+          "down": "A",
+          "left": "O",
+          "right": "P"
+        },
+        "diagonals": false,
+        "buttons": [
+          {
+            "keys": "SPACE",
+            "label": "Let go"
+          },
+          {
+            "keys": "W",
+            "label": "Dash"
+          },
+          {
+            "keys": "S",
+            "label": "Invisible"
+          },
+          {
+            "keys": "H",
+            "label": "Pause"
+          },
+          {
+            "keys": "M",
+            "label": "Music"
+          },
+          {
+            "keys": "Z",
+            "label": "Zone"
+          }
+        ]
+      }
     },
     {
       "slug": "antigravity",
@@ -34,6 +96,32 @@
         "milestone": 2,
         "sha256": "cb2aaaaa78302e2c25ebc2b2267617bc1f051e67f0629ff3ee469d1675f95d83",
         "contains": "Sectors 1 to 3 of 10: Storage Bay Alpha, the Coolant Concourse and the Command Spire."
+      },
+      "touch": {
+        "dpad": {
+          "down": "S",
+          "left": "O",
+          "right": "P"
+        },
+        "diagonals": true,
+        "buttons": [
+          {
+            "keys": "SPACE",
+            "label": "Brake"
+          },
+          {
+            "keys": "R",
+            "label": "Retry"
+          },
+          {
+            "keys": "H",
+            "label": "Pause"
+          },
+          {
+            "keys": "M",
+            "label": "Music"
+          }
+        ]
       }
     },
     {
@@ -45,6 +133,36 @@
         "milestone": 1,
         "sha256": "b2152833b7ff0c8c6f15cdfcefcbb72caab3a3fbba5c404a18addc9706b14ec7",
         "contains": "The core game from an early build: falling letters, words, scoring and levels."
+      },
+      "touch": {
+        "dpad": {
+          "down": "A",
+          "left": "O",
+          "right": "P"
+        },
+        "diagonals": false,
+        "buttons": [
+          {
+            "keys": "SPACE",
+            "label": "Drop"
+          },
+          {
+            "keys": "H",
+            "label": "Pause"
+          },
+          {
+            "keys": "R",
+            "label": "Restart"
+          },
+          {
+            "keys": "M",
+            "label": "Music"
+          },
+          {
+            "keys": "E",
+            "label": "Effects"
+          }
+        ]
       }
     },
     {
@@ -52,7 +170,34 @@
       "visible": true,
       "order": 5,
       "featured": false,
-      "demo": null
+      "demo": null,
+      "touch": {
+        "dpad": {
+          "up": "Q",
+          "down": "A",
+          "left": "O",
+          "right": "P"
+        },
+        "diagonals": true,
+        "buttons": [
+          {
+            "keys": "SPACE",
+            "label": "Trim"
+          },
+          {
+            "keys": "H",
+            "label": "Pause"
+          },
+          {
+            "keys": "R",
+            "label": "Restart"
+          },
+          {
+            "keys": "M",
+            "label": "Music"
+          }
+        ]
+      }
     },
     {
       "slug": "wolf",
@@ -63,6 +208,35 @@
         "milestone": 1,
         "sha256": "f977ca08f76be13316a95f97976805e78999d7c523b93b665697c89045b74073",
         "contains": "January's session with Stevo: the warm-up, the squat block and the sled."
+      },
+      "touch": {
+        "dpad": {
+          "left": "O",
+          "right": "P"
+        },
+        "diagonals": false,
+        "buttons": [
+          {
+            "keys": "SPACE",
+            "label": "Beat"
+          },
+          {
+            "keys": "A",
+            "label": "More weight"
+          },
+          {
+            "keys": "B",
+            "label": "Sneak off"
+          },
+          {
+            "keys": "H",
+            "label": "Pause"
+          },
+          {
+            "keys": "M",
+            "label": "Music"
+          }
+        ]
       }
     }
   ]

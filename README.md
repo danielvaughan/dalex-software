@@ -71,6 +71,9 @@ Edit `site.json`. Each game has an entry:
   for "Demo coming soon". The publisher writes it; the build checks `games/<slug>/demo.bin` decodes to that sha256.
   Change the demo by publishing again with `--demo` rather than editing the sha256 by hand. Editing only
   `contains` is fine.
+- `touch`: the on-screen pad for phones and tablets, `{"dpad": {"up": "Q", ...}, "diagonals": false,
+  "buttons": [{"keys": "SPACE", "label": "Fire"}, ...]}`. Every key must be in the game's own controls list (the
+  build refuses others); the first button is the big start/fire button ([D-22](docs/decisions.md)).
 - Optional `blurb` replaces the game's own blurb on the site. There is no price setting: no price is shown.
 
 Commit and push to `main`; the workflow rebuilds and deploys the site.
@@ -122,7 +125,8 @@ tests, commits and pushes. Do not edit `games/<slug>/` by hand: the next publish
   captured from the first deploy. The demos at their title screens, captured after the switch to demos:
   [Gold Master](docs/screenshots/demo-gold-master.png), [Antigravity](docs/screenshots/demo-antigravity.png),
   [WOLF](docs/screenshots/demo-wolf.png) and [Wordris](docs/screenshots/demo-wordris.png), and a page with
-  no demo yet, [Tiger Gorilla](docs/screenshots/no-demo-tiger-gorilla.png).
+  no demo yet, [Tiger Gorilla](docs/screenshots/no-demo-tiger-gorilla.png). The [playtest of 2026-10-29](docs/playtest-2026-10-29.md) (keys, touch pad, phone layout) has its
+  screenshots in [docs/screenshots/playtest/](docs/screenshots/playtest/).
 
 ## Related repositories
 

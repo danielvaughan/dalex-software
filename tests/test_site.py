@@ -273,6 +273,109 @@ class Built(unittest.TestCase):
                 self.assertNotIn(bad, text, p)
 
 
+class Player(unittest.TestCase):
+    """The keyboard contract of static/assets/player.js (D-21) and the touch pad (D-22), checked statically."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.js = (ROOT / 'static/assets/player.js').read_text(encoding='utf-8')
+        cls.css = (ROOT / 'static/assets/site.css').read_text(encoding='utf-8')
+        cls.tmp = Path(tempfile.mkdtemp(prefix='dalex-player-'))
+        cls.out = build.build(ROOT, ROOT / 'site.json', cls.tmp / 'a')
+        cls.cfg = json.loads((ROOT / 'site.json').read_text())
+
+    @classmethod
+    def tearDownClass(cls):
+        shutil.rmtree(cls.tmp, ignore_errors=True)
+
+    def fn(self, name):
+        m = re.search(rf'function {name}\(event\) \{{(.*?)\n  \}}', self.js, re.S)
+        self.assertIsNotNone(m, name)
+        return m.group(1)
+
+    def test_game_keys_are_kept_from_the_page_in_the_capture_phase(self):
+        self.assertRegex(self.js, r"for \(const type of \['keydown', 'keyup', 'keypress'\]\) "
+                                  r"host\.addEventListener\(type, onKey, true\)")
+        body = self.fn('onKey')
+        self.assertIn('event.preventDefault()', body)
+        self.assertIn('loading || running()', body)          # from the moment Play is pressed
+        self.assertIn('if (!hasFocus()) return;', body)       # only while the game has focus
+
+    def test_tab_and_escape_are_left_to_the_page(self):
+        body = self.fn('onKey')
+        tab = body.index("event.key === 'Tab' || event.key === 'Escape'")
+        first_prevent = body.index('event.preventDefault()')
+        self.assertLess(tab, first_prevent, 'Tab/Escape must be handled before any preventDefault')
+        branch = body[tab:body.index('return;', tab)]
+        self.assertIn('event.stopPropagation()', branch)      # JSSpeccy would preventDefault them
+        self.assertNotIn('.preventDefault(', branch)
+        self.assertIn('host.blur()', branch)                  # Escape releases the keyboard
+        self.assertIn("event.key === 'Tab'", self.fn('passThrough'))
+        self.assertIn('Press Tab to leave the game', self.js)
+
+    def test_play_focuses_and_shows_the_screen_before_loading(self):
+        m = re.search(r'async function loadGame\(\) \{(.*?)\n  \}', self.js, re.S)
+        body = m.group(1)
+        self.assertLess(body.index('focusGame()'), body.index('play.disabled = true'))
+        self.assertLess(body.index('showScreen()'), body.index('play.disabled = true'))
+
+    def test_full_screen_takes_the_stage_with_the_pad(self):
+        self.assertIn('stage.requestFullscreen', self.js)
+        self.assertNotIn('toggleFullscreen', self.js)
+
+    def test_focus_ring_is_visible(self):
+        self.assertIn('.screen:focus-within { outline: 3px solid var(--focus)', self.css)
+
+    def test_every_playable_game_has_a_touch_layout_from_its_own_controls(self):
+        playable = 0
+        for g in self.cfg['games']:
+            if not g['visible'] or not g.get('demo'):
+                continue
+            playable += 1
+            slug = g['slug']
+            game = json.loads((ROOT / 'games' / slug / 'game.json').read_text())
+            allowed = build.control_keys(game['controls'])
+            t = g.get('touch')
+            self.assertTrue(t, f'{slug}: no touch layout')
+            used = set((t.get('dpad') or {}).values()) | {k for b in t['buttons'] for k in b['keys'].split()}
+            self.assertTrue(used, slug)
+            self.assertLessEqual(used, allowed, f'{slug}: touch keys not in its controls')
+            self.assertIn('SPACE', used, f'{slug}: no start/fire button')
+            html = (self.out / 'games' / slug / 'index.html').read_text()
+            self.assertIn('<div id="stage" class="stage">', html, slug)
+            self.assertIn('<div id="pad" class="pad" role="group" aria-label="Touch controls" hidden>', html, slug)
+            self.assertIn('id="pad-toggle"', html, slug)
+            buttons = re.findall(r'<button type="button" class="(?:dir \w+|pad-btn[^"]*)"[^>]*>', html)
+            self.assertEqual(len(buttons), len(t.get('dpad') or {}) + len(t['buttons']), slug)
+            for b in buttons:
+                self.assertRegex(b, r'aria-label="[^"]+"', slug)
+                keys = re.search(r'data-keys="([^"]+)"', b).group(1).split()
+                self.assertLessEqual(set(keys), allowed, slug)
+        self.assertGreaterEqual(playable, 4)
+
+    def test_control_keys(self):
+        self.assertEqual(build.control_keys([['Q / A / O / P', 'Walk'], ['SPACE', 'x'], ['Q (paused)', 'Quit'],
+                                             ['O and P in turn', 'Pump'], ['Two keys together', 'Diagonal'],
+                                             ['D (title)', 'Mode'], ['S / A', 'Down']]),
+                         {'Q', 'A', 'O', 'P', 'SPACE', 'D', 'S'})
+
+    def test_pad_is_not_scrolled_selected_or_zoomed(self):
+        pad = re.search(r'\n\.pad \{([^}]*)\}', self.css).group(1)
+        self.assertIn('touch-action: none', pad)
+        self.assertIn('user-select: none', pad)
+        self.assertRegex(self.css, r'\.pad button \{[^}]*min-width: (4[89]|[5-9]\d)px; min-height: (4[89]|[5-9]\d)px')
+        for t in ('pointerup', 'pointercancel', 'lostpointercapture', 'setPointerCapture', "'contextmenu'",
+                  '(pointer: coarse)', 'navigator.vibrate'):
+            self.assertIn(t, self.js)
+
+    @unittest.skip('TODO: enable once every game publishes its single-level demo build (owner, 2026-10-29)')
+    def test_every_demo_is_a_single_level_demo_build(self):
+        for g in self.cfg['games']:
+            if g['visible'] and g.get('demo'):
+                game = json.loads((ROOT / 'games' / g['slug'] / 'game.json').read_text())
+                self.assertTrue(game['demo']['source_tape'].endswith('-demo.tap'), g['slug'])
+
+
 class HiddenGames(unittest.TestCase):
     """A hidden game is in no page, sitemap or feed, and none of its files are deployed."""
 
@@ -388,6 +491,16 @@ class HiddenGames(unittest.TestCase):
             self.assertNotIn('Play the demo', page)
             self.assertFalse((out / 'games/fx/demo.bin').exists())
             self.assertNotIn('Play the demo', (out / 'index.html').read_text())
+
+    def test_touch_key_not_in_controls_is_refused(self):
+        with tempfile.TemporaryDirectory() as t:
+            _, entry = self._fixture(Path(t), controls=[['O / P', 'Left / right'], ['SPACE', 'Fire']])
+            entry['touch'] = {'dpad': {'left': 'O', 'right': 'P'}, 'buttons': [{'keys': 'SPACE', 'label': 'Fire'}]}
+            out = self._build(Path(t), entry)
+            self.assertIn('data-keys="SPACE"', (out / 'games/fx/index.html').read_text())
+            entry['touch']['buttons'].append({'keys': '2', 'label': 'Keyboard'})
+            with self.assertRaises(build.BuildError):
+                self._build(Path(t), entry)
 
     def test_bad_config_is_refused(self):
         with tempfile.TemporaryDirectory() as t:

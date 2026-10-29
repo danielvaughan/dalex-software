@@ -216,3 +216,42 @@ figcaption { color: var(--muted); font-size: .9rem; margin-top: 6px; }
 .transcript { margin: 1.5rem 0; max-width: 70ch; }
 .transcript summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; }
 .studio-link { margin-top: 2rem; }
+
+/* The player: focus ring, the stage (screen and touch pad, the full-screen element) and the pad (D-21, D-22) */
+.screen:focus-within { outline: 3px solid var(--focus); outline-offset: 3px; }
+#emulator:focus { outline: none; }
+.stage { max-width: 960px; }
+.stage.with-pad { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.pad { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 4px 0;
+  touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+.pad button { touch-action: none; user-select: none; -webkit-user-select: none; font: inherit; color: #fff; cursor: pointer;
+  background: #222; border: 2px solid #555; border-radius: 10px; min-width: 52px; min-height: 52px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.1; padding: 4px 6px; }
+.pad button small { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .72rem; color: #ffe14d; margin-top: 2px; }
+.pad button.held { background: #ffe14d; color: #111; border-color: #ffe14d; }
+.pad button.held small { color: #111; }
+.dpad { position: relative; flex: none; width: 168px; height: 168px; border-radius: 50%; background: #111; border: 2px solid #333; touch-action: none; }
+.dpad .dir { position: absolute; width: 56px; height: 56px; min-width: 0; padding: 0; font-size: 1.15rem; }
+.dpad .up { left: 54px; top: 2px; } .dpad .down { left: 54px; bottom: 2px; }
+.dpad .left { left: 2px; top: 54px; } .dpad .right { right: 2px; top: 54px; }
+.pad-actions { display: grid; grid-template-columns: repeat(3, minmax(56px, auto)); gap: 8px; justify-content: end; }
+.pad-actions button { font-size: .82rem; font-weight: 700; }
+.pad-actions .main { grid-column: 1 / -1; min-height: 64px; font-size: 1rem; background: #7a1010; border-color: #c33; }
+@media (max-width: 380px) { .dpad { width: 150px; height: 150px; } .dpad .up, .dpad .down { left: 45px; } .dpad .left, .dpad .right { top: 45px; } }
+/* A phone on its side, and full screen: the pad either side of the screen */
+@media (orientation: landscape) and (max-height: 540px) {
+  .stage.with-pad { grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; max-width: none; }
+  .stage.with-pad .screen { order: 2; max-height: calc(100vh - 24px); aspect-ratio: 4 / 3; width: auto; height: calc(100vh - 24px); justify-self: center; }
+  .stage.with-pad .pad { display: contents; }
+  .stage.with-pad .dpad { order: 1; } .stage.with-pad .pad-actions { order: 3; grid-template-columns: repeat(2, minmax(56px, auto)); }
+}
+.stage:fullscreen { max-width: none; width: 100vw; height: 100vh; background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 12px; box-sizing: border-box; }
+.stage:fullscreen .screen { height: auto; width: min(100%, calc((100vh - 24px) * 4 / 3)); max-width: none; }
+.stage.with-pad:fullscreen .screen { width: min(100%, calc((100vh - 220px) * 4 / 3)); }
+.stage.with-pad:fullscreen .pad { width: min(100%, 960px); }
+@media (orientation: landscape) {
+  .stage.with-pad:fullscreen { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; }
+  .stage.with-pad:fullscreen .screen { order: 2; width: min(100%, calc((100vh - 24px) * 4 / 3)); justify-self: center; }
+  .stage.with-pad:fullscreen .pad { display: contents; }
+  .stage.with-pad:fullscreen .dpad { order: 1; } .stage.with-pad:fullscreen .pad-actions { order: 3; grid-template-columns: repeat(2, minmax(56px, auto)); }
+}

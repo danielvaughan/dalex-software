@@ -219,3 +219,86 @@ review PDF, inlay, advert or poster, and applies D-19's rules. Its demo comes fr
 milestone (a later milestone is often the complete game, so it needs an explicit `--demo`). It refuses a demo that
 has no passing gate, and refuses the release tape unless `--allow-full-demo` is given. All six games were
 republished with it on 2026-10-29.
+
+## D-21 The game keeps the keyboard while it has focus (owner, 2026-10-29)
+
+The owner: "when i press space the browser scrolls." JSSpeccy's own handler already calls `preventDefault` while
+it is bound, but it is bound only while the emulator runs, and only on the emulator box. A key reached the page
+in three cases. While the demo loaded, the Play button was disabled, so focus fell to the page. While paused,
+including the automatic pause when the window loses focus, JSSpeccy unbinds. And after a click elsewhere, focus
+was no longer in the game. JSSpeccy also blocked Tab, so a keyboard user could not leave the game.
+
+`player.js` now:
+
+- **Play** scrolls the screen (and the touch pad when it fits) into view and focuses it *before* loading, so
+  the keyboard is the game's from the first press.
+- **While the game is loading or running and has focus**, a capture-phase listener on the emulator box
+  `preventDefault`s every key on keydown, keyup and keypress (letters, digits, Space, Enter, the arrows,
+  Shift and Ctrl as Caps and Symbol Shift, Page Up/Down, Home/End, Backspace). It leaves alone Tab, Escape,
+  F1 to F12 and Cmd/Meta shortcuts.
+- **Tab and Escape** are stopped before JSSpeccy sees them. Tab moves focus out of the game, and Escape
+  releases it. The screen is one tab stop: JSSpeccy's inner box is taken out of the tab order.
+- **Paused, or with focus elsewhere**, page keys work as usual. One exception: if the screen itself still has
+  focus while paused, a game key resumes play instead of scrolling the page.
+- **Focus and status**: a focus ring on the screen (`.screen:focus-within`); the status line says "Press Tab to
+  leave the game, or Escape to release the keyboard" and says when the keyboard is back with the page.
+- **Full screen** now enlarges the wrapper (`#stage`) holding the screen and the touch pad, not JSSpeccy's
+  canvas box, and the same key rules apply there.
+
+`tests/test_site.py` (`Player`) checks this statically. The playtest in
+[playtest-2026-10-29.md](playtest-2026-10-29.md) checks it in Chromium.
+
+## D-22 Touch controls (owner, 2026-10-29)
+
+The owner: "the website should also have touch controls for the games so they can be played on a mobile
+without a keyboard."
+
+- **Where the layouts live**: each game's on-screen pad is a `touch` block in its `site.json` entry:
+  `{"dpad": {direction: key}, "diagonals": bool, "buttons": [{"keys", "label"}]}`. It is not in `game.json`,
+  which the publisher writes and replaces on every publish.
+- **No invented controls**: `build.py` refuses a layout that uses a key the game's own controls list (on its page)
+  does not name (`control_keys`). Tiger Gorilla's title menu keys, for example, are not on its page, so they are
+  not on its pad.
+- **The pad**: a direction pad, 8-way where the game moves diagonally with two keys (Mower Mayhem, Antigravity's
+  thrusters), and action buttons. The first button (SPACE in every game) is the large start/fire button.
+  - Every button is a real `<button>` with an `aria-label` naming its key and job, and shows a pictogram or a
+    short word plus the key. Targets are at least 52 px.
+  - A press is a JSSpeccy keydown and a release, cancel or lost pointer capture is a keyup. Pointer capture means
+    a finger that slides off still releases, and several fingers hold several buttons (a direction and fire
+    together).
+  - Keyboard or switch activation of a button taps its key. Light haptics (`navigator.vibrate`) are used where
+    supported.
+  - The pad has `touch-action: none`, no text selection and no long-press menu, so it never scrolls or zooms the
+    page.
+- **When it shows**: automatically on a coarse pointer or at the first touch, and hidden again when a physical
+  keyboard is used. "Show touch controls" in the toolbar turns it on or off for anyone. With no touch layout,
+  the page says the demo needs a keyboard.
+- **Landscape and full screen**: on a phone held sideways, and in full screen in landscape, the direction pad
+  sits left of the screen and the buttons right. Full screen takes the wrapper, so the pad comes with it.
+
+## D-23 Single-level demos; Tiger Gorilla and Mower Mayhem demos (owner, 2026-10-29)
+
+The owner asked first for Tiger Gorilla and Mower Mayhem demos ("There should also be tiger gorilla and mower
+mayhem demos"), then decided: "all games on the website should be single level demos." This overrides D-17's
+rule that a demo is a gated milestone tape.
+
+- **Each game's demo will be a demo build**: the release source built with the game's demo flag, stopping after
+  level 1 with an end-of-demo card, as `game/build/<slug>-demo.tap` in the game's repository. Those builds are
+  being made in the game repositories.
+- **Publishing**: the toolkit's `zx-website` skill (zx-media-kit 0.16.0) takes that tape by default, ahead of
+  `site.json` and the milestone tapes. It needs no gate, refuses the release tape, and records the sha256 and
+  `source_tape`. The page note says "Level 1 demo" (with the level's name when the build gives one) and "The demo
+  is the first level of the game" in place of the "earlier milestone build" line.
+- **Until those tapes arrive**: the current four demos stay as they are, and Tiger Gorilla and Mower Mayhem still
+  say "Demo coming soon". A skipped site test (`test_every_demo_is_a_single_level_demo_build`) is enabled once
+  every game has published its demo build.
+- **Milestone tapes looked at first** (superseded, for the record): Tiger Gorilla M1
+  (`c50b0ed4…`, "vertical slice": zone 1 level 1) and M2 (`52fc73cf…`, "zone 1 complete") and Mower Mayhem M1
+  (`2eda6d06…`, "vertical slice, Lawn 1 complete").
+  - Each has a verify PASS on its current tape and an agent playtest with no open severity-1 finding, but no
+    milestone gate.
+  - Tiger Gorilla M2 loaded, started and played for a minute in headless JSSpeccy.
+  - Mower Mayhem M1 steers like a tank (O/P turn, Q/A speed), not with the direct drive its page's controls
+    describe.
+
+  None was published.
