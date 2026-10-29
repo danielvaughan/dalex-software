@@ -30,6 +30,12 @@
       "visible": true,
       "order": 4,
       "featured": false
+    },
+    {
+      "slug": "mower-mayhem",
+      "visible": true,
+      "order": 5,
+      "featured": false
     }
   ]
 }

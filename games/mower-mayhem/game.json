@@ -1,0 +1,168 @@
+{
+  "schema": "dalex-site-game/1",
+  "slug": "mower-mayhem",
+  "title": "Mower Mayhem",
+  "machine": "ZX Spectrum 128K",
+  "jsspeccy_machine": 128,
+  "tagline": "Steer your electric Mower round ten walled Lawns and cut every blade, but never touch the Hedgehog, the Cat or the Bird.",
+  "blurb": "Steer your electric Mower round ten walled Lawns and cut every blade, but never touch the Hedgehog, the Cat or the Bird. Zap the Weeds with the Trimmer, watch the Battery and park on the Dock before it runs flat. Mow a perfect Lawn for a fat bonus, to a 128 tune you can switch off with M.",
+  "price": "£1.99",
+  "controls": [
+    [
+      "Q",
+      "Drive up"
+    ],
+    [
+      "A",
+      "Drive down"
+    ],
+    [
+      "O",
+      "Drive left"
+    ],
+    [
+      "P",
+      "Drive right"
+    ],
+    [
+      "Two keys together",
+      "Drive diagonally"
+    ],
+    [
+      "SPACE",
+      "Trim / start / continue / restart"
+    ],
+    [
+      "H",
+      "Pause / resume"
+    ],
+    [
+      "R",
+      "Restart while paused"
+    ],
+    [
+      "M",
+      "Music on / off"
+    ]
+  ],
+  "release": {
+    "tape": "mower-mayhem.tap",
+    "source_tape": "mower-mayhem-m6-fef4f005.tap",
+    "sha256": "fef4f005f613c7cfc7d6c22cea29aa3ab637f6ade3ea7d6f000328bec53a6009",
+    "size": 21334,
+    "milestone": 6,
+    "date": "2026-10-20"
+  },
+  "review": {
+    "magazine": "INK & PAPER",
+    "overall": 71,
+    "scores": {
+      "presentation": 74,
+      "graphics": 69,
+      "sound": 80,
+      "playability": 70,
+      "addictive_qualities": 70,
+      "overall": 71
+    },
+    "award": null,
+    "verdict": "Cuts a fine figure for the price, though a few Weeds leave it a little ragged round the edges.",
+    "quote": {
+      "text": "Racing the Battery gauge down to the Dock with the warning going is proper edge-of-the-seat stuff",
+      "reviewer": "Gaz Pocket"
+    },
+    "pdf": "review.pdf"
+  },
+  "credits": [
+    {
+      "role": "Published by",
+      "name": "Dalex Software"
+    },
+    {
+      "role": "Design",
+      "name": "Dalex Software, game specification 1.5"
+    },
+    {
+      "role": "Reviewed by",
+      "name": "Gaz Pocket, Prue Fairley and Norm Crabtree for INK & PAPER"
+    }
+  ],
+  "in_game_credits": [],
+  "licenses": [],
+  "images": {
+    "cover": {
+      "src": "cover.jpg",
+      "size": [
+        896,
+        1200
+      ],
+      "alt": "Mower Mayhem cover painting"
+    },
+    "shots": [
+      {
+        "src": "shots/shot-1.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Hedgehog, Cat, Bird and Mower pose for the family album. Nobody gets hurt.",
+        "alt": "Mower Mayhem screenshot: Hedgehog, Cat, Bird and Mower pose for the family album. Nobody gets hurt."
+      },
+      {
+        "src": "shots/shot-2.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "The Bird drops in for a peck at the long grass. Leave it be.",
+        "alt": "Mower Mayhem screenshot: The Bird drops in for a peck at the long grass. Leave it be."
+      },
+      {
+        "src": "shots/shot-3.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Stuck by a Weed you can't reach: the Trimmer zaps straight underneath it.",
+        "alt": "Mower Mayhem screenshot: Stuck by a Weed you can't reach: the Trimmer zaps straight underneath it."
+      },
+      {
+        "src": "shots/shot-4.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Every blade cut: that's a PERFECT LAWN and a bonus to match.",
+        "alt": "Mower Mayhem screenshot: Every blade cut: that's a PERFECT LAWN and a bonus to match."
+      }
+    ],
+    "inlay": {
+      "src": "inlay.jpg",
+      "size": [
+        1600,
+        1031
+      ],
+      "alt": "Mower Mayhem cassette inlay"
+    },
+    "advert": {
+      "src": "advert.jpg",
+      "size": [
+        1131,
+        1600
+      ],
+      "alt": "Mower Mayhem magazine advert"
+    },
+    "poster": {
+      "src": "poster.jpg",
+      "size": [
+        1067,
+        1600
+      ],
+      "alt": "Mower Mayhem poster"
+    }
+  },
+  "source": {
+    "repo": "danielvaughan/zx-mower-mayhem",
+    "commit": "56cc8a69fb363f94d83ad47142e4f486118bb9ee",
+    "kit": "game/media-kit/m6"
+  }
+}
