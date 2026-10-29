@@ -20,7 +20,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 FRAMES = {**{name: f'cast-{name}-talk-0' for name in (
-    'malcolm', 'colin', 'mo', 'gareth', 'yvonne', 'neil', 'mijung', 'simon', 'dez', 'vik', 'emeka', 'derek', 'ken')},
+    'malcolm', 'colin', 'mo', 'gareth', 'yvonne', 'neil', 'hyunjoo', 'simon', 'dez', 'vik', 'emeka', 'derek', 'ken')},
     'percy': 'percy-14', 'omnibot': 'omnibot-big-front-0'}
 
 
