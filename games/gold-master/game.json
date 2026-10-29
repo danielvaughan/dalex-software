@@ -6,7 +6,6 @@
   "jsspeccy_machine": 128,
   "tagline": "The tape is due and the office runs on tea!",
   "blurb": "The tape is due and the office runs on tea! As Mo the producer, carry the work from desk to desk, keep the coders' mugs full, squash the bugs and shoo Percy the cat, then hand the finished Gold Master to Omnibot before his clock runs out. Four games, seven rooms, three floors, and a teacup setting for those who'd rather not rush.",
-  "price": "£2.99",
   "controls": [
     [
       "Q / A / O / P",
@@ -34,12 +33,19 @@
     ]
   ],
   "release": {
-    "tape": "gold-master.tap",
-    "source_tape": "gold-master.tap",
+    "source_tape": "gold-master-m4-6775baaa.tap",
     "sha256": "6775baaaaca90754590880215a1565fcb5695b5e829831fd9e5bbefecd3adca3",
     "size": 34290,
     "milestone": 4,
     "date": "2026-10-29"
+  },
+  "demo": {
+    "src": "demo.bin",
+    "sha256": "f63311eaed9b03a6d40de63d82d42e708a8f55150181cbd0ed787e37636c48b6",
+    "size": 23055,
+    "milestone": 1,
+    "source_tape": "gold-master-m1.tap",
+    "contains": "Level 1 of 4: the Production room, from the Design Doc to the Gold Master."
   },
   "review": {
     "magazine": "INK & PAPER",
@@ -55,10 +61,9 @@
     "award": null,
     "verdict": "A friendly office juggle that's fair to a fault, let down by a little clash and a short shelf life. Not quite gold, but a shiny silver.",
     "quote": {
-      "text": "Lovely value at £2.99",
-      "reviewer": "Ruth Ashdown"
-    },
-    "pdf": "review.pdf"
+      "text": "Worth a go",
+      "reviewer": "Kev Mallin"
+    }
   },
   "credits": [
     {
@@ -67,7 +72,7 @@
     },
     {
       "role": "Design",
-      "name": "Dalex Software, game specification 1.1"
+      "name": "Dalex Software, game specification 1.1.1"
     },
     {
       "role": "Reviewed by",
@@ -122,35 +127,11 @@
         "caption": "All four games on the shelf and the whole office in a knees-up.",
         "alt": "Gold Master screenshot: All four games on the shelf and the whole office in a knees-up."
       }
-    ],
-    "inlay": {
-      "src": "inlay.jpg",
-      "size": [
-        1600,
-        1031
-      ],
-      "alt": "Gold Master cassette inlay"
-    },
-    "advert": {
-      "src": "advert.jpg",
-      "size": [
-        1131,
-        1600
-      ],
-      "alt": "Gold Master magazine advert"
-    },
-    "poster": {
-      "src": "poster.jpg",
-      "size": [
-        1067,
-        1600
-      ],
-      "alt": "Gold Master poster"
-    }
+    ]
   },
   "source": {
     "repo": "danielvaughan/zx-gold-master",
-    "commit": "1ab347af5f120826c84b124befc40ff5fc77d649",
+    "commit": "d04868488c0d572fe87c160998250ebe75ab14a9",
     "kit": "game/media-kit/m4"
   }
 }
