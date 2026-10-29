@@ -138,6 +138,10 @@ blockquote footer { color: var(--muted); font-size: .9rem; }
 .cover-in p { margin: 0 0 12px; text-shadow: 0 1px 4px #000; }
 .cover-in .small { color: #ddd; margin-top: 10px; }
 [hidden] { display: none !important; }
+.soon { display: inline-block; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 700; color: var(--muted); border: 2px dashed var(--line); border-radius: 4px; padding: 8px 14px; }
+.cover-in .soon { color: #fff; border-color: #fff; }
+.soon.big { font-size: 1.15rem; }
+.demo-contains { margin: 12px 0 0; }
 .toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
 #status { min-height: 1.6em; color: var(--muted); }
 .two-col { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 28px; align-items: start; }

@@ -1,4 +1,5 @@
-"""Site build checks: determinism, hidden games, tapes and hashes, links and basic HTML health.
+"""Site build checks: determinism, hidden games, demos (obfuscated, decoding to their recorded sha256),
+no tapes or prices anywhere, links and basic HTML health.
 
 Run: python3 -m unittest discover -s tests
 """
@@ -10,6 +11,40 @@ from urllib.parse import urlsplit, unquote
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 import build  # noqa: E402
+
+# The same algorithm as static/assets/player.js, written out again here so the test does not trust
+# build.py's copy: 'DLXDEMO1' + XOR with an xorshift32 keystream seeded by FNV-1a of DEMO_KEY.
+MAGIC = b'DLXDEMO1'
+# Currency amounts: £2.99, £ 3, $5, €4, 99p, 7.95 p, 3 pence, 2 quid, 5 pounds, 3/6d, &pound;.
+PRICE = re.compile(r'[£$€]\s?\d|(?<![\w.#-])\d+(?:\.\d+)?\s?p\b(?!x)|\b\d+(?:\.\d+)?\s?(?:pence|quid|pounds?)\b'
+                   r'|\b\d+/\d+d\b|&pound;', re.I)
+TEXT = {'.html', '.xml', '.txt', '.css', '.js', '.json', '.vtt', '.md', '.svg'}
+
+
+def key() -> str:
+    js = (ROOT / 'static/assets/player.js').read_text(encoding='utf-8')
+    return re.search(r"const DEMO_KEY = '([0-9a-f]+)';", js).group(1)
+
+
+def decode(blob: bytes, k: str) -> bytes:
+    assert blob[:len(MAGIC)] == MAGIC, 'no demo header'
+    h = 0x811C9DC5
+    for c in k.encode():
+        h = ((h ^ c) * 0x01000193) % 2**32
+    s, out = h or 1, bytearray()
+    for b in blob[len(MAGIC):]:
+        s = (s ^ (s << 13)) % 2**32
+        s ^= s >> 17
+        s = (s ^ (s << 5)) % 2**32
+        out.append(b ^ (s >> 24))
+    return bytes(out)
+
+
+def text_files(out: Path):
+    """Every built text file except the vendored JSSpeccy build (minified code, GPL notices)."""
+    return [p for p in sorted(out.rglob('*'))
+            if p.is_file() and p.suffix.lower() in TEXT and 'jsspeccy' not in p.relative_to(out).parts]
+
 
 VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr'}
 
@@ -102,18 +137,67 @@ class Built(unittest.TestCase):
             self.assertTrue((self.out / rel).is_file(), rel)
         self.assertEqual((self.out / 'CNAME').read_text().strip(), 'dalex-software.co.uk')
 
-    def test_every_visible_game_links_its_tape_with_the_right_sha256(self):
-        for slug in self.visible:
+    def test_every_demo_decodes_to_its_recorded_sha256(self):
+        k = key()
+        played = 0
+        for g in self.cfg['games']:
+            if not g['visible']:
+                continue
+            slug = g['slug']
             game = json.loads((ROOT / 'games' / slug / 'game.json').read_text())
-            tape = game['release']['tape']
-            built_tape = self.out / 'games' / slug / tape
-            self.assertTrue(built_tape.is_file(), built_tape)
-            sha = hashlib.sha256(built_tape.read_bytes()).hexdigest()
-            self.assertEqual(sha, game['release']['sha256'], slug)
             html = (self.out / 'games' / slug / 'index.html').read_text()
-            self.assertIn(f'href="{tape}" download', html, slug)
-            self.assertIn(f'data-tap="{tape}"', html, slug)
-            self.assertIn(f'<code id="tape-sha">{sha}</code>', html, slug)
+            demo = game.get('demo') if g.get('demo', True) is not None else None
+            built = self.out / 'games' / slug / 'demo.bin'
+            if not demo:
+                self.assertFalse(built.exists(), slug)
+                self.assertIn('Demo coming soon', html, slug)
+                self.assertNotIn('id="play"', html, slug)
+                self.assertNotIn('player.js', html, slug)
+                continue
+            played += 1
+            tape = decode(built.read_bytes(), k)
+            self.assertEqual(hashlib.sha256(tape).hexdigest(), demo['sha256'], slug)
+            self.assertEqual(g['demo']['sha256'], demo['sha256'], f'{slug}: site.json and game.json disagree')
+            self.assertEqual(tape[:2], b'\x13\x00', f'{slug}: decoded demo is not a tape')
+            self.assertNotEqual(demo['sha256'], game['release']['sha256'], f'{slug}: the demo is the full release')
+            self.assertNotIn(tape[:64], built.read_bytes(), f'{slug}: demo.bin holds the plain tape')
+            self.assertIn('data-demo="demo.bin"', html, slug)
+            self.assertIn('&#9654; Play the demo</button>', html, slug)
+            self.assertIn('<strong>The demo:</strong> ' + build.e(g['demo']['contains']), html, slug)
+        self.assertGreaterEqual(played, 2)
+
+    def test_no_tape_or_download_anywhere(self):
+        for p in self.out.rglob('*'):
+            self.assertNotIn(p.suffix.lower(), ('.tap', '.tzx', '.z80', '.sna', '.pdf'), p)
+        for p in text_files(self.out):
+            text = p.read_text(encoding='utf-8')
+            self.assertIsNone(re.search(r'\.(tap|tzx)\b', text, re.I), f'{p}: names a tape file')
+            if p.suffix == '.html':
+                for m in re.finditer(r'<a [^>]*\bdownload\b[^>]*>', text):
+                    self.assertIn('.mp4"', m.group(0), f'{p}: download link {m.group(0)}')
+
+    def test_no_price_kit_art_or_review_pdf(self):
+        for slug in self.visible:
+            names = {p.name for p in (self.out / 'games' / slug).rglob('*')}
+            for bad in ('inlay.jpg', 'advert.jpg', 'poster.jpg', 'review.pdf'):
+                self.assertNotIn(bad, names, slug)
+
+    def test_no_currency_amounts_in_any_built_text(self):
+        files = text_files(self.out)
+        self.assertGreater(len(files), 10)
+        for p in files:
+            text = p.read_text(encoding='utf-8')
+            m = PRICE.search(text)
+            self.assertIsNone(m, f'{p.relative_to(self.out)}: price {text[max(0, m.start() - 40):m.end() + 20]!r}'
+                              if m else '')
+        for slug in self.visible:
+            self.assertIn('Price to be confirmed', (self.out / 'games' / slug / 'index.html').read_text(), slug)
+
+    def test_price_regex_catches_prices_and_spares_dates(self):
+        for bad in ('£2.99', '£ 3', '$5', '€4.50', '99p', 'only 7.95p', '3 pence', '2 quid', '5 pounds', '3/6d'):
+            self.assertIsNotNone(PRICE.search(bad), bad)
+        for ok in ('29 October 2026', '2026-10-29', '128K', '16px', '1.5em', '#3p', 'A4p', 'level 2 of 4'):
+            self.assertIsNone(PRICE.search(ok), ok)
 
     def test_game_json_is_not_deployed(self):
         self.assertEqual(sorted(self.out.rglob('game.json')), [])
@@ -211,6 +295,7 @@ class HiddenGames(unittest.TestCase):
                     text = p.read_text(encoding='utf-8')
                     self.assertNotIn(f'games/{hidden}/', text, p)
                     self.assertNotIn(f'{hidden}.tap', text, p)
+                    self.assertNotIn(f'{hidden}/demo.bin', text, p)
                     if p.suffix == '.html' or p.suffix == '.xml':
                         self.assertNotIn(f'>{build.e(title)}<', text, p)
             self.assertNotIn(hidden, ' '.join(str(p) for p in out.rglob('*')))
@@ -224,13 +309,15 @@ class HiddenGames(unittest.TestCase):
             for slug, title in (('shown-game', 'Shown Game'), ('secret-game', 'Secret Game')):
                 d = t / 'games' / slug
                 (d / 'shots').mkdir(parents=True)
-                (d / f'{slug}.tap').write_bytes(slug.encode())
+                tape = b'\x13\x00' + slug.encode()
+                (d / 'demo.bin').write_bytes(MAGIC + decode(MAGIC + tape, key()))   # XOR is its own inverse
                 (d / 'shots/shot-1.png').write_bytes(b'png')
                 (d / 'game.json').write_text(json.dumps({
                     'slug': slug, 'title': title, 'machine': 'ZX Spectrum 128K', 'tagline': 't', 'blurb': 'b',
                     'controls': [['Q', 'Up']], 'jsspeccy_machine': 128,
-                    'release': {'tape': f'{slug}.tap', 'sha256': hashlib.sha256(slug.encode()).hexdigest(),
-                                'size': len(slug), 'date': '2026-10-01'},
+                    'release': {'sha256': hashlib.sha256(slug.encode()).hexdigest(), 'date': '2026-10-01'},
+                    'demo': {'src': 'demo.bin', 'sha256': hashlib.sha256(tape).hexdigest(), 'milestone': 1,
+                             'contains': 'Level 1 of 2.'},
                     'review': {'overall': 70, 'scores': {'overall': 70}, 'quote': {}},
                     'images': {'shots': [{'src': 'shots/shot-1.png', 'size': [256, 192], 'alt': 'a', 'caption': ''}]},
                     'credits': []}))
@@ -239,13 +326,66 @@ class HiddenGames(unittest.TestCase):
                 'games': [{'slug': 'shown-game', 'visible': True, 'order': 1, 'featured': True},
                           {'slug': 'secret-game', 'visible': False, 'order': 2, 'featured': False}]}))
             out = build.build(t, t / 'site.json', t / '_site')
-            self.assertTrue((out / 'games/shown-game/shown-game.tap').is_file())
+            self.assertTrue((out / 'games/shown-game/demo.bin').is_file())
             self.assertFalse((out / 'games/secret-game').exists())
             blob = ''.join(p.read_text(errors='replace') for p in out.rglob('*')
                            if p.is_file() and p.suffix in ('.html', '.xml', '.txt'))
             self.assertNotIn('secret-game', blob)
             self.assertNotIn('Secret Game', blob)
             self.assertIn('Shown Game', blob)
+
+    def _fixture(self, t: Path, **game):
+        shutil.copytree(ROOT / 'static', t / 'static')
+        shutil.copytree(ROOT / 'content', t / 'content')
+        d = t / 'games' / 'fx'
+        (d / 'shots').mkdir(parents=True)
+        tape = b'\x13\x00fixture'
+        (d / 'demo.bin').write_bytes(MAGIC + decode(MAGIC + tape, key()))
+        data = {'slug': 'fx', 'title': 'Fx', 'machine': 'ZX Spectrum 128K', 'tagline': 't', 'blurb': 'b',
+                'controls': [], 'release': {'sha256': '0' * 64},
+                'demo': {'src': 'demo.bin', 'sha256': hashlib.sha256(tape).hexdigest(), 'contains': 'All of it.'},
+                'review': {}, 'images': {'shots': [{'src': 'shots/s.png', 'size': [256, 192], 'alt': 'a'}]}}
+        data.update(game)
+        (d / 'game.json').write_text(json.dumps(data))
+        entry = {'slug': 'fx', 'visible': True, 'order': 1, 'demo': {'sha256': data['demo'] and data['demo']['sha256'],
+                                                                    'contains': 'Level 1.'}}
+        return data, entry
+
+    def _build(self, t: Path, entry):
+        conf = t / 'site.json'
+        conf.write_text(json.dumps({'site': {'name': 'x', 'base_url': 'https://x.test/'}, 'games': [entry]}))
+        return build.build(t, conf, t / 'out')
+
+    def test_price_in_game_text_is_refused(self):
+        for field in ({'tagline': 'Lovely value at £2.99'}, {'review': {'quote': {'text': 'Only 99p!'}}}):
+            with tempfile.TemporaryDirectory() as t:
+                _, entry = self._fixture(Path(t), **field)
+                with self.assertRaises(build.BuildError):
+                    self._build(Path(t), entry)
+
+    def test_demo_must_match_its_record(self):
+        with tempfile.TemporaryDirectory() as t:
+            _, entry = self._fixture(Path(t))
+            out = self._build(Path(t), entry)
+            self.assertIn('Level 1.', (out / 'games/fx/index.html').read_text())    # site.json's note wins
+            entry['demo']['sha256'] = 'f' * 64
+            with self.assertRaises(build.BuildError):
+                self._build(Path(t), entry)
+            (Path(t) / 'games/fx/demo.bin').write_bytes(MAGIC + b'\x00' * 9)
+            entry['demo'] = {'sha256': json.loads((Path(t) / 'games/fx/game.json').read_text())['demo']['sha256']}
+            with self.assertRaises(build.BuildError):                              # does not decode to it
+                self._build(Path(t), entry)
+
+    def test_null_demo_shows_coming_soon(self):
+        with tempfile.TemporaryDirectory() as t:
+            _, entry = self._fixture(Path(t))
+            entry['demo'] = None
+            out = self._build(Path(t), entry)
+            page = (out / 'games/fx/index.html').read_text()
+            self.assertIn('Demo coming soon', page)
+            self.assertNotIn('Play the demo', page)
+            self.assertFalse((out / 'games/fx/demo.bin').exists())
+            self.assertNotIn('Play the demo', (out / 'index.html').read_text())
 
     def test_bad_config_is_refused(self):
         with tempfile.TemporaryDirectory() as t:

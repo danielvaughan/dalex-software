@@ -8,14 +8,26 @@ toolkit's zx-website skill), content/about.html, static/ (with the studio film i
 content/studio.html. Only games with "visible": true are
 built into any page, the sitemap or the feed, and only their files are copied to the output, so a
 hidden game is not deployed at all. The output is deterministic: the same inputs give the same bytes.
+
+Only the free demo is played and nothing is downloadable (D-16): a game's demo is games/<slug>/demo.bin,
+the demo tape obfuscated with DEMO_KEY from static/assets/player.js (D-18), decoded in the browser and
+checked here against the sha256 recorded in site.json and game.json. No tape, review PDF or price-bearing
+kit image (inlay, advert, poster) is copied, and no page may show a price (D-19).
 """
-import argparse, html, json, re, shutil, sys
+import argparse, hashlib, html, json, re, shutil, sys
 from datetime import date
 from pathlib import Path
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent
-SKIP_GAME_FILES = {'game.json'}
+# The only game files deployed: the cover, screen shots, licences and the obfuscated demo (D-16, D-19).
+GAME_FILES = re.compile(r'^(cover\.jpg|shots/[\w.-]+\.png|licenses/[^/]+)$')
+DEMO_FILE = 'demo.bin'
+DEMO_MAGIC = b'DLXDEMO1'
+NO_PRICE = 'Price to be confirmed'
+# A price in built text: £2.99, £ 3, $5, €4, 99p, 7.95p, 3 pence, 2 quid, 5 pounds, 3/6d (D-19).
+PRICE_RE = re.compile(r'[£$€]\s?\d|(?<![\w.#-])\d+(?:\.\d+)?\s?p\b(?!x)|\b\d+(?:\.\d+)?\s?(?:pence|quid|pounds?)\b'
+                      r'|\b\d+/\d+d\b|&pound;', re.I)
 CURRENT = ' aria-current="page"'
 LAZY = ' loading="lazy"'
 SCORE_NAMES = [('presentation', 'Presentation'), ('graphics', 'Graphics'), ('sound', 'Sound'),
@@ -56,9 +68,11 @@ def load(root: Path, config: Path):
             raise BuildError(f'games/{slug}/game.json has slug {data.get("slug")!r}')
         if g.get('blurb'):
             data['blurb'] = g['blurb']
-        if g.get('price_label'):
-            data['price'] = g['price_label']
+        data.pop('price', None)                      # prices are never shown (D-19)
+        data['_demo'] = demo_of(root, slug, g, data)
         data['_entry'] = g
+        if g['visible']:
+            check_no_price(slug, data)
         entries.append(data)
     visible = sorted((d for d in entries if d['_entry']['visible']),
                      key=lambda d: (d['_entry']['order'], d['slug']))
@@ -67,6 +81,75 @@ def load(root: Path, config: Path):
         raise BuildError('site.json: more than one visible game is featured: '
                          + ', '.join(d['slug'] for d in featured))
     return site, visible, (featured[0] if featured else (visible[0] if visible else None))
+
+
+# ------------------------------------------------------------------ demo tapes
+
+def demo_key(root: Path) -> str:
+    """The demo obfuscation key, read from the one place it lives: static/assets/player.js."""
+    js = (Path(root) / 'static' / 'assets' / 'player.js').read_text(encoding='utf-8')
+    m = re.search(r"const DEMO_KEY = '([0-9a-f]{16,})';", js)
+    if not m:
+        raise BuildError('static/assets/player.js has no DEMO_KEY')
+    return m.group(1)
+
+
+def demo_xor(data: bytes, key: str) -> bytes:
+    """XOR with an xorshift32 keystream seeded by FNV-1a of the key; the same call encodes and decodes.
+    player.js does the same in the browser (D-18). A deterrent against casual copying, not protection."""
+    h = 0x811C9DC5
+    for c in key.encode('ascii'):
+        h = ((h ^ c) * 0x01000193) & 0xFFFFFFFF
+    s = h or 1
+    out = bytearray(len(data))
+    for i, b in enumerate(data):
+        s ^= (s << 13) & 0xFFFFFFFF
+        s ^= s >> 17
+        s ^= (s << 5) & 0xFFFFFFFF
+        out[i] = b ^ (s >> 24)
+    return bytes(out)
+
+
+def decode_demo(blob: bytes, key: str) -> bytes:
+    if not blob.startswith(DEMO_MAGIC):
+        raise BuildError('demo.bin does not start with the demo header')
+    return demo_xor(blob[len(DEMO_MAGIC):], key)
+
+
+def demo_of(root: Path, slug: str, entry: dict, data: dict):
+    """The game's playable demo as {'sha256', 'contains', 'milestone'}, or None for "Demo coming soon".
+    site.json "demo": null switches it off; otherwise game.json's demo must be published, decode to the
+    recorded sha256, and agree with site.json's."""
+    if 'demo' in entry and entry['demo'] is None:
+        return None
+    gd, sd = data.get('demo'), entry.get('demo')
+    if not gd:
+        if sd:
+            raise BuildError(f'site.json: {slug}: has a demo but games/{slug}/game.json has none '
+                             '(publish it with the zx-website skill)')
+        return None
+    if sd and str(sd.get('sha256', '')).lower() != str(gd.get('sha256', '')).lower():
+        raise BuildError(f'site.json: {slug}: demo sha256 {str(sd.get("sha256"))[:8]} differs from '
+                         f'games/{slug}/game.json {str(gd.get("sha256"))[:8]}')
+    f = Path(root) / 'games' / slug / DEMO_FILE
+    if gd.get('src') != DEMO_FILE or not f.is_file():
+        raise BuildError(f'games/{slug}/{DEMO_FILE} is missing')
+    tape = decode_demo(f.read_bytes(), demo_key(root))
+    if hashlib.sha256(tape).hexdigest() != str(gd.get('sha256', '')).lower():
+        raise BuildError(f'games/{slug}/{DEMO_FILE} does not decode to the recorded demo sha256')
+    return {'sha256': gd['sha256'], 'milestone': gd.get('milestone'),
+            'contains': (sd or {}).get('contains') or gd.get('contains') or ''}
+
+
+def check_no_price(slug: str, data: dict):
+    """Refuse a game whose shown text states a price; the zx-website skill cuts such sentences first."""
+    rev = data.get('review') or {}
+    texts = [data.get('title'), data.get('tagline'), data.get('blurb'), rev.get('verdict'), rev.get('award'),
+             (rev.get('quote') or {}).get('text'), ((data.get('_demo') or {}).get('contains'))]
+    texts += [s.get('caption') for s in (data.get('images') or {}).get('shots') or []]
+    for t in texts:
+        if t and PRICE_RE.search(str(t)):
+            raise BuildError(f'games/{slug}/game.json: text states a price ({t!r}); republish with the zx-website skill')
 
 
 # ------------------------------------------------------------------ page chrome
@@ -147,13 +230,12 @@ def cover_img(game, root_to_game, cls='', lazy=True, sizes=''):
 
 def card(game, root):
     g = f'{root}games/{game["slug"]}/'
-    price = f'<span>{e(game["price"])}</span>' if game.get('price') else ''
     return f'''<li class="card">
   <a class="card-link" href="{g}">
     <div class="card-art">{cover_img(game, g)}</div>
     <div class="card-body">
       <h3>{e(game["title"])}</h3>
-      <p class="meta"><span>{e(game["machine"])}</span>{price}</p>
+      <p class="meta"><span>{e(game["machine"])}</span><span>{NO_PRICE}</span>{'<span>Free demo</span>' if game['_demo'] else ''}</p>
       <p>{e(game.get("tagline", ""))}</p>
     </div>
   </a>
@@ -178,10 +260,10 @@ def home(site, games, featured):
     <p class="kicker">New release{(' · ' + e(nice_date(rel.get('date', '')))) if rel.get('date') else ''}</p>
     <h2 id="hero-title" class="hero-title">{e(featured["title"])}</h2>
     <p class="lede">{e(featured.get("tagline", ""))}</p>
-    <p class="meta"><span>{e(featured["machine"])}</span>{('<span>' + e(featured["price"]) + '</span>') if featured.get("price") else ''}</p>
+    <p class="meta"><span>{e(featured["machine"])}</span><span>{NO_PRICE}</span></p>
     {score_badge(featured)}
     {quote}
-    <p class="actions"><a class="button primary" href="{g}#play-now">Play it now</a> <a class="button" href="{g}">About the game</a></p>
+    <p class="actions">{(f'<a class="button primary" href="{g}#play-now">Play the demo</a> ') if featured['_demo'] else ''}<a class="button{'' if featured['_demo'] else ' primary'}" href="{g}">About the game</a></p>
   </div>
 </section>'''
     cards = '\n'.join(card(x, root) for x in games)
@@ -210,14 +292,14 @@ def games_index(site, games):
   <a class="row-art" href="{g}" tabindex="-1">{cover_img(x, g)}</a>
   <div>
     <h2><a href="{g}">{e(x["title"])}</a></h2>
-    <p class="meta"><span>{e(x["machine"])}</span>{('<span>' + e(x["price"]) + '</span>') if x.get("price") else ''}{('<span>Released ' + e(nice_date(rel.get("date"))) + '</span>') if rel.get("date") else ''}</p>
+    <p class="meta"><span>{e(x["machine"])}</span><span>{NO_PRICE}</span>{('<span>Released ' + e(nice_date(rel.get("date"))) + '</span>') if rel.get("date") else ''}</p>
     <p>{e(x.get("blurb", ""))}</p>
-    <p class="actions"><a class="button primary" href="{g}#play-now">Play</a> <a class="button" href="{g}{e(rel.get("tape", ""))}" download>Download the tape</a></p>
+    <p class="actions">{(f'<a class="button primary" href="{g}#play-now">Play the demo</a>') if x['_demo'] else '<span class="soon">Demo coming soon</span>'}</p>
   </div>
   {score_badge(x)}
 </li>''')
     body = f'''<h1>Games</h1>
-<p class="intro">Every Dalex release, playable in your browser or on a real Spectrum.</p>
+<p class="intro">Every Dalex release. Free demos play in your browser; more are on the way.</p>
 <ul class="rows">{''.join(rows)}</ul>'''
     return page(site, root=root, path='games/', title='Games', body=body, current='games',
                 description='All Dalex Software games for the ZX Spectrum.')
@@ -228,15 +310,13 @@ def game_page(site, game):
     imgs = game.get('images') or {}
     rel = game.get('release') or {}
     rev = game.get('review') or {}
+    demo = game['_demo']
     cover = imgs.get('cover')
     cover_style = (f' style="background-image:url(\'{e(cover["src"])}\')"' if cover else '')
     controls = ''.join(f'<div><dt>{"<kbd>" + e(k) + "</kbd>" if k else ""}</dt><dd>{e(v)}</dd></div>'
                        for k, v in game.get('controls') or [])
     shots = ''.join(f'''<figure><img class="px" src="{e(s["src"])}" width="{s["size"][0]}" height="{s["size"][1]}" alt="{e(s["alt"])}" loading="lazy">{('<figcaption>' + e(s["caption"]) + '</figcaption>') if s.get("caption") else ''}</figure>'''
                     for s in imgs.get('shots') or [])
-    art = ''.join(f'''<figure><a href="{e(imgs[k]["src"])}"><img src="{e(imgs[k]["src"])}" width="{imgs[k]["size"][0]}" height="{imgs[k]["size"][1]}" alt="{e(imgs[k]["alt"])}" loading="lazy"></a><figcaption>{label}</figcaption></figure>'''
-                  for k, label in (('inlay', 'Cassette inlay'), ('advert', 'Magazine advert'), ('poster', 'Poster'))
-                  if k in imgs)
     scores = rev.get('scores') or {}
     score_rows = ''.join(
         f'<tr><th scope="row">{label}</th><td><span class="bar" style="--pct:{int(scores[k])}%"></span></td>'
@@ -245,7 +325,6 @@ def game_page(site, game):
     q = rev.get('quote') or {}
     quote = (f'<blockquote><p>&ldquo;{e(q["text"])}&rdquo;</p><footer>{e(q.get("reviewer", ""))}</footer></blockquote>'
              if q.get('text') else '')
-    pdf = (f'<p><a class="button" href="{e(rev["pdf"])}">Read the full review (PDF)</a></p>' if rev.get('pdf') else '')
     award = f'<p class="award">{e(rev["award"])}</p>' if rev.get('award') else ''
     review = ''
     if rev.get('overall') is not None:
@@ -257,7 +336,6 @@ def game_page(site, game):
       {quote}
       {('<p class="verdict">' + e(rev["verdict"]) + '</p>') if rev.get("verdict") else ''}
       <table class="scores"><caption>Ratings</caption><tbody>{score_rows}</tbody></table>
-      {pdf}
     </div>
   </div>
 </section>'''
@@ -267,26 +345,20 @@ def game_page(site, game):
                 if igc else '')
     lic = ''.join(f'<li><a href="{e(x["src"])}">{e(x["name"])}</a></li>' for x in game.get('licenses') or [])
     lic_html = f'<p class="kicker">Licences</p><ul class="plain">{lic}</ul>' if lic else ''
-    size_k = f'{(rel.get("size") or 0) / 1024:.1f} KB'
     machine_n = int(game.get('jsspeccy_machine') or 128)
-    body = f'''<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Games</a> <span aria-hidden="true">/</span> <span aria-current="page">{e(game["title"])}</span></nav>
-<div class="title-row">
-  <div>
-    <h1>{e(game["title"])}</h1>
-    <p class="meta"><span>{e(game["machine"])}</span>{('<span>' + e(game["price"]) + '</span>') if game.get("price") else ''}{('<span>Released ' + e(nice_date(rel.get("date"))) + '</span>') if rel.get("date") else ''}</p>
-  </div>
-  {score_badge(game)}
-</div>
-<section id="play-now" class="player" aria-labelledby="play-h">
-  <h2 id="play-h" class="sr-only">Play {e(game["title"])}</h2>
+    contains = (f'<p class="demo-contains"><strong>The demo:</strong> {e(demo["contains"])}</p>'
+                if demo and demo.get('contains') else '')
+    if demo:
+        player = f'''<section id="play-now" class="player" aria-labelledby="play-h">
+  <h2 id="play-h" class="sr-only">Play the {e(game["title"])} demo</h2>
   <div class="screen">
-    <div id="emulator" tabindex="0" role="application" aria-label="{e(game["title"])} running on an emulated ZX Spectrum. Click here, then use the keys listed under Controls."
-      data-tap="{e(rel.get("tape", ""))}" data-machine="{machine_n}" data-title="{e(game["title"])}" data-jsspeccy="{root}jsspeccy/jsspeccy.js"></div>
+    <div id="emulator" tabindex="0" role="application" aria-label="The {e(game["title"])} demo running on an emulated ZX Spectrum. Click here, then use the keys listed under Controls."
+      data-demo="{DEMO_FILE}" data-machine="{machine_n}" data-title="{e(game["title"])}" data-jsspeccy="{root}jsspeccy/jsspeccy.js"></div>
     <div id="cover" class="cover"{cover_style}>
       <div class="cover-in">
         <p>{e(game.get("tagline", ""))}</p>
-        <button id="play" type="button" class="button primary big">&#9654; Play {e(game["title"])}</button>
-        <p class="small">Loads the tape in a {machine_n}K Spectrum, with sound. You will need a keyboard.</p>
+        <button id="play" type="button" class="button primary big">&#9654; Play the demo</button>
+        <p class="small">Free. Loads the demo in a {machine_n}K Spectrum, with sound. You will need a keyboard.</p>
       </div>
     </div>
   </div>
@@ -295,9 +367,35 @@ def game_page(site, game):
     <button id="fullscreen" type="button" class="button" disabled>Full screen</button>
     <button id="restart" type="button" class="button" disabled>Restart</button>
   </div>
-  <p id="status" role="status">Press Play to load the game. Nothing plays until you do.</p>
-  <noscript><p>The in-browser Spectrum needs JavaScript. You can still download the tape below.</p></noscript>
-</section>
+  {contains}
+  <p class="small">The demo is an earlier milestone build of the game, so it may differ from the finished tape.</p>
+  <p id="status" role="status">Press Play to load the demo. Nothing plays until you do.</p>
+  <noscript><p>The in-browser Spectrum needs JavaScript.</p></noscript>
+</section>'''
+        scripts = f'<script src="{root}assets/player.js" defer></script>\n'
+    else:
+        player = f'''<section id="play-now" class="player" aria-labelledby="play-h">
+  <h2 id="play-h" class="sr-only">{e(game["title"])} demo</h2>
+  <div class="screen">
+    <div class="cover"{cover_style}>
+      <div class="cover-in">
+        <p>{e(game.get("tagline", ""))}</p>
+        <p class="soon big">Demo coming soon</p>
+        <p class="small">A free demo to play in your browser is on its way. Meanwhile, see the screen shots and the review below.</p>
+      </div>
+    </div>
+  </div>
+</section>'''
+        scripts = ''
+    body = f'''<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Games</a> <span aria-hidden="true">/</span> <span aria-current="page">{e(game["title"])}</span></nav>
+<div class="title-row">
+  <div>
+    <h1>{e(game["title"])}</h1>
+    <p class="meta"><span>{e(game["machine"])}</span><span>{NO_PRICE}</span>{('<span>Released ' + e(nice_date(rel.get("date"))) + '</span>') if rel.get("date") else ''}</p>
+  </div>
+  {score_badge(game)}
+</div>
+{player}
 <div class="two-col">
   <section aria-labelledby="about-h">
     <h2 id="about-h">The game</h2>
@@ -313,16 +411,11 @@ def game_page(site, game):
   <div class="gallery">{shots}</div>
 </section>
 {review}
-<section aria-labelledby="art-h">
-  <h2 id="art-h">In the shops</h2>
-  <div class="art">{art}</div>
-</section>
 <div class="two-col">
   <section class="panel tape" aria-labelledby="tape-h">
     <h2 id="tape-h">The tape</h2>
-    <p><a class="button primary" href="{e(rel.get("tape", ""))}" download>Download {e(rel.get("tape", ""))}</a> <span class="small">{e(size_k)}</span></p>
-    <p>Load it in any Spectrum emulator in {machine_n}K mode, or on a real Spectrum from a tape or SD card, with <code>LOAD ""</code>.</p>
-    <p class="sha"><span class="kicker">SHA-256</span> <code id="tape-sha">{e(rel.get("sha256", ""))}</code></p>
+    <p>The full {e(game["title"])} tape for the {e(game["machine"])}: {NO_PRICE.lower()}.</p>
+    <p>{'Until then, the free demo above plays in your browser.' if demo else 'A free demo to play in your browser is coming soon.'}</p>
   </section>
   <section class="panel" aria-labelledby="credits-h">
     <h2 id="credits-h">Credits</h2>
@@ -334,7 +427,7 @@ def game_page(site, game):
     return page(site, root=root, path=f'games/{game["slug"]}/', title=game['title'], body=body,
                 current='games', description=f'{game["title"]} for the {game["machine"]}: '
                 + (game.get('tagline') or ''),
-                scripts=f'<script src="{root}assets/player.js" defer></script>\n')
+                scripts=scripts)
 
 
 def about(site, root_dir: Path):
@@ -451,7 +544,8 @@ def build(root: Path = ROOT, config: Path = None, out: Path = None) -> Path:
     for g in games:
         src = root / 'games' / g['slug']
         for f in sorted(src.rglob('*')):
-            if f.is_file() and f.name not in SKIP_GAME_FILES and not f.name.startswith('.'):
+            name = f.relative_to(src).as_posix()
+            if f.is_file() and (GAME_FILES.match(name) or (name == DEMO_FILE and g['_demo'])):
                 d = out / 'games' / g['slug'] / f.relative_to(src)
                 d.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(f, d)

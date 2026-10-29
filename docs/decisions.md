@@ -12,7 +12,8 @@ Ubuntu machines build it with any Python 3.11+.
 
 The brief allowed YAML or JSON. JSON keeps the build and the toolkit's publisher on the standard
 library and lets the publisher rewrite the file without losing anything. Fields per game: `slug`,
-`visible`, `order`, `featured`, optional `blurb` and `price_label`.
+`visible`, `order`, `featured`, optional `blurb` and `price_label`. (D-16 and D-19: `price_label` is gone and
+each game has a `demo` record.)
 
 ## D-03 Hidden means not deployed
 
@@ -35,6 +36,9 @@ pages' `player.js`) loads it only when Play is pressed, so nothing downloads or 
 then. The tape loads in 128K mode (48K for a 48K game) with JSSpeccy's tape traps.
 
 ## D-06 What each game page shows
+
+Superseded in part by D-16 to D-19: no tape, price, review PDF, inlay, advert or poster is shown, and the quote and
+verdict skip price sentences.
 
 - Tagline: the first sentence of the media kit's inlay blurb (`info.json`).
 - Release date: the kit's `built_at` date (`kit.json`), shown plainly.
@@ -137,3 +141,81 @@ take 6% (Malcolm and Brian 182, Mo 162); Percy is 64 px and Omnibot 112 px, size
 than at true scale. The page shows them at 2x with pixelated rendering, an integer scale that fits the narrowest
 card (192 px of at least 222), every card's figure box the same height so the feet share one floor line. Brian stands beside his INK & PAPER paragraph rather than in the staff grid,
 because he is not one of ours.
+
+## D-16 Free demo in the browser, no downloads (owner, 2026-10-29)
+
+The owner decided that visitors play a free demo of each game in the browser and that nothing is offered for
+download. Every game page loses its tape download, size and SHA-256 line; the games list loses "Download the tape";
+the home page intro and the About page no longer promise downloadable tapes. The full release tapes are no longer
+in this repository's tree (removed by an ordinary commit) and are never deployed; they stay only in each game's
+private repository. Old commits still contain them: rewriting history is out of scope and was raised with the
+owner separately.
+
+A paid route for the full tapes (a merchant-of-record store) was considered and is **deferred by the owner**:
+there is no buy button, store link or shop wording on the site. Where a price used to appear the site says "Price
+to be confirmed" (D-19).
+
+Each `site.json` game entry records its demo: `"demo": {"milestone", "sha256", "contains"}`, or `null` for no demo.
+`build.py` refuses a build where `site.json` and the published `game.json` disagree on the demo's sha256, or where
+`demo.bin` does not decode to it. A game with a demo shows "Play the demo", a line saying what the demo contains,
+and a note that the demo is an earlier milestone build. A game without one shows its cover with "Demo coming soon"
+and no play button and loads no player script. The build copies only the cover, screen shots, licences and
+`demo.bin` from a game folder, whatever else is there.
+
+## D-17 Which tape is each game's demo
+
+The demo is the earliest milestone tape that a milestone gate passed and that plays a sensible slice, never the
+release tape. Each was checked against its gate: the gate's recorded sha256 equals the tape in the game
+repository's `game/build/`. Gold Master's M1 is the model.
+
+| Game | Demo | sha256 | Contains | Why |
+| --- | --- | --- | --- | --- |
+| Gold Master | `gold-master-m1.tap` (M1) | `f63311eaed9b03a6d40de63d82d42e708a8f55150181cbd0ed787e37636c48b6` | Level 1 of 4: the Production room, from the Design Doc to the Gold Master | M1 is "Production only: level 1 from title to shipped"; gate passed with issues, 2026-10-29 |
+| Antigravity | `antigravity-m1.tap` (M1) | `ba0a928f44c78b472d97f0d5882193510469a75a816043aa40ca99cc5aeafc92` | Sector 1 of 10 | M1 is "Flight and escape", one sector of the release's ten; gate passed, 2026-10-20 |
+| WOLF | `wolf-m1.tap` (M1) | `f977ca08f76be13316a95f97976805e78999d7c523b93b665697c89045b74073` | January's session with Stevo | M1 is the session-1 vertical slice. Its first gate failed; a docs-only re-run under the game's ruling D-135 passed it with issues, so it qualifies, but the owner may prefer M2 |
+| Wordris | `wordris-m1.tap` (M1) | `b2152833b7ff0c8c6f15cdfcefcbb72caab3a3fbba5c404a18addc9706b14ec7` | The core game, without pause or high scores | M1 is "the whole core loop": the earliest gated tape, but close to the full game. The line says honestly what it lacks; set `demo: null` if that gives away too much |
+| Tiger Gorilla | none | | | Only M4, the release milestone, has a gate; M1 to M3 were built and verified but never gated |
+| Mower Mayhem | none | | | M1 and M2 were playtested but never gated; the earliest gate is M4, already the complete game, and M5 (the earliest gated tape still in `build/`) is complete too |
+
+The `zx-website` skill makes the same choice by default (D-20).
+
+## D-18 The demo is served obfuscated
+
+A plain `.tap` is never served. `games/<slug>/demo.bin` is the 8-byte header `DLXDEMO1` followed by the demo tape
+XORed with a keystream: xorshift32 (shifts 13, 17, 5) seeded with the 32-bit FNV-1a hash of `DEMO_KEY`, one key byte
+(the top byte of the state) per tape byte. `DEMO_KEY` lives once, in `static/assets/player.js`; `build.py`, the
+tests and the toolkit's `zx-website` skill read it from there. `player.js` fetches `demo.bin` only when Play is
+pressed, decodes it in memory, checks it starts like a tape (a 19-byte header block), and hands the bytes to
+JSSpeccy with `getFileOpener('demo.tap')`, so the decoded tape never has a URL. This is a cheap deterrent against
+casual copying, not protection: anyone who reads `player.js` can decode it. Changing the key means republishing
+every game.
+
+## D-19 No prices anywhere (owner, 2026-10-29)
+
+The owner: "The games should also not have prices anywhere at this point; it should be 'to be confirmed' or
+similar, on reviews etc."
+
+- Cards, the home page hero, the games list and game pages show "Price to be confirmed" where a price was.
+  `game.json` no longer has a `price`, and `site.json`'s `price_label` override is withdrawn.
+- Quotes skip any pull-quote that states or discusses a price and take the next one from the kit's
+  `quotes.json`, verbatim from the same review: Gold Master "Lovely value at £2.99" became "Worth a go" (Kev
+  Mallin); Wordris "this is a cracking cheapie" became "Clever, tidy and a touch unkind" (Mandy Pike).
+- Review text: sentences that state or discuss a price are cut whole, as an editorial cut; the reviewers' words
+  are never rewritten. Each of these verdicts is one sentence, so it is cut and only the score, the category bars
+  and the quote remain: Antigravity ("a budget flier"), Mower Mayhem ("a fine figure for the price"), Wordris
+  ("worth £1.99 of anyone's pocket money"). "Budget", "cheapie" and "value" talk count as discussing a price.
+- Review PDFs: every one prints a price (the PRICE box, and some the text), so none is linked or deployed.
+- The inlay (price on the back flap), advert (price strip) and poster (the poster shows "£2.99") are dropped, not
+  cropped: a crop that leaves no price would be the cover painting, which the page already shows. The "In the
+  shops" section is gone.
+- `build.py` refuses a game whose shown text states a price, and the tests check every built text file for a
+  currency amount (£, $, €, pence, quid, pounds, 99p, 3/6d) and that no tape, PDF or kit art is deployed.
+
+## D-20 The publisher publishes demos only
+
+The toolkit's `zx-website` skill (`publish_site.py`, zx-media-kit 0.15.1) writes only `demo.bin`, never a tape,
+review PDF, inlay, advert or poster, and applies D-19's rules. Its demo comes from `--demo` (a tape, a milestone or
+`none`), else this site's `site.json` record, else the earliest gated tape when that is the game's first
+milestone (a later milestone is often the complete game, so it needs an explicit `--demo`). It refuses a demo that
+has no passing gate, and refuses the release tape unless `--allow-full-demo` is given. All six games were
+republished with it on 2026-10-29.

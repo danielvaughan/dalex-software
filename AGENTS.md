@@ -8,6 +8,9 @@ deployed to <https://dalex-software.co.uk/> by GitHub Pages. Read [README.md](RE
 - **Game content is generated.** `games/<slug>/` is written by the `zx-website` skill in the
   toolkit (`spectrum-game-reference`, plugin `zx-media-kit`). Fix content in the game's own
   repository or media kit and publish again; never hand-edit a game folder.
+- **Demos only, no prices.** The site plays each game's obfuscated demo (`demo.bin`) and offers nothing
+  for download; full tapes never enter this repository, and no price appears anywhere ("Price to be
+  confirmed"). See decisions D-16 to D-20; the tests check it.
 - **Visibility lives in `site.json`.** Hidden games must never reach `_site/`; the tests check it.
 - **Standard library only.** `build.py` and the tests use Python 3 and nothing else, so CI needs no
   installs. Keep the build deterministic (no timestamps, sorted output).

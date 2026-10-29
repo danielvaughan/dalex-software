@@ -3,7 +3,7 @@
     "name": "Dalex Software",
     "base_url": "https://dalex-software.co.uk/",
     "description": "Dalex Software: new games for the ZX Spectrum, playable in your browser.",
-    "intro": "Games for the Sinclair ZX Spectrum from a small Manchester software house. Every one plays in your browser, and every tape is yours to download.",
+    "intro": "Games for the Sinclair ZX Spectrum from a small Manchester software house. Try the free demos in your browser.",
     "footer": "A Manchester games house, est. 1987. Dalex Software and INK & PAPER are fictional; the games are real."
   },
   "games": [
@@ -11,37 +11,59 @@
       "slug": "gold-master",
       "visible": true,
       "order": 1,
-      "featured": true
+      "featured": true,
+      "demo": {
+        "milestone": 1,
+        "sha256": "f63311eaed9b03a6d40de63d82d42e708a8f55150181cbd0ed787e37636c48b6",
+        "contains": "Level 1 of 4: the Production room, from the Design Doc to the Gold Master."
+      }
     },
     {
       "slug": "tiger-gorilla",
       "visible": true,
       "order": 2,
-      "featured": false
+      "featured": false,
+      "demo": null
     },
     {
       "slug": "antigravity",
       "visible": true,
       "order": 3,
-      "featured": false
+      "featured": false,
+      "demo": {
+        "milestone": 1,
+        "sha256": "ba0a928f44c78b472d97f0d5882193510469a75a816043aa40ca99cc5aeafc92",
+        "contains": "Sector 1 of 10: recover three cores and get out through the airlock."
+      }
     },
     {
       "slug": "wordris",
       "visible": true,
       "order": 4,
-      "featured": false
+      "featured": false,
+      "demo": {
+        "milestone": 1,
+        "sha256": "b2152833b7ff0c8c6f15cdfcefcbb72caab3a3fbba5c404a18addc9706b14ec7",
+        "contains": "The core game (falling letters, words, scoring and levels), without pause or high scores."
+      }
     },
     {
       "slug": "mower-mayhem",
       "visible": true,
       "order": 5,
-      "featured": false
+      "featured": false,
+      "demo": null
     },
     {
       "slug": "wolf",
       "visible": true,
       "order": 6,
-      "featured": false
+      "featured": false,
+      "demo": {
+        "milestone": 1,
+        "sha256": "f977ca08f76be13316a95f97976805e78999d7c523b93b665697c89045b74073",
+        "contains": "January's session with Stevo: the warm-up, the squat block and the sled."
+      }
     }
   ]
 }
