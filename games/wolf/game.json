@@ -6,7 +6,6 @@
   "jsspeccy_machine": 128,
   "tagline": "Dex is 49 and has joined the WOLF Pack for the first quarter of the year.",
   "blurb": "Dex is 49 and has joined the WOLF Pack for the first quarter of the year. Pump O and P, hit SPACE on the lamps and keep the red dots off the board, because three dots means 500 metres on the bike or ski machine in a minute and a half. Miss it, or sneak for the door, and it's a strap for two sessions!",
-  "price": "£7.95",
   "controls": [
     [
       "O / P",
@@ -42,12 +41,19 @@
     ]
   ],
   "release": {
-    "tape": "wolf.tap",
     "source_tape": "wolf-m5.tap",
     "sha256": "ca8ca9c6c11f66259bf33583f2153e0c5b05c22fc503cb150e144987473361ca",
     "size": 41125,
     "milestone": 5,
     "date": "2026-10-20"
+  },
+  "demo": {
+    "src": "demo.bin",
+    "sha256": "f977ca08f76be13316a95f97976805e78999d7c523b93b665697c89045b74073",
+    "size": 60624,
+    "milestone": 1,
+    "source_tape": "wolf-m1.tap",
+    "contains": "January's session with Stevo: the warm-up, the squat block and the sled."
   },
   "review": {
     "magazine": "INK & PAPER",
@@ -65,8 +71,7 @@
     "quote": {
       "text": "Three dots and up comes the card: FINISHER TIME",
       "reviewer": "Mick Dunsby"
-    },
-    "pdf": "review.pdf"
+    }
   },
   "credits": [
     {
@@ -126,31 +131,7 @@
         "caption": "Weight up to 45 kilos at the pull-down. Dex looks thrilled",
         "alt": "WOLF screenshot: Weight up to 45 kilos at the pull-down. Dex looks thrilled"
       }
-    ],
-    "inlay": {
-      "src": "inlay.jpg",
-      "size": [
-        1600,
-        1031
-      ],
-      "alt": "WOLF cassette inlay"
-    },
-    "advert": {
-      "src": "advert.jpg",
-      "size": [
-        1131,
-        1600
-      ],
-      "alt": "WOLF magazine advert"
-    },
-    "poster": {
-      "src": "poster.jpg",
-      "size": [
-        1067,
-        1600
-      ],
-      "alt": "WOLF poster"
-    }
+    ]
   },
   "source": {
     "repo": "danielvaughan/zx-wolf",
