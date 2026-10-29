@@ -12,6 +12,12 @@
       "visible": true,
       "order": 1,
       "featured": false
+    },
+    {
+      "slug": "tiger-gorilla",
+      "visible": true,
+      "order": 2,
+      "featured": false
     }
   ]
 }

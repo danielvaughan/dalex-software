@@ -1,0 +1,168 @@
+{
+  "schema": "dalex-site-game/1",
+  "slug": "tiger-gorilla",
+  "title": "Tiger Gorilla",
+  "machine": "ZX Spectrum 128K",
+  "jsspeccy_machine": 128,
+  "tagline": "Swing through the treetops as the stripiest gorilla in the jungle, grabbing parrots to feed the hungry babies back at the nest.",
+  "blurb": "Swing through the treetops as the stripiest gorilla in the jungle, grabbing parrots to feed the hungry babies back at the nest. Chilli-powered boosts, a vanishing trick, nosy photographers, snappy crocs and camera drones stand between you and a family safe at last. Twelve wrap-round jungle levels in three zones, with 128K music.",
+  "price": "£1.99",
+  "controls": [
+    [
+      "O",
+      "Left"
+    ],
+    [
+      "P",
+      "Right"
+    ],
+    [
+      "SPACE",
+      "Let go / start"
+    ],
+    [
+      "A",
+      "Drop (hold)"
+    ],
+    [
+      "Q",
+      "Boost up"
+    ],
+    [
+      "W",
+      "Dash"
+    ],
+    [
+      "S",
+      "Invisibility on/off"
+    ],
+    [
+      "H",
+      "Pause"
+    ],
+    [
+      "M",
+      "Music on/off"
+    ],
+    [
+      "Z",
+      "Starting zone (title)"
+    ]
+  ],
+  "release": {
+    "tape": "tiger-gorilla.tap",
+    "source_tape": "tiger-gorilla-m4.tap",
+    "sha256": "9a9a0317eca07e7deb9ee05f0b39ccef7459b6391bb3b74e8bdf651422445f31",
+    "size": 37483,
+    "milestone": 4,
+    "date": "2026-10-26"
+  },
+  "review": {
+    "magazine": "INK & PAPER",
+    "overall": 70,
+    "scores": {
+      "presentation": 76,
+      "graphics": 64,
+      "sound": 68,
+      "playability": 72,
+      "addictive_qualities": 72,
+      "overall": 70
+    },
+    "award": null,
+    "verdict": "A swinging good time, even if the colours go bananas now and then.",
+    "quote": {
+      "text": "Bright, cheerful jungle, a lovely title page and a soppy ending",
+      "reviewer": "CLIVE BURRAGE"
+    },
+    "pdf": "review.pdf"
+  },
+  "credits": [
+    {
+      "role": "Published by",
+      "name": "Dalex Software"
+    },
+    {
+      "role": "Reviewed by",
+      "name": "GAZ PICKERING, MANDY ROWE and CLIVE BURRAGE for INK & PAPER"
+    }
+  ],
+  "in_game_credits": [],
+  "licenses": [],
+  "images": {
+    "cover": {
+      "src": "cover.jpg",
+      "size": [
+        896,
+        1200
+      ],
+      "alt": "Tiger Gorilla cover painting"
+    },
+    "shots": [
+      {
+        "src": "shots/shot-1.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Our hero grins from the title page. Wouldn't you, with a bottom like that?",
+        "alt": "Tiger Gorilla screenshot: Our hero grins from the title page. Wouldn't you, with a bottom like that?"
+      },
+      {
+        "src": "shots/shot-2.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Hanging on by one paw while a croc dozes in the river below.",
+        "alt": "Tiger Gorilla screenshot: Hanging on by one paw while a croc dozes in the river below."
+      },
+      {
+        "src": "shots/shot-3.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Spotted from above! A drone's beam pins him to the bough as a photographer twigs it.",
+        "alt": "Tiger Gorilla screenshot: Spotted from above! A drone's beam pins him to the bough as a photographer twigs it."
+      },
+      {
+        "src": "shots/shot-4.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "The family is safe and nobody saw a thing. Aaah.",
+        "alt": "Tiger Gorilla screenshot: The family is safe and nobody saw a thing. Aaah."
+      }
+    ],
+    "inlay": {
+      "src": "inlay.jpg",
+      "size": [
+        1600,
+        1031
+      ],
+      "alt": "Tiger Gorilla cassette inlay"
+    },
+    "advert": {
+      "src": "advert.jpg",
+      "size": [
+        1131,
+        1600
+      ],
+      "alt": "Tiger Gorilla magazine advert"
+    },
+    "poster": {
+      "src": "poster.jpg",
+      "size": [
+        1067,
+        1600
+      ],
+      "alt": "Tiger Gorilla poster"
+    }
+  },
+  "source": {
+    "repo": "danielvaughan/zx-tiger-gorilla",
+    "commit": "56d09e259b44b3ec45dbd5d51c93c1d86df303aa",
+    "kit": "game/media-kit/m4"
+  }
+}
