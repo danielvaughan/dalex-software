@@ -97,3 +97,12 @@ games and saw JSSpeccy load the tape to its title screen. Screenshots of that li
 [screenshots/](screenshots/). Then the Pages custom domain was set to `dalex-software.co.uk`, so
 the old project address now redirects to the new domain, which serves nothing until the owner adds
 the records in [DNS.md](DNS.md).
+
+## D-13 Staff portraits on the About page
+
+The owner asked for a picture of each person. They are the Dalex Studio's own cast pixels, so the site and the
+Studio show the same people. `tools/portraits.py` renders each person's front-facing talking pose (the Studio's
+tour frames), Percy sitting and Omnibot's close-up from the Studio's packed art and palette, keeping only the
+figure's largest shape and cropping to it. The PNGs are committed under `static/assets/people/`, so the site build
+stays standard-library only; rerun the tool with the Studio's Python when the cast art changes. Portraits are
+shown at native scale on a shared floor line, so relative heights hold (Percy is small because he is a cat).
