@@ -6,5 +6,12 @@
     "intro": "Games for the Sinclair ZX Spectrum from a small Manchester software house. Every one plays in your browser, and every tape is yours to download.",
     "footer": "A Manchester games house, est. 1987. Dalex Software and INK & PAPER are fictional; the games are real."
   },
-  "games": []
+  "games": [
+    {
+      "slug": "gold-master",
+      "visible": true,
+      "order": 1,
+      "featured": false
+    }
+  ]
 }
