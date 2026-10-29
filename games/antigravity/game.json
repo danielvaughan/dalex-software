@@ -45,11 +45,11 @@
   },
   "demo": {
     "src": "demo.bin",
-    "sha256": "cb2aaaaa78302e2c25ebc2b2267617bc1f051e67f0629ff3ee469d1675f95d83",
-    "size": 7311,
-    "milestone": 2,
-    "source_tape": "antigravity-m2.tap",
-    "contains": "Sectors 1 to 3 of 10: Storage Bay Alpha, the Coolant Concourse and the Command Spire."
+    "sha256": "d759f88211f6c4afe88a30ca45b6ea5c34c7891cee192f509d8c3556dafe801b",
+    "size": 14333,
+    "milestone": null,
+    "source_tape": "antigravity-demo.tap",
+    "contains": "Level 1 demo: Sector 01 of 10"
   },
   "review": {
     "magazine": "INK & PAPER",
@@ -135,7 +135,7 @@
   },
   "source": {
     "repo": "danielvaughan/zx-antigravity",
-    "commit": "af8a96f7062883c315ca0d8b2285c1c6f0aadaaa",
+    "commit": "299f761244d012a5c3b01abc2f1ebb40071d9b25",
     "kit": "game/media-kit/m4"
   }
 }

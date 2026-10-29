@@ -94,9 +94,10 @@
       "order": 3,
       "featured": false,
       "demo": {
-        "milestone": 2,
-        "sha256": "cb2aaaaa78302e2c25ebc2b2267617bc1f051e67f0629ff3ee469d1675f95d83",
-        "contains": "Sectors 1 to 3 of 10: Storage Bay Alpha, the Coolant Concourse and the Command Spire."
+        "milestone": null,
+        "sha256": "d759f88211f6c4afe88a30ca45b6ea5c34c7891cee192f509d8c3556dafe801b",
+        "contains": "Level 1 demo: Sector 01 of 10",
+        "source_tape": "antigravity-demo.tap"
       },
       "touch": {
         "dpad": {
