@@ -1,0 +1,160 @@
+{
+  "schema": "dalex-site-game/1",
+  "slug": "antigravity",
+  "title": "Antigravity",
+  "machine": "ZX Spectrum 128K",
+  "jsspeccy_machine": 128,
+  "tagline": "Gravity has turned upside down aboard the Helios-7 space station!",
+  "blurb": "Gravity has turned upside down aboard the Helios-7 space station! Feather your down-thrust, brake hard and grab three power cores in every bay before the oxygen runs out. Ten sectors across three decks, sweeping lasers, sentry drones and an S, A, B or C rank for every bay.",
+  "price": "£1.99",
+  "controls": [
+    [
+      "S / A",
+      "Down-thrust"
+    ],
+    [
+      "O",
+      "Thrust left"
+    ],
+    [
+      "P",
+      "Thrust right"
+    ],
+    [
+      "SPACE",
+      "Brake / Start"
+    ],
+    [
+      "H",
+      "Pause"
+    ],
+    [
+      "R",
+      "Retry"
+    ],
+    [
+      "M",
+      "Music on/off"
+    ]
+  ],
+  "release": {
+    "tape": "antigravity.tap",
+    "source_tape": "antigravity-m4.tap",
+    "sha256": "36deccc378e4e1b04726ce5e4ff17a37ac38a288dccdf93ccf4f104abe421a5a",
+    "size": 14495,
+    "milestone": 4,
+    "date": "2026-10-26"
+  },
+  "review": {
+    "magazine": "INK & PAPER",
+    "overall": 74,
+    "scores": {
+      "presentation": 77,
+      "graphics": 69,
+      "sound": 70,
+      "playability": 76,
+      "addictive_qualities": 72,
+      "overall": 74
+    },
+    "award": null,
+    "verdict": "Falling upwards has never been so much fun: a budget flier with plenty of lift, despite a couple of rough edges.",
+    "quote": {
+      "text": "Neat and honest, if a bit plain",
+      "reviewer": "GRIFF"
+    },
+    "pdf": "review.pdf"
+  },
+  "credits": [
+    {
+      "role": "Published by",
+      "name": "Dalex Software"
+    },
+    {
+      "role": "Design",
+      "name": "Dalex Software, game specification 1.0"
+    },
+    {
+      "role": "Reviewed by",
+      "name": "ZAK, PRU and GRIFF for INK & PAPER"
+    }
+  ],
+  "in_game_credits": [],
+  "licenses": [],
+  "images": {
+    "cover": {
+      "src": "cover.jpg",
+      "size": [
+        896,
+        1200
+      ],
+      "alt": "Antigravity cover painting"
+    },
+    "shots": [
+      {
+        "src": "shots/shot-1.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Sector 10: three pillars, one laser and a drone in a hurry. Good luck.",
+        "alt": "Antigravity screenshot: Sector 10: three pillars, one laser and a drone in a hurry. Good luck."
+      },
+      {
+        "src": "shots/shot-2.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Three cores in, hatch gone green, and an S rank to show for it.",
+        "alt": "Antigravity screenshot: Three cores in, hatch gone green, and an S rank to show for it."
+      },
+      {
+        "src": "shots/shot-3.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "The tally at the end lists every sector's score and grade. Frame it.",
+        "alt": "Antigravity screenshot: The tally at the end lists every sector's score and grade. Frame it."
+      },
+      {
+        "src": "shots/shot-4.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "The title page spells out every key, so no excuses.",
+        "alt": "Antigravity screenshot: The title page spells out every key, so no excuses."
+      }
+    ],
+    "inlay": {
+      "src": "inlay.jpg",
+      "size": [
+        1600,
+        1031
+      ],
+      "alt": "Antigravity cassette inlay"
+    },
+    "advert": {
+      "src": "advert.jpg",
+      "size": [
+        1131,
+        1600
+      ],
+      "alt": "Antigravity magazine advert"
+    },
+    "poster": {
+      "src": "poster.jpg",
+      "size": [
+        1067,
+        1600
+      ],
+      "alt": "Antigravity poster"
+    }
+  },
+  "source": {
+    "repo": "danielvaughan/zx-antigravity",
+    "commit": "af8a96f7062883c315ca0d8b2285c1c6f0aadaaa",
+    "kit": "game/media-kit/m4"
+  }
+}

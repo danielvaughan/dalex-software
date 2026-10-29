@@ -18,6 +18,12 @@
       "visible": true,
       "order": 2,
       "featured": false
+    },
+    {
+      "slug": "antigravity",
+      "visible": true,
+      "order": 3,
+      "featured": false
     }
   ]
 }
