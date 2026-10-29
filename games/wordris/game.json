@@ -1,0 +1,178 @@
+{
+  "schema": "dalex-site-game/1",
+  "slug": "wordris",
+  "title": "Wordris",
+  "machine": "ZX Spectrum 128K",
+  "jsspeccy_machine": 128,
+  "tagline": "Letters tumble one at a time into a narrow well.",
+  "blurb": "Letters tumble one at a time into a narrow well. Steer each one home and spell a three- or four-letter word across or down to score it and clear it, with triple-letter, double-letter and double-word squares to aim for. Letters drop after every word and may spell another for a cascade, and every thirty letters the pace quickens.",
+  "price": "£1.99",
+  "controls": [
+    [
+      "O",
+      "Left"
+    ],
+    [
+      "P",
+      "Right"
+    ],
+    [
+      "A",
+      "Soft drop"
+    ],
+    [
+      "SPACE",
+      "Hard drop / start"
+    ],
+    [
+      "H",
+      "Pause / resume"
+    ],
+    [
+      "R",
+      "Restart (in pause or at game over)"
+    ],
+    [
+      "M",
+      "Music on/off"
+    ],
+    [
+      "E",
+      "Effects on/off"
+    ]
+  ],
+  "release": {
+    "tape": "wordris.tap",
+    "source_tape": "wordris-m3.tap",
+    "sha256": "ccdf44ed979e4c94313ac67ddffcb3458149cb3bebbcc467752e060c05583892",
+    "size": 20794,
+    "milestone": 3,
+    "date": "2026-10-26"
+  },
+  "review": {
+    "magazine": "INK & PAPER",
+    "overall": 67,
+    "scores": {
+      "presentation": 72,
+      "graphics": 70,
+      "sound": 66,
+      "playability": 70,
+      "addictive_qualities": 62,
+      "overall": 67
+    },
+    "award": null,
+    "verdict": "A neat little spell-binder for ten minutes at a time; the dead letters and samey levels stop it being a corker, but it's worth £1.99 of anyone's pocket money.",
+    "quote": {
+      "text": "this is a cracking cheapie",
+      "reviewer": "Kev Driscoll"
+    },
+    "pdf": "review.pdf"
+  },
+  "credits": [
+    {
+      "role": "Published by",
+      "name": "Dalex Software"
+    },
+    {
+      "role": "Design",
+      "name": "Dalex Software, game specification 0.6"
+    },
+    {
+      "role": "Reviewed by",
+      "name": "Kev Driscoll, Mandy Pike and Stan Hollis for INK & PAPER"
+    }
+  ],
+  "in_game_credits": [
+    "WORDS: LETTERPRESS ENGLISH",
+    "LIST BY LOREN BRICHTER",
+    "LICENCE CC0-1.0",
+    "REVISION F4976D6",
+    "6839 WORDS, SHA-256:",
+    "4F3824269F59A0773B7AEE77ED17",
+    "489F27ABECB8556FE6A40EA32AAF",
+    "0DDEED9B"
+  ],
+  "licenses": [
+    {
+      "src": "licenses/letterpress-CC0.txt",
+      "name": "letterpress-CC0.txt"
+    }
+  ],
+  "images": {
+    "cover": {
+      "src": "cover.jpg",
+      "size": [
+        848,
+        1264
+      ],
+      "alt": "Wordris cover painting"
+    },
+    "shots": [
+      {
+        "src": "shots/shot-1.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Cubes tumble down the shaft while the owl looks on. Time for a cuppa while it loads.",
+        "alt": "Wordris screenshot: Cubes tumble down the shaft while the owl looks on. Time for a cuppa while it loads."
+      },
+      {
+        "src": "shots/shot-2.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "NOTE goes down the side for 32 points. Kev made a note of it, loudly.",
+        "alt": "Wordris screenshot: NOTE goes down the side for 32 points. Kev made a note of it, loudly."
+      },
+      {
+        "src": "shots/shot-3.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Cascade! APE drops into place for six more. Monkey business, but rare monkey business.",
+        "alt": "Wordris screenshot: Cascade! APE drops into place for six more. Monkey business, but rare monkey business."
+      },
+      {
+        "src": "shots/shot-4.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Game over at 17 points, but it's a new high score. Stan says it still counts.",
+        "alt": "Wordris screenshot: Game over at 17 points, but it's a new high score. Stan says it still counts."
+      }
+    ],
+    "inlay": {
+      "src": "inlay.jpg",
+      "size": [
+        1600,
+        1031
+      ],
+      "alt": "Wordris cassette inlay"
+    },
+    "advert": {
+      "src": "advert.jpg",
+      "size": [
+        1131,
+        1600
+      ],
+      "alt": "Wordris magazine advert"
+    },
+    "poster": {
+      "src": "poster.jpg",
+      "size": [
+        1067,
+        1600
+      ],
+      "alt": "Wordris poster"
+    }
+  },
+  "source": {
+    "repo": "danielvaughan/zx-wordris",
+    "commit": "c18f652520cf02e62ae1bf576c0719e967051d6b",
+    "kit": "game/media-kit/m3"
+  }
+}

@@ -24,6 +24,12 @@
       "visible": true,
       "order": 3,
       "featured": false
+    },
+    {
+      "slug": "wordris",
+      "visible": true,
+      "order": 4,
+      "featured": false
     }
   ]
 }
