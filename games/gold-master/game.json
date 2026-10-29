@@ -41,11 +41,11 @@
   },
   "demo": {
     "src": "demo.bin",
-    "sha256": "f63311eaed9b03a6d40de63d82d42e708a8f55150181cbd0ed787e37636c48b6",
-    "size": 23055,
-    "milestone": 1,
-    "source_tape": "gold-master-m1.tap",
-    "contains": "Level 1 of 4: the Production room, from the Design Doc to the Gold Master."
+    "sha256": "15c5bda22e00e209a72594b803361242171c23236de39632530165afd8e93bbc",
+    "size": 34602,
+    "milestone": null,
+    "source_tape": "gold-master-demo.tap",
+    "contains": "Level 1 demo: Captain Crumpet, level 1 of 4"
   },
   "review": {
     "magazine": "INK & PAPER",
@@ -131,7 +131,7 @@
   },
   "source": {
     "repo": "danielvaughan/zx-gold-master",
-    "commit": "d04868488c0d572fe87c160998250ebe75ab14a9",
+    "commit": "38bd49fec0fef030fabc5139cd9ef20ea9a3bd54",
     "kit": "game/media-kit/m4"
   }
 }
