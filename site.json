@@ -1,0 +1,10 @@
+{
+  "site": {
+    "name": "Dalex Software",
+    "base_url": "https://dalex-software.co.uk/",
+    "description": "Dalex Software: new games for the ZX Spectrum, playable in your browser.",
+    "intro": "Games for the Sinclair ZX Spectrum from a small Manchester software house. Every one plays in your browser, and every tape is yours to download.",
+    "footer": "A Manchester games house, est. 1987. Dalex Software and INK & PAPER are fictional; the games are real."
+  },
+  "games": []
+}

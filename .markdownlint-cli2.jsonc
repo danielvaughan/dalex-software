@@ -1,0 +1,4 @@
+{
+  // Vendored third-party files keep their own formatting.
+  "ignores": [".git/**", "_site/**", "static/jsspeccy/**", "**/.venv/**"]
+}
