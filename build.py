@@ -70,7 +70,7 @@ def load(root: Path, config: Path):
             data['blurb'] = g['blurb']
         data.pop('price', None)                      # prices are never shown (D-19)
         data['_demo'] = demo_of(root, slug, g, data)
-        data['_touch'] = touch_of(slug, g, data) if data['_demo'] else None
+        data['_touch'] = touch_of(slug, g, data)    # checked now, shown only with a demo
         data['_entry'] = g
         if g['visible']:
             check_no_price(slug, data)
