@@ -51,7 +51,14 @@
     "milestone": 6,
     "date": "2026-10-20"
   },
-  "demo": null,
+  "demo": {
+    "src": "demo.bin",
+    "sha256": "d49ff5b8b13eaa6253df2b55dc1130c93ba22ee237356ed95b910c5eb73906ee",
+    "size": 21646,
+    "milestone": null,
+    "source_tape": "mower-mayhem-demo.tap",
+    "contains": "Level 1 demo: Lawn 1 of 10"
+  },
   "review": {
     "magazine": "INK & PAPER",
     "overall": 71,
@@ -136,7 +143,7 @@
   },
   "source": {
     "repo": "danielvaughan/zx-mower-mayhem",
-    "commit": "56cc8a69fb363f94d83ad47142e4f486118bb9ee",
+    "commit": "619ad767e41bd2d7bc1c27c4a9f48d4aebd6817c",
     "kit": "game/media-kit/m6"
   }
 }
