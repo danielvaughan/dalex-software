@@ -131,9 +131,10 @@
       "order": 4,
       "featured": false,
       "demo": {
-        "milestone": 1,
-        "sha256": "b2152833b7ff0c8c6f15cdfcefcbb72caab3a3fbba5c404a18addc9706b14ec7",
-        "contains": "The core game from an early build: falling letters, words, scoring and levels."
+        "milestone": null,
+        "sha256": "6cdcf48a96fd93c34fd141a6386c847c05e31024c258393eb3766cf8da69d682",
+        "contains": "Level 1 demo: the first 30 letters, at the opening speed",
+        "source_tape": "wordris-demo.tap"
       },
       "touch": {
         "dpad": {
