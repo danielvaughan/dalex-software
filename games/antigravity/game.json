@@ -6,7 +6,6 @@
   "jsspeccy_machine": 128,
   "tagline": "Gravity has turned upside down aboard the Helios-7 space station!",
   "blurb": "Gravity has turned upside down aboard the Helios-7 space station! Feather your down-thrust, brake hard and grab three power cores in every bay before the oxygen runs out. Ten sectors across three decks, sweeping lasers, sentry drones and an S, A, B or C rank for every bay.",
-  "price": "£1.99",
   "controls": [
     [
       "S / A",
@@ -38,12 +37,19 @@
     ]
   ],
   "release": {
-    "tape": "antigravity.tap",
     "source_tape": "antigravity-m4.tap",
     "sha256": "36deccc378e4e1b04726ce5e4ff17a37ac38a288dccdf93ccf4f104abe421a5a",
     "size": 14495,
     "milestone": 4,
     "date": "2026-10-26"
+  },
+  "demo": {
+    "src": "demo.bin",
+    "sha256": "ba0a928f44c78b472d97f0d5882193510469a75a816043aa40ca99cc5aeafc92",
+    "size": 6863,
+    "milestone": 1,
+    "source_tape": "antigravity-m1.tap",
+    "contains": "Sector 1 of 10: recover three cores and get out through the airlock."
   },
   "review": {
     "magazine": "INK & PAPER",
@@ -57,12 +63,11 @@
       "overall": 74
     },
     "award": null,
-    "verdict": "Falling upwards has never been so much fun: a budget flier with plenty of lift, despite a couple of rough edges.",
+    "verdict": "",
     "quote": {
       "text": "Neat and honest, if a bit plain",
       "reviewer": "GRIFF"
-    },
-    "pdf": "review.pdf"
+    }
   },
   "credits": [
     {
@@ -126,31 +131,7 @@
         "caption": "The title page spells out every key, so no excuses.",
         "alt": "Antigravity screenshot: The title page spells out every key, so no excuses."
       }
-    ],
-    "inlay": {
-      "src": "inlay.jpg",
-      "size": [
-        1600,
-        1031
-      ],
-      "alt": "Antigravity cassette inlay"
-    },
-    "advert": {
-      "src": "advert.jpg",
-      "size": [
-        1131,
-        1600
-      ],
-      "alt": "Antigravity magazine advert"
-    },
-    "poster": {
-      "src": "poster.jpg",
-      "size": [
-        1067,
-        1600
-      ],
-      "alt": "Antigravity poster"
-    }
+    ]
   },
   "source": {
     "repo": "danielvaughan/zx-antigravity",
