@@ -171,13 +171,13 @@ repository's `game/build/`. Gold Master's M1 is the model.
 | Game | Demo | sha256 | Contains | Why |
 | --- | --- | --- | --- | --- |
 | Gold Master | `gold-master-m1.tap` (M1) | `f63311eaed9b03a6d40de63d82d42e708a8f55150181cbd0ed787e37636c48b6` | Level 1 of 4: the Production room, from the Design Doc to the Gold Master | M1 is "Production only: level 1 from title to shipped"; gate passed with issues, 2026-10-29 |
-| Antigravity | `antigravity-m1.tap` (M1) | `ba0a928f44c78b472d97f0d5882193510469a75a816043aa40ca99cc5aeafc92` | Sector 1 of 10 | M1 is "Flight and escape", one sector of the release's ten; gate passed, 2026-10-20 |
+| Antigravity | `antigravity-m2.tap` (M2) | `cb2aaaaa78302e2c25ebc2b2267617bc1f051e67f0629ff3ee469d1675f95d83` | Sectors 1 to 3 of 10 | M1 (`ba0a928f…`, one sector, gate passed) would be the earliest, but its title screen prints its text scrambled (the game's own M1 verify screenshot shows the same), so the first thing a visitor saw would be a fault. M2, "Moving threats and mission", has a clean title and three of the release's ten sectors; gate passed, 2026-10-21 |
 | WOLF | `wolf-m1.tap` (M1) | `f977ca08f76be13316a95f97976805e78999d7c523b93b665697c89045b74073` | January's session with Stevo | M1 is the session-1 vertical slice. Its first gate failed; a docs-only re-run under the game's ruling D-135 passed it with issues, so it qualifies, but the owner may prefer M2 |
-| Wordris | `wordris-m1.tap` (M1) | `b2152833b7ff0c8c6f15cdfcefcbb72caab3a3fbba5c404a18addc9706b14ec7` | The core game, without pause or high scores | M1 is "the whole core loop": the earliest gated tape, but close to the full game. The line says honestly what it lacks; set `demo: null` if that gives away too much |
+| Wordris | `wordris-m1.tap` (M1) | `b2152833b7ff0c8c6f15cdfcefcbb72caab3a3fbba5c404a18addc9706b14ec7` | The core game from an early build | M1 is "the whole core loop": the earliest gated tape, but close to the full game (M2 and M3 added the pause and high-score sessions, the title pages and polish). Set `demo: null` if that gives away too much |
 | Tiger Gorilla | none | | | Only M4, the release milestone, has a gate; M1 to M3 were built and verified but never gated |
 | Mower Mayhem | none | | | M1 and M2 were playtested but never gated; the earliest gate is M4, already the complete game, and M5 (the earliest gated tape still in `build/`) is complete too |
 
-The `zx-website` skill makes the same choice by default (D-20).
+The `zx-website` skill's default picks each game's gated M1 (D-20); Antigravity's M2 was chosen with `--demo 2` after the headless check showed M1's title.
 
 ## D-18 The demo is served obfuscated
 

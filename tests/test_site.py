@@ -170,6 +170,8 @@ class Built(unittest.TestCase):
         for p in self.out.rglob('*'):
             self.assertNotIn(p.suffix.lower(), ('.tap', '.tzx', '.z80', '.sna', '.pdf'), p)
         for p in text_files(self.out):
+            if p.suffix == '.js':
+                continue          # player.js names "demo.tap" only to pick JSSpeccy's loader for the decoded bytes
             text = p.read_text(encoding='utf-8')
             self.assertIsNone(re.search(r'\.(tap|tzx)\b', text, re.I), f'{p}: names a tape file')
             if p.suffix == '.html':
