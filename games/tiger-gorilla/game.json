@@ -55,7 +55,14 @@
     "milestone": 4,
     "date": "2026-10-26"
   },
-  "demo": null,
+  "demo": {
+    "src": "demo.bin",
+    "sha256": "e748e8affd102a9b9ede4ba9fa9628af589fb99603e96649432147441f6cf174",
+    "size": 37471,
+    "milestone": null,
+    "source_tape": "tiger-gorilla-demo.tap",
+    "contains": "Level 1 demo: Zone 1, level 1 of 12"
+  },
   "review": {
     "magazine": "INK & PAPER",
     "overall": 70,
@@ -136,7 +143,7 @@
   },
   "source": {
     "repo": "danielvaughan/zx-tiger-gorilla",
-    "commit": "56d09e259b44b3ec45dbd5d51c93c1d86df303aa",
+    "commit": "7c2108f3906a464a16e9cc9c4bf302a68782d5a0",
     "kit": "game/media-kit/m4"
   }
 }

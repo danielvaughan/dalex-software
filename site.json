@@ -51,7 +51,12 @@
       "visible": true,
       "order": 2,
       "featured": false,
-      "demo": null,
+      "demo": {
+        "milestone": null,
+        "sha256": "e748e8affd102a9b9ede4ba9fa9628af589fb99603e96649432147441f6cf174",
+        "contains": "Level 1 demo: Zone 1, level 1 of 12",
+        "source_tape": "tiger-gorilla-demo.tap"
+      },
       "touch": {
         "dpad": {
           "up": "Q",
