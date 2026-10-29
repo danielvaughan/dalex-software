@@ -302,3 +302,28 @@ rule that a demo is a gated milestone tape.
     describe.
 
   None was published.
+
+## D-24 The six single-level demo builds replace the milestone tapes (2026-10-29)
+
+D-23's demo builds have arrived, and all six games now play their own `game/build/<slug>-demo.tap` instead of a
+milestone tape. Each was published with the `zx-website` skill (zx-media-kit 0.16.0) and an explicit `--demo-note`,
+and each `demo.bin` decodes to the sha256 below.
+
+| Game | Demo tape sha256 | Page note | Replaces |
+| --- | --- | --- | --- |
+| Gold Master | `15c5bda2…` | Level 1 demo: Captain Crumpet, level 1 of 4 | M1 `f63311ea…` |
+| Tiger Gorilla | `e748e8af…` | Level 1 demo: Zone 1, level 1 of 12 | no demo |
+| Antigravity | `d759f882…` | Level 1 demo: Sector 01 of 10 | M2 `cb2aaaaa…` (sectors 1 to 3) |
+| Wordris | `6cdcf48a…` | Level 1 demo: the first 30 letters, at the opening speed | M1 `b2152833…` |
+| Mower Mayhem | `d49ff5b8…` | Level 1 demo: Lawn 1 of 10 | no demo |
+| WOLF | `b622fe58…` | Level 1 demo: January with Stevo | M1 `f977ca08…` |
+
+- **Tiger Gorilla and Mower Mayhem** no longer say "Demo coming soon".
+- **Release records unchanged**: the kits for Gold Master (m4), Wordris (m3) and Mower Mayhem (m6) are stale
+  against those games' newest release tapes, so they were published with `--tap` naming the kit's own tape. That
+  is the release already recorded on the site (`6775baaa…`, `ccdf44ed…`, `fef4f005…`), so only the demo changed.
+  Antigravity, Tiger Gorilla and WOLF's kits are current.
+- **Wordris** levels change only the falling speed (its D-095), so its level 1 is the opening 30 letters.
+- **The test**: `test_every_demo_is_a_single_level_demo_build` is enabled. Every visible demo must come from a
+  `-demo.tap`.
+- The live check is in [playtest-2026-10-29.md](playtest-2026-10-29.md) ("Demo builds, live").

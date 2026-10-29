@@ -368,7 +368,6 @@ class Player(unittest.TestCase):
                   '(pointer: coarse)', 'navigator.vibrate'):
             self.assertIn(t, self.js)
 
-    @unittest.skip('TODO: enable once every game publishes its single-level demo build (owner, 2026-10-29)')
     def test_every_demo_is_a_single_level_demo_build(self):
         for g in self.cfg['games']:
             if g['visible'] and g.get('demo'):
