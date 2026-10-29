@@ -87,3 +87,13 @@ One workflow builds, tests and uploads on every push and pull request, and deplo
 only, with the official `upload-pages-artifact` and `deploy-pages` actions pinned by commit SHA.
 Top-level permissions are empty; the build job reads contents and the deploy job gets
 `pages: write` and `id-token: write`. Checkout does not persist credentials.
+
+## D-12 Deploy check, then the custom domain
+
+The first deploy was checked at `https://danielvaughan.com/dalex-software/` (the account's Pages
+host; `danielvaughan.github.io/dalex-software/` redirects there) before the custom domain was set:
+the home page and every game page loaded, and headless Chromium pressed Play on each of the six
+games and saw JSSpeccy load the tape to its title screen. Screenshots of that live site are in
+[screenshots/](screenshots/). Then the Pages custom domain was set to `dalex-software.co.uk`, so
+the old project address now redirects to the new domain, which serves nothing until the owner adds
+the records in [DNS.md](DNS.md).

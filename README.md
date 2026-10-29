@@ -57,6 +57,10 @@ python3 -m http.server -d _site 8000   # then open http://localhost:8000/
 
 The player needs the site served over HTTP; opening the files directly cannot fetch the tape.
 
+## Screenshots
+
+[Home](docs/screenshots/home.jpg), [home on a phone](docs/screenshots/home-mobile.jpg), [a game page](docs/screenshots/game-gold-master.jpg) and the player running [Gold Master](docs/screenshots/play-gold-master.jpg) and [Wordris](docs/screenshots/play-wordris.jpg), captured from the first deploy.
+
 ## Deploy
 
 `.github/workflows/pages.yml` builds, tests and deploys `_site/` with the official GitHub Pages
