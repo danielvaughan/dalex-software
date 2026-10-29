@@ -415,7 +415,7 @@ def game_page(site, game):
   <section class="panel tape" aria-labelledby="tape-h">
     <h2 id="tape-h">The tape</h2>
     <p>The full {e(game["title"])} tape for the {e(game["machine"])}: {NO_PRICE.lower()}.</p>
-    <p>{'Until then, the free demo above plays in your browser.' if demo else 'A free demo to play in your browser is coming soon.'}</p>
+    <p>{'The free demo above plays in your browser.' if demo else 'A free demo to play in your browser is coming soon.'}</p>
   </section>
   <section class="panel" aria-labelledby="credits-h">
     <h2 id="credits-h">Credits</h2>
