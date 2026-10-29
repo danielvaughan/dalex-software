@@ -31,9 +31,9 @@
       "order": 3,
       "featured": false,
       "demo": {
-        "milestone": 1,
-        "sha256": "ba0a928f44c78b472d97f0d5882193510469a75a816043aa40ca99cc5aeafc92",
-        "contains": "Sector 1 of 10: recover three cores and get out through the airlock."
+        "milestone": 2,
+        "sha256": "cb2aaaaa78302e2c25ebc2b2267617bc1f051e67f0629ff3ee469d1675f95d83",
+        "contains": "Sectors 1 to 3 of 10: Storage Bay Alpha, the Coolant Concourse and the Command Spire."
       }
     },
     {
