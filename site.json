@@ -44,7 +44,7 @@
       "demo": {
         "milestone": 1,
         "sha256": "b2152833b7ff0c8c6f15cdfcefcbb72caab3a3fbba5c404a18addc9706b14ec7",
-        "contains": "The core game (falling letters, words, scoring and levels), without pause or high scores."
+        "contains": "The core game from an early build: falling letters, words, scoring and levels."
       }
     },
     {
