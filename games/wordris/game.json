@@ -6,7 +6,6 @@
   "jsspeccy_machine": 128,
   "tagline": "Letters tumble one at a time into a narrow well.",
   "blurb": "Letters tumble one at a time into a narrow well. Steer each one home and spell a three- or four-letter word across or down to score it and clear it, with triple-letter, double-letter and double-word squares to aim for. Letters drop after every word and may spell another for a cascade, and every thirty letters the pace quickens.",
-  "price": "£1.99",
   "controls": [
     [
       "O",
@@ -42,12 +41,19 @@
     ]
   ],
   "release": {
-    "tape": "wordris.tap",
     "source_tape": "wordris-m3.tap",
     "sha256": "ccdf44ed979e4c94313ac67ddffcb3458149cb3bebbcc467752e060c05583892",
     "size": 20794,
     "milestone": 3,
     "date": "2026-10-26"
+  },
+  "demo": {
+    "src": "demo.bin",
+    "sha256": "b2152833b7ff0c8c6f15cdfcefcbb72caab3a3fbba5c404a18addc9706b14ec7",
+    "size": 36163,
+    "milestone": 1,
+    "source_tape": "wordris-m1.tap",
+    "contains": "The core game (falling letters, words, scoring and levels), without pause or high scores."
   },
   "review": {
     "magazine": "INK & PAPER",
@@ -61,12 +67,11 @@
       "overall": 67
     },
     "award": null,
-    "verdict": "A neat little spell-binder for ten minutes at a time; the dead letters and samey levels stop it being a corker, but it's worth £1.99 of anyone's pocket money.",
+    "verdict": "",
     "quote": {
-      "text": "this is a cracking cheapie",
-      "reviewer": "Kev Driscoll"
-    },
-    "pdf": "review.pdf"
+      "text": "Clever, tidy and a touch unkind",
+      "reviewer": "Mandy Pike"
+    }
   },
   "credits": [
     {
@@ -144,31 +149,7 @@
         "caption": "Game over at 17 points, but it's a new high score. Stan says it still counts.",
         "alt": "Wordris screenshot: Game over at 17 points, but it's a new high score. Stan says it still counts."
       }
-    ],
-    "inlay": {
-      "src": "inlay.jpg",
-      "size": [
-        1600,
-        1031
-      ],
-      "alt": "Wordris cassette inlay"
-    },
-    "advert": {
-      "src": "advert.jpg",
-      "size": [
-        1131,
-        1600
-      ],
-      "alt": "Wordris magazine advert"
-    },
-    "poster": {
-      "src": "poster.jpg",
-      "size": [
-        1067,
-        1600
-      ],
-      "alt": "Wordris poster"
-    }
+    ]
   },
   "source": {
     "repo": "danielvaughan/zx-wordris",
