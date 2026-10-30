@@ -4,8 +4,8 @@
   "title": "Mower Mayhem",
   "machine": "ZX Spectrum 128K",
   "jsspeccy_machine": 128,
-  "tagline": "Steer your electric Mower round ten walled Lawns and cut every blade, but never touch the Hedgehog, the Cat or the Bird.",
-  "blurb": "Steer your electric Mower round ten walled Lawns and cut every blade, but never touch the Hedgehog, the Cat or the Bird. Zap the Weeds with the Trimmer, watch the Battery and park on the Dock before it runs flat. Mow a perfect Lawn for a fat bonus, to a 128 tune you can switch off with M.",
+  "tagline": "Stripe ten walled lawns with your battery mower, zap the weeds with the trimmer and roll onto the dock before the power runs out.",
+  "blurb": "Stripe ten walled lawns with your battery mower, zap the weeds with the trimmer and roll onto the dock before the power runs out. Steer round the flower beds and never, ever touch the hedgehogs, the cat or the birds. Dock on Lawn 10 for the victory card and a high score to beat.",
   "controls": [
     [
       "Q",
@@ -24,7 +24,7 @@
       "Drive right"
     ],
     [
-      "Two keys together",
+      "Two keys",
       "Drive diagonally"
     ],
     [
@@ -45,35 +45,35 @@
     ]
   ],
   "release": {
-    "source_tape": "mower-mayhem-m6-fef4f005.tap",
-    "sha256": "fef4f005f613c7cfc7d6c22cea29aa3ab637f6ade3ea7d6f000328bec53a6009",
-    "size": 21334,
+    "source_tape": "mower-mayhem-m6.tap",
+    "sha256": "9683be0f353ba6aec28de5523b9c600ba999f5b2c39877bc6512b04447b8dd9f",
+    "size": 21505,
     "milestone": 6,
-    "date": "2026-10-20"
+    "date": "2026-10-30"
   },
   "demo": {
     "src": "demo.bin",
-    "sha256": "d49ff5b8b13eaa6253df2b55dc1130c93ba22ee237356ed95b910c5eb73906ee",
-    "size": 21646,
+    "sha256": "e6571485afc607ce9a804f85212c5fa0be4ed338ae6024e17fb222fb10adc972",
+    "size": 21654,
     "milestone": null,
     "source_tape": "mower-mayhem-demo.tap",
     "contains": "Level 1 demo: Lawn 1 of 10"
   },
   "review": {
     "magazine": "INK & PAPER",
-    "overall": 71,
+    "overall": 72,
     "scores": {
-      "presentation": 74,
-      "graphics": 69,
-      "sound": 80,
+      "presentation": 77,
+      "graphics": 71,
+      "sound": 77,
       "playability": 70,
-      "addictive_qualities": 70,
-      "overall": 71
+      "addictive_qualities": 71,
+      "overall": 72
     },
     "award": null,
     "verdict": "",
     "quote": {
-      "text": "Racing the Battery gauge down to the Dock with the warning going is proper edge-of-the-seat stuff",
+      "text": "The mower turns the instant you touch Q A O P, and two keys at once take it round the diagonals",
       "reviewer": "Gaz Pocket"
     }
   },
@@ -109,8 +109,8 @@
           320,
           240
         ],
-        "caption": "Hedgehog, Cat, Bird and Mower pose for the family album. Nobody gets hurt.",
-        "alt": "Mower Mayhem screenshot: Hedgehog, Cat, Bird and Mower pose for the family album. Nobody gets hurt."
+        "caption": "Hedgehog, cat and bird turn out to see the big mow. No pressure, then.",
+        "alt": "Mower Mayhem screenshot: Hedgehog, cat and bird turn out to see the big mow. No pressure, then."
       },
       {
         "src": "shots/shot-2.png",
@@ -118,8 +118,8 @@
           320,
           240
         ],
-        "caption": "The Bird drops in for a peck at the long grass. Leave it be.",
-        "alt": "Mower Mayhem screenshot: The Bird drops in for a peck at the long grass. Leave it be."
+        "caption": "A black cat peeks in at the top corner. Time to keep that trimmer quiet.",
+        "alt": "Mower Mayhem screenshot: A black cat peeks in at the top corner. Time to keep that trimmer quiet."
       },
       {
         "src": "shots/shot-3.png",
@@ -127,8 +127,8 @@
           320,
           240
         ],
-        "caption": "Stuck by a Weed you can't reach: the Trimmer zaps straight underneath it.",
-        "alt": "Mower Mayhem screenshot: Stuck by a Weed you can't reach: the Trimmer zaps straight underneath it."
+        "caption": "Zap! The yellow beam shoots up a whisker beside the weed it trims.",
+        "alt": "Mower Mayhem screenshot: Zap! The yellow beam shoots up a whisker beside the weed it trims."
       },
       {
         "src": "shots/shot-4.png",
@@ -136,14 +136,14 @@
           256,
           192
         ],
-        "caption": "Every blade cut: that's a PERFECT LAWN and a bonus to match.",
-        "alt": "Mower Mayhem screenshot: Every blade cut: that's a PERFECT LAWN and a bonus to match."
+        "caption": "Lawn 8 and the flower beds are breeding like rabbits.",
+        "alt": "Mower Mayhem screenshot: Lawn 8 and the flower beds are breeding like rabbits."
       }
     ]
   },
   "source": {
     "repo": "danielvaughan/zx-mower-mayhem",
-    "commit": "619ad767e41bd2d7bc1c27c4a9f48d4aebd6817c",
+    "commit": "218bf391114d5cf80287cc1ff643d24428091d7e",
     "kit": "game/media-kit/m6"
   }
 }

@@ -176,7 +176,7 @@
       "featured": false,
       "demo": {
         "milestone": null,
-        "sha256": "d49ff5b8b13eaa6253df2b55dc1130c93ba22ee237356ed95b910c5eb73906ee",
+        "sha256": "e6571485afc607ce9a804f85212c5fa0be4ed338ae6024e17fb222fb10adc972",
         "contains": "Level 1 demo: Lawn 1 of 10",
         "source_tape": "mower-mayhem-demo.tap"
       },
