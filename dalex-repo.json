@@ -1,0 +1,9 @@
+{
+  "schema": "dalex-repo/1",
+  "kind": "tool",
+  "slug": "website",
+  "title": "Dalex Software website",
+  "repo": "danielvaughan/dalex-software",
+  "staff": "yvonne",
+  "purpose": "The Dalex Software website and its published games."
+}
