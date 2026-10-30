@@ -4,24 +4,20 @@
   "title": "Tiger Gorilla",
   "machine": "ZX Spectrum 128K",
   "jsspeccy_machine": 128,
-  "tagline": "Swing through the treetops as the stripiest gorilla in the jungle, grabbing parrots to feed the hungry babies back at the nest.",
-  "blurb": "Swing through the treetops as the stripiest gorilla in the jungle, grabbing parrots to feed the hungry babies back at the nest. Chilli-powered boosts, a vanishing trick, nosy photographers, snappy crocs and camera drones stand between you and a family safe at last. Twelve wrap-round jungle levels in three zones, with 128K music.",
+  "tagline": "Swing, boost and sneak through twelve wrap-round jungle levels, catching parrots to feed the hungry babies back at the nest.",
+  "blurb": "Swing, boost and sneak through twelve wrap-round jungle levels, catching parrots to feed the hungry babies back at the nest. Dodge the photographers' FLASH!, keep out of the crocodiles' pools and slip past the camera drones of the Waterfall Gorge. Feed every baby in all three zones and the family is safe!",
   "controls": [
     [
-      "O",
-      "Left"
-    ],
-    [
-      "P",
-      "Right"
+      "O / P",
+      "Left / right"
     ],
     [
       "SPACE",
-      "Let go / start"
+      "Release"
     ],
     [
-      "A",
-      "Drop (hold)"
+      "A (hold)",
+      "Drop"
     ],
     [
       "Q",
@@ -29,11 +25,11 @@
     ],
     [
       "W",
-      "Dash"
+      "Boost sideways"
     ],
     [
       "S",
-      "Invisibility on/off"
+      "Invisibility"
     ],
     [
       "H",
@@ -42,43 +38,39 @@
     [
       "M",
       "Music on/off"
-    ],
-    [
-      "Z",
-      "Starting zone (title)"
     ]
   ],
   "release": {
     "source_tape": "tiger-gorilla-m4.tap",
-    "sha256": "9a9a0317eca07e7deb9ee05f0b39ccef7459b6391bb3b74e8bdf651422445f31",
-    "size": 37483,
+    "sha256": "60f33ae3633821235b01660e3d75b4dfbada3c76bd30c29411f571643115234b",
+    "size": 37554,
     "milestone": 4,
-    "date": "2026-10-26"
+    "date": "2026-10-30"
   },
   "demo": {
     "src": "demo.bin",
-    "sha256": "e748e8affd102a9b9ede4ba9fa9628af589fb99603e96649432147441f6cf174",
-    "size": 37471,
+    "sha256": "5057aa3da1b6ac6d780348f0d24690fe50972155ed999f859fd162fc560b9fff",
+    "size": 37546,
     "milestone": null,
     "source_tape": "tiger-gorilla-demo.tap",
     "contains": "Level 1 demo: Zone 1, level 1 of 12"
   },
   "review": {
     "magazine": "INK & PAPER",
-    "overall": 70,
+    "overall": 72,
     "scores": {
       "presentation": 76,
-      "graphics": 64,
-      "sound": 68,
-      "playability": 72,
-      "addictive_qualities": 72,
-      "overall": 70
+      "graphics": 69,
+      "sound": 65,
+      "playability": 73,
+      "addictive_qualities": 73,
+      "overall": 72
     },
     "award": null,
-    "verdict": "A swinging good time, even if the colours go bananas now and then.",
+    "verdict": "",
     "quote": {
-      "text": "Bright, cheerful jungle, a lovely title page and a soppy ending",
-      "reviewer": "CLIVE BURRAGE"
+      "text": "Snatching a parrot mid-air and plopping down at the nest for a YUM YUM",
+      "reviewer": "Zippy Dee"
     }
   },
   "credits": [
@@ -88,7 +80,7 @@
     },
     {
       "role": "Reviewed by",
-      "name": "GAZ PICKERING, MANDY ROWE and CLIVE BURRAGE for INK & PAPER"
+      "name": "Zippy Dee, Marjorie Plunkett and Grumpy Ken for INK & PAPER"
     }
   ],
   "in_game_credits": [],
@@ -109,8 +101,8 @@
           256,
           192
         ],
-        "caption": "Our hero grins from the title page. Wouldn't you, with a bottom like that?",
-        "alt": "Tiger Gorilla screenshot: Our hero grins from the title page. Wouldn't you, with a bottom like that?"
+        "caption": "Did you hear that?! Our hero drops right into the cameraman's line of fire.",
+        "alt": "Tiger Gorilla screenshot: Did you hear that?! Our hero drops right into the cameraman's line of fire."
       },
       {
         "src": "shots/shot-2.png",
@@ -118,8 +110,8 @@
           256,
           192
         ],
-        "caption": "Hanging on by one paw while a croc dozes in the river below.",
-        "alt": "Tiger Gorilla screenshot: Hanging on by one paw while a croc dozes in the river below."
+        "caption": "A sleepy croc, says the message. Best not to wake him, all the same.",
+        "alt": "Tiger Gorilla screenshot: A sleepy croc, says the message. Best not to wake him, all the same."
       },
       {
         "src": "shots/shot-3.png",
@@ -127,8 +119,8 @@
           256,
           192
         ],
-        "caption": "Spotted from above! A drone's beam pins him to the bough as a photographer twigs it.",
-        "alt": "Tiger Gorilla screenshot: Spotted from above! A drone's beam pins him to the bough as a photographer twigs it."
+        "caption": "Yum yum! A nest full of fed babies and two thousand for not being spotted.",
+        "alt": "Tiger Gorilla screenshot: Yum yum! A nest full of fed babies and two thousand for not being spotted."
       },
       {
         "src": "shots/shot-4.png",
@@ -143,7 +135,7 @@
   },
   "source": {
     "repo": "danielvaughan/zx-tiger-gorilla",
-    "commit": "7c2108f3906a464a16e9cc9c4bf302a68782d5a0",
+    "commit": "59b6cc4fb75b6cdcb17851fdd3e5b92e3fe5fa8a",
     "kit": "game/media-kit/m4"
   }
 }
