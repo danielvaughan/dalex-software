@@ -141,7 +141,9 @@ class Built(unittest.TestCase):
         html = (self.out / 'book' / 'index.html').read_text()
         self.assertIn('Out now on Leanpub', html)   # D-27: published on Leanpub
         self.assertNotIn('Coming soon', html)
-        self.assertNotRegex(html, r'[$£€]\s?\d')   # D-19: no prices on the site
+        self.assertIn('You choose the price:</strong> from <strong>$19</strong>, suggested $29', html)   # D-28
+        for page in (self.out / 'games').rglob('*.html'):   # D-19 still holds for the games
+            self.assertNotRegex(page.read_text(), r'[$£€]\s?\d', str(page))
         self.assertIn('https://leanpub.com/machinecodemayhem', html)   # D-26: the book's Leanpub page
         self.assertTrue((self.out / 'assets' / 'book' / 'machine-code-mayhem.jpg').is_file())
         self.assertIn(self.cfg['site']['base_url'] + 'book/', (self.out / 'sitemap.xml').read_text())
@@ -197,6 +199,8 @@ class Built(unittest.TestCase):
         files = text_files(self.out)
         self.assertGreater(len(files), 10)
         for p in files:
+            if p.relative_to(self.out).as_posix() == 'book/index.html':
+                continue   # D-28: the book's own price is shown on its page
             text = p.read_text(encoding='utf-8')
             m = PRICE.search(text)
             self.assertIsNone(m, f'{p.relative_to(self.out)}: price {text[max(0, m.start() - 40):m.end() + 20]!r}'

@@ -520,6 +520,7 @@ def about(site, root_dir: Path):
 
 
 BOOK_COVER = 'assets/book/machine-code-mayhem.jpg'   # the book's cover, 600 x 900
+BOOK_PRICE = {'minimum': 19, 'suggested': 29}   # US dollars, as set on Leanpub (D-28); change both there and here
 
 
 def book(site, root_dir: Path, games):
@@ -534,7 +535,12 @@ def book(site, root_dir: Path, games):
   <img src="{root}{BOOK_COVER}" width="300" height="450" alt="Cover of Machine Code Mayhem: in a pixel-art 1987 studio at night, Gareth types at a small black computer while Hyun-joo points at the screen, Dez listens on headphones and Percy the cat sits by a stack of cassettes. By Daniel Vaughan, with the Dalex Software team.">
   <figcaption>Out now on <a href="https://leanpub.com/machinecodemayhem">Leanpub</a>.</figcaption>
 </figure>'''
-    body = frag.replace('<!-- cover -->', cover)
+    p = BOOK_PRICE
+    price = (f'<p class="price"><strong>You choose the price:</strong> from <strong>${p["minimum"]}</strong>, '
+             f'suggested ${p["suggested"]}.</p>')
+    words = (f'the minimum is ${p["minimum"]} and the suggested price ${p["suggested"]}, and anything above the '
+             f'minimum is up to you.')
+    body = frag.replace('<!-- cover -->', cover).replace('<!-- price -->', price).replace('<!-- price-words -->', words)
     return page(site, root=root, path='book/', title='Machine Code Mayhem', body=body, current='book',
                 description='Machine Code Mayhem, the Dalex Software book on writing ZX Spectrum games in Z80 assembly '
                             'from six complete games. Out now on Leanpub.')

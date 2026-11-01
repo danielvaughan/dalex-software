@@ -360,3 +360,11 @@ Leanpub", the cover caption and the page description say "Out now", and the When
 that readers get each new version as chapters are finished. The page still shows no price (D-19): the price is
 Leanpub's to show. The completion figure is not printed either, because it changes with every release.
 `test_book_page_is_out_now` replaces `test_book_page_is_coming_soon` and forbids "Coming soon" and any price.
+
+## D-28 The Book page shows the book's price (owner, 2026-11-01)
+
+The owner: "please show the price of the book, more like a you choose and minimum". This is an exception to D-19
+for the book only; the games still show no price. The Book page shows Leanpub's pay-what-you-choose terms as set
+on 2026-11-01: from $19, suggested $29, in a line under the lede and in the *Get it* section. The figures live
+once, in `build.py` `BOOK_PRICE`; when the price changes on Leanpub, change it there too.
+`test_book_page_is_out_now` requires the price line and still forbids a price on every game page.
