@@ -334,7 +334,8 @@ The owner asked for a page promoting the studio's book, *Machine Code Mayhem: Wr
 Assembly, from Six Complete Games*, as upcoming. It is not on Leanpub yet, so the page says "Coming soon on
 Leanpub" and links nowhere to buy it.
 
-- **In-world, like the Studio page.** The book is credited to the Dalex Software team (book repository ADR-0012):
+- **Author.** Daniel Vaughan is the author on the cover and the page, "with the Dalex Software team" (book ADR-0013).
+- **In-world, like the Studio page.** The chapters are credited to the Dalex Software team (book repository ADR-0012):
   the page lists each chapter with the person who wrote it, and the small print says the studio is fictional and
   the book is written by Daniel Vaughan with AI agents.
 - **Cover.** `static/assets/book/machine-code-mayhem.jpg` (600 x 900), from the book repository's

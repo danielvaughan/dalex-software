@@ -531,7 +531,7 @@ def book(site, root_dir: Path, games):
     frag = re.sub(r'<a href="\.\./games/([a-z0-9-]+)/">(.*?)</a>',
                   lambda m: m.group(0) if m.group(1) in shown else m.group(2), frag)
     cover = f'''<figure class="book-cover">
-  <img src="{root}{BOOK_COVER}" width="300" height="450" alt="Cover of Machine Code Mayhem: in a pixel-art 1987 studio at night, Gareth types at a small black computer while Hyun-joo points at the screen, Dez listens on headphones and Percy the cat sits by a stack of cassettes. The cover credits the Dalex Software team.">
+  <img src="{root}{BOOK_COVER}" width="300" height="450" alt="Cover of Machine Code Mayhem: in a pixel-art 1987 studio at night, Gareth types at a small black computer while Hyun-joo points at the screen, Dez listens on headphones and Percy the cat sits by a stack of cassettes. By Daniel Vaughan, with the Dalex Software team.">
   <figcaption>Coming soon on Leanpub.</figcaption>
 </figure>'''
     body = frag.replace('<!-- cover -->', cover)
