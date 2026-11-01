@@ -327,3 +327,18 @@ and each `demo.bin` decodes to the sha256 below.
 - **The test**: `test_every_demo_is_a_single_level_demo_build` is enabled. Every visible demo must come from a
   `-demo.tap`.
 - The live check is in [playtest-2026-10-29.md](playtest-2026-10-29.md) ("Demo builds, live").
+
+## D-25 The Book page: Machine Code Mayhem, coming soon (2026-11-01)
+
+The owner asked for a page promoting the studio's book, *Machine Code Mayhem: Writing ZX Spectrum Games in Z80
+Assembly, from Six Complete Games*, as upcoming. It is not on Leanpub yet, so the page says "Coming soon on
+Leanpub" and links nowhere to buy it.
+
+- **In-world, like the Studio page.** The book is credited to the Dalex Software team (book repository ADR-0012):
+  the page lists each chapter with the person who wrote it, and the small print says the studio is fictional and
+  the book is written by Daniel Vaughan with AI agents.
+- **Cover.** `static/assets/book/machine-code-mayhem.jpg` (600 x 900), from the book repository's
+  `manuscript/resources/images/cover-web.jpg`.
+- **Nav and sitemap** gain `book/`. Links to hidden games become plain text, as on the Studio page.
+- **No price, no link out.** When the book is on Leanpub, replace "Coming soon" with the link and record it here.
+- **The test** `test_book_page_is_coming_soon` checks the page exists, says coming soon and has no Leanpub link.

@@ -137,6 +137,13 @@ class Built(unittest.TestCase):
             self.assertTrue((self.out / rel).is_file(), rel)
         self.assertEqual((self.out / 'CNAME').read_text().strip(), 'dalex-software.co.uk')
 
+    def test_book_page_is_coming_soon(self):
+        html = (self.out / 'book' / 'index.html').read_text()
+        self.assertIn('Coming soon on Leanpub', html)
+        self.assertNotIn('leanpub.com', html)
+        self.assertTrue((self.out / 'assets' / 'book' / 'machine-code-mayhem.jpg').is_file())
+        self.assertIn(self.cfg['site']['base_url'] + 'book/', (self.out / 'sitemap.xml').read_text())
+
     def test_every_demo_decodes_to_its_recorded_sha256(self):
         k = key()
         played = 0

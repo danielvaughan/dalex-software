@@ -237,7 +237,8 @@ def page(site, *, root, path, title, body, description='', current='', extra_hea
     """A whole HTML page. root is the relative prefix back to the site root ('' / '../' / ...);
     path is this page's path below the site root, for the canonical URL."""
     full_title = f'{title} · {site["name"]}' if title != site['name'] else title
-    nav = [('', 'Home', 'home'), ('games/', 'Games', 'games'), ('studio/', 'The Studio', 'studio'), ('about/', 'About', 'about')]
+    nav = [('', 'Home', 'home'), ('games/', 'Games', 'games'), ('studio/', 'The Studio', 'studio'), ('book/', 'The Book', 'book'),
+           ('about/', 'About', 'about')]
     links = ''.join(
         f'<li><a href="{root}{href}"{CURRENT if key == current else ""}>{label}</a></li>'
         for href, label, key in nav)
@@ -518,6 +519,27 @@ def about(site, root_dir: Path):
                 description='Dalex Software, a small Spectrum games house in a Manchester mill, and the people who make its games.')
 
 
+BOOK_COVER = 'assets/book/machine-code-mayhem.jpg'   # the book's cover, 600 x 900
+
+
+def book(site, root_dir: Path, games):
+    """The Book: the studio's upcoming book, Machine Code Mayhem, marked coming soon until it is on Leanpub.
+    A link to a game that is hidden in site.json becomes plain text, as on the Studio page."""
+    root = '../'
+    shown = {g['slug'] for g in games}
+    frag = (root_dir / 'content' / 'book.html').read_text(encoding='utf-8')
+    frag = re.sub(r'<a href="\.\./games/([a-z0-9-]+)/">(.*?)</a>',
+                  lambda m: m.group(0) if m.group(1) in shown else m.group(2), frag)
+    cover = f'''<figure class="book-cover">
+  <img src="{root}{BOOK_COVER}" width="300" height="450" alt="Cover of Machine Code Mayhem: in a pixel-art 1987 studio at night, Gareth types at a small black computer while Hyun-joo points at the screen, Dez listens on headphones and Percy the cat sits by a stack of cassettes. The cover credits the Dalex Software team.">
+  <figcaption>Coming soon on Leanpub.</figcaption>
+</figure>'''
+    body = frag.replace('<!-- cover -->', cover)
+    return page(site, root=root, path='book/', title='Machine Code Mayhem', body=body, current='book',
+                description='Machine Code Mayhem, the Dalex Software book on writing ZX Spectrum games in Z80 assembly '
+                            'from six complete games. Coming soon on Leanpub.')
+
+
 FILM = 'media/studio-documentary'   # the studio documentary's MP4, poster (-poster.jpg) and captions (.vtt)
 
 
@@ -571,7 +593,7 @@ def not_found(site):
 
 
 def sitemap(site, games):
-    urls = [('', None), ('games/', None), ('studio/', None), ('about/', None)]
+    urls = [('', None), ('games/', None), ('studio/', None), ('book/', None), ('about/', None)]
     urls += [(f'games/{g["slug"]}/', (g.get('release') or {}).get('date')) for g in games]
     items = ''.join(f'  <url><loc>{e(site["base_url"] + u)}</loc>'
                     + (f'<lastmod>{e(d)}</lastmod>' if d else '') + '</url>\n' for u, d in urls)
@@ -634,6 +656,7 @@ def build(root: Path = ROOT, config: Path = None, out: Path = None) -> Path:
         write(out, f'games/{g["slug"]}/index.html', game_page(site, g))
     write(out, 'about/index.html', about(site, root))
     write(out, 'studio/index.html', studio(site, root, games))
+    write(out, 'book/index.html', book(site, root, games))
     write(out, '404.html', not_found(site))
     write(out, 'sitemap.xml', sitemap(site, games))
     write(out, 'feed.xml', feed(site, games))

@@ -213,6 +213,11 @@ figcaption { color: var(--muted); font-size: .9rem; margin-top: 6px; }
 .film { margin: 1.5rem 0; }
 .film video { display: block; width: 100%; max-width: 960px; height: auto; aspect-ratio: 4 / 3; background: #000; image-rendering: pixelated; }
 .film figcaption { margin-top: .5rem; color: var(--muted); font-size: .9rem; max-width: 70ch; }
+.book-cover { float: right; margin: 0 0 1rem 1.5rem; max-width: 40%; }
+.book-cover img { display: block; width: 100%; height: auto; image-rendering: pixelated; }
+.book-cover figcaption { margin-top: .4rem; color: var(--muted); font-size: .9rem; text-align: center; }
+.chapters li { margin: .15rem 0; }
+@media (max-width: 600px) { .book-cover { float: none; max-width: 100%; margin: 1rem 0; } }
 .transcript { margin: 1.5rem 0; max-width: 70ch; }
 .transcript summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; }
 .studio-link { margin-top: 2rem; }
