@@ -25,8 +25,8 @@ The website of Dalex Software, a fictional 1987 Manchester software house, and i
 
 The official site of the games: <https://dalex-software.co.uk/>. Every game page plays a free demo in the
 browser (JSSpeccy, click to play) or says "Demo coming soon", and shows the controls, screen shots and the
-INK & PAPER scores and quote. A Studio page shows how the studio works, and a Book page announces the
-studio's book, *Machine Code Mayhem*, as coming soon ([D-25](docs/decisions.md)).
+INK & PAPER scores and quote. A Studio page shows how the studio works, and a Book page links to the
+studio's book, *Machine Code Mayhem*, out now on Leanpub ([D-25, D-27](docs/decisions.md)).
 
 Nothing is downloadable and no price is shown: the full tapes stay in the games' private repositories, and
 prices are "to be confirmed" ([D-16 to D-19](docs/decisions.md)). Game pages are written by the toolkit's

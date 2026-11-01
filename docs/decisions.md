@@ -351,3 +351,12 @@ offers "Notify Me When This Is Published". The Book page keeps "Coming soon on L
 (a "Get notified on Leanpub" button, the cover caption and the When section). No price is shown, as D-16 to D-19
 require. `test_book_page_is_coming_soon` now requires the Leanpub link instead of forbidding one. When the book is
 published, change "Coming soon" to "Available" and record it here.
+
+## D-27 The book is out on Leanpub (owner, 2026-11-01)
+
+The owner: "the book is now published". Leanpub shows it as published and in progress (80% complete on
+2026-11-01), as PDF, EPUB and web. The Book page now says "Out now on Leanpub": the button reads "Get the book on
+Leanpub", the cover caption and the page description say "Out now", and the When section becomes *Get it*, saying
+that readers get each new version as chapters are finished. The page still shows no price (D-19): the price is
+Leanpub's to show. The completion figure is not printed either, because it changes with every release.
+`test_book_page_is_out_now` replaces `test_book_page_is_coming_soon` and forbids "Coming soon" and any price.

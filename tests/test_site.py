@@ -137,9 +137,11 @@ class Built(unittest.TestCase):
             self.assertTrue((self.out / rel).is_file(), rel)
         self.assertEqual((self.out / 'CNAME').read_text().strip(), 'dalex-software.co.uk')
 
-    def test_book_page_is_coming_soon(self):
+    def test_book_page_is_out_now(self):
         html = (self.out / 'book' / 'index.html').read_text()
-        self.assertIn('Coming soon on Leanpub', html)
+        self.assertIn('Out now on Leanpub', html)   # D-27: published on Leanpub
+        self.assertNotIn('Coming soon', html)
+        self.assertNotRegex(html, r'[$£€]\s?\d')   # D-19: no prices on the site
         self.assertIn('https://leanpub.com/machinecodemayhem', html)   # D-26: the book's Leanpub page
         self.assertTrue((self.out / 'assets' / 'book' / 'machine-code-mayhem.jpg').is_file())
         self.assertIn(self.cfg['site']['base_url'] + 'book/', (self.out / 'sitemap.xml').read_text())
