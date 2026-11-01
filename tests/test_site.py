@@ -140,7 +140,7 @@ class Built(unittest.TestCase):
     def test_book_page_is_coming_soon(self):
         html = (self.out / 'book' / 'index.html').read_text()
         self.assertIn('Coming soon on Leanpub', html)
-        self.assertNotIn('leanpub.com', html)
+        self.assertIn('https://leanpub.com/machinecodemayhem', html)   # D-26: the book's Leanpub page
         self.assertTrue((self.out / 'assets' / 'book' / 'machine-code-mayhem.jpg').is_file())
         self.assertIn(self.cfg['site']['base_url'] + 'book/', (self.out / 'sitemap.xml').read_text())
 

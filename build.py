@@ -523,7 +523,7 @@ BOOK_COVER = 'assets/book/machine-code-mayhem.jpg'   # the book's cover, 600 x 9
 
 
 def book(site, root_dir: Path, games):
-    """The Book: the studio's upcoming book, Machine Code Mayhem, marked coming soon until it is on Leanpub.
+    """The Book: the studio's upcoming book, Machine Code Mayhem, coming soon, linking to its Leanpub page (D-26).
     A link to a game that is hidden in site.json becomes plain text, as on the Studio page."""
     root = '../'
     shown = {g['slug'] for g in games}
@@ -532,7 +532,7 @@ def book(site, root_dir: Path, games):
                   lambda m: m.group(0) if m.group(1) in shown else m.group(2), frag)
     cover = f'''<figure class="book-cover">
   <img src="{root}{BOOK_COVER}" width="300" height="450" alt="Cover of Machine Code Mayhem: in a pixel-art 1987 studio at night, Gareth types at a small black computer while Hyun-joo points at the screen, Dez listens on headphones and Percy the cat sits by a stack of cassettes. By Daniel Vaughan, with the Dalex Software team.">
-  <figcaption>Coming soon on Leanpub.</figcaption>
+  <figcaption>Coming soon on <a href="https://leanpub.com/machinecodemayhem">Leanpub</a>.</figcaption>
 </figure>'''
     body = frag.replace('<!-- cover -->', cover)
     return page(site, root=root, path='book/', title='Machine Code Mayhem', body=body, current='book',

@@ -343,3 +343,11 @@ Leanpub" and links nowhere to buy it.
 - **Nav and sitemap** gain `book/`. Links to hidden games become plain text, as on the Studio page.
 - **No price, no link out.** When the book is on Leanpub, replace "Coming soon" with the link and record it here.
 - **The test** `test_book_page_is_coming_soon` checks the page exists, says coming soon and has no Leanpub link.
+
+## D-26 The Book page links to Leanpub (2026-11-01)
+
+The book now has its Leanpub page, <https://leanpub.com/machinecodemayhem>. It is not yet published: the page
+offers "Notify Me When This Is Published". The Book page keeps "Coming soon on Leanpub" and links to that page
+(a "Get notified on Leanpub" button, the cover caption and the When section). No price is shown, as D-16 to D-19
+require. `test_book_page_is_coming_soon` now requires the Leanpub link instead of forbidding one. When the book is
+published, change "Coming soon" to "Available" and record it here.
