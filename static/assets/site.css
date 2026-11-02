@@ -261,28 +261,41 @@ figcaption { color: var(--muted); font-size: .9rem; margin-top: 6px; }
   .stage.with-pad:fullscreen .dpad { order: 1; } .stage.with-pad:fullscreen .pad-actions { order: 3; grid-template-columns: repeat(2, minmax(56px, auto)); }
 }
 
-/* The Blog (D-29): a list of posts and long technical articles with code, tables and figures */
-.posts { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: 18px; max-width: 820px; }
-.post-item { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--z-cyan); padding: 12px 18px; }
-.post-item h2 { margin: .2rem 0; text-transform: none; letter-spacing: 0; font-size: 1.4rem; }
-.post-item p { margin: .3rem 0; }
-.post { max-width: 78ch; }
-.post header h1 { text-transform: none; }
-.post h2 { margin-top: 2.6rem; }
-.post h3 { margin-top: 1.6rem; }
-.post li { margin: .25rem 0; }
-.ooc { background: var(--surface); border: 1px dashed var(--line); padding: 4px 16px; margin: 1.2rem 0; font-size: .95rem; }
-.toc { background: var(--surface); border: 1px solid var(--line); padding: 2px 18px 10px; margin: 1.2rem 0 1.8rem; }
-.toc h2 { margin: .8rem 0 .4rem; font-size: 1rem; }
-.toc ol { margin: 0; padding-left: 1.4em; }
-.post code { font-size: .9em; background: var(--surface-2); padding: 1px 4px; border-radius: 3px; overflow-wrap: anywhere; }
-.post pre { background: var(--surface-2); border: 1px solid var(--line); padding: 12px 14px; overflow-x: auto; font-size: .85rem; line-height: 1.5; }
-.post pre code { background: none; padding: 0; overflow-wrap: normal; }
-.post table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .92rem; display: block; overflow-x: auto; }
-.post th, .post td { text-align: left; vertical-align: top; padding: 6px 10px; border-bottom: 1px solid var(--line); }
-.post th { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; }
-.post figure { margin: 1.4rem 0; }
-.post figure img { display: block; border: 1px solid var(--line); }
-.post .pipeline { counter-reset: stage; list-style: none; padding: 0; display: grid; gap: 8px; }
-.post .pipeline li { counter-increment: stage; display: grid; grid-template-columns: 2.4rem 1fr; gap: 10px; background: var(--surface); border: 1px solid var(--line); padding: 8px 12px; margin: 0; }
-.post .pipeline li::before { content: counter(stage); font: 800 1.3rem/1.2 ui-monospace, Menlo, Consolas, monospace; color: var(--accent); }
+/* Articles (D-29, D-30): INK & PAPER features on the web. The magazine's look (zx-media-kit templates/magazine/tokens.css):
+   a display sans for titles, a book face for reading, mono for labels, one rainbow rule, boxouts and pull quotes. */
+.feature, .articles { --f-display: "Helvetica Neue", "SF Pro Display", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --f-text: Charter, "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif; }
+.articles { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: 18px; max-width: 820px; }
+.article-item { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--z-cyan); padding: 12px 18px; }
+.article-item h2 { margin: .2rem 0 .4rem; text-transform: none; letter-spacing: -.01em; font: 900 1.6rem/1.15 var(--f-display); }
+.article-item .standfirst { font-family: var(--f-text); font-size: 1.05rem; margin: .3rem 0; }
+.feature { max-width: 74ch; }
+.feature-head { border-bottom: 1px solid var(--line); padding-bottom: 6px; margin-bottom: 1.4rem; }
+.feature-mark { font: 900 1rem/1 var(--f-display); letter-spacing: -.02em; margin: 0 0 .9rem; }
+.feature-mark span { color: var(--z-red); font-weight: 300; }
+.feature h1 { font: 900 clamp(2.2rem, 7vw, 3.6rem)/1.02 var(--f-display); letter-spacing: -.03em; text-transform: none; margin: .3rem 0 .5rem; }
+.feature h1::after { content: ""; display: block; width: 96px; height: 6px; margin-top: 14px;
+  background: linear-gradient(90deg, var(--z-red) 0 25%, var(--z-yellow) 25% 50%, var(--z-green) 50% 75%, var(--z-cyan) 75% 100%); }
+.standfirst { font: 400 1.22rem/1.45 var(--f-text); margin: .8rem 0; }
+.byline { font-family: ui-monospace, Menlo, Consolas, monospace; text-transform: uppercase; letter-spacing: .08em; font-size: .78rem; }
+.ooc { font-size: .9rem; color: var(--muted); border-left: 3px solid var(--z-yellow); padding: 2px 0 2px 12px; margin: .8rem 0; }
+.feature-body { font: 400 1.06rem/1.6 var(--f-text); }
+.feature-body > p:first-child::first-letter { float: left; font: 900 3.6em/.82 var(--f-display); color: var(--accent); margin: .06em .08em 0 0; }
+.feature-body h2 { font: 900 1.5rem/1.2 var(--f-display); letter-spacing: -.01em; text-transform: none; margin: 2.4rem 0 .6rem; }
+.feature-body li { margin: .3rem 0; }
+.feature-body code { font: .82em ui-monospace, Menlo, Consolas, monospace; background: var(--surface-2); padding: 1px 4px; border-radius: 3px; overflow-wrap: anywhere; }
+.feature-body pre { background: var(--surface-2); border: 1px solid var(--line); padding: 12px 14px; overflow-x: auto; font-size: .82rem; line-height: 1.5; }
+.feature-body pre code { background: none; padding: 0; overflow-wrap: normal; font-size: 1em; }
+.feature-body table { border-collapse: collapse; width: 100%; margin: .6rem 0; font-size: .9rem; display: block; overflow-x: auto; }
+.feature-body th, .feature-body td { text-align: left; vertical-align: top; padding: 6px 10px; border-bottom: 1px solid var(--line); }
+.feature-body th { font: 700 .74rem ui-monospace, Menlo, Consolas, monospace; text-transform: uppercase; letter-spacing: .08em; }
+.boxout { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--z-cyan); padding: 4px 18px 12px; margin: 1.8rem 0; font-size: .95rem; }
+.boxout:nth-of-type(4n+2) { border-top-color: var(--z-red); }
+.boxout:nth-of-type(4n+3) { border-top-color: var(--z-yellow); }
+.boxout:nth-of-type(4n) { border-top-color: var(--z-green); }
+.boxout h3 { font: 700 .8rem ui-monospace, Menlo, Consolas, monospace; text-transform: uppercase; letter-spacing: .14em; margin: .9rem 0 .5rem; }
+.pull { margin: 2rem 0; padding: 0 0 0 18px; border-left: 6px solid var(--accent); }
+.pull p { font: 900 clamp(1.5rem, 4vw, 2.1rem)/1.15 var(--f-display); letter-spacing: -.02em; font-style: normal; margin: 0; }
+.pipeline { counter-reset: stage; list-style: none; padding: 0; display: grid; gap: 6px; }
+.pipeline li { counter-increment: stage; display: grid; grid-template-columns: 2.2rem 1fr; gap: 8px; margin: 0; }
+.pipeline li::before { content: counter(stage); font: 900 1.3rem/1.2 var(--f-display); color: var(--accent); }

@@ -5,7 +5,7 @@
 
 Reads site.json (which games exist and which are shown), games/<slug>/game.json (written by the
 toolkit's zx-website skill), content/about.html, static/ (with the studio film in static/media/) and
-content/studio.html and the Blog's posts (content/blog/posts.json and one HTML fragment per post, D-29). Only
+content/studio.html and the articles (content/articles/articles.json and one HTML fragment each, D-29, D-30). Only
 games with "visible": true are
 built into any page, the sitemap or the feed, and only their files are copied to the output, so a
 hidden game is not deployed at all. The output is deterministic: the same inputs give the same bytes.
@@ -16,6 +16,7 @@ checked here against the sha256 recorded in site.json and game.json. No tape, re
 kit image (inlay, advert, poster) is copied, and no page may show a price (D-19).
 """
 import argparse, hashlib, html, json, re, shutil, sys
+from html.parser import HTMLParser
 from datetime import date
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -239,7 +240,7 @@ def page(site, *, root, path, title, body, description='', current='', extra_hea
     path is this page's path below the site root, for the canonical URL."""
     full_title = f'{title} · {site["name"]}' if title != site['name'] else title
     nav = [('', 'Home', 'home'), ('games/', 'Games', 'games'), ('studio/', 'The Studio', 'studio'), ('book/', 'The Book', 'book'),
-           ('blog/', 'Blog', 'blog'), ('about/', 'About', 'about')]
+           ('articles/', 'Articles', 'articles'), ('about/', 'About', 'about')]
     links = ''.join(
         f'<li><a href="{root}{href}"{CURRENT if key == current else ""}>{label}</a></li>'
         for href, label, key in nav)
@@ -591,8 +592,38 @@ def studio(site, root_dir: Path, games):
                             'with people steering.')
 
 
-BLOG = 'content/blog'   # posts.json (newest first) and <slug>.html, one fragment per post (D-29)
+ARTICLES = 'content/articles'   # articles.json (the metadata) and <slug>.html, one fragment per article (D-29, D-30)
 WORDS_PER_MINUTE = 220
+# The article fragment's whole vocabulary, shared with the INK & PAPER issue, which prints the same files as
+# features (zx-media-kit build_issue.py keeps the same list): tag -> the attributes it may carry.
+ARTICLE_TAGS = {'h2': {'id'}, 'h3': set(), 'p': set(), 'ul': set(), 'ol': {'class'}, 'li': set(), 'pre': set(),
+                'code': set(), 'strong': set(), 'em': set(), 'span': set(), 'a': {'href'}, 'table': set(),
+                'thead': set(), 'tbody': set(), 'tr': set(), 'th': {'scope'}, 'td': set(), 'aside': {'class'},
+                'blockquote': {'class'}}
+ARTICLE_CLASSES = {'ol': {'pipeline'}, 'aside': {'boxout'}, 'blockquote': {'pull'}}
+ARTICLE_KEYS = ('slug', 'kicker', 'title', 'cover_title', 'tease', 'standfirst', 'byline', 'date', 'topics')
+
+
+class _Vocabulary(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.bad = []
+
+    def handle_starttag(self, tag, attrs):
+        allowed = ARTICLE_TAGS.get(tag)
+        if allowed is None:
+            self.bad.append(f'<{tag}>')
+            return
+        for k, v in attrs:
+            if k not in allowed or (k == 'class' and v not in ARTICLE_CLASSES.get(tag, ())):
+                self.bad.append(f'<{tag} {k}="{v}">')
+
+
+def check_fragment(name: str, frag: str):
+    v = _Vocabulary()
+    v.feed(frag)
+    if v.bad:
+        raise BuildError(f'{ARTICLES}/{name}: not in the article vocabulary: {", ".join(sorted(set(v.bad)))}')
 
 
 def show_shown_games(frag: str, games) -> str:
@@ -602,96 +633,112 @@ def show_shown_games(frag: str, games) -> str:
                   lambda m: m.group(0) if m.group(1) in shown else m.group(2), frag)
 
 
-def load_posts(root_dir: Path):
-    """The Blog's posts, newest first, each with its body and reading time. Refuses a post without its metadata."""
-    posts = json.loads((root_dir / BLOG / 'posts.json').read_text(encoding='utf-8'))
+def load_articles(root_dir: Path):
+    """The articles, newest first, each with its body and reading time. Refuses missing metadata or markup outside
+    the shared vocabulary."""
+    arts = json.loads((root_dir / ARTICLES / 'articles.json').read_text(encoding='utf-8'))
     seen = set()
-    for p in posts:
-        for k in ('slug', 'title', 'date', 'authors', 'summary', 'topics'):
-            if not p.get(k):
-                raise BuildError(f'{BLOG}/posts.json: post {p.get("slug")!r} has no {k}')
-        if p['slug'] in seen or not re.fullmatch(r'[a-z0-9-]+', p['slug']):
-            raise BuildError(f'{BLOG}/posts.json: bad or duplicate slug {p["slug"]!r}')
-        seen.add(p['slug'])
-        date.fromisoformat(p['date'])
-        p['body'] = (root_dir / BLOG / f'{p["slug"]}.html').read_text(encoding='utf-8')
-        words = len(re.sub(r'<[^>]+>', ' ', p['body']).split())
-        p['minutes'] = max(1, round(words / WORDS_PER_MINUTE))
-    return sorted(posts, key=lambda p: (p['date'], p['slug']), reverse=True)
+    for a in arts:
+        for k in ARTICLE_KEYS:
+            if not a.get(k):
+                raise BuildError(f'{ARTICLES}/articles.json: article {a.get("slug")!r} has no {k}')
+        if a['slug'] in seen or not re.fullmatch(r'[a-z0-9-]+', a['slug']):
+            raise BuildError(f'{ARTICLES}/articles.json: bad or duplicate slug {a["slug"]!r}')
+        seen.add(a['slug'])
+        date.fromisoformat(a['date'])
+        a['body'] = (root_dir / ARTICLES / f'{a["slug"]}.html').read_text(encoding='utf-8')
+        check_fragment(f'{a["slug"]}.html', a['body'])
+        words = len(re.sub(r'<[^>]+>', ' ', a['standfirst'] + ' ' + a['body']).split())
+        a['minutes'] = max(1, round(words / WORDS_PER_MINUTE))
+    return sorted(arts, key=lambda a: (a['date'], a['slug']), reverse=True)
 
 
-def post_meta(p) -> str:
-    return (f'<p class="meta post-meta"><span>By {e(", ".join(p["authors"]))}</span>'
-            f'<span><time datetime="{e(p["date"])}">{e(nice_date(p["date"]))}</time></span>'
-            f'<span>{p["minutes"]} min read</span></p>')
+def article_meta(a) -> str:
+    return (f'<p class="meta byline"><span>Words: {e(a["byline"])}</span>'
+            f'<span><time datetime="{e(a["date"])}">{e(nice_date(a["date"]))}</time></span>'
+            f'<span>{a["minutes"]} min read</span></p>')
 
 
-def blog_feed_link(site, root):
-    return f'<link rel="alternate" type="application/atom+xml" title="{e(site["name"])} Blog" href="{root}blog/feed.xml">\n'
+def articles_feed_link(site, root):
+    return (f'<link rel="alternate" type="application/atom+xml" title="{e(site["name"])} articles" '
+            f'href="{root}articles/feed.xml">\n')
 
 
-def blog_index(site, posts):
-    """The Blog: technical posts, out of character, on how the games and the studio are really made (D-29)."""
+OOC = ('<p class="ooc"><strong>Out of character.</strong> Dalex Software, its staff and <em>INK &amp; PAPER</em> are '
+       'fictional, and the rest of this site speaks as a 1987 studio. This feature is about the real tools and process '
+       'behind the games.</p>')
+
+
+def articles_index(site, arts):
+    """Articles: INK & PAPER features, out of character, on how the games and the studio are really made (D-29, D-30)."""
     root = '../'
-    items = '\n'.join(f'''  <li class="post-item">
-    <p class="kicker">{e(" · ".join(p["topics"]))}</p>
-    <h2><a href="{e(p["slug"])}/">{e(p["title"])}</a></h2>
-    {post_meta(p)}
-    <p>{e(p["summary"])}</p>
-  </li>''' for p in posts)
-    body = f'''<h1>Blog</h1>
-<p class="lede">Engineering notes from Dalex Software. The rest of this site is set in 1987; here we step out of
-character and write about how the games are really made today, with AI agents, compilers, emulators and a lot of checks.</p>
-<p class="small"><a href="feed.xml">Blog feed (Atom)</a></p>
-<ul class="posts">
+    items = '\n'.join(f'''  <li class="article-item">
+    <p class="kicker">{e(a["kicker"])}</p>
+    <h2><a href="{e(a["slug"])}/">{e(a["title"])}</a></h2>
+    <p class="standfirst">{e(a["standfirst"])}</p>
+    {article_meta(a)}
+  </li>''' for a in arts)
+    body = f'''<h1>Articles</h1>
+<p class="lede">Features from <em>INK &amp; PAPER</em>, the Spectrum games monthly. The reviews on this site stay in
+1987; these step out of character to show how the games are really made today, with AI agents, an assembler, emulators
+and a lot of checks.</p>
+<p class="small"><a href="feed.xml">Articles feed (Atom)</a></p>
+<ul class="articles">
 {items}
 </ul>'''
-    return page(site, root=root, path='blog/', title='Blog', body=body, current='blog',
-                extra_head=blog_feed_link(site, root),
-                description='Engineering notes from Dalex Software: how the ZX Spectrum games are really made with AI agents.')
+    return page(site, root=root, path='articles/', title='Articles', body=body, current='articles',
+                extra_head=articles_feed_link(site, root),
+                description='INK & PAPER features from Dalex Software: how the ZX Spectrum games are really made with AI agents.')
 
 
-def blog_post(site, p, games):
+def article_page(site, a, games):
     root = '../../'
-    body_html = show_shown_games(p['body'], games)
-    heads = re.findall(r'<h2 id="([\w-]+)">(.*?)</h2>', body_html)
-    toc = ''.join(f'<li><a href="#{i}">{t}</a></li>' for i, t in heads)
-    body = f'''<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Blog</a> <span aria-hidden="true">/</span> <span aria-current="page">{e(p["title"])}</span></nav>
-<article class="post">
-<header>
-  <p class="kicker">{e(" · ".join(p["topics"]))}</p>
-  <h1>{e(p["title"])}</h1>
-  <p class="lede">{e(p["summary"])}</p>
-  {post_meta(p)}
+    body = f'''<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Articles</a> <span aria-hidden="true">/</span> <span aria-current="page">{e(a["title"])}</span></nav>
+<article class="feature">
+<header class="feature-head">
+  <p class="feature-mark" aria-hidden="true">INK<span>&amp;</span>PAPER</p>
+  <p class="kicker">{e(a["kicker"])}</p>
+  <h1>{e(a["title"])}</h1>
+  <p class="standfirst">{e(a["standfirst"])}</p>
+  {article_meta(a)}
+  {OOC}
 </header>
-<aside class="ooc" aria-label="Out of character"><p><strong>Out of character.</strong> Dalex Software, its staff and
-<em>INK &amp; PAPER</em> are fictional, and the rest of this site speaks as a 1987 studio. This post does not: it is
-about the real tools and process behind the games.</p></aside>
-{('<nav class="toc" aria-labelledby="toc-title"><h2 id="toc-title">Contents</h2><ol>' + toc + '</ol></nav>') if len(heads) > 2 else ''}
-{body_html}
+<div class="feature-body">
+{show_shown_games(a["body"], games)}
+</div>
 </article>
-<p class="actions"><a class="button" href="../">All posts</a></p>'''
-    return page(site, root=root, path=f'blog/{p["slug"]}/', title=p['title'], body=body, current='blog',
-                extra_head=blog_feed_link(site, root), description=p['summary'])
+<p class="actions"><a class="button" href="../">All articles</a></p>'''
+    return page(site, root=root, path=f'articles/{a["slug"]}/', title=a['title'], body=body, current='articles',
+                extra_head=articles_feed_link(site, root), description=a['standfirst'])
 
 
-def blog_atom(site, posts):
+def moved(site, *, root, path, to, title):
+    """A stub at an old address (the Blog's, D-30) that sends the reader to the article's new one."""
+    url = site['base_url'] + to
+    body = f'''<h1>{e(title)}</h1>
+<p class="lede">This has moved to <a href="{root}{to}">{e(url)}</a>.</p>'''
+    return page(site, root=root, path=to, title=title, body=body, current='articles',
+                extra_head=f'<meta http-equiv="refresh" content="0; url={root}{to}">\n')
+
+
+def articles_atom(site, arts):
     base = site['base_url']
     entries = ''.join(f'''  <entry>
-    <title>{e(p["title"])}</title>
-    <link href="{e(base)}blog/{e(p["slug"])}/"/>
-    <id>{e(base)}blog/{e(p["slug"])}/</id>
-    <updated>{e(p["date"])}T00:00:00Z</updated>
-{''.join(f'    <author><name>{e(a)}</name></author>{chr(10)}' for a in p["authors"])}    <summary>{e(p["summary"])}</summary>
+    <title>{e(a["title"])}</title>
+    <link href="{e(base)}articles/{e(a["slug"])}/"/>
+    <id>{e(base)}articles/{e(a["slug"])}/</id>
+    <updated>{e(a["date"])}T00:00:00Z</updated>
+    <author><name>{e(a["byline"])}</name></author>
+    <summary>{e(a["standfirst"])}</summary>
   </entry>
-''' for p in posts)
-    updated = posts[0]['date'] if posts else '1987-01-01'
+''' for a in arts)
+    updated = arts[0]['date'] if arts else '1987-01-01'
     return f'''<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>{e(site["name"])} Blog</title>
-  <link href="{e(base)}blog/"/>
-  <link rel="self" href="{e(base)}blog/feed.xml"/>
-  <id>{e(base)}blog/</id>
+  <title>{e(site["name"])} articles</title>
+  <link href="{e(base)}articles/"/>
+  <link rel="self" href="{e(base)}articles/feed.xml"/>
+  <id>{e(base)}articles/</id>
   <updated>{e(updated)}T00:00:00Z</updated>
 {entries}</feed>
 '''
@@ -705,9 +752,9 @@ def not_found(site):
     return page(site, root=base, path='404.html', title='Page not found', body=body)
 
 
-def sitemap(site, games, posts=()):
-    urls = [('', None), ('games/', None), ('studio/', None), ('book/', None), ('blog/', None), ('about/', None)]
-    urls += [(f'blog/{p["slug"]}/', p['date']) for p in posts]
+def sitemap(site, games, arts=()):
+    urls = [('', None), ('games/', None), ('studio/', None), ('book/', None), ('articles/', None), ('about/', None)]
+    urls += [(f'articles/{a["slug"]}/', a['date']) for a in arts]
     urls += [(f'games/{g["slug"]}/', (g.get('release') or {}).get('date')) for g in games]
     items = ''.join(f'  <url><loc>{e(site["base_url"] + u)}</loc>'
                     + (f'<lastmod>{e(d)}</lastmod>' if d else '') + '</url>\n' for u, d in urls)
@@ -771,13 +818,17 @@ def build(root: Path = ROOT, config: Path = None, out: Path = None) -> Path:
     write(out, 'about/index.html', about(site, root))
     write(out, 'studio/index.html', studio(site, root, games))
     write(out, 'book/index.html', book(site, root, games))
-    posts = load_posts(root)
-    write(out, 'blog/index.html', blog_index(site, posts))
-    for p in posts:
-        write(out, f'blog/{p["slug"]}/index.html', blog_post(site, p, games))
-    write(out, 'blog/feed.xml', blog_atom(site, posts))
+    arts = load_articles(root)
+    write(out, 'articles/index.html', articles_index(site, arts))
+    write(out, 'articles/feed.xml', articles_atom(site, arts))
+    write(out, 'blog/index.html', moved(site, root='../', path='blog/', to='articles/', title='Articles'))
+    for a in arts:
+        write(out, f'articles/{a["slug"]}/index.html', article_page(site, a, games))
+        if a.get('moved_from_blog'):
+            write(out, f'blog/{a["slug"]}/index.html',
+                  moved(site, root='../../', path=f'blog/{a["slug"]}/', to=f'articles/{a["slug"]}/', title=a['title']))
     write(out, '404.html', not_found(site))
-    write(out, 'sitemap.xml', sitemap(site, games, posts))
+    write(out, 'sitemap.xml', sitemap(site, games, arts))
     write(out, 'feed.xml', feed(site, games))
     write(out, 'robots.txt', f'User-agent: *\nAllow: /\n\nSitemap: {site["base_url"]}sitemap.xml\n')
     return out

@@ -392,3 +392,28 @@ the one deliberate exception. It says so on its index and in a note at the top o
 - **The first post**, *How the games are really made* (2026-11-02, by Daniel Vaughan), walks a game through the eight
   stages from specification to this site. Its figures were read from the toolkit, the game repositories and the
   Studio on that date; when they change, the post stays as written, as an engineering blog post would.
+
+## D-30 Articles: the Blog becomes INK & PAPER features, printed in the magazine too (owner, 2026-11-02)
+
+The owner: "perhaps the section should be articles and the entry more like a ink and paper article which can also
+be included in ink and paper". Asked how far the magazine form goes, the owner chose real content in magazine form
+(the tools and agents stay named), and the magazine changed in the same step.
+
+- **Articles, not a blog.** The section is `articles/`, its nav label `Articles`, its feed `articles/feed.xml`.
+  `blog/` and `blog/<slug>/` (live for a morning) are stubs that send readers on and point their canonical URL at
+  the new address; they are in neither the sitemap nor a feed.
+- **A feature, laid out like the magazine.** Each article has a kicker, a title with the rainbow rule, a standfirst,
+  `Words: <byline>`, a drop cap, crossheads, boxouts (`aside.boxout`) and pull quotes (`blockquote.pull`), in the
+  magazine's type: display sans for titles, a book face for reading, mono for labels (system fonts only). The
+  out-of-character note stays under the byline.
+- **One source, two renderers.** `content/articles/articles.json` holds each article's `slug`, `kicker`, `title`,
+  `cover_title`, `tease`, `standfirst`, `byline`, `date` and `topics`; `<slug>.html` is the body, in a fixed tag
+  vocabulary (`build.py` `ARTICLE_TAGS`, refused otherwise). The toolkit's `zx-magazine-issue` skill (zx-media-kit
+  0.17.0, `issue_features.py`) prints the same files as features after the full-price reviews, chosen by the
+  toolkit's `examples/magazine/features.json`. Change the vocabulary in both places together.
+- **The magazine's exception.** INK & PAPER's own pages ban tools, agents and anything after 1990. A feature's own
+  pages are exempt and say so; its `cover_title` and `tease`, which the contents page prints, are not, and
+  `tests/test_articles.py` checks them against a copy of the banned terms.
+- The Blog's D-29 rules otherwise stand: never the demo key or scheme, CI machines, credentials, hidden projects,
+  customers or the child, and Suno is not used. The first article was rewritten as a feature with its fact-checked
+  content unchanged.

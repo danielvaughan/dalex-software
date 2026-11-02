@@ -1,0 +1,14 @@
+[
+  {
+    "slug": "how-the-games-are-really-made",
+    "kicker": "Feature · The making of",
+    "title": "How the games are really made",
+    "cover_title": "The making of a Dalex game",
+    "tease": "Behind the studio doors: every step from a bright idea to a tape on the shelf",
+    "standfirst": "Behind the 1987 studio on these pages is a pipeline of AI coding agents, packaged skills, Python scripts, an assembler, a contention-modelled Z80 simulator and a browser emulator. Daniel Vaughan steps out of character to follow a game from an idea to a tape, with real excerpts from the records, and to show where it goes wrong.",
+    "byline": "Daniel Vaughan",
+    "date": "2026-11-02",
+    "topics": ["AI agents", "Z80", "Build pipeline", "Testing"],
+    "moved_from_blog": true
+  }
+]

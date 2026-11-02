@@ -1,0 +1,370 @@
+<p>Every game on this site is a real ZX Spectrum program: Z80 machine code, assembled into a tape image that loads
+through the Spectrum&rsquo;s own ROM, as a tape did in 1987. Almost all of that code, the graphics, the music and the
+documents around them were produced by AI coding agents (Claude Code; the tools also support OpenAI&rsquo;s Codex)
+working in ordinary Git repositories. One person, me, sets the direction, answers questions and decides what ships.</p>
+<p>That would be a recipe for convincing-looking junk without one rule the whole process is built around: no agent is
+trusted to say its own work is good. Every stage ends in something a machine can check (a linter, an assembler, a
+simulator run, a hash) or in a review by a different agent that starts with no memory of the work. This feature is about
+how that is put together, and where it still goes wrong.</p>
+
+<blockquote class="pull"><p>No agent is trusted to say its own work is good.</p></blockquote>
+
+<aside class="boxout">
+<h3>The eight stages</h3>
+<ol class="pipeline">
+  <li><span><strong>Specification.</strong> An idea is questioned until it is a machine-agnostic game spec, then linted.</span></li>
+  <li><span><strong>Design.</strong> The spec becomes numbered requirements, a memory and timing budget, and milestones.</span></li>
+  <li><span><strong>Assets.</strong> Sprites, screens, music and sound are made, converted to Spectrum formats and reviewed.</span></li>
+  <li><span><strong>Build.</strong> Z80 source is written and assembled with sjasmplus into a hashed tape.</span></li>
+  <li><span><strong>Verify.</strong> Scripts cold-load and play the tape in a Z80 simulator, measuring timing, input latency and flicker.</span></li>
+  <li><span><strong>Playtest.</strong> An agent plays the tape and files findings by severity.</span></li>
+  <li><span><strong>Gate.</strong> A fresh agent checks that every piece of evidence is about the same tape, and gives a verdict.</span></li>
+  <li><span><strong>Media kit.</strong> An evidence-bound magazine review, the cassette inlay, and the demo on this site.</span></li>
+</ol>
+</aside>
+
+<h2 id="the-cast">Who is really at the desks</h2>
+<p>The Studio and About pages describe a 1987 Manchester software house full of people. They are characters. Each one
+stands for a skill or an agent, and the Dalex Studio, a program I describe at the end of this feature, shows a
+character as busy when an agent is running their skill.</p>
+<p>The fiction is not decoration. An eight-stage pipeline with fourteen roles is hard to follow as a list of script names.
+As a building full of people it is easy to see who is waiting for whom, and it gave us the subject of
+<a href="../../games/gold-master/">Gold Master</a>, a game about running the studio.</p>
+
+<aside class="boxout">
+<h3>Who does what</h3>
+<table>
+  <thead><tr><th scope="col">Desk</th><th scope="col">What actually does the work</th></tr></thead>
+  <tbody>
+    <tr><td>Malcolm, commissioning</td><td>The <code>game-spec</code> skills: grill, write, check, revise, implement</td></tr>
+    <tr><td>Mo, producer</td><td>The <code>zx-game</code> orchestrator skill and its <code>status.py</code>, which names the next step</td></tr>
+    <tr><td>Colin, game designer</td><td><code>zx-game-design</code> (requirements, design, milestones) and <code>zx-text-assets</code></td></tr>
+    <tr><td>Neil, art director</td><td>The <code>zx-assets</code> orchestrator, the manifest, art direction and asset review skills, and the <code>zx-asset-judge</code> and <code>zx-asset-reviewer</code> agents</td></tr>
+    <tr><td>Hyun-joo, sprites</td><td>The sprite skills: <code>zx-sprite-assets</code>, <code>zx-sprite-data</code>, <code>zx-anim-scripts</code>, and the isometric and 3D model skills</td></tr>
+    <tr><td>Simon, screens and covers</td><td>Screen, inlay, advert and website skills</td></tr>
+    <tr><td>Dez, music</td><td>AY music, AY sound effects, speech and beeper skills</td></tr>
+    <tr><td>Gareth, Z80 programmer</td><td><code>zx-game-build</code> and the other five <code>zx-engine</code> skills (beeper sound is Dez&rsquo;s)</td></tr>
+    <tr><td>Vik, verification</td><td><code>zx-game-verify</code> and its simulator</td></tr>
+    <tr><td>Emeka, playtester</td><td><code>zx-game-playtest</code> and the <code>zx-game-playtester</code> agent</td></tr>
+    <tr><td>Derek, sign-off</td><td>The <code>zx-game-reviewer</code> agent, which writes the milestone verdict</td></tr>
+    <tr><td>Brian, <em>INK &amp; PAPER</em></td><td>The <code>zx-media-kit</code> orchestrator, the magazine review and issue skills, and the <code>zx-magazine-reviewer</code> agent</td></tr>
+    <tr><td>Yvonne, tools and research</td><td>Work on the tools themselves, including the Studio</td></tr>
+    <tr><td>Ken, accounts</td><td>A ledger built from the token usage recorded in agent transcripts: estimates, not invoices</td></tr>
+  </tbody>
+</table>
+</aside>
+
+<h2 id="research-first">Research before code</h2>
+<p>An agent asked to &ldquo;write a Spectrum game&rdquo; writes the kind of Spectrum game that appears in old type-in
+listings: flickering sprites, a main loop with no idea of time, keys that are missed. So before any game, the toolkit
+(<code>spectrum-game-reference</code>, a private repository) studied how the best commercial games actually worked.</p>
+<p>83 games were loaded, run and disassembled: 72 well-rated exemplars chosen from ZXDB scores and awards, and 11 badly
+reviewed ones kept as examples of what not to do. Cheaper static metrics cover another 2,635 TOSEC titles. Each game is
+fetched and fingerprinted, converted to a snapshot with SkoolKit&rsquo;s <code>tap2sna</code>, traced in SkoolKit&rsquo;s
+simulator (a T-state profile, every AY sound-chip register write, memory paging and a model of the TV beam to spot
+tearing), then disassembled with <code>sna2skool</code> from the traced state.</p>
+<p>Techniques that recur across games become short Markdown <em>pattern cards</em> with measured costs: bytes, T-states (Z80
+clock cycles) and frames per update. There are about sixty, from memory budgets to multi-voice beeper music. A card is
+the kind of thing an agent can follow and a reviewer can check. This is the top of the beeper-music card, abridged:</p>
+<pre><code>| Game        | Voices | How voices are mixed  | Loop cost                   |
+|-------------|--------|-----------------------|-----------------------------|
+| Agent X II  | 5      | pulse interleaving    | 76 T per bare loop (46 kHz) |
+| DreamWalker | 3 + noise drums | phase accumulators | about 153 T per loop  |
+| Cobra       | 2 + percussion | periods N and N-1, XOR-mixed | ~18 toggles per frame |</code></pre>
+
+<h2 id="skills">Skills, plugins and agents</h2>
+<p>The working knowledge lives in <strong>skills</strong>. A skill is a folder with a <code>SKILL.md</code> (when to use it and
+the steps to follow), reference documents, templates and scripts. Claude Code and Codex load a skill&rsquo;s instructions
+when a task matches its description, so an agent asked to build a frame loop gets the measured frame-loop contract, a
+reference routine and a validator, not a guess.</p>
+<p>Some steps are given to <strong>agents</strong> rather than skills: separately defined sub-agents that start in a fresh
+context with only the files they are pointed at. The playtester, the milestone reviewer, the asset judge, the asset
+reviewer and the magazine reviewer are agents for the same reason: someone who did not do the work is the only one who
+can be trusted to check it.</p>
+<p>The toolkit is its own plugin marketplace while plugins are developed. A copy without tests or virtual environments is
+published to a release marketplace (<code>zx-plugins</code>), and a game template repository pins a tagged release, so a
+new game starts from a fixed set of skills rather than whatever is on the working branch.</p>
+
+<aside class="boxout">
+<h3>The five plugins</h3>
+<table>
+  <thead><tr><th scope="col">Plugin</th><th scope="col">Skills</th><th scope="col">What it is for</th></tr></thead>
+  <tbody>
+    <tr><td><code>game-spec</code> 0.1.0</td><td>6</td><td>From idea to a checked, machine-agnostic specification</td></tr>
+    <tr><td><code>zx-engine</code> 0.6.8</td><td>6</td><td>Frame loop, flicker-free sprites, beeper sound, 8-way steering, waggle input, dictionary lookup</td></tr>
+    <tr><td><code>zx-assets</code> 0.23.4</td><td>14</td><td>Manifest, art direction, sprites, animation, screens, isometric and 3D models, AY music and effects, speech, text, review</td></tr>
+    <tr><td><code>zx-game</code> 0.20.0</td><td>5</td><td>Design, build, verify and playtest, one milestone at a time</td></tr>
+    <tr><td><code>zx-media-kit</code> 0.16.0</td><td>6</td><td>Magazine review, inlay, adverts, video, website publishing</td></tr>
+  </tbody>
+</table>
+</aside>
+
+<h2 id="spec">The specification</h2>
+<p>A game starts as a sentence. The <code>game-spec-grill</code> skill questions it in numbered rounds, each question with a
+recommended answer, until every branch is settled: pillars, actions, world, hazards, progression, scoring, failure, tone
+and scope. Answers go into a decision log. <code>game-spec-write</code> then writes the specification in a fixed template,
+with numbered rules, a tuning table and Given/When/Then acceptance checks.</p>
+<p>The specification is deliberately machine-agnostic. It may not mention pixels, frames as a unit of time, bytes, sound
+chips or key bindings, because those are decisions for the target machine. <code>check_spec.py</code> enforces it: platform
+leaks are errors (machine and device names are warnings), required sections must exist, requirement, tuning and
+acceptance IDs must be well formed and unique, no <code>TBD</code> or <code>TODO</code> may remain, and music must have a way to
+be switched off.</p>
+<p>Only at <code>game-spec-implement</code> is a machine chosen. It writes a separate target brief (for example <em>Gold
+Master, target ZX Spectrum 128</em>) with controls, display, sound and memory, and leaves the specification untouched. The
+specification for Gold Master is at version 1.1.1: one tuning revision after the fourth milestone&rsquo;s playtest, and one
+name change. Changes are meant to go through <code>game-spec-revise</code>, which separates &ldquo;the code is wrong&rdquo; from
+&ldquo;the rule is wrong&rdquo; before anything is edited.</p>
+
+<h2 id="design">Design, budgets and milestones</h2>
+<p><code>zx-game-design</code> turns the specification into three documents: <code>requirements.md</code> (numbered
+<code>R-001</code>&hellip; requirements, each citing a section of the specification), <code>design.md</code> (memory and bank
+map, controls, which engine skills and pattern cards to use, and a T-state budget for every subsystem) and
+<code>milestones.md</code> (playable slices, each with acceptance checks that a script can run). The design becomes a
+<code>build.yaml</code> that the build and the verifier both read. An extract from Gold Master&rsquo;s, abridged with comments
+shortened:</p>
+<pre><code>machine: 128
+main: src/main.asm
+clear: 24575            # just below the resident data
+banks:
+  0: bank0.bin          # sound player + tune, ticked by the ISR
+  1: bank1.bin          # Production (+ its level-2 staircase) and landing 1 pictures
+  7: bank7.bin          # Percy and the M3 items above the play scratch
+update_frames: 2        # frames per game update (IM2 counter)
+update_budget_t: 125000 # busy T per play update, p90
+latency: {key: p, watch: HARNESS_player_x}</code></pre>
+<p>That last line matters later: it tells the verifier which key to tap and which variable in memory must move when it
+does.</p>
+
+<h2 id="assets">Graphics, music and sound</h2>
+<p>The <code>zx-assets</code> pipeline starts from a manifest derived from the specification: every sprite, tile set,
+screen, music cue and effect, with its size, frame count, colours, memory budget and a reference back to the
+specification. Then, in order: art direction, sprites, animation scripts, screens and tiles, AY music, sound effects,
+speech, text, and an independent review.</p>
+<p>Character references and scene paintings are generated with Google&rsquo;s Gemini image model, under a hard cap of 10
+images per character and per scene, counted in a sidecar file before every call. At the art-direction gate I pick the
+master reference from up to three candidates, or in an unattended run the <code>zx-asset-judge</code> agent does, and can
+veto any that breaks the specification&rsquo;s tone rules.</p>
+<p>The picture is then reduced to what a Spectrum can show: one ink and one paper colour per 8&times;8 cell, with a
+strategy for colour clash. Sprites are stored as plain-text art that an agent can read and edit, and converted to
+assembler data, masks, shifted copies and mirror images by scripts. At sprite sizes a figure is often better designed
+than reduced, so many sprites are drawn directly as text art; many of Gold Master&rsquo;s rooms were drawn by Python
+scripts an agent wrote, with the cast sheets used only to keep people recognisable. The top of a 24&times;32 sprite drawn
+that way:</p>
+<pre><code>@sprite brian nomirror
+........########........
+......############......
+.....##############.....
+.....###o#o#o#o#o##.....
+....##oooooooooooo##....</code></pre>
+<p>Tunes are composed as MIDI and reduced to the 128K&rsquo;s three AY-3-8912 channels at 50 updates a second. A Z80
+interrupt player is built and run in the simulator, and its register writes are checked against the arrangement. Sound
+effects share the chip on channel C, by priority. At the last gate a fresh <code>zx-asset-reviewer</code> agent runs the
+validators, builds a gallery tape, looks at simulator screenshots and gives a pass, pass-with-issues or fail verdict,
+with at most two fix rounds.</p>
+
+<h2 id="build">Building the tape</h2>
+<p>The code is Z80 assembly, assembled with <strong>sjasmplus</strong> 1.24.0 (built from source, and in the
+template&rsquo;s dev container). <code>zx-game-build</code> starts from a template game, takes the engine from the validated
+<code>zx-engine</code> skills and pattern cards, wires in the asset data and measures each subsystem against its budget.
+<code>build_game.py</code> reads <code>build.yaml</code>, assembles with <code>-DMACHINE=48</code> or <code>128</code>, writes the
+loader, loading screen, main block and memory banks to a tape image, and records the tape&rsquo;s sha256 in
+<code>build-m&lt;N&gt;.json</code>. That hash is the identity of a build for every later stage.</p>
+<p>Every game also exports a small set of <strong>harness symbols</strong>: labels the test tools look up in the
+assembler&rsquo;s symbol table to read the game&rsquo;s state from memory, without the game knowing it is being tested:</p>
+<pre><code>HARNESS_updates     equ updates
+HARNESS_state       equ state
+HARNESS_lives       equ lives
+HARNESS_score       equ score
+HARNESS_level       equ level
+HARNESS_player_x    equ mo_x
+HARNESS_player_y    equ mo_y</code></pre>
+<p>Gold Master is 55 source files: 19 hand-written (about 7,500 lines of Z80) and 36 generated or shared house code,
+11,400 lines in all. <a href="../../games/wordris/">Wordris</a> is about 3,400 hand-written lines.</p>
+
+<h2 id="verify">Verification in a simulator</h2>
+<p><code>verify_game.py</code> is the largest script in the plugins (about 2,700 lines). It runs the tape in SkoolKit&rsquo;s
+<code>CMIOSimulator</code> with memory and I/O contention modelled, so timing is close to a real 48K or 128K, and runs
+these checks, among others, in order:</p>
+<ol>
+  <li><strong>build</strong> and <strong>memmap</strong>: the tape assembles and fits.</li>
+  <li><strong>cold_load</strong>: the tape loads through the real ROM, as from a cassette.</li>
+  <li><strong>reaches_play</strong>: the game gets from the title to play.</li>
+  <li><strong>update_rate</strong>: the game keeps to its declared rate, on average and in its worst 100-frame stretch.</li>
+  <li><strong>update_cost</strong>: busy T-states per update, from the update tick to the next <code>HALT</code>, interrupt
+  included; fails if the 90th percentile is over budget.</li>
+  <li><strong>no_crash</strong> and <strong>no_soft_lock</strong>.</li>
+  <li><strong>input_latency</strong>: 30 one-frame key taps at irregular moments; every one must move the watched variable
+  within one update, and an idle run without the taps must not move in the same windows.</li>
+  <li><strong>flicker</strong>: a beam model counts screen bytes that were erased and redrawn while the beam was passing
+  them. The pass mark is zero.</li>
+  <li>One check per <strong>bot recipe</strong>, then music and sound toggles, audio, house style, sprite contact and
+  game-flow checks.</li>
+</ol>
+<p>Here are three real rows from Gold Master&rsquo;s fourth-milestone report:</p>
+<pre><code>| update_cost | PASS | 92986 play updates over 45 run(s): median 77839, p90 97075, max 196438 busy T
+  (max in recipe-m3-ship4 frame 6473); p90 is 68% of the update period (2 x 70908 T);
+  update_budget_t 125000: p90 within budget |
+| input_latency | PASS | 30/30 one-frame taps raised player_x within 3 frames (tap frame +
+  update_frames 2); slowest response at tap+1; idle drift 0 ... |
+| flicker | SKIP | not measured: the displayed screen flips during play ...; the beam model does
+  not follow shadow-screen double buffering |</code></pre>
+<p>Note the skip. Gold Master draws into the 128K&rsquo;s second screen and flips between them, and the beam model cannot
+follow that, so the report says so instead of passing it. Wordris, which draws to one screen, reports &ldquo;0 transient
+bitmap bytes in 516 play frames&rdquo;.</p>
+<p><strong>Recipes</strong> are the game&rsquo;s functional tests: a key log plus expectations, in JSON. This one presses Space
+to start, runs the courier clock down with one poke, and expects the game to go from play to the missed-courier card, to
+the title and back to play, with no score:</p>
+<pre><code>{"keys": "150-154:SPACE", "frames": 1600,
+ "pokes": [{"frame": 600, "symbol": "clock", "value": 50, "size": 2}],
+ "screenshots": [700],
+ "expect": {"state_sequence": [1, 3, 0, 1], "state_at_end": 1,
+            "symbols": [{"symbol": "clock", "size": 2, "seen": [9000]},
+                        {"symbol": "HARNESS_score", "size": 2, "max": 0}]}}</code></pre>
+<p>A recipe that pokes memory is labelled a <em>fixture</em> in every report, because it skips part of the game. Longer
+journeys are played by closed-loop pilot scripts that read the harness symbols each frame and decide which key to press;
+their key logs must then replay identically. Gold Master&rsquo;s fourth milestone ran 43 recipes. The simulator is hard
+work for a machine, so at most three verifies run at once, and a run that fails only because the machine was overloaded
+is marked <em>INFRA</em> and does not count against the fix budget.</p>
+
+<h2 id="playtest">An agent at the joystick</h2>
+<p>Scripts check what someone thought to write down. To find the rest, a fresh <code>zx-game-playtester</code> agent plays
+the tape. <code>playtest_server.py</code> serves a local page with a patched build of JSSpeccy 3.2 (the same emulator that
+plays the demos on the website) that exposes a <code>window.zx</code> object: pause, single-step, speed, key down and up,
+memory peeks, recipe replay and screenshots. The agent drives it through Claude in Chrome, following a written charter.
+When the browser tool is unavailable, it steps the tape in the simulator instead and says so in its report: Gold
+Master&rsquo;s first eight rounds were played that way.</p>
+<p>It plays slowly or a frame at a time, because an agent cannot react at 50 frames a second, and it reports what it saw
+with screenshots and a findings table graded by severity: 1 for a crash, soft lock, impossible progress, broken controls
+or a tone breach; 2 for unfair or unclear; 3 for polish. Severity 1 blocks the milestone; 2 and 3 are triaged. A
+milestone gets at most five fix attempts, counting failed verifies and failed gates as well as playtests, before it is
+marked stuck and handed to me. Gold Master took 12 playtest rounds across its four milestones (3, 2, 1 and 6); the third
+Wordris milestone took nine.</p>
+
+<h2 id="gate">The gate, and the time it said no</h2>
+<p>A milestone is signed off by the <code>zx-game-reviewer</code> agent, which reads the requirements, the build record,
+the verify report and the playtest reports, and checks one thing first: that they all name the same tape sha256. A verify
+of one build and a playtest of another prove nothing about either. It then checks each acceptance criterion against
+evidence and appends a verdict: <em>pass</em>, <em>pass with issues</em> or <em>fail</em>. It treats a skipped check as no
+evidence, requires recipes that poke memory to be labelled as fixtures, and looks for anti-goals, including claims of tests
+that did not happen.</p>
+<p>It does fail things. Gold Master&rsquo;s second milestone passed 53 of 56 verify checks and its playtest had no
+severity-1 findings, but the gate compared each screenshot the playtest cited with the room the playtest&rsquo;s own log
+said it was in:</p>
+<pre><code>Verdict: fail
+- blocking: cited room screenshots show a different room, and Accounts has no rendered
+  evidence. ... Each was taken within the room change's hold of the old picture (F-15).
+- what must change (no source change and no rebuild needed; a new playtest round on the
+  same tap 34413f9b): capture landing 2, Commissioning and Accounts at least about 20
+  frames after `room` changes ...</code></pre>
+<p>The game was fine. The evidence was not: screenshots taken a moment too early showed the previous room, so the
+report&rsquo;s claims about a room nobody had actually looked at were unsupported. A second playtest round on the same tape
+fixed the evidence, and the milestone passed with issues. That is the behaviour we want from a reviewer, and the reason
+the reviewer is never the agent that did the work.</p>
+
+<blockquote class="pull"><p>The game was fine. The evidence was not.</p></blockquote>
+
+<p>Each verdict also says plainly what was <em>not</em> verified. From Gold Master&rsquo;s final gate:</p>
+<pre><code>Not verified: feel at full speed (all of rounds 3-6 were stepped); real hardware and a real
+Kempston interface; ... sound by ear (AY register data only)</code></pre>
+
+<h2 id="media-kit">The magazine, the box and the website</h2>
+<p>The <em>INK &amp; PAPER</em> reviews are written by <code>zx-magazine-reviewer</code> agents in a mid-1980s magazine voice,
+but they are not free fiction. Every claim in a review carries hidden evidence IDs pointing at a verify check
+(<code>V-</code>), a playtest finding (<code>P-</code>), a screenshot (<code>S-</code>), a requirement (<code>R-</code>) or my own
+play reports and verdicts (<code>O-</code>), and <code>check_review.py</code> rejects a review with an unsupported claim.
+Three reviewers write independently; the kit takes the median scores and the text of the reviewer closest to them. An
+open severity-1 finding caps the Overall score at 59%. The same kit renders the cassette inlay, an advert and a poster
+from real emulator screenshots, a gameplay video and a video of the real tape loading.</p>
+<p>The magazine itself is compiled by the <code>zx-magazine-issue</code> skill from every game&rsquo;s newest published
+review. Its own pages obey the same rules as the reviews: no tools, no agents, nothing after 1990. Features like this one
+are the exception, and say so at the top.</p>
+<p>The last step is the website. <code>publish_site.py</code>, from the <code>zx-website</code> skill, writes a game&rsquo;s folder
+there from its media kit. It refuses a kit that is out of date against the release tape and never publishes the release
+tape: the demo is stored obfuscated, and the site&rsquo;s tests require every demo to be a separate single-level demo
+build. The site is built by a single Python standard-library script and checked by tests in CI before GitHub Pages
+deploys it: every demo must decode to the hash recorded for it, hidden games must not be deployed at all, internal links
+must resolve, images must declare their sizes, and no price may appear on a game page.</p>
+
+<h2 id="checks">Linters, hooks and CI</h2>
+<p>Agents write a great deal of text quickly, so the cheap checks run on every commit. Every game repository carries the
+template&rsquo;s <code>pre-commit</code> hooks: Gitleaks on staged changes, so no API key reaches Git; markdownlint for the
+many Markdown documents and typos for spelling; ruff for Python and shellcheck for shell scripts; basic file checks
+(merge-conflict markers, valid JSON, TOML and YAML, line endings and large files); and three local hooks that run
+<code>check_spec.py --strict</code> on the specification, validate the asset manifest and check the game&rsquo;s identity
+file.</p>
+<p>The games have no hosted CI: the verifier needs the toolkit, takes minutes per run and is the real test, so it runs
+locally and its reports are committed with the build. The toolkit&rsquo;s plugins have their own unit tests (over a hundred
+test files). The Dalex Studio repository has the heaviest CI, because it is a C++ engine: pre-commit, clang-format and
+clang-tidy on changed lines, basedpyright on its Python (failing only on new findings), <code>pip-audit</code>, unit tests
+with coverage, and a native build against a pinned ScummVM commit.</p>
+<p>Decisions are written down rather than left in chat history: each game has a decisions log, each repository records
+larger choices as numbered decisions or architecture decision records, and work is tracked as GitHub issues with a
+readiness policy, so that several agents can pick up work without colliding.</p>
+
+<h2 id="watching">Watching the agents: the Studio</h2>
+<p>The office in the Studio film is a real program. Dalex Studio is an adventure-game engine written for ScummVM, in C++,
+at 640&times;480 with indexed-colour pixel art. Each room is a part of the pipeline and each desk a role.</p>
+<p>It knows what the agents are doing by reading the transcripts Claude Code and Codex save on disk. A collector looks at
+sessions active in the last ten minutes, maps each skill or agent in use to a character, and shows that character
+working. It shows only the session title and the short description of the most recent tool call; command text is used
+only to work out the character and the game, and prompts, outputs and commands are never shown. The milestone board, the
+monitors behind the programmers and the accountant&rsquo;s ledger are filled the same way, from the game repositories,
+GitHub and token-usage records.</p>
+<p>That is useful as well as fun: with several agents running overnight across six games, a room you can glance at tells
+you who is stuck, who is waiting for a decision, and which game is close to a gate.</p>
+
+<h2 id="testing-skills">Testing the skills themselves</h2>
+<p>A skill is instructions plus code, and both can be wrong. Five of the six engine skills were validated with red/green
+builds (direct drive is still pending): fresh agents built the same thing with and without the skill, and the results
+were measured. For the frame loop, one of five builds without the skill passed the latency contract (30 irregular
+one-frame taps under contention), and three of three with it did. That is a small sample. The validation note states its
+own limits: the timing comes from a contention-modelled simulator, not real hardware, and the validator tests one sprite
+and one input pattern.</p>
+<p>Skill text is also reviewed with Tessl. The Studio&rsquo;s rule is a lint, a quality review and a security review for
+every changed skill, plus scenario evaluations where a plugin has them. The toolkit&rsquo;s skills have had Tessl quality
+reviews, and security reviews for those with scripts; they have no scenario evaluations yet.</p>
+
+<h2 id="what-goes-wrong">What goes wrong</h2>
+<p>Plenty. The commonest failure is <strong>evidence about the wrong thing</strong>, like the failed gate above: screenshots
+and claims that look right but describe another moment. That is why the gate cross-checks them.</p>
+<p><strong>A demo that does not match its page.</strong> When choosing demos for the website, an early Mower Mayhem milestone
+turned out to steer like a tank (turn left and right, speed up and down), not with the eight-way direct drive its page
+described. In the end no milestone tape was published: I chose single-level demo builds for every game.</p>
+<p><strong>Stale kits.</strong> Several media kits were out of date against a newer release tape. The publisher refuses them,
+so they were published against the kit&rsquo;s own tape and the gap recorded.</p>
+<p><strong>Tool defects found by use.</strong> Each game keeps a <code>LESSONS.md</code>. Gold Master&rsquo;s includes status
+files the toolkit wrote that failed the game&rsquo;s own Markdown lint, a scaffolder that cut the tape name to <code>GOLD
+MASTE</code>, and a build file parser that accepts only one level of nesting. Each was recorded as a toolkit defect; the
+lint failure is an open toolkit issue, and the others are still worked around in the game.</p>
+<p><strong>Releases that lag.</strong> The released plugin set lags the working branch (<code>zx-game</code> 0.19.1 against
+0.20.0, <code>zx-media-kit</code> 0.14.1 against 0.16.0), so a new game starts on older skills until the next release is
+tagged.</p>
+
+<aside class="boxout">
+<h3>What is not proven</h3>
+<p>The games are verified in the SkoolKit simulator and played in JSSpeccy. Nothing has been checked on a real Spectrum.
+Agent playtests are slowed down or stepped, so the feel at full speed is judged by people playing the demos, not by the
+pipeline. Sound is checked as AY register data against its reference, not by ear. The reviews are generated, honestly
+bound to evidence, but they are not the opinion of a person who bought the tape.</p>
+</aside>
+
+<aside class="boxout">
+<h3>Gold Master by the numbers</h3>
+<table>
+  <thead><tr><th scope="col">Measure</th><th scope="col">Value</th></tr></thead>
+  <tbody>
+    <tr><td>Machine</td><td>ZX Spectrum 128K</td></tr>
+    <tr><td>Requirements</td><td>47</td></tr>
+    <tr><td>Milestones</td><td>4</td></tr>
+    <tr><td>Z80 source</td><td>55 files: 19 hand-written (about 7,500 lines), 11,400 lines in all</td></tr>
+    <tr><td>Commits</td><td>71, over 28 and 29 October 2026</td></tr>
+    <tr><td>Playtest rounds</td><td>12</td></tr>
+    <tr><td>Gate verdicts</td><td>6 pass with issues, 1 fail</td></tr>
+    <tr><td>Recipes in the final verify</td><td>43</td></tr>
+    <tr><td>Update cost, p90</td><td>97,075 T-states against a 125,000 budget</td></tr>
+  </tbody>
+</table>
+</aside>
+
+<p>You can play the first level of <a href="../../games/gold-master/">Gold Master</a> on the website. For the Z80 side in
+depth, the book <em>Machine Code Mayhem</em> takes all six games apart routine by routine.</p>
