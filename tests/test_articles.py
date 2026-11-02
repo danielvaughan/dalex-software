@@ -13,11 +13,13 @@ sys.path.insert(0, str(ROOT))
 import build  # noqa: E402
 
 # Never in an article: a customer or the child the spoken help was made for, a hidden project, how the demos are
-# obfuscated (the key or the scheme), the machines that run CI, Suno (not used for the games), or credentials.
+# obfuscated (the key or the scheme), the machines that run CI, Suno (not used for the games), credentials, or taking
+# apart other people's games (disassembly and the archives and tools for it), which reads as dubious copyright-wise.
 # Daniel Vaughan may be named (D-25).
 DENY = (r'blackstone', r'husqvarna', r'tech\s*day', r'leaders', r'\balex\b', r'mi-?jung', r'\bkang\b', r'megawatt',
         r'DEMO_KEY', r'xorshift', r'fnv-?1a', r'DLXDEMO', r'\bgb10\b', r'quixote', r'\bsuno\b', r'game-factories',
-        r'@codetaming')
+        r'@codetaming', r'disassembl', r'sna2skool', r'tap2sna', r'\btosec\b', r'\bzxdb\b',
+        r'commercial games')
 # The magazine's own pages (contents, cover) print cover_title and tease, so they keep its banned-terms rule
 # (zx-media-kit check_review.py): no agents, AI, tests, tools or anything after 1990. A small copy of that list.
 MAGAZINE_BANNED = re.compile(r'\bagents?\b|(?-i:\bA\.?I\b)|\bemulat\w*|\btest\w*|\bverif\w*|\bpipeline\b|\bbuilds?\b'
