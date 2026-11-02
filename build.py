@@ -5,7 +5,8 @@
 
 Reads site.json (which games exist and which are shown), games/<slug>/game.json (written by the
 toolkit's zx-website skill), content/about.html, static/ (with the studio film in static/media/) and
-content/studio.html. Only games with "visible": true are
+content/studio.html and the Blog's posts (content/blog/posts.json and one HTML fragment per post, D-29). Only
+games with "visible": true are
 built into any page, the sitemap or the feed, and only their files are copied to the output, so a
 hidden game is not deployed at all. The output is deterministic: the same inputs give the same bytes.
 
@@ -238,7 +239,7 @@ def page(site, *, root, path, title, body, description='', current='', extra_hea
     path is this page's path below the site root, for the canonical URL."""
     full_title = f'{title} · {site["name"]}' if title != site['name'] else title
     nav = [('', 'Home', 'home'), ('games/', 'Games', 'games'), ('studio/', 'The Studio', 'studio'), ('book/', 'The Book', 'book'),
-           ('about/', 'About', 'about')]
+           ('blog/', 'Blog', 'blog'), ('about/', 'About', 'about')]
     links = ''.join(
         f'<li><a href="{root}{href}"{CURRENT if key == current else ""}>{label}</a></li>'
         for href, label, key in nav)
@@ -590,6 +591,112 @@ def studio(site, root_dir: Path, games):
                             'with people steering.')
 
 
+BLOG = 'content/blog'   # posts.json (newest first) and <slug>.html, one fragment per post (D-29)
+WORDS_PER_MINUTE = 220
+
+
+def show_shown_games(frag: str, games) -> str:
+    """Link only games that are shown: a link to a game hidden in site.json becomes plain text."""
+    shown = {g['slug'] for g in games}
+    return re.sub(r'<a href="\.\./\.\./games/([a-z0-9-]+)/">(.*?)</a>',
+                  lambda m: m.group(0) if m.group(1) in shown else m.group(2), frag)
+
+
+def load_posts(root_dir: Path):
+    """The Blog's posts, newest first, each with its body and reading time. Refuses a post without its metadata."""
+    posts = json.loads((root_dir / BLOG / 'posts.json').read_text(encoding='utf-8'))
+    seen = set()
+    for p in posts:
+        for k in ('slug', 'title', 'date', 'authors', 'summary', 'topics'):
+            if not p.get(k):
+                raise BuildError(f'{BLOG}/posts.json: post {p.get("slug")!r} has no {k}')
+        if p['slug'] in seen or not re.fullmatch(r'[a-z0-9-]+', p['slug']):
+            raise BuildError(f'{BLOG}/posts.json: bad or duplicate slug {p["slug"]!r}')
+        seen.add(p['slug'])
+        date.fromisoformat(p['date'])
+        p['body'] = (root_dir / BLOG / f'{p["slug"]}.html').read_text(encoding='utf-8')
+        words = len(re.sub(r'<[^>]+>', ' ', p['body']).split())
+        p['minutes'] = max(1, round(words / WORDS_PER_MINUTE))
+    return sorted(posts, key=lambda p: (p['date'], p['slug']), reverse=True)
+
+
+def post_meta(p) -> str:
+    return (f'<p class="meta post-meta"><span>By {e(", ".join(p["authors"]))}</span>'
+            f'<span><time datetime="{e(p["date"])}">{e(nice_date(p["date"]))}</time></span>'
+            f'<span>{p["minutes"]} min read</span></p>')
+
+
+def blog_feed_link(site, root):
+    return f'<link rel="alternate" type="application/atom+xml" title="{e(site["name"])} Blog" href="{root}blog/feed.xml">\n'
+
+
+def blog_index(site, posts):
+    """The Blog: technical posts, out of character, on how the games and the studio are really made (D-29)."""
+    root = '../'
+    items = '\n'.join(f'''  <li class="post-item">
+    <p class="kicker">{e(" · ".join(p["topics"]))}</p>
+    <h2><a href="{e(p["slug"])}/">{e(p["title"])}</a></h2>
+    {post_meta(p)}
+    <p>{e(p["summary"])}</p>
+  </li>''' for p in posts)
+    body = f'''<h1>Blog</h1>
+<p class="lede">Engineering notes from Dalex Software. The rest of this site is set in 1987; here we step out of
+character and write about how the games are really made today, with AI agents, compilers, emulators and a lot of checks.</p>
+<p class="small"><a href="feed.xml">Blog feed (Atom)</a></p>
+<ul class="posts">
+{items}
+</ul>'''
+    return page(site, root=root, path='blog/', title='Blog', body=body, current='blog',
+                extra_head=blog_feed_link(site, root),
+                description='Engineering notes from Dalex Software: how the ZX Spectrum games are really made with AI agents.')
+
+
+def blog_post(site, p, games):
+    root = '../../'
+    body_html = show_shown_games(p['body'], games)
+    heads = re.findall(r'<h2 id="([\w-]+)">(.*?)</h2>', body_html)
+    toc = ''.join(f'<li><a href="#{i}">{t}</a></li>' for i, t in heads)
+    body = f'''<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Blog</a> <span aria-hidden="true">/</span> <span aria-current="page">{e(p["title"])}</span></nav>
+<article class="post">
+<header>
+  <p class="kicker">{e(" · ".join(p["topics"]))}</p>
+  <h1>{e(p["title"])}</h1>
+  <p class="lede">{e(p["summary"])}</p>
+  {post_meta(p)}
+</header>
+<aside class="ooc" aria-label="Out of character"><p><strong>Out of character.</strong> Dalex Software, its staff and
+<em>INK &amp; PAPER</em> are fictional, and the rest of this site speaks as a 1987 studio. This post does not: it is
+about the real tools and process behind the games.</p></aside>
+{('<nav class="toc" aria-labelledby="toc-title"><h2 id="toc-title">Contents</h2><ol>' + toc + '</ol></nav>') if len(heads) > 2 else ''}
+{body_html}
+</article>
+<p class="actions"><a class="button" href="../">All posts</a></p>'''
+    return page(site, root=root, path=f'blog/{p["slug"]}/', title=p['title'], body=body, current='blog',
+                extra_head=blog_feed_link(site, root), description=p['summary'])
+
+
+def blog_atom(site, posts):
+    base = site['base_url']
+    entries = ''.join(f'''  <entry>
+    <title>{e(p["title"])}</title>
+    <link href="{e(base)}blog/{e(p["slug"])}/"/>
+    <id>{e(base)}blog/{e(p["slug"])}/</id>
+    <updated>{e(p["date"])}T00:00:00Z</updated>
+{''.join(f'    <author><name>{e(a)}</name></author>{chr(10)}' for a in p["authors"])}    <summary>{e(p["summary"])}</summary>
+  </entry>
+''' for p in posts)
+    updated = posts[0]['date'] if posts else '1987-01-01'
+    return f'''<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{e(site["name"])} Blog</title>
+  <link href="{e(base)}blog/"/>
+  <link rel="self" href="{e(base)}blog/feed.xml"/>
+  <id>{e(base)}blog/</id>
+  <updated>{e(updated)}T00:00:00Z</updated>
+{entries}</feed>
+'''
+
+
 def not_found(site):
     base = urlsplit(site['base_url']).path or '/'
     body = f'''<h1>R Tape loading error, 0:1</h1>
@@ -598,8 +705,9 @@ def not_found(site):
     return page(site, root=base, path='404.html', title='Page not found', body=body)
 
 
-def sitemap(site, games):
-    urls = [('', None), ('games/', None), ('studio/', None), ('book/', None), ('about/', None)]
+def sitemap(site, games, posts=()):
+    urls = [('', None), ('games/', None), ('studio/', None), ('book/', None), ('blog/', None), ('about/', None)]
+    urls += [(f'blog/{p["slug"]}/', p['date']) for p in posts]
     urls += [(f'games/{g["slug"]}/', (g.get('release') or {}).get('date')) for g in games]
     items = ''.join(f'  <url><loc>{e(site["base_url"] + u)}</loc>'
                     + (f'<lastmod>{e(d)}</lastmod>' if d else '') + '</url>\n' for u, d in urls)
@@ -663,8 +771,13 @@ def build(root: Path = ROOT, config: Path = None, out: Path = None) -> Path:
     write(out, 'about/index.html', about(site, root))
     write(out, 'studio/index.html', studio(site, root, games))
     write(out, 'book/index.html', book(site, root, games))
+    posts = load_posts(root)
+    write(out, 'blog/index.html', blog_index(site, posts))
+    for p in posts:
+        write(out, f'blog/{p["slug"]}/index.html', blog_post(site, p, games))
+    write(out, 'blog/feed.xml', blog_atom(site, posts))
     write(out, '404.html', not_found(site))
-    write(out, 'sitemap.xml', sitemap(site, games))
+    write(out, 'sitemap.xml', sitemap(site, games, posts))
     write(out, 'feed.xml', feed(site, games))
     write(out, 'robots.txt', f'User-agent: *\nAllow: /\n\nSitemap: {site["base_url"]}sitemap.xml\n')
     return out

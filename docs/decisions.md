@@ -368,3 +368,27 @@ for the book only; the games still show no price. The Book page shows Leanpub's 
 on 2026-11-01: from $19, suggested $29, in a line under the lede and in the *Get it* section. The figures live
 once, in `build.py` `BOOK_PRICE`; when the price changes on Leanpub, change it there too.
 `test_book_page_is_out_now` requires the price line and still forbids a price on every game page.
+
+## D-29 The Blog: engineering posts, out of character (owner, 2026-11-02)
+
+The owner asked for a technical blog section, modelled on how real software companies run theirs, starting with an
+article on how the studio really works and how AI is used. Every other page speaks as the 1987 studio; the Blog is
+the one deliberate exception. It says so on its index and in a note at the top of every post.
+
+- **What we copied from real engineering blogs.** Stripe's and Cloudflare's indexes list each post newest first with
+  its date, title, summary, authors and topics, and both offer a feed. Dan Luu's survey of corporate engineering blogs
+  (<https://danluu.com/corp-eng-blogs/>) found the good ones are written by the engineers, plain rather than
+  promotional, specific, and honest about what went wrong. So each post has a byline, date, reading time and topics,
+  a contents list when it has more than two sections, real excerpts from the records, and a section on failures and
+  limits.
+- **Build.** Posts are HTML fragments in `content/blog/<slug>.html`, with their metadata in
+  `content/blog/posts.json`. `build.py` writes `blog/`, `blog/<slug>/` and a separate Atom feed, `blog/feed.xml`
+  (the releases feed stays games only), adds both pages to the sitemap and `Blog` to the navigation. Reading time is
+  the word count at 220 words a minute, so the build stays deterministic.
+- **Never on the Blog**, checked by `tests/test_blog.py`: the demo key and how demos are obfuscated (only that they
+  are), credentials and personal email, the machines that run CI, Suno (not used for the games, owner 2026-11-02), hidden projects, customers
+  and the child the spoken help was made for. Private repositories may be named but not linked. No price, as
+  everywhere but the Book page.
+- **The first post**, *How the games are really made* (2026-11-02, by Daniel Vaughan), walks a game through the eight
+  stages from specification to this site. Its figures were read from the toolkit, the game repositories and the
+  Studio on that date; when they change, the post stays as written, as an engineering blog post would.

@@ -26,7 +26,8 @@ The website of Dalex Software, a fictional 1987 Manchester software house, and i
 The official site of the games: <https://dalex-software.co.uk/>. Every game page plays a free demo in the
 browser (JSSpeccy, click to play) or says "Demo coming soon", and shows the controls, screen shots and the
 INK & PAPER scores and quote. A Studio page shows how the studio works, and a Book page links to the
-studio's book, *Machine Code Mayhem*, out now on Leanpub ([D-25, D-27](docs/decisions.md)).
+studio's book, *Machine Code Mayhem*, out now on Leanpub ([D-25, D-27](docs/decisions.md)). The Blog steps out of
+the 1987 fiction to explain, in engineering posts, how the games are really made with AI agents ([D-29](docs/decisions.md)).
 
 Nothing is downloadable and no price is shown: the full tapes stay in the games' private repositories, and
 prices are "to be confirmed" ([D-16 to D-19](docs/decisions.md)). Game pages are written by the toolkit's
@@ -110,7 +111,7 @@ tests, commits and pushes. Do not edit `games/<slug>/` by hand: the next publish
 | --- | --- |
 | [`site.json`](site.json) | site settings and the list of games: which are shown, in what order, which is featured |
 | [`games/`](games/) | one folder per game, written by the toolkit's `zx-website` skill: `game.json`, `demo.bin` (the obfuscated demo tape, when there is a demo), cover, screen shots and any licences |
-| [`content/`](content/) | the About and Studio page bodies |
+| [`content/`](content/) | the About, Studio and Book page bodies, and the Blog's posts (`content/blog/`: `posts.json` and one HTML fragment per post) |
 | [`static/`](static/) | CSS, the player script (which holds the demo key), the Dalex logo, people sprites, favicons, the studio film and the vendored JSSpeccy 3.2 |
 | [`assets/source/`](assets/source/) | source sheets for the About page's people, cut by [`tools/people.py`](tools/people.py) |
 | [`build.py`](build.py) | the generator (Python 3 standard library only) that writes `_site/` |

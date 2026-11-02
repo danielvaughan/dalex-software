@@ -260,3 +260,29 @@ figcaption { color: var(--muted); font-size: .9rem; margin-top: 6px; }
   .stage.with-pad:fullscreen .pad { display: contents; }
   .stage.with-pad:fullscreen .dpad { order: 1; } .stage.with-pad:fullscreen .pad-actions { order: 3; grid-template-columns: repeat(2, minmax(56px, auto)); }
 }
+
+/* The Blog (D-29): a list of posts and long technical articles with code, tables and figures */
+.posts { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: 18px; max-width: 820px; }
+.post-item { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--z-cyan); padding: 12px 18px; }
+.post-item h2 { margin: .2rem 0; text-transform: none; letter-spacing: 0; font-size: 1.4rem; }
+.post-item p { margin: .3rem 0; }
+.post { max-width: 78ch; }
+.post header h1 { text-transform: none; }
+.post h2 { margin-top: 2.6rem; }
+.post h3 { margin-top: 1.6rem; }
+.post li { margin: .25rem 0; }
+.ooc { background: var(--surface); border: 1px dashed var(--line); padding: 4px 16px; margin: 1.2rem 0; font-size: .95rem; }
+.toc { background: var(--surface); border: 1px solid var(--line); padding: 2px 18px 10px; margin: 1.2rem 0 1.8rem; }
+.toc h2 { margin: .8rem 0 .4rem; font-size: 1rem; }
+.toc ol { margin: 0; padding-left: 1.4em; }
+.post code { font-size: .9em; background: var(--surface-2); padding: 1px 4px; border-radius: 3px; overflow-wrap: anywhere; }
+.post pre { background: var(--surface-2); border: 1px solid var(--line); padding: 12px 14px; overflow-x: auto; font-size: .85rem; line-height: 1.5; }
+.post pre code { background: none; padding: 0; overflow-wrap: normal; }
+.post table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .92rem; display: block; overflow-x: auto; }
+.post th, .post td { text-align: left; vertical-align: top; padding: 6px 10px; border-bottom: 1px solid var(--line); }
+.post th { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; }
+.post figure { margin: 1.4rem 0; }
+.post figure img { display: block; border: 1px solid var(--line); }
+.post .pipeline { counter-reset: stage; list-style: none; padding: 0; display: grid; gap: 8px; }
+.post .pipeline li { counter-increment: stage; display: grid; grid-template-columns: 2.4rem 1fr; gap: 10px; background: var(--surface); border: 1px solid var(--line); padding: 8px 12px; margin: 0; }
+.post .pipeline li::before { content: counter(stage); font: 800 1.3rem/1.2 ui-monospace, Menlo, Consolas, monospace; color: var(--accent); }
