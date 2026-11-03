@@ -963,5 +963,68 @@
       }
     ],
     "visible": true
+  },
+  {
+    "number": 15,
+    "slug": "15-ken",
+    "title": "Add it down, add it up",
+    "guest": "Ken Ramsbottom, accounts",
+    "summary": "Ken on estimates: the shopping list and the receipt, adding a tape down and then up, and why every budget figure is a guess until it is measured.",
+    "date": "2026-12-17",
+    "time": "19:00",
+    "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/15-ken.mp3",
+    "audio_bytes": 12214607,
+    "seconds": 1007,
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Cold open"
+      },
+      {
+        "start": 24,
+        "title": "Welcome"
+      },
+      {
+        "start": 85,
+        "title": "The desk"
+      },
+      {
+        "start": 192,
+        "title": "The big idea"
+      },
+      {
+        "start": 318,
+        "title": "By hand"
+      },
+      {
+        "start": 432,
+        "title": "In the game"
+      },
+      {
+        "start": 546,
+        "title": "The bug"
+      },
+      {
+        "start": 680,
+        "title": "A budget by hand"
+      },
+      {
+        "start": 840,
+        "title": "Crystal ball"
+      },
+      {
+        "start": 883,
+        "title": "Try this"
+      },
+      {
+        "start": 925,
+        "title": "Close"
+      },
+      {
+        "start": 964,
+        "title": "After the show"
+      }
+    ],
+    "visible": true
   }
 ]
