@@ -468,14 +468,14 @@ WEBVTT
 00:14:52.122 --> 00:14:53.353
 <v Bev>Right then, turn it up.
 
-00:14:53.504 --> 00:15:12.477
+00:14:53.504 --> 00:15:11.639
 <v Daniel>This is Daniel Vaughan, who made the show. That was nineteen eighty-seven. Gareth's pretend Spectrum is real, and it's called an emulator. Fuse runs on Linux, macOS and Windows, and JSSpeccy runs in a web browser with nothing to install. Vik would still want you to check it against a real one.
 
-00:15:13.077 --> 00:15:23.920
+00:15:12.239 --> 00:15:23.575
 <v Daniel>Light the row below works at the BASIC prompt of a forty-eight K emulator, or in forty-eight BASIC on a one-twenty-eight K. Gareth's list of bytes in Python is in the chapter too.
 
-00:15:24.520 --> 00:15:34.454
+00:15:24.175 --> 00:15:34.946
 <v Daniel>The chapter is The Machine on Your Desk, in Machine Code Mayhem on Leanpub. For the later exercises you'll want the sjasmplus assembler and Python three as well.
 
-00:15:35.054 --> 00:15:49.705
+00:15:35.546 --> 00:15:51.032
 <v Daniel>Thank you for listening. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is written and produced by me, Daniel Vaughan, with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.
