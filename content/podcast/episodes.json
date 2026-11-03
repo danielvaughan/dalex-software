@@ -1026,5 +1026,76 @@
       }
     ],
     "visible": true
+  },
+  {
+    "number": 16,
+    "slug": "16-build-it-on-air",
+    "title": "Build it on air",
+    "guest": "Gareth and Yvonne",
+    "summary": "Christmas Eve, and the season closes with a real build on air: change the starter game, build it, play it, and put it back exactly as it was.",
+    "date": "2026-12-24",
+    "time": "19:00",
+    "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/16-build-it-on-air.mp3",
+    "audio_bytes": 13013749,
+    "seconds": 1074,
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Cold open"
+      },
+      {
+        "start": 18,
+        "title": "Welcome"
+      },
+      {
+        "start": 70,
+        "title": "The desk"
+      },
+      {
+        "start": 169,
+        "title": "The big idea"
+      },
+      {
+        "start": 213,
+        "title": "By hand"
+      },
+      {
+        "start": 304,
+        "title": "Build it"
+      },
+      {
+        "start": 366,
+        "title": "Play it"
+      },
+      {
+        "start": 547,
+        "title": "The change"
+      },
+      {
+        "start": 652,
+        "title": "The bug"
+      },
+      {
+        "start": 736,
+        "title": "Same source, same tape"
+      },
+      {
+        "start": 802,
+        "title": "Crystal ball"
+      },
+      {
+        "start": 846,
+        "title": "Try this"
+      },
+      {
+        "start": 925,
+        "title": "Close"
+      },
+      {
+        "start": 1018,
+        "title": "After the show"
+      }
+    ],
+    "visible": true
   }
 ]

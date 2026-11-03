@@ -1,0 +1,625 @@
+WEBVTT
+
+00:00:01.000 --> 00:00:05.390
+<v Yvonne>Six hundred, out. One hundred, in. Save it.
+
+00:00:05.454 --> 00:00:06.511
+<v Gareth>Build it.
+
+00:00:06.487 --> 00:00:08.766
+<v Bev>Is that it? One number?
+
+00:00:09.163 --> 00:00:12.604
+<v Yvonne>One number. Then we find out if we were right.
+
+00:00:17.604 --> 00:00:29.396
+<v Bev>Hello there, it's Bev, the kettle's on, and this is Dalex After Hours, the slot where we find out how computer games are really made. And this is the last one of the season, and it's Christmas Eve, so I've brought mince pies.
+
+00:00:29.996 --> 00:00:37.565
+<v Bev>Every fact on this show comes out of the book the team's writing, and tonight every result comes from a build we really made and really ran.
+
+00:00:38.165 --> 00:00:39.653
+<v Bev>Gareth's here, of course.
+
+00:00:39.917 --> 00:00:45.479
+<v Gareth>Hiya, Bev. Hiya, everyone. Last one. I'm a bit sad, to be honest.
+
+00:00:45.679 --> 00:00:51.669
+<v Bev>And back in the chair, from the desk right next to his, it's Yvonne Standish, who keeps the tools running. Hello, Yvonne.
+
+00:00:51.698 --> 00:00:52.800
+<v Yvonne>Hello, Bev.
+
+00:00:53.099 --> 00:00:58.068
+<v Bev>Now this week's different. We're not talking about a change. We're making one.
+
+00:00:58.366 --> 00:01:06.271
+<v Yvonne>One small change, built and run. And everything we say about it is written down. The output's saved, every line of it.
+
+00:01:09.571 --> 00:01:11.675
+<v Bev>First, Yvonne, how was your day?
+
+00:01:12.025 --> 00:01:13.918
+<v Yvonne>Saw a goldfinch on the way in.
+
+00:01:13.865 --> 00:01:16.538
+<v Bev>Oh, lovely. Is that good?
+
+00:01:16.870 --> 00:01:19.532
+<v Yvonne>It's very good. I wrote it down.
+
+00:01:19.817 --> 00:01:24.055
+<v Gareth>She's got a notebook for birds and a notebook for builds. Different colours.
+
+00:01:24.078 --> 00:01:25.147
+<v Yvonne>Labelled.
+
+00:01:25.356 --> 00:01:29.222
+<v Bev>Of course they are. And is there a gadget in this building you didn't build?
+
+00:01:29.464 --> 00:01:32.269
+<v Yvonne>The kettle. And I've had a look at the kettle.
+
+00:01:32.514 --> 00:01:35.681
+<v Gareth>It boils faster now. Nobody knows why.
+
+00:01:35.680 --> 00:01:37.016
+<v Yvonne>It's written down.
+
+00:01:37.136 --> 00:01:39.297
+<v Bev>So what have you two got in front of you?
+
+00:01:39.687 --> 00:01:45.898
+<v Gareth>My monitor and Yvonne's terminal, side by side. We've made a fresh copy of the game template, on a spare disc.
+
+00:01:46.067 --> 00:01:49.278
+<v Bev>Why a copy? Why not one of the real games?
+
+00:01:49.610 --> 00:01:58.354
+<v Yvonne>Because you never practise on a game somebody's shipping. The games stay exactly as they are. We work on a copy, and the copy is ours to break.
+
+00:01:58.490 --> 00:02:00.336
+<v Bev>And what's the template, when it's at home?
+
+00:02:00.673 --> 00:02:14.317
+<v Gareth>It's a game. A tiny one. An eight pixel block on a black screen, and you move it left and right with O and P. There's a score that ticks up, a title that says PRESS SPACE, and a game over card after six hundred updates.
+
+00:02:14.544 --> 00:02:17.895
+<v Yvonne>And it's built to pass the same automatic checks as Mower Mayhem.
+
+00:02:18.026 --> 00:02:20.213
+<v Bev>So it's a real game, but a very small one.
+
+00:02:20.403 --> 00:02:29.782
+<v Gareth>It's about a thousand lines of working engine. The interrupt, the keys, the main loop, the pause and the music switch. Everything a game needs before it has any game in it.
+
+00:02:29.971 --> 00:02:32.338
+<v Bev>And every one of the games in the book started there?
+
+00:02:32.754 --> 00:02:38.028
+<v Yvonne>A new game's scaffold is copied from it. That's in my chapter, From Text to Tape.
+
+00:02:38.257 --> 00:02:41.029
+<v Gareth>She wrote it. I've read it twice.
+
+00:02:41.271 --> 00:02:43.222
+<v Bev>You two are a proper double act.
+
+00:02:43.369 --> 00:02:46.619
+<v Yvonne>We share a desk. It comes to the same thing.
+
+00:02:46.598 --> 00:02:48.034
+<v Gareth>She labels my drawers.
+
+00:02:48.039 --> 00:02:49.184
+<v Yvonne>Somebody has to.
+
+00:02:49.321 --> 00:02:51.990
+<v Bev>Right then, what's the one idea this week?
+
+00:02:52.404 --> 00:03:00.289
+<v Yvonne>Change one thing, rebuild, and check that what you predicted is what happened. Predict first. Then run it.
+
+00:03:00.277 --> 00:03:03.027
+<v Bev>Predict? Like a horoscope?
+
+00:03:03.386 --> 00:03:09.840
+<v Yvonne>Like a sum. The book gives the prediction. We'll see if the machine agrees.
+
+00:03:09.925 --> 00:03:11.055
+<v Bev>And what's the change?
+
+00:03:11.398 --> 00:03:19.098
+<v Gareth>The template's game lasts six hundred updates. That's one number in the source, called GAME UPDATES. We're going to change it to a hundred.
+
+00:03:19.187 --> 00:03:20.687
+<v Bev>So the game gets shorter.
+
+00:03:20.907 --> 00:03:28.854
+<v Gareth>That's the idea. And this is the exercise in the book's last chapter, Your First Game. It's called Play the template.
+
+00:03:29.077 --> 00:03:33.107
+<v Yvonne>Do it once by hand. Then the tool does it, every time.
+
+00:03:33.301 --> 00:03:35.092
+<v Bev>So go on, what's the prediction?
+
+00:03:35.375 --> 00:03:44.697
+<v Gareth>Pencil out. The template updates every two frames. A frame is a fiftieth of a second. So how long do six hundred updates take?
+
+00:03:45.035 --> 00:03:49.897
+<v Bev>Six hundred updates, two frames each. Twelve hundred frames.
+
+00:03:50.152 --> 00:03:53.637
+<v Gareth>Good. And twelve hundred frames, at fifty a second?
+
+00:03:53.944 --> 00:04:00.420
+<v Bev>Oh. Twelve hundred divided by fifty. Twenty-four. Twenty-four seconds.
+
+00:04:00.658 --> 00:04:06.576
+<v Gareth>That's what the book says. At two frames an update, the game over arrives after twenty-four seconds of play.
+
+00:04:06.790 --> 00:04:09.902
+<v Yvonne>Now the new number. One hundred updates.
+
+00:04:10.084 --> 00:04:16.205
+<v Bev>A hundred updates, two frames each, two hundred frames. Divided by fifty. Four seconds.
+
+00:04:16.389 --> 00:04:20.987
+<v Gareth>A sixth of the time. That's the prediction, written down before we touch anything.
+
+00:04:21.050 --> 00:04:22.859
+<v Bev>That's lovely and simple.
+
+00:04:23.143 --> 00:04:28.145
+<v Yvonne>Simple's the point. If you can't say what should happen, you can't tell when it didn't.
+
+00:04:28.433 --> 00:04:32.821
+<v Bev>Is there a recipe card for all this, Yvonne? You strike me as a recipe card woman.
+
+00:04:33.076 --> 00:04:47.790
+<v Yvonne>Three steps. One, build it unchanged and write down its fingerprint. Two, change one line, build, run, and compare with the prediction. Three, put the line back, build, and check the fingerprint matches step one.
+
+00:04:47.912 --> 00:04:50.754
+<v Bev>Three steps on a card. Followed once.
+
+00:04:51.017 --> 00:04:55.769
+<v Yvonne>And then followed again, if anyone doubts it. The same steps give the same answers.
+
+00:04:56.020 --> 00:05:01.473
+<v Bev>And if you want a go yourself, folk at home, do the two sums before we press the button. Pause us now.
+
+00:05:05.073 --> 00:05:07.184
+<v Bev>Right. First thing?
+
+00:05:07.490 --> 00:05:12.262
+<v Yvonne>First, build it unchanged. So we know the starting point works.
+
+00:05:12.444 --> 00:05:15.268
+<v Gareth>You'd be amazed how often the starting point doesn't.
+
+00:05:15.558 --> 00:05:21.405
+<v Yvonne>The build script reads the game's description file, runs the assembler, and writes a tape. One command.
+
+00:05:21.399 --> 00:05:22.260
+<v Bev>And what came out?
+
+00:05:22.549 --> 00:05:31.105
+<v Gareth>A tape file of nine thousand, four hundred and thirty-nine bytes, in eight blocks. It reports the load time as well. Seventy-six seconds.
+
+00:05:31.401 --> 00:05:33.871
+<v Bev>Seventy-six seconds for a block on a black screen?
+
+00:05:34.204 --> 00:05:46.027
+<v Yvonne>The template uses the Spectrum's own loader until you tell it otherwise. The book says to switch on the packed loader as one of the first things you do. Tonight we've left it as it is, because we're changing one thing.
+
+00:05:46.060 --> 00:05:48.018
+<v Bev>One thing. I'm learning.
+
+00:05:48.618 --> 00:05:51.056
+<v Bev>And how do you know it's the same tape the next time?
+
+00:05:51.454 --> 00:06:02.835
+<v Yvonne>Every tape gets a fingerprint, a long number worked out from every byte. Ours starts nought, E, four, B, E, seven, C, A. Remember that one. It comes back.
+
+00:06:03.033 --> 00:06:06.294
+<v Bev>Nought E four B E seven C A. Got it.
+
+00:06:06.894 --> 00:06:08.160
+<v Bev>So now you play it?
+
+00:06:08.571 --> 00:06:17.037
+<v Gareth>We let Vik's test rig play it. It loads the tape through the real Spectrum ROM, presses keys at exact moments, reads the game's memory and writes down what happened.
+
+00:06:17.302 --> 00:06:19.323
+<v Bev>That's Vik's job, isn't it, in the building?
+
+00:06:19.685 --> 00:06:23.436
+<v Gareth>Vik's check, Yvonne's tools. Proper teamwork.
+
+00:06:23.669 --> 00:06:30.195
+<v Yvonne>And we gave it one recipe of our own. Press SPACE to start, then take your hands off, and watch for the game over.
+
+00:06:30.375 --> 00:06:33.431
+<v Bev>Hands off? Doesn't the block need moving?
+
+00:06:33.708 --> 00:06:40.083
+<v Gareth>Not for this. The template's game ends on a timer. It ends whether you play well or not.
+
+00:06:40.354 --> 00:06:41.941
+<v Bev>So what did the rig see?
+
+00:06:42.201 --> 00:06:48.270
+<v Gareth>The tape loaded from cold through the ROM. The game reached play at frame one hundred and three, after one press of SPACE.
+
+00:06:48.476 --> 00:06:51.622
+<v Yvonne>Then the game over card came up at frame thirteen hundred and one.
+
+00:06:51.849 --> 00:06:53.490
+<v Bev>Now I need my pencil again.
+
+00:06:53.729 --> 00:06:59.245
+<v Gareth>Thirteen hundred and one, take away a hundred and three. Eleven hundred and ninety-eight frames of play.
+
+00:06:59.538 --> 00:07:03.088
+<v Bev>Divided by fifty. Oh, that's nearly twenty-four.
+
+00:07:03.321 --> 00:07:05.853
+<v Gareth>Twenty-three point nine six seconds.
+
+00:07:05.895 --> 00:07:07.863
+<v Bev>The prediction was twenty-four!
+
+00:07:08.016 --> 00:07:13.426
+<v Yvonne>Two frames short of twelve hundred. The book's figure, to within a twenty-fifth of a second.
+
+00:07:13.621 --> 00:07:15.751
+<v Bev>I'm more pleased about that than I should be.
+
+00:07:16.008 --> 00:07:19.106
+<v Gareth>You should be pleased. That's the whole job.
+
+00:07:19.357 --> 00:07:20.903
+<v Bev>And did the other checks pass?
+
+00:07:21.163 --> 00:07:32.477
+<v Gareth>All the ones that ran. No crash, no soft lock. It kept to two frames an update. And it tapped the P key thirty times at odd moments, and the block moved every single time.
+
+00:07:32.691 --> 00:07:36.222
+<v Yvonne>Thirty out of thirty. Remember that one too.
+
+00:07:36.351 --> 00:07:39.910
+<v Bev>How does the rig know it's game over? It can't see the telly.
+
+00:07:40.034 --> 00:07:53.073
+<v Gareth>Good question, that. It's the one I asked when I started. The game keeps one byte that says which screen it's on, and the rig reads it. Nought is the title. One is play. Three is game over.
+
+00:07:53.223 --> 00:08:02.336
+<v Yvonne>Every Dalex game uses the same numbers. It's a short list of named bytes that every test reads. The book calls it the harness contract.
+
+00:08:02.512 --> 00:08:04.844
+<v Bev>So the rig's watching one number change.
+
+00:08:05.133 --> 00:08:13.843
+<v Gareth>Nought, then one at frame one hundred and three, then three at thirteen hundred and one. And then back to nought, the title again, at frame fourteen hundred and seventy-five.
+
+00:08:14.109 --> 00:08:18.835
+<v Bev>So the game over card stayed up for, hang on. A hundred and seventy-four frames.
+
+00:08:19.065 --> 00:08:24.068
+<v Gareth>About three and a half seconds. The template's own notes say the card lasts three to four.
+
+00:08:24.100 --> 00:08:25.722
+<v Yvonne>Another prediction that held.
+
+00:08:25.849 --> 00:08:29.535
+<v Bev>And how hard was the little computer working, all this time?
+
+00:08:29.920 --> 00:08:42.607
+<v Gareth>Ooh, I love this bit. The rig counts how busy every update is. The template has a hundred and forty-one thousand, eight hundred and sixteen ticks to spend each update. The middle update used one thousand and fifty-five.
+
+00:08:42.788 --> 00:08:44.917
+<v Bev>Out of a hundred and forty-one thousand?
+
+00:08:45.214 --> 00:08:50.207
+<v Gareth>The report says one per cent of the update period. The block's having a very quiet evening.
+
+00:08:50.440 --> 00:08:54.608
+<v Yvonne>That's what all the room is for. Your own game fills it.
+
+00:08:54.785 --> 00:08:58.112
+<v Bev>And flicker? Hyun-joo would want to know.
+
+00:08:58.375 --> 00:09:05.121
+<v Gareth>Nought transient bytes. Not one byte of the screen was rubbed out and redrawn while the television's beam was passing over it.
+
+00:09:05.379 --> 00:09:07.368
+<v Bev>I'll tell her. She'll be pleased.
+
+00:09:07.968 --> 00:09:11.163
+<v Bev>Right then. The big moment. Change the number.
+
+00:09:11.398 --> 00:09:19.249
+<v Yvonne>One line in the main source file. GAME UPDATES, equals six hundred. It now says equals one hundred.
+
+00:09:19.483 --> 00:09:24.596
+<v Gareth>And nothing else. The comment beside it still says play updates until game over.
+
+00:09:24.861 --> 00:09:26.797
+<v Bev>Why's it in capitals, GAME UPDATES?
+
+00:09:27.096 --> 00:09:42.720
+<v Gareth>It's a name for a number. The line says GAME UPDATES, E Q U, six hundred. E Q U is short for equals. Think of the label on a jar. The name costs no bytes at all. Wherever the code says GAME UPDATES, the assembler puts the number in.
+
+00:09:42.958 --> 00:09:49.129
+<v Yvonne>Which is why the change is one line. The number's written down in one place, and everything else reads it from there.
+
+00:09:49.159 --> 00:09:50.775
+<v Bev>Labelled, like your drawers.
+
+00:09:50.867 --> 00:09:52.762
+<v Yvonne>Exactly like my drawers.
+
+00:09:52.763 --> 00:09:53.388
+<v Bev>That's it?
+
+00:09:53.674 --> 00:09:58.745
+<v Yvonne>That's the whole change. We kept the difference between the two files, and it's that one line.
+
+00:09:58.790 --> 00:09:59.913
+<v Gareth>Build it again.
+
+00:09:59.869 --> 00:10:00.589
+<v Bev>And?
+
+00:10:00.897 --> 00:10:11.302
+<v Gareth>Same size, nine thousand, four hundred and thirty-nine bytes. Same seventy-six seconds to load. But a different fingerprint. It starts two, nine, seven, E.
+
+00:10:11.489 --> 00:10:13.555
+<v Bev>Why's it the same size, if you changed it?
+
+00:10:13.892 --> 00:10:20.205
+<v Gareth>Because six hundred and one hundred both fit in the same two bytes. The number changed. The room it takes didn't.
+
+00:10:20.384 --> 00:10:22.240
+<v Bev>And then the rig plays it again.
+
+00:10:22.443 --> 00:10:25.421
+<v Yvonne>Same recipe. SPACE, then hands off.
+
+00:10:25.677 --> 00:10:30.941
+<v Gareth>Play at frame one hundred and three, the same as before. And the game over card at frame three hundred and one.
+
+00:10:31.115 --> 00:10:35.115
+<v Bev>Three hundred and one, take away a hundred and three. A hundred and ninety-eight.
+
+00:10:35.177 --> 00:10:36.449
+<v Gareth>Divided by fifty?
+
+00:10:36.713 --> 00:10:40.585
+<v Bev>Three point nine six seconds. Four, near enough!
+
+00:10:40.729 --> 00:10:43.759
+<v Yvonne>A sixth of the time. As predicted.
+
+00:10:44.042 --> 00:10:46.277
+<v Gareth>Go on then, Bev. Tell them.
+
+00:10:46.452 --> 00:10:48.167
+<v Bev>We built it, and it worked!
+
+00:10:51.467 --> 00:10:52.819
+<v Bev>So everything passed?
+
+00:10:53.012 --> 00:10:56.328
+<v Yvonne>Not quite. One check failed.
+
+00:10:56.482 --> 00:10:58.985
+<v Bev>Oh no. What did we break?
+
+00:10:59.384 --> 00:11:03.681
+<v Yvonne>Nothing, as it turns out. But we had to read the failure to know that.
+
+00:11:03.929 --> 00:11:08.653
+<v Gareth>Remember the thirty taps on P? This time only twenty-five of them moved the block.
+
+00:11:08.709 --> 00:11:10.430
+<v Bev>So the keys stopped working?
+
+00:11:10.810 --> 00:11:27.724
+<v Gareth>That's what you'd think, if you only read the headline. But the check says which taps it missed, and why. Taps at frames three hundred and five, three hundred and fourteen, three hundred and twenty-two, three hundred and twenty-seven and three hundred and thirty-six. And next to every one, the words, not in play.
+
+00:11:27.937 --> 00:11:31.326
+<v Bev>Not in play. And the game ended at...
+
+00:11:31.297 --> 00:11:33.183
+<v Yvonne>Three hundred and one.
+
+00:11:33.351 --> 00:11:37.252
+<v Bev>Oh! The game was over before it finished pressing the keys.
+
+00:11:37.506 --> 00:11:49.594
+<v Gareth>Exactly that. The check's taps run out to frame three hundred and thirty-six. Our game now ends at three hundred and one. The last five taps landed after the game had ended, so there was no play for them to move.
+
+00:11:49.858 --> 00:11:53.352
+<v Bev>So the check was right, and the game was right, and they just didn't agree.
+
+00:11:53.588 --> 00:12:02.427
+<v Yvonne>The check was right to tell us. A tap that does nothing is worth a line in the report. It's our job to read the detail before we panic.
+
+00:12:02.699 --> 00:12:05.340
+<v Bev>And what would you do about it, in a real game?
+
+00:12:05.720 --> 00:12:14.045
+<v Gareth>In a real game you'd never ship a four second game.  This change was for learning. The next exercise in the book says to set it back to six hundred.
+
+00:12:14.280 --> 00:12:16.501
+<v Yvonne>So we did. And that's the best bit.
+
+00:12:16.757 --> 00:12:18.004
+<v Bev>Go on, what's the best bit?
+
+00:12:18.381 --> 00:12:23.578
+<v Yvonne>Put six hundred back. Rebuild. And look at the fingerprint.
+
+00:12:23.767 --> 00:12:26.424
+<v Gareth>Nought, E, four, B, E, seven, C, A.
+
+00:12:26.619 --> 00:12:30.428
+<v Bev>That's the first one! That's the one you told me to remember!
+
+00:12:30.700 --> 00:12:38.072
+<v Yvonne>The same fingerprint as the very first build. And then we compared the two tapes byte by byte. Identical.
+
+00:12:38.322 --> 00:12:40.584
+<v Bev>So it's like the change never happened.
+
+00:12:40.772 --> 00:12:45.701
+<v Yvonne>Same source, same tape. That's the dull bit, and it's the best bit.
+
+00:12:45.987 --> 00:12:52.505
+<v Gareth>And the rig on that tape. Game over at thirteen hundred and one again. Thirty taps out of thirty again.
+
+00:12:52.762 --> 00:12:55.280
+<v Bev>So you can always get back to where you started.
+
+00:12:55.579 --> 00:13:02.879
+<v Yvonne>Exactly, and you can prove you have. Not because somebody remembers. Because the bytes match.
+
+00:13:03.148 --> 00:13:05.695
+<v Bev>I think that might be my favourite thing all season.
+
+00:13:05.980 --> 00:13:08.682
+<v Yvonne>Mine too. Don't tell the others.
+
+00:13:08.818 --> 00:13:10.567
+<v Bev>Gareth, what was your favourite bit?
+
+00:13:10.985 --> 00:13:16.189
+<v Gareth>Honestly? Watching Bev do the sums. Twenty-four, on the nose.
+
+00:13:16.389 --> 00:13:20.504
+<v Bev>Twenty-three point nine six. Ken would want it exact.
+
+00:13:20.658 --> 00:13:22.167
+<v Gareth>Ken would be proud of you.
+
+00:13:22.451 --> 00:13:28.396
+<v Bev>Go on, Gareth, crystal ball time. One day in the future. What changes?
+
+00:13:28.648 --> 00:13:40.274
+<v Gareth>Suppose one day there's a language, call it Python, after Monty Python. You'd write GAME UPDATES equals a hundred at the top of a file, the same idea as our E Q U, and never think about the bytes at all.
+
+00:13:40.219 --> 00:13:41.711
+<v Bev>Like on Tomorrow's World.
+
+00:13:41.888 --> 00:13:51.508
+<v Yvonne>And suppose the test rig fits inside a computer of its own, a pretend Spectrum, and plays the tape without a cassette in sight. You'd run it after every change.
+
+00:13:51.758 --> 00:13:57.571
+<v Gareth>And it would give every tape a fingerprint sixty-four letters long, and two of them would match only if every byte did.
+
+00:13:57.773 --> 00:14:01.316
+<v Bev>Sixty-four letters. That's longer than my postcode.
+
+00:14:01.615 --> 00:14:05.507
+<v Yvonne>It's a guess, Bev. Ask us again in forty years.
+
+00:14:05.792 --> 00:14:07.768
+<v Bev>What should folk do, now the season's over?
+
+00:14:08.052 --> 00:14:16.434
+<v Gareth>Do exactly what we did. In the book, the last chapter is Your First Game, by Malcolm. Its third exercise is Play the template.
+
+00:14:16.394 --> 00:14:17.875
+<v Bev>Go on, from the top.
+
+00:14:18.001 --> 00:14:34.598
+<v Yvonne>Scaffold a game from the toolkit's template. Build it unchanged and load it on a hundred and twenty-eight K. Play it, and find the game over after twenty-four seconds. Then change GAME UPDATES to a hundred, rebuild, and the game over should come after about four.
+
+00:14:34.805 --> 00:14:38.576
+<v Gareth>And predict it first. Write the sums down before you build.
+
+00:14:38.817 --> 00:14:41.876
+<v Bev>And you'd play it yourself, would you? Not leave it to the rig?
+
+00:14:42.211 --> 00:14:55.875
+<v Yvonne>The exercise says play it yourself. Tonight we let the rig do the playing, so every number we've said is in its report. At home, press SPACE and count the seconds. You won't get twenty-three point nine six on a watch, but you'll get twenty-four.
+
+00:14:56.091 --> 00:14:59.380
+<v Gareth>And it's a good feeling, the first time the game over arrives when you said it would.
+
+00:14:59.571 --> 00:15:02.229
+<v Bev>I can vouch for that. I had a little cheer.
+
+00:15:02.506 --> 00:15:13.154
+<v Yvonne>And put the line back afterwards, and check the tape matches the one you started with. The commands and the files are all in the chapter, and in mine. It's all written down.
+
+00:15:13.250 --> 00:15:14.369
+<v Bev>And if they want more?
+
+00:15:14.778 --> 00:15:25.287
+<v Gareth>The next exercises go further. Give the template lives. Add a shot. Every one of them starts the same way. Change one thing, build it, play it.
+
+00:15:29.287 --> 00:15:52.015
+<v Bev>That's us for this week, and for the season. Thank you to everyone who came in and sat with us. Mo, Vik and Yvonne. Gareth, in the hot seat. Colin, Hyun-joo and Dez. Neil, Emeka, Derek and Malcolm. And our three specials, Brian, Simon and Ken. Every one of them brought their own desk with them, and we've learned something at every one.
+
+00:15:52.219 --> 00:15:56.329
+<v Yvonne>And thank you, Bev. You asked the questions everybody wanted to ask.
+
+00:15:56.586 --> 00:15:59.650
+<v Gareth>Every single one. And you did the sums.
+
+00:15:59.907 --> 00:16:10.925
+<v Bev>Oh, give over. And speaking of numbers, on Sunday the Pet Shop Boys got Christmas number one, with Always on My Mind. The Pogues and Kirsty MacColl are at two, with Fairytale of New York.
+
+00:16:11.168 --> 00:16:14.354
+<v Gareth>Dez was backing the Pogues. He's been humming it all week.
+
+00:16:14.528 --> 00:16:16.426
+<v Yvonne>He was on time tonight, as well.
+
+00:16:16.393 --> 00:16:18.375
+<v Bev>On time? Dez?
+
+00:16:18.645 --> 00:16:20.780
+<v Gareth>Hyun-joo's in.  We're not saying anything.
+
+00:16:21.066 --> 00:16:26.812
+<v Bev>Not a word. And United won two one at Portsmouth on Saturday, so that's an early Christmas present for you, Gareth.
+
+00:16:26.991 --> 00:16:29.883
+<v Gareth>Robson and McClair. Best present I've had.
+
+00:16:30.031 --> 00:16:34.937
+<v Bev>Now get yourselves home, all of you. Only Fools and Horses is on tomorrow night, and I'm not missing it.
+
+00:16:35.537 --> 00:16:40.197
+<v Bev>If you've got a question for the team, send it in. We'll put it to them, next season.
+
+00:16:40.797 --> 00:16:43.572
+<v Bev>Thanks, Gareth. Thanks, Yvonne.
+
+00:16:43.795 --> 00:16:46.777
+<v Gareth>Thanks, Bev. See you next season, I hope.
+
+00:16:46.762 --> 00:16:47.805
+<v Yvonne>Thanks, Bev.
+
+00:16:48.405 --> 00:16:50.022
+<v Yvonne>Merry Christmas, Bev.
+
+00:16:50.286 --> 00:16:53.615
+<v Gareth>Merry Christmas, everyone. Put the kettle on.
+
+00:16:53.851 --> 00:16:58.124
+<v Bev>Merry Christmas, everyone, from all of us here at the studio. Right then, turn it up.
+
+00:16:58.322 --> 00:17:15.596
+<v Daniel>This is Daniel Vaughan, who made the show. That was nineteen eighty-seven. Yvonne's and Gareth's guesses came true. The rig is an emulator and a script, a pretend Spectrum you can run after a change, and the fingerprint is a S H A two five six hash, sixty-four characters long.
+
+00:17:16.196 --> 00:17:35.693
+<v Daniel>The chapter is Your First Game, chapter eighteen in Machine Code Mayhem on Leanpub, and the exercise is Play the template. You'll need an emulator such as Fuse, the sjasmplus assembler and Python three, and you can play all six games free in your browser at dalex-software dot co dot uk.
+
+00:17:36.293 --> 00:17:52.882
+<v Daniel>Thank you for listening, all season. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is written and produced by me, Daniel Vaughan, with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.
