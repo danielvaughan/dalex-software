@@ -1,379 +1,373 @@
 WEBVTT
 
-00:00:01.000 --> 00:00:16.829
-<v Daniel>Hello, I'm Daniel Vaughan. Before we start: Dalex Software and its people are fictional, and the voices you'll hear are synthesised. I wrote and produced this show with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.
-
-00:00:17.429 --> 00:00:36.348
-<v Daniel>I'm in Devon, in twenty twenty-six, and the show is set in nineteen eighty-seven, so nobody in it knows what came next. I do. When Gareth talks about Vik's test rig, today that's an emulator and a script. And the demo going on the cover tape is one you can play free in your browser at dalex-software dot co dot uk.
-
-00:00:42.148 --> 00:00:47.148
+00:00:06.800 --> 00:00:11.760
 <v Gareth>That's a Spectrum tape loading. Every game we make starts with that noise.
 
-00:00:47.411 --> 00:00:49.734
+00:00:12.042 --> 00:00:14.364
 <v Bev>It sounds like a fax machine having a bad day.
 
-00:00:49.748 --> 00:00:51.658
+00:00:14.428 --> 00:00:16.338
 <v Gareth>It's music to me, that.
 
-00:00:56.658 --> 00:01:06.765
+00:00:21.338 --> 00:00:31.429
 <v Bev>Hello there, it's Bev, the kettle's on, and this is Dalex After Hours, the slot where we find out how computer games are really made. It's our very first one, so be gentle with us.
 
-00:01:07.365 --> 00:01:14.488
+00:00:32.029 --> 00:00:39.152
 <v Bev>Every week the team from Dalex Software come in and tell us how they do it, and every fact on this show comes out of the book they're writing.
 
-00:01:15.088 --> 00:01:19.235
+00:00:39.752 --> 00:00:43.900
 <v Bev>And sat across the desk from me, with a mug of tea he's already finished, is Gareth.
 
-00:01:19.405 --> 00:01:22.040
+00:00:44.074 --> 00:00:46.832
 <v Gareth>Hiya, Bev. It was a small mug.
 
-00:01:22.241 --> 00:01:27.206
+00:00:46.953 --> 00:00:51.982
 <v Bev>Gareth writes the code at Dalex. And I'll tell you now, I don't know the first thing about it.
 
-00:01:27.426 --> 00:01:39.469
+00:00:52.246 --> 00:01:04.074
 <v Gareth>That's why you're perfect for this. Lots of folk listening have typed a bit of BASIC on a home computer. What they've never done is talk to the machine directly, in its own numbers. That's the job I do all day.
 
-00:01:39.628 --> 00:01:40.948
+00:01:04.274 --> 00:01:05.594
 <v Bev>So that's the show, is it?
 
-00:01:41.217 --> 00:01:48.917
+00:01:05.924 --> 00:01:13.714
 <v Gareth>That's the show. Every week, one of the team comes in and shows you one idea from their desk. This week it's just us, so I get to show you round.
 
-00:01:49.044 --> 00:01:58.730
+00:01:13.977 --> 00:01:23.628
 <v Bev>Before we do, a bit of business. Rick Astley's still number one, for a second week. A lad who grew up in Newton-le-Willows. Just up the East Lancs Road.
 
-00:01:58.964 --> 00:02:00.838
+00:01:23.776 --> 00:01:25.651
 <v Gareth>Never gonna give it up, by the look of it.
 
-00:02:01.051 --> 00:02:06.740
+00:01:25.881 --> 00:01:31.570
 <v Bev>And United beat Chelsea three one at Old Trafford on the bank holiday, and City got a point at Villa Park, one all.
 
-00:02:06.949 --> 00:02:11.620
+00:01:31.698 --> 00:01:36.327
 <v Gareth>So everybody in the building's in a good mood. That's a good week to start a programme.
 
-00:02:14.920 --> 00:02:17.960
+00:01:39.627 --> 00:01:42.767
 <v Bev>Go on, then, start with your desk. What's on it?
 
-00:02:18.235 --> 00:02:28.255
+00:01:43.091 --> 00:01:53.140
 <v Gareth>A small black computer with rubber keys, a monitor, a lot of cassettes and a mug. On the monitor, there's code. And the code is talking to a ZX Spectrum.
 
-00:02:28.375 --> 00:02:33.378
+00:01:53.350 --> 00:01:58.236
 <v Bev>Now my nephew had one of those. He'd type for an hour and then it would make that noise and crash.
 
-00:02:33.526 --> 00:02:43.840
+00:01:58.358 --> 00:02:08.736
 <v Gareth>That's the one. The games we make are written for the later model, the hundred and twenty-eight K. Same processor, same screen, more memory and a proper sound chip.
 
-00:02:44.052 --> 00:02:47.958
+00:02:08.892 --> 00:02:12.702
 <v Bev>Now my nephew's one was just a keyboard. Where's the rest of the computer?
 
-00:02:48.313 --> 00:02:56.913
+00:02:12.943 --> 00:02:21.590
 <v Gareth>In your house. A home computer borrows the family telly for a screen and a cassette recorder for storage. Everything but the keyboard comes from home.
 
-00:02:57.125 --> 00:03:01.197
+00:02:21.868 --> 00:02:25.869
 <v Bev>So it's a lodger. It moves in and uses the telly.
 
-00:03:01.382 --> 00:03:19.087
+00:02:26.141 --> 00:02:43.982
 <v Gareth>That's it. Inside the keyboard there's one board, with the processor, two kinds of memory and one special chip, the ULA, that looks after the keyboard, the tape and the picture. Power comes from a nine volt power pack, and the picture goes out down the aerial lead, twenty-four lines of thirty-two characters, in eight colours.
 
-00:03:19.089 --> 00:03:19.966
+00:02:43.937 --> 00:02:44.814
 <v Bev>And the cassette?
 
-00:03:20.265 --> 00:03:27.684
+00:02:45.152 --> 00:02:52.669
 <v Gareth>Plugs into two sockets, ear and mic. A game arrives as sound on a tape. That's the noise from the top of the show.
 
-00:03:27.980 --> 00:03:32.177
+00:02:52.897 --> 00:02:57.094
 <v Bev>And why would anyone write for it, when my washing machine's probably got more brains?
 
-00:03:32.523 --> 00:03:48.155
+00:02:57.344 --> 00:03:12.807
 <v Gareth>Because you can hold the whole thing in your head. The original Spectrum has forty-eight kilobytes of memory you can use. Of that, six thousand nine hundred and twelve bytes are the picture on the screen. The processor's a Zed eighty, and it ticks about three and a half million times a second.
 
-00:03:48.302 --> 00:03:51.225
+00:03:13.074 --> 00:03:15.997
 <v Bev>Three and a half million sounds like a lot.
 
-00:03:51.424 --> 00:04:02.210
+00:03:16.186 --> 00:03:27.008
 <v Gareth>It's a lot, but you can count it. And once a game has loaded, it owns every byte and every tick. There's nothing else running underneath it. Nothing runs unless the game runs it.
 
-00:04:02.369 --> 00:04:04.938
+00:03:27.249 --> 00:03:29.714
 <v Bev>Nothing at all? No little helpers?
 
-00:04:05.232 --> 00:04:13.196
+00:03:30.033 --> 00:03:38.047
 <v Gareth>None. On a Spectrum there are no layers. Write one byte to the screen and eight dots change, one for each bit.
 
-00:04:13.157 --> 00:04:15.593
+00:03:38.002 --> 00:03:40.463
 <v Bev>Eight dots. From one number.
 
-00:04:15.883 --> 00:04:34.680
+00:03:40.622 --> 00:03:59.398
 <v Gareth>From one number. And the instructions are few. Mower Mayhem, our lawnmower game, is nine thousand, six hundred and sixty-six hand-written lines, and it only uses forty-five different instructions. Four in every ten of them are the same one: L D, load, which copies a value from one place to another.
 
-00:04:34.900 --> 00:04:37.670
+00:03:59.670 --> 00:04:02.440
 <v Bev>So most of programming is moving things about.
 
-00:04:37.823 --> 00:04:42.805
+00:04:02.730 --> 00:04:07.716
 <v Gareth>Most of programming is moving things about. The Spectrum just doesn't hide it.
 
-00:04:43.040 --> 00:04:45.709
+00:04:07.939 --> 00:04:10.607
 <v Bev>Right then, what's the one idea this week?
 
-00:04:46.051 --> 00:04:51.541
+00:04:10.874 --> 00:04:16.365
 <v Gareth>Every game is a loop. Four words. Wait, read, move, draw.
 
-00:04:51.519 --> 00:04:53.873
+00:04:16.393 --> 00:04:18.748
 <v Bev>Wait, read, move, draw.
 
-00:04:54.000 --> 00:05:05.853
+00:04:18.900 --> 00:04:30.743
 <v Gareth>Wait for the television. Read what the player is pressing. Move everything one small step. Draw the result. Then round you go again. One trip round is called an update.
 
-00:05:06.040 --> 00:05:09.794
+00:04:30.870 --> 00:04:34.793
 <v Bev>Why wait? I'd have thought you'd want it to go as fast as it can.
 
-00:05:09.936 --> 00:05:32.447
+00:04:34.998 --> 00:04:57.408
 <v Gareth>That's the question. If a game ran as fast as it could, it would speed up when the screen was empty and slow down when it was busy. So it waits for the television instead. The telly draws a fresh picture fifty times a second, whatever the computer's doing. That's a frame. A game decides how many frames each update gets, and waits for them every time, so it plays at the same speed whatever's going on.
 
-00:05:32.442 --> 00:05:34.252
+00:04:57.352 --> 00:04:59.162
 <v Bev>So the telly's the conductor.
 
-00:05:34.478 --> 00:05:38.464
+00:04:59.304 --> 00:05:03.347
 <v Gareth>The telly sets the beat. Every game we've made keeps time by it.
 
-00:05:38.648 --> 00:05:41.190
+00:05:03.585 --> 00:05:06.127
 <v Bev>So what would I see on the telly if it didn't wait?
 
-00:05:41.523 --> 00:05:47.280
+00:05:06.444 --> 00:05:12.152
 <v Gareth>A mower that sprinted across an empty lawn and crawled when the hedgehogs came out. Not fair on anyone.
 
-00:05:47.564 --> 00:05:49.844
+00:05:12.429 --> 00:05:14.710
 <v Bev>Now you said there'd be homework.
 
-00:05:49.991 --> 00:06:07.099
+00:05:14.892 --> 00:05:32.086
 <v Gareth>A pencil job. If you can, play the demo of Mower Mayhem for a few minutes. It's going on INK and PAPER's cover tape. Then put it down and write a list: everything the game must do on every update, in the order you think it does it. Aim for eight things. If you want a go, pause me now.
 
-00:06:10.366 --> 00:06:19.289
+00:05:35.233 --> 00:05:44.023
 <v Bev>I'll have a go out loud. The mower moves. The grass gets cut. There's a battery that runs down, because it ran out on me twice.
 
-00:06:19.311 --> 00:06:20.274
+00:05:44.093 --> 00:05:45.056
 <v Gareth>Three already.
 
-00:06:20.524 --> 00:06:28.489
+00:05:45.200 --> 00:05:53.218
 <v Bev>The animals move. Something checks if you've hit one. The score changes. And it makes the noises.
 
-00:06:28.641 --> 00:07:01.828
+00:05:53.451 --> 00:06:26.434
 <v Gareth>That's a good list. Here's the real one. In the code there's a routine called play update, and it's mostly a list of calls, each one off to do a job and back again, like a list of errands. It shows the picture it built last time. Reads what you want the mower to do. Moves the hedgehogs, the cat and the bird. Fires the trimmer, moves the mower and cuts the grass under it. Checks whether you've parked on the dock. Drains the battery. Then it chooses the sounds, works out where the sprites go, builds the next picture away from the screen, fixes up the colours and redraws the score line.
 
-00:07:02.041 --> 00:07:05.301
+00:06:26.657 --> 00:06:29.806
 <v Bev>Hang on. It shows last time's picture first?
 
-00:07:05.675 --> 00:07:18.828
+00:06:30.095 --> 00:06:43.187
 <v Gareth>First thing, every time. The picture on your screen is always one update old. It shows the finished picture, then spends the rest of the update building the next one where you can't see it. The book calls that present first.
 
-00:07:19.114 --> 00:07:20.972
+00:06:43.401 --> 00:06:45.259
 <v Bev>So I'm always looking at the past.
 
-00:07:21.104 --> 00:07:24.680
+00:06:45.540 --> 00:06:49.179
 <v Gareth>About a twenty-fifth of a second of it. You'd never know.
 
-00:07:24.893 --> 00:07:26.365
+00:06:49.403 --> 00:06:50.875
 <v Bev>I got most of them, mind.
 
-00:07:26.656 --> 00:07:33.529
+00:06:51.072 --> 00:06:57.866
 <v Gareth>You got the movement and the drawing, because you can see those. Everybody does. The two you can't see are the ones worth knowing.
 
-00:07:36.029 --> 00:07:39.911
+00:07:00.366 --> 00:07:04.297
 <v Bev>So that's Mower Mayhem playing now. What's going on under the bonnet?
 
-00:07:40.280 --> 00:07:56.528
+00:07:04.549 --> 00:07:20.790
 <v Gareth>Mower Mayhem waits two frames for every update, so it updates twenty-five times a second. And each update has a budget. On the hundred and twenty-eight K a frame is seventy thousand, nine hundred and eight clock ticks. Two frames is a hundred and forty-one thousand, eight hundred and sixteen.
 
-00:07:56.685 --> 00:07:58.515
+00:07:21.055 --> 00:07:22.886
 <v Bev>You've learnt those off by heart.
 
-00:07:58.644 --> 00:08:07.857
+00:07:23.127 --> 00:07:32.283
 <v Gareth>Mo calls it a budget a producer can respect. Every instruction costs a known number of ticks. Spend more than you've got and the game stutters, and you can see it.
 
-00:08:08.128 --> 00:08:09.459
+00:07:32.578 --> 00:07:33.909
 <v Bev>And does it spend the lot?
 
-00:08:09.719 --> 00:08:20.462
+00:07:34.209 --> 00:07:44.842
 <v Gareth>No. Nine updates in ten finish within about seventy per cent of it. The rest of the time the processor sits in one instruction, halt, waiting for the telly to start its next picture.
 
-00:08:20.700 --> 00:08:22.786
+00:07:45.001 --> 00:07:47.086
 <v Bev>And there's nobody else's bit of program to do it for you?
 
-00:08:23.081 --> 00:08:29.817
+00:07:47.491 --> 00:07:54.203
 <v Gareth>None. The game writes every one of those jobs itself, right down to the instruction that waits for the television.
 
-00:08:30.021 --> 00:08:32.020
+00:07:54.343 --> 00:07:56.342
 <v Bev>So what's the smallest bit you're proud of?
 
-00:08:32.373 --> 00:08:40.175
+00:07:56.691 --> 00:08:04.575
 <v Gareth>There's a routine called abs diff. It works out how far apart two numbers are. On the Spectrum it's four instructions in five bytes.
 
-00:08:40.125 --> 00:08:43.052
+00:08:04.621 --> 00:08:07.526
 <v Bev>Five bytes. Is that small?
 
-00:08:43.429 --> 00:08:54.717
+00:08:07.939 --> 00:08:19.230
 <v Gareth>Tiny. And the game calls it from fifty-three places. Every time it needs to know if the mower's too close to a hedgehog, the cat, the bird or a flower bed, it asks abs diff.
 
-00:08:55.002 --> 00:08:56.643
+00:08:19.383 --> 00:08:21.025
 <v Bev>And it does that how often?
 
-00:08:57.028 --> 00:09:06.119
+00:08:21.276 --> 00:08:30.275
 <v Gareth>Many times in every update, twenty-five updates a second. And it only takes two bytes, whole numbers from nought to two hundred and fifty-five, because that's what the processor works in.
 
-00:09:06.934 --> 00:09:13.389
+00:08:31.132 --> 00:08:37.724
 <v Bev>Now you said six games. Mower Mayhem's one. What are the others?
 
-00:09:13.635 --> 00:09:28.167
+00:08:37.985 --> 00:08:52.627
 <v Gareth>Wordris drops single letters into a well five squares wide, and you steer them into three and four letter words. Antigravity turns gravity upside down on a space station. Tiger Gorilla swings a gorilla through twelve scrolling levels of jungle.
 
-00:09:28.147 --> 00:09:29.232
+00:08:52.708 --> 00:08:53.793
 <v Bev>I'd play that one.
 
-00:09:29.386 --> 00:09:38.527
+00:08:54.007 --> 00:09:03.218
 <v Gareth>Gold Master puts you in charge of a software studio a lot like ours, in an office that runs on tea. And WOLF follows Dex, forty-nine, through a year at a gym for men over thirty-five.
 
-00:09:38.654 --> 00:09:41.387
+00:09:03.347 --> 00:09:05.967
 <v Bev>A gym game. I've heard everything now.
 
-00:09:41.537 --> 00:09:58.482
+00:09:06.091 --> 00:09:22.938
 <v Gareth>It's a lovely one. And each one picks its own beat. Wordris and Antigravity do all their work every single frame. Mower Mayhem and Gold Master take two. Tiger Gorilla and WOLF take four, because moving the camera over a window of scenery can cost more than three frames' worth of ticks.
 
-00:09:58.748 --> 00:10:00.973
+00:09:23.164 --> 00:09:25.390
 <v Bev>And what's the cleverest sum in any of them?
 
-00:10:01.332 --> 00:10:12.550
+00:09:25.660 --> 00:09:36.792
 <v Gareth>Antigravity's gravity. It's a one taken off a number every frame. The thruster adds three. That's all the physics there is, and you can work out every number in the flight with a pencil.
 
-00:10:12.497 --> 00:10:14.072
+00:09:36.882 --> 00:09:38.457
 <v Bev>That's my kind of physics.
 
-00:10:14.672 --> 00:10:18.262
+00:09:39.057 --> 00:09:42.595
 <v Bev>You keep saying small. Does anything ever not fit?
 
-00:10:18.675 --> 00:10:28.072
+00:09:42.981 --> 00:09:52.349
 <v Gareth>All the time. That's the fun of it. Wordris checks every word on its board against a dictionary of six thousand, eight hundred and thirty-nine English words.
 
-00:10:28.250 --> 00:10:30.567
+00:09:52.572 --> 00:09:54.890
 <v Bev>That's a lot of words for a little machine.
 
-00:10:30.707 --> 00:10:45.665
+00:09:55.017 --> 00:10:10.010
 <v Gareth>It packs the whole list into fourteen thousand, two hundred and thirty-two bytes, in one of the hundred and twenty-eight K's extra banks of memory, with seven hundred and sixty-eight bytes of tables beside it. And it can answer, is cat a word, and is cats, in at most four hundred and twenty-four ticks.
 
-00:10:45.733 --> 00:10:47.721
+00:10:10.103 --> 00:10:12.091
 <v Bev>Out of seventy thousand.
 
-00:10:47.897 --> 00:10:52.364
+00:10:12.365 --> 00:10:16.669
 <v Gareth>Out of seventy thousand, nine hundred and eight. Well under one per cent of a frame.
 
-00:10:52.431 --> 00:10:53.717
+00:10:16.663 --> 00:10:17.949
 <v Bev>Go on, give me another.
 
-00:10:53.861 --> 00:11:08.375
+00:10:18.126 --> 00:10:32.691
 <v Gareth>Tiger Gorilla draws its jungle from tiles, and it won't build a zone with more than two hundred and fifty-three of them. A tile number has to fit in a byte, nought to two hundred and fifty-five. The top one's a solid block, and the two below it are kept for a trick that fixed a colour bug on the first level.
 
-00:11:08.531 --> 00:11:12.168
+00:10:32.955 --> 00:10:36.592
 <v Bev>So take three off, and that's your two hundred and fifty-three.
 
-00:11:12.391 --> 00:11:14.447
+00:10:36.768 --> 00:10:38.824
 <v Gareth>You did that faster than I did the first time.
 
-00:11:14.682 --> 00:11:18.251
+00:10:39.100 --> 00:10:42.675
 <v Bev>I can count. I'm not daft. And the last one?
 
-00:11:18.610 --> 00:11:33.673
+00:10:43.053 --> 00:10:57.969
 <v Gareth>Mower Mayhem filled its memory so tight that when its one-level demo was built, there were two bytes left before its next boundary. Two. So the demo's extra code went into another bank.
 
-00:11:33.852 --> 00:11:37.683
+00:10:58.204 --> 00:11:02.012
 <v Bev>Give me a story, then. Something that went wrong, or nearly did.
 
-00:11:37.959 --> 00:11:46.969
+00:11:02.149 --> 00:11:11.312
 <v Gareth>Here's one about order. Picture it. Your battery's on its last drop, and on that very same update you roll onto the dock. Do you win or lose?
 
-00:11:47.327 --> 00:11:49.589
+00:11:11.697 --> 00:11:13.982
 <v Bev>Oh, that's cruel. I'd want to win.
 
-00:11:49.811 --> 00:12:01.794
+00:11:14.232 --> 00:11:26.096
 <v Gareth>You win. Because in that list I read you, the check for a finished lawn comes before the battery drains. The code even has a comment on that line saying docking wins over an empty battery in the same instant.
 
-00:12:01.996 --> 00:12:04.284
+00:11:26.221 --> 00:11:28.508
 <v Bev>So the order of the list is a rule of the game.
 
-00:12:04.522 --> 00:12:12.478
+00:11:28.745 --> 00:11:36.839
 <v Gareth>That's it exactly. Swap two lines and the same moment becomes a loss. And nobody playing would ever know why it felt unfair.
 
-00:12:12.622 --> 00:12:14.158
+00:11:37.129 --> 00:11:38.665
 <v Bev>Do you check things like that?
 
-00:12:14.517 --> 00:12:28.504
+00:11:38.974 --> 00:11:52.845
 <v Gareth>Every one of the six games was built a milestone at a time, and each milestone has to pass its checks before the next one starts. Vik's test rig plays the tape through the real Spectrum ROM, presses keys at exact moments, and reads the game's memory to see what happened.
 
-00:12:28.504 --> 00:12:29.916
+00:11:52.858 --> 00:11:54.270
 <v Bev>A robot playing your game.
 
-00:12:30.103 --> 00:12:41.499
+00:11:54.508 --> 00:12:05.983
 <v Gareth>Pretty much. And the rule Mo runs the board by is that a severity one problem, a crash or controls that don't work, stops the card where it is. It doesn't move until the fix is in and checked again.
 
-00:12:41.492 --> 00:12:42.675
+00:12:06.029 --> 00:12:07.212
 <v Bev>And who finds them?
 
-00:12:42.997 --> 00:12:52.602
+00:12:07.601 --> 00:12:17.121
 <v Gareth>All of us. Vik's rig, Emeka playing it all day, and Mo making sure nothing slips. I just get to fix them. It's a good team.
 
-00:12:55.902 --> 00:13:01.476
+00:12:20.421 --> 00:12:26.013
 <v Bev>Go on, Gareth, crystal ball time. Thirty years from now. What's a computer look like?
 
-00:13:01.853 --> 00:13:13.722
+00:12:26.312 --> 00:12:38.305
 <v Gareth>Suppose one day there's a computer that folds up like a briefcase and sits on your knee. Call it a laptop. It has hundreds of thousands of times the memory, and it runs billions of instructions a second.
 
-00:13:13.675 --> 00:13:16.644
+00:12:38.338 --> 00:12:41.185
 <v Bev>Billions. Like on Tomorrow's World.
 
-00:13:16.812 --> 00:13:24.086
+00:12:41.319 --> 00:12:48.592
 <v Gareth>And suppose there's a language, call it Python, after Monty Python, where you just write abs of a minus b, and it works for any number at all.
 
-00:13:24.261 --> 00:13:26.420
+00:12:48.850 --> 00:12:51.009
 <v Bev>Not just nought to two hundred and fifty-five.
 
-00:13:26.690 --> 00:13:32.235
+00:12:51.153 --> 00:12:56.601
 <v Gareth>Any number. And underneath there'd be layers and layers, so many that nobody understands all of them.
 
-00:13:32.389 --> 00:13:34.340
+00:12:56.744 --> 00:12:58.695
 <v Bev>So would anyone still want a Spectrum?
 
-00:13:34.658 --> 00:13:43.532
+00:12:58.950 --> 00:13:07.803
 <v Gareth>I reckon they would. It's the one you can hold in your head. Every byte and every tick is yours, and when something goes wrong you can find out exactly why.
 
-00:13:43.780 --> 00:13:46.308
+00:13:07.978 --> 00:13:10.506
 <v Bev>What should folk do before next week?
 
-00:13:46.566 --> 00:14:04.708
+00:13:10.896 --> 00:13:29.104
 <v Gareth>Chapter one of the book is called Why Write Spectrum Games Now. It has the pencil job we just did, with the whole of play update printed out, and three check yourself questions. Try the third one without looking: the mower docks on the same update the battery runs dry. Now you know the answer, see if you can find the line that decides it.
 
-00:14:04.708 --> 00:14:06.667
+00:13:29.104 --> 00:13:31.063
 <v Bev>And another, for anybody keen?
 
-00:14:06.918 --> 00:14:18.985
+00:13:31.430 --> 00:13:43.390
 <v Gareth>Load a tape, and time it from the first stripes on the border to the title. Mower Mayhem's own loader takes a hundred and forty-one seconds. The Spectrum's ordinary loader would take two hundred and forty-five.
 
-00:14:19.139 --> 00:14:21.294
+00:13:43.649 --> 00:13:45.805
 <v Bev>Vik will want to know if you used a stopwatch.
 
-00:14:25.294 --> 00:14:35.315
+00:13:49.805 --> 00:13:59.965
 <v Bev>That's us for this week. Next time, Mo's in the chair, and she's going to tell us how a game gets out of the door. If you've got a question for the team, send it in, and we'll put it to them.
 
-00:14:35.915 --> 00:14:37.253
+00:14:00.565 --> 00:14:01.903
 <v Bev>Thanks, Gareth.
 
-00:14:37.508 --> 00:14:41.831
+00:14:02.090 --> 00:14:06.426
 <v Gareth>Thanks, Bev. Wait, read, move, draw. Go on then.
 
-00:14:41.898 --> 00:14:43.129
+00:14:06.396 --> 00:14:07.627
 <v Bev>Right then, turn it up.
 
-00:14:43.365 --> 00:15:00.005
-<v Daniel>That was nineteen eighty-seven. To try it yourself today you need an emulator such as Fuse, the sjasmplus assembler and Python three. Gareth's guess came true: Python is real, and it is named after Monty Python. Bev never did get a laptop.
+00:14:07.795 --> 00:14:26.859
+<v Daniel>This is Daniel Vaughan, who made the show. That was nineteen eighty-seven. To try it yourself today you need an emulator such as Fuse, the sjasmplus assembler and Python three. Gareth's guess came true: Python is real, and it is named after Monty Python. Bev never did get a laptop.
 
-00:15:00.605 --> 00:15:11.615
+00:14:27.459 --> 00:14:38.473
 <v Daniel>The chapter is Why Write Spectrum Games Now, in Machine Code Mayhem on Leanpub. The docking question is the third Check yourself, and timing a tape is the exercise Load a tape.
 
-00:15:12.215 --> 00:15:21.349
-<v Daniel>Thank you for listening. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is written and produced by me, Daniel Vaughan.
+00:14:39.073 --> 00:14:53.830
+<v Daniel>Thank you for listening. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is written and produced by me, Daniel Vaughan, with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.
