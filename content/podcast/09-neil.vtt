@@ -1,0 +1,538 @@
+WEBVTT
+
+00:00:01.000 --> 00:00:06.751
+<v Neil>Picture one square on the screen. Two colours, that's your lot. One ink, one paper.
+
+00:00:07.011 --> 00:00:08.315
+<v Bev>And if you want a third?
+
+00:00:08.595 --> 00:00:11.141
+<v Neil>You don't get a third. You get clash.
+
+00:00:16.941 --> 00:00:20.850
+<v Gareth>That's Tiger Gorilla loading. A whole jungle, coming in off a tape.
+
+00:00:20.970 --> 00:00:22.937
+<v Bev>It sounds like a very cross bee.
+
+00:00:27.937 --> 00:00:35.158
+<v Bev>Hello there, it's Bev, the kettle's on, and this is Dalex After Hours, the slot where we find out how computer games are really made.
+
+00:00:35.758 --> 00:00:43.262
+<v Bev>After last week's look back, we're straight into the jungle. And every fact on this show comes out of the book the team's writing.
+
+00:00:43.862 --> 00:00:48.648
+<v Bev>Now, it's Bonfire Night, so if you can hear bangs outside, that's the fireworks, not Neil's scrolling.
+
+00:00:48.912 --> 00:00:58.094
+<v Neil>I watched a rocket go up on the way in. Green, then red, then gold. I thought, that's three colours in one square. You'd never get away with it.
+
+00:00:58.294 --> 00:01:00.894
+<v Bev>Across the desk, as ever, is Gareth.
+
+00:01:01.104 --> 00:01:13.869
+<v Gareth>Hiya, Bev. Hiya, everyone. And England are in the cricket World Cup final. They beat India in Bombay today, by thirty-five runs, and Graham Gooch got a hundred. Vik's been keeping the score since breakfast.
+
+00:01:13.968 --> 00:01:15.465
+<v Bev>Measured, not guessed.
+
+00:01:16.065 --> 00:01:25.118
+<v Bev>And this week we've come upstairs to the art office, because our guest is the man who decides what a game looks like. Neil Whitworth, art director. Welcome, Neil.
+
+00:01:25.348 --> 00:01:27.512
+<v Neil>Thanks, Bev. Lovely to be asked.
+
+00:01:27.639 --> 00:01:30.075
+<v Bev>Now I'm told you've already noticed my shoes.
+
+00:01:30.288 --> 00:01:33.416
+<v Neil>I notice everyone's shoes. They're very nice shoes.
+
+00:01:33.701 --> 00:01:36.077
+<v Gareth>He noticed mine. I've never recovered.
+
+00:01:39.377 --> 00:01:41.378
+<v Bev>Go on then, Neil, what's on your desk?
+
+00:01:41.711 --> 00:01:51.536
+<v Neil>A notebook with the art for every game we make, a pinboard behind me, and a plan chest full of big flat drawers. And a palette card. I always have a palette card.
+
+00:01:51.690 --> 00:01:55.727
+<v Bev>A palette card. Like the paint charts at the do it yourself shop?
+
+00:01:56.003 --> 00:02:04.318
+<v Neil>Very like. Only mine's got eight colours on it, black, blue, red, magenta, green, cyan, yellow and white, because that's what the Spectrum gives you.
+
+00:02:04.439 --> 00:02:08.034
+<v Bev>Eight colours. That doesn't sound like a lot for a jungle.
+
+00:02:08.181 --> 00:02:19.093
+<v Neil>It isn't. That's what makes it interesting. My job is to decide how a game looks before anyone draws a pixel. Hyun-joo turns it into sprites and Simon paints the screens and covers.
+
+00:02:19.365 --> 00:02:22.276
+<v Bev>So you're the one who says the gorilla's yellow.
+
+00:02:22.511 --> 00:02:26.891
+<v Neil>I'm the one who says the gorilla's yellow, and then I spend the next month making sure he stays yellow.
+
+00:02:26.949 --> 00:02:28.149
+<v Gareth>Tell her about Saturdays.
+
+00:02:28.286 --> 00:02:34.758
+<v Neil>Oh, that's not art. That's fell walking with Simon. He brings a sketchbook, I bring the sandwiches.
+
+00:02:35.035 --> 00:02:38.486
+<v Bev>And what is Tiger Gorilla, for anyone who hasn't played it?
+
+00:02:38.791 --> 00:02:43.950
+<v Neil>You swing a gorilla through twelve scrolling levels of jungle, catching parrots to feed the babies in the nest.
+
+00:02:44.178 --> 00:02:48.254
+<v Bev>That's lovely, that is. And I notice the cat's on your plan chest.
+
+00:02:48.444 --> 00:02:51.766
+<v Neil>Percy likes the top drawer. It's where the warm paper is.
+
+00:02:51.913 --> 00:02:55.189
+<v Bev>Right then. What's the one idea this week?
+
+00:02:55.498 --> 00:03:01.044
+<v Neil>One rule. In every square of the screen, decide who owns the ink and who owns the paper.
+
+00:03:01.270 --> 00:03:05.229
+<v Bev>I'll be honest, I don't know what ink and paper are. Not on a computer.
+
+00:03:05.464 --> 00:03:16.389
+<v Neil>Good, that's the right place to start. The Spectrum's screen is cut into little squares, eight dots by eight. Each square gets two colours and only two. One's called the ink, one's called the paper.
+
+00:03:16.394 --> 00:03:18.322
+<v Bev>Like writing on a page.
+
+00:03:18.459 --> 00:03:25.356
+<v Neil>Exactly like that. The dots that are switched on are drawn in the ink. Everything else in the square is the paper.
+
+00:03:25.597 --> 00:03:32.519
+<v Gareth>The book quotes the old Spectrum manual on it. You cannot possibly have more than two colours in a given block of sixty-four dots.
+
+00:03:32.797 --> 00:03:35.036
+<v Bev>Possibly. They were firm about it.
+
+00:03:35.180 --> 00:03:44.742
+<v Neil>Think of a sign painter who's allowed two pots for each square. I started out painting shop signs, so that's how I see it. Two pots, and you choose them well.
+
+00:03:44.964 --> 00:03:48.869
+<v Bev>So what happens when the gorilla walks into a square that's already got its two colours?
+
+00:03:49.135 --> 00:04:03.189
+<v Neil>That's the question, Bev. That's the whole job. He's got to be drawn in that square's two pots. And if you haven't decided in advance whose pot is whose, colour runs where it shouldn't. That's what folk call attribute clash.
+
+00:04:03.468 --> 00:04:05.332
+<v Bev>So what would I see on the telly?
+
+00:04:05.688 --> 00:04:09.110
+<v Neil>A gorilla walking past a tree, and the tree changing colour round him.
+
+00:04:09.142 --> 00:04:10.172
+<v Gareth>Which happened.
+
+00:04:10.359 --> 00:04:12.272
+<v Neil>Which happened. We'll get to it.
+
+00:04:12.435 --> 00:04:13.810
+<v Bev>Have you got homework for us?
+
+00:04:14.057 --> 00:04:21.002
+<v Neil>Squared paper and two coloured pencils, red and black. That's all.
+
+00:04:21.206 --> 00:04:23.782
+<v Bev>I've got a biro and the back of an envelope.
+
+00:04:24.001 --> 00:04:34.531
+<v Neil>That'll do. Draw one square, eight little boxes by eight. Choose your two colours for that square before you draw anything. Red for the paper, black for the ink.
+
+00:04:34.476 --> 00:04:36.614
+<v Bev>Done. Well, imagined.
+
+00:04:36.908 --> 00:04:45.007
+<v Neil>Now colour the whole square red. That's the paper. Then draw the shape of a tree trunk's edge in black. That's the ink.
+
+00:04:45.284 --> 00:04:46.867
+<v Bev>Red with a black shape on it.
+
+00:04:47.049 --> 00:04:55.436
+<v Neil>Now here's the test. Somebody comes along with a yellow pencil and says, I'm the gorilla, and I need to be in this square. What can he change?
+
+00:04:55.770 --> 00:04:58.592
+<v Bev>He can't add a third colour, so he has to take one of mine.
+
+00:04:58.655 --> 00:05:01.011
+<v Neil>Lovely. Which one?
+
+00:05:01.278 --> 00:05:06.096
+<v Bev>I'd give him the black. The ink. Then my red's still red.
+
+00:05:06.352 --> 00:05:13.096
+<v Neil>You've just invented the rule we arrived at one complaint at a time. The gorilla takes the ink, and your tree keeps its paper.
+
+00:05:13.058 --> 00:05:14.222
+<v Bev>Have I really?
+
+00:05:14.537 --> 00:05:21.038
+<v Gareth>You have. It took the team a few complaints to get there, and you did it in one go. Well done, Bev.
+
+00:05:21.271 --> 00:05:26.568
+<v Neil>I'm doing it with my hands again, aren't I. Gareth, you'll have to tell me if I start pointing at the microphone.
+
+00:05:26.780 --> 00:05:28.556
+<v Gareth>You've been pointing at it since the sting.
+
+00:05:31.056 --> 00:05:34.603
+<v Bev>So that's Tiger Gorilla playing now. Tell me what I'm looking at.
+
+00:05:34.763 --> 00:05:46.253
+<v Neil>The gorilla knuckle-running right, and the jungle sliding past him. Green canopy along the top, black sky in the middle with red trunks and yellow branches and hanging vines, and green ground along the bottom.
+
+00:05:46.438 --> 00:05:49.445
+<v Bev>And the jungle moves. That's the scrolling.
+
+00:05:49.627 --> 00:06:01.009
+<v Neil>That's the scrolling. The first level is a hundred and ninety-two squares across and twenty down, and the window you see is thirty-two squares wide. It's like a long strip of paper sliding under a card with a hole cut in it.
+
+00:06:01.178 --> 00:06:03.830
+<v Bev>And somebody drew all hundred and ninety-two squares?
+
+00:06:04.241 --> 00:06:16.304
+<v Neil>Not one by one. The jungle's built from tiles. A tile is a little picture, eight dots by eight, used over and over. A trunk piece, a bit of branch, a patch of empty black sky.
+
+00:06:16.327 --> 00:06:17.661
+<v Bev>Like a mosaic.
+
+00:06:17.942 --> 00:06:29.245
+<v Neil>Like a mosaic. Stored as a picture, the first level would fill thirty-four thousand, five hundred and sixty bytes. The level itself, as a map of tile blocks, is two hundred and forty bytes.
+
+00:06:29.523 --> 00:06:36.735
+<v Gareth>Plus the tile pictures, shared by the four levels of a zone. Still a bargain.
+
+00:06:37.022 --> 00:06:40.522
+<v Bev>So the map is a list of numbers and each number's a tile.
+
+00:06:40.655 --> 00:06:46.555
+<v Neil>That's it. And every tile comes with its own two colours. Which is where my trouble starts.
+
+00:06:46.847 --> 00:06:49.090
+<v Bev>And the Spectrum slides the strip for you?
+
+00:06:49.376 --> 00:07:02.973
+<v Gareth>Nothing in the Spectrum moves the picture for you. Every step the camera takes is a new picture the program has to draw itself. The window is five thousand, seven hundred and sixty bytes, and copying that the game's way takes more than one frame on its own.
+
+00:07:03.206 --> 00:07:04.673
+<v Bev>So how does it keep up?
+
+00:07:05.088 --> 00:07:19.439
+<v Gareth>It draws into a second screen you can't see, then swaps them. And it gives itself four frames for each picture, so it draws a fresh one twelve and a half times a second. They tried three frames first and measured it. Too many pictures ran late.
+
+00:07:19.568 --> 00:07:22.557
+<v Bev>Measured, not guessed. Vik would like that.
+
+00:07:22.644 --> 00:07:24.114
+<v Gareth>Vik likes nothing better.
+
+00:07:24.386 --> 00:07:26.272
+<v Bev>So where does the ink and paper come in?
+
+00:07:26.532 --> 00:07:35.044
+<v Neil>The trunk. At first the trunk's red body was drawn in ink. And a sprite colours the squares it covers by setting their ink.
+
+00:07:35.283 --> 00:07:39.196
+<v Bev>Oh no. So the gorilla walks past and takes the trunk's colour.
+
+00:07:39.489 --> 00:07:45.758
+<v Neil>A whole red trunk turned yellow behind the gorilla. And INK and PAPER's reviewers marked the graphics down for it.
+
+00:07:45.799 --> 00:07:46.778
+<v Bev>Brian did that?
+
+00:07:47.132 --> 00:07:49.628
+<v Neil>The magazine did. And they were right to.
+
+00:07:49.759 --> 00:07:51.481
+<v Gareth>Fair to the mark, that magazine.
+
+00:07:51.675 --> 00:07:53.619
+<v Bev>So how did you mend it?
+
+00:07:53.997 --> 00:08:03.324
+<v Neil>We turned the trunk inside out. Every scenery tile with more ink than paper is stored the other way round. The pixels are flipped, and the ink and paper are swapped.
+
+00:08:03.465 --> 00:08:05.364
+<v Bev>Hang on, wouldn't that look different?
+
+00:08:05.769 --> 00:08:17.274
+<v Neil>That's the clever bit. It looks the same. Red paper with a black edge, instead of red ink on black. But now when the gorilla takes the ink, he only takes the edge. The trunk keeps its red.
+
+00:08:17.400 --> 00:08:19.681
+<v Bev>So the body of the tree lives in the paper.
+
+00:08:19.805 --> 00:08:25.778
+<v Neil>In the paper. And the detail, the dark edge and the bark marks, lives in the ink.
+
+00:08:25.943 --> 00:08:27.523
+<v Bev>And the gorilla can have the detail.
+
+00:08:27.677 --> 00:08:30.487
+<v Neil>He can have the detail. He can't have the tree.
+
+00:08:31.087 --> 00:08:36.031
+<v Neil>The jungle lives in the paper, and the sprites own the ink. That's the rule in one line.
+
+00:08:36.257 --> 00:08:45.822
+<v Gareth>And underneath, Bev, a square's colours are one byte. Three bits for the paper, three for the ink. Turning the trunk inside out is a decision about which colour goes in which three bits.
+
+00:08:45.765 --> 00:08:48.450
+<v Neil>Lovely. That reads.
+
+00:08:49.339 --> 00:08:52.743
+<v Bev>Go on then, there's always a story. What went wrong?
+
+00:08:53.129 --> 00:08:56.927
+<v Neil>The fix for the trunk caused the next bug. Which is how it usually goes.
+
+00:08:56.964 --> 00:08:57.867
+<v Bev>Doesn't it just.
+
+00:08:58.022 --> 00:09:03.163
+<v Neil>Somebody playing the first level said it plainly. The black ground flashes a little when moving.
+
+00:09:03.110 --> 00:09:04.408
+<v Bev>Flashes how?
+
+00:09:04.792 --> 00:09:13.738
+<v Neil>At the foot of the first trunk, the roots sat on dark ground in one picture. In the next, solid red blocks appeared either side of them. Then they were gone.
+
+00:09:13.867 --> 00:09:17.990
+<v Gareth>And it only happened when the jungle was moving. Stand still and it was perfect.
+
+00:09:17.981 --> 00:09:19.245
+<v Bev>So what was it?
+
+00:09:19.505 --> 00:09:33.846
+<v Neil>The scrolling. To look smooth, the camera moves half a square at a time, four dots. The first version moved a whole square, eight dots, and the gorilla jittered. Every check on Vik's test rig had passed, mind you. It just didn't look smooth.
+
+00:09:33.807 --> 00:09:35.027
+<v Bev>So half a square.
+
+00:09:35.285 --> 00:09:42.670
+<v Neil>And at the half step, one square on the screen shows the right half of one tile and the left half of the next. Two pictures, one square.
+
+00:09:42.825 --> 00:09:44.964
+<v Bev>And one square only gets two colours.
+
+00:09:45.187 --> 00:09:54.848
+<v Neil>You've got it. Now remember the trunk we turned inside out? Its body is red paper with black ink. The roots beside it are black paper with red ink.
+
+00:09:55.087 --> 00:09:57.445
+<v Bev>The same two colours, the other way round.
+
+00:09:57.678 --> 00:10:07.246
+<v Neil>The same two colours, the other way round. Put half of each in one square, and the square can only carry one tile's colours. So the other half gets drawn with its colours swapped.
+
+00:10:07.496 --> 00:10:10.058
+<v Bev>So the black between the roots comes out red.
+
+00:10:10.334 --> 00:10:20.488
+<v Neil>And the roots come out black. Each tile on its own is fine. Side by side, standing still, they're fine. It's only when the camera puts half of each into one square that it goes wrong.
+
+00:10:20.725 --> 00:10:23.313
+<v Bev>So you could check every tile on its own and never see it.
+
+00:10:23.471 --> 00:10:30.713
+<v Neil>That's the warning in the chapter, and I'd frame it if I could. Check the colours of every pair of neighbouring tiles, not each tile alone.
+
+00:10:30.804 --> 00:10:32.046
+<v Bev>And it looked like ground?
+
+00:10:32.354 --> 00:10:46.118
+<v Neil>It looked like ground. But in the level data, some of those pairs were the edge of the canopy at the top. The leafy edge is black paper with green ink, and the canopy above it is green paper with black ink. Same trouble, different place.
+
+00:10:46.718 --> 00:10:54.616
+<v Neil>Red blocks, every other picture. While you walk, that's a flash about six times a second, at every trunk's foot, a bush corner and the pool's edge.
+
+00:10:54.577 --> 00:10:55.613
+<v Bev>And who found it?
+
+00:10:55.972 --> 00:11:10.564
+<v Gareth>Vik's test rig. It plays the tape and presses keys at exact moments. It held P to walk right, kept a copy of every picture, slid each one back by the camera's step and compared them. Whatever's left over is the picture changing, not moving.
+
+00:11:10.781 --> 00:11:14.945
+<v Bev>Oh, that's clever. If the jungle's only moving, nothing should be left.
+
+00:11:15.109 --> 00:11:18.522
+<v Neil>Lovely work, that. Without that measurement we'd have been guessing.
+
+00:11:18.725 --> 00:11:26.993
+<v Gareth>That's it. And a model of the colour rule, worked over the level, counted twenty-seven hundred and twenty-eight wrong pixels in one full pass of the first level.
+
+00:11:27.249 --> 00:11:28.711
+<v Bev>So how did you fix it?
+
+00:11:29.055 --> 00:11:37.827
+<v Neil>Wherever a half would show its colours swapped, the game draws that half from an inverted copy of its tile. Turn the pixels over, and swapped colours give you the right picture again.
+
+00:11:37.961 --> 00:11:47.162
+<v Gareth>Two spare tiles, numbers two hundred and fifty-three and two hundred and fifty-four, kept just for that. The program copies the tile into one of them, flipping every dot as it goes.
+
+00:11:47.123 --> 00:11:48.103
+<v Bev>And that was it?
+
+00:11:48.367 --> 00:12:01.608
+<v Gareth>Not quite. The memory the game lives in was full, so the routine went into a spare bank. And then it was too slow. A check that taps a key and waits for an answer got twenty-nine taps of thirty.
+
+00:12:01.783 --> 00:12:03.717
+<v Bev>Twenty-nine out of thirty sounds quite good.
+
+00:12:03.987 --> 00:12:11.203
+<v Gareth>Not if yours is the key press that's lost. Walking runs within a few per cent of the four frames, so the extra work tipped some pictures over.
+
+00:12:11.356 --> 00:12:12.889
+<v Bev>So where did you find the time?
+
+00:12:13.207 --> 00:12:26.081
+<v Gareth>My favourite part. One instruction in the line step wasn't needed. It cost eight clock ticks a line, and a column of the strip is a hundred and sixty lines. Take it out, and that's one thousand, two hundred and eighty ticks a column back.
+
+00:12:26.037 --> 00:12:27.136
+<v Bev>One instruction.
+
+00:12:27.387 --> 00:12:30.499
+<v Gareth>One instruction. Every tap was answered again.
+
+00:12:30.768 --> 00:12:46.552
+<v Neil>And the red blocks were gone. That was a proper team fix, that. Everyone had a hand in it. The wrong pixels in that first zone fell from twenty-seven hundred and twenty-eight to one thousand and forty-seven. What's left is one to four pixels at nearly solid halves that no two-colour square can show.
+
+00:12:46.613 --> 00:12:47.798
+<v Bev>And you let that go?
+
+00:12:48.072 --> 00:12:58.896
+<v Neil>Deferred, as polish. A painter knows when two pots are all you've got. Step back to the whole screen and the ground keeps its colour as the jungle slides past. That's what you'd see on the telly.
+
+00:12:59.038 --> 00:13:06.156
+<v Gareth>And the program that checks the game's pictures had to learn the same rule. The drawing and its check have to change together, or the check passes the bug.
+
+00:13:06.420 --> 00:13:09.280
+<v Bev>So you've got a rule for the trunk. Are there more?
+
+00:13:09.650 --> 00:13:20.134
+<v Neil>A short list. It's worth pinching for any game with sprites over coloured scenery. Sprites own the ink of the squares they cover. Scenery bodies live in the paper.
+
+00:13:20.199 --> 00:13:21.347
+<v Bev>Two so far.
+
+00:13:21.538 --> 00:13:28.623
+<v Neil>The photographers have a sight cone, and it tints the paper only where it's black, the sky. So a trunk inside the cone stays red.
+
+00:13:28.776 --> 00:13:31.447
+<v Bev>Photographers in a jungle. I like that.
+
+00:13:31.704 --> 00:13:43.048
+<v Neil>Then the crocodiles. The water in the first zone was drawn in blue ink, and a green crocodile turned four whole squares green. So the squares behind a crocodile are blanked to blue paper first.
+
+00:13:43.055 --> 00:13:44.613
+<v Bev>And the gorilla himself?
+
+00:13:44.859 --> 00:13:53.687
+<v Neil>Before he's drawn, the solid coloured squares inside his box lose their black detail. So he shows as a clean yellow shape that reads against the scenery.
+
+00:13:53.905 --> 00:13:57.162
+<v Bev>Did you ever think of just clearing everything under every sprite?
+
+00:13:57.472 --> 00:14:03.479
+<v Neil>We weighed it. It lost on what it cost to draw. Gareth's frames are spoken for.
+
+00:14:03.480 --> 00:14:04.812
+<v Gareth>Every tick of them.
+
+00:14:05.081 --> 00:14:10.274
+<v Neil>Hyun-joo always asks me the same question about a sprite. Does it read at actual size?
+
+00:14:10.396 --> 00:14:11.502
+<v Bev>And does he?
+
+00:14:11.767 --> 00:14:19.960
+<v Neil>Lovely. He does. The actors in ink, the jungle in paper. That's where the contrast comes from.
+
+00:14:20.228 --> 00:14:22.751
+<v Bev>And what would you say to someone drawing their first game?
+
+00:14:23.156 --> 00:14:29.019
+<v Neil>Decide whose colour is whose before anyone draws a pixel. Then guard it. Mind the inks.
+
+00:14:32.319 --> 00:14:39.300
+<v Bev>Go on then, Neil, crystal ball time. Twenty, thirty years from now. Will anybody still be deciding who owns the ink?
+
+00:14:39.572 --> 00:14:49.645
+<v Neil>Oh, that's a good one. Suppose one day every single dot on the screen can have its own colour. Not eight colours, thousands of them, and no squares at all.
+
+00:14:49.616 --> 00:14:51.108
+<v Bev>Like on Tomorrow's World.
+
+00:14:51.393 --> 00:14:55.670
+<v Gareth>And suppose the telly gets so thin you hang it on the wall, like one of Simon's paintings.
+
+00:14:55.829 --> 00:14:59.272
+<v Bev>A telly on the wall. Where would Percy sit?
+
+00:14:59.524 --> 00:15:07.290
+<v Neil>And do you know what I'd guess? Even then, somebody would draw a brand new Spectrum game, eight colours and all, two to a square, just for the fun of the rule.
+
+00:15:07.416 --> 00:15:09.238
+<v Bev>With all those colours to choose from?
+
+00:15:09.534 --> 00:15:12.672
+<v Neil>A painter likes a limit, Bev. Two pots and a good eye.
+
+00:15:12.921 --> 00:15:14.572
+<v Gareth>Ask us again in thirty years.
+
+00:15:14.774 --> 00:15:17.184
+<v Bev>So what should folk do before next week?
+
+00:15:17.434 --> 00:15:26.822
+<v Gareth>In the book the team's writing, chapter eleven is Tiger Gorilla: Scrolling a Jungle. At the end there's an exercise called Colour a cell by hand.
+
+00:15:26.908 --> 00:15:27.638
+<v Bev>Pencil job?
+
+00:15:27.922 --> 00:15:43.157
+<v Gareth>Pencil job. One square at the half step has the leafy canopy's edge on the left, black paper with green ink, and the canopy itself on the right, green paper with black ink. Work out which colours the square gets, then which half has to be drawn from a spare inverted tile.
+
+00:15:43.283 --> 00:15:46.456
+<v Neil>The same two colours, the other way round. You know the trick now.
+
+00:15:46.598 --> 00:15:53.511
+<v Gareth>And if you've got the game's source, the chapter's other exercises let you bring the red blocks back on purpose and watch them happen. Go on then.
+
+00:15:57.511 --> 00:16:02.737
+<v Bev>That's us for this week. Thank you, Neil. I'll never look at a tree the same way.
+
+00:16:02.890 --> 00:16:07.395
+<v Neil>Thanks, Bev. Thanks, Gareth. Your shoes are still very nice.
+
+00:16:07.610 --> 00:16:16.431
+<v Bev>Next week we're down on the beanbag with Emeka, the best player in the building, and he's bringing a joystick. If you've got a question for the team, send it in and we'll put it to them.
+
+00:16:16.454 --> 00:16:18.045
+<v Gareth>Bring your own high score.
+
+00:16:18.278 --> 00:16:21.684
+<v Bev>Enjoy the bonfire, everyone. Right then, turn it up.
+
+00:16:21.876 --> 00:16:34.296
+<v Daniel>This is Daniel Vaughan, who made the show. That was nineteen eighty-seven. Neil was right that people would still draw Spectrum games, eight colours and two to a square. The six in the book are new ones.
+
+00:16:34.896 --> 00:16:41.628
+<v Daniel>You can play Tiger Gorilla free in your browser at dalex-software dot co dot uk, and watch the jungle scroll.
+
+00:16:42.228 --> 00:16:55.971
+<v Daniel>The chapter is Tiger Gorilla: Scrolling a Jungle, in Machine Code Mayhem on Leanpub, and the exercise is Colour a cell by hand. The others need an emulator such as Fuse, the sjasmplus assembler and Python three.
+
+00:16:56.571 --> 00:17:11.439
+<v Daniel>Thank you for listening. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is written and produced by me, Daniel Vaughan, with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.

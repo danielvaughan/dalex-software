@@ -581,5 +581,68 @@
       }
     ],
     "visible": true
+  },
+  {
+    "number": 9,
+    "slug": "09-neil",
+    "title": "Who owns the ink",
+    "guest": "Neil Whitworth, art director",
+    "summary": "Neil on Tiger Gorilla's jungle: in every square of the screen, who owns the ink and who owns the paper, and the black ground that flashed.",
+    "date": "2026-11-05",
+    "time": "19:00",
+    "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/09-neil.mp3",
+    "audio_bytes": 12516464,
+    "seconds": 1032,
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Cold open"
+      },
+      {
+        "start": 28,
+        "title": "Welcome"
+      },
+      {
+        "start": 99,
+        "title": "The desk"
+      },
+      {
+        "start": 172,
+        "title": "The big idea"
+      },
+      {
+        "start": 252,
+        "title": "By hand"
+      },
+      {
+        "start": 329,
+        "title": "In the game"
+      },
+      {
+        "start": 529,
+        "title": "The bug"
+      },
+      {
+        "start": 786,
+        "title": "The rules"
+      },
+      {
+        "start": 872,
+        "title": "Crystal ball"
+      },
+      {
+        "start": 915,
+        "title": "Try this"
+      },
+      {
+        "start": 954,
+        "title": "Close"
+      },
+      {
+        "start": 982,
+        "title": "After the show"
+      }
+    ],
+    "visible": true
   }
 ]
