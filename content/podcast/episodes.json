@@ -837,5 +837,68 @@
       }
     ],
     "visible": true
+  },
+  {
+    "number": 13,
+    "slug": "13-brian",
+    "title": "The middle mark",
+    "guest": "Brian Openshaw, editor of INK & PAPER",
+    "summary": "Brian on how a review is scored: three marks, the middle one printed, and a sentence with no superlatives in it.",
+    "date": "2026-12-03",
+    "time": "19:00",
+    "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/13-brian.mp3",
+    "audio_bytes": 12445933,
+    "seconds": 1027,
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Cold open"
+      },
+      {
+        "start": 24,
+        "title": "Welcome"
+      },
+      {
+        "start": 87,
+        "title": "The desk"
+      },
+      {
+        "start": 180,
+        "title": "The big idea"
+      },
+      {
+        "start": 270,
+        "title": "By hand"
+      },
+      {
+        "start": 429,
+        "title": "In the game"
+      },
+      {
+        "start": 537,
+        "title": "The rules"
+      },
+      {
+        "start": 706,
+        "title": "The bug"
+      },
+      {
+        "start": 860,
+        "title": "Crystal ball"
+      },
+      {
+        "start": 902,
+        "title": "Try this"
+      },
+      {
+        "start": 936,
+        "title": "Close"
+      },
+      {
+        "start": 976,
+        "title": "After the show"
+      }
+    ],
+    "visible": true
   }
 ]
