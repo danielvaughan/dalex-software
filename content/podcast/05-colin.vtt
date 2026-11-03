@@ -1,520 +1,514 @@
 WEBVTT
 
-00:00:01.000 --> 00:00:16.829
-<v Daniel>Hello, I'm Daniel Vaughan. Before we start: Dalex Software and its people are fictional, and the voices you'll hear are synthesised. I wrote and produced this show with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.
-
-00:00:17.429 --> 00:00:26.108
-<v Daniel>The show is set in nineteen eighty-seven, so they say things the nineteen eighty-seven way. When Vik's test rig counts frames, today that's an emulator.
-
-00:00:26.385 --> 00:00:33.278
+00:00:01.000 --> 00:00:08.032
 <v Colin>On paper it read well. Slide whenever any part of the travel is free. Lovely rule.
 
-00:00:33.345 --> 00:00:34.495
+00:00:08.096 --> 00:00:09.245
 <v Bev>And how did it play?
 
-00:00:34.629 --> 00:00:36.664
+00:00:09.341 --> 00:00:11.375
 <v Colin>Like the controls were stuck.
 
-00:00:47.464 --> 00:00:54.685
+00:00:22.175 --> 00:00:29.397
 <v Bev>Hello there, it's Bev, the kettle's on, and this is Dalex After Hours, the slot where we find out how computer games are really made.
 
-00:00:55.285 --> 00:00:58.792
+00:00:29.997 --> 00:00:33.504
 <v Bev>Every fact on this show comes out of the book the team's writing.
 
-00:00:59.392 --> 00:01:01.943
+00:00:34.104 --> 00:00:36.655
 <v Bev>Across the desk, as ever, it's Gareth.
 
-00:01:01.931 --> 00:01:02.684
+00:00:36.643 --> 00:00:37.395
 <v Gareth>Hiya, Bev.
 
-00:01:02.854 --> 00:01:11.682
+00:00:37.672 --> 00:00:46.450
 <v Bev>And this week we've come to the commissioning room, because our guest has a desk covered in graph paper and he wasn't for moving it. It's Colin Ollerenshaw, the game designer.
 
-00:01:11.882 --> 00:01:17.022
+00:00:46.718 --> 00:00:51.619
 <v Colin>Hello, Bev. Thanks for coming up. Mind the pencils.
 
-00:01:17.089 --> 00:01:18.609
+00:00:51.603 --> 00:00:53.123
 <v Bev>There's a lot of pencils.
 
-00:01:18.841 --> 00:01:23.558
+00:00:53.289 --> 00:00:57.898
 <v Colin>There are. And the markers on the whiteboard are mine, and I've counted them.
 
-00:01:23.717 --> 00:01:29.564
+00:00:58.109 --> 00:01:04.111
 <v Gareth>He has. It's why the whiteboard never runs dry. We'd be lost without him.
 
-00:01:29.692 --> 00:01:39.734
+00:01:04.373 --> 00:01:14.510
 <v Bev>Now, Colin, news from my side of the radio. They've changed a rule on us. From this week the new chart comes out on Sunday afternoons, on Radio One, not on a Tuesday.
 
-00:01:39.938 --> 00:01:46.363
+00:01:14.669 --> 00:01:20.989
 <v Colin>They changed the rule? Good. That's one less day of not knowing.
 
-00:01:49.663 --> 00:01:51.586
+00:01:24.289 --> 00:01:26.212
 <v Bev>So go on, Colin, what's on the desk?
 
-00:01:51.918 --> 00:01:59.605
+00:01:26.460 --> 00:01:34.054
 <v Colin>Tile maps on graph paper, a computer, and the plan for each game on the wall behind me. I work the rules out in pencil first.
 
-00:01:59.769 --> 00:02:02.887
+00:01:34.267 --> 00:01:37.475
 <v Bev>Why pencil? Gareth's got a whole computer.
 
-00:02:03.041 --> 00:02:12.961
+00:01:37.760 --> 00:01:47.604
 <v Colin>Because a rule is never right the first time. You rub it out, you try the other way round, you rub that out. I have an opinion on erasers, if you want it.
 
-00:02:12.902 --> 00:02:13.780
+00:01:47.584 --> 00:01:48.462
 <v Bev>Maybe later.
 
-00:02:13.853 --> 00:02:15.022
+00:01:48.404 --> 00:01:49.573
 <v Colin>Probably wise.
 
-00:02:15.170 --> 00:02:20.133
+00:01:49.728 --> 00:01:54.776
 <v Bev>And what is it a game designer actually does? Because I'd have said Gareth makes the game.
 
-00:02:20.412 --> 00:02:22.113
+00:01:54.932 --> 00:01:56.634
 <v Gareth>I make it do what Colin's paper says.
 
-00:02:22.325 --> 00:02:35.439
+00:01:56.820 --> 00:02:09.890
 <v Colin>I take the brief, which says what the game is for, and I turn it into rules. How fast the mower goes. How quickly it turns. What happens at the edge of the lawn. What happens when it meets a hedgehog.
 
-00:02:35.466 --> 00:02:36.407
+00:02:09.971 --> 00:02:10.912
 <v Bev>Which is?
 
-00:02:36.738 --> 00:02:48.133
+00:02:11.244 --> 00:02:22.825
 <v Colin>Nothing bad. That's the one rule Mower Mayhem never breaks. No harm is ever shown to an animal. The mower must never touch a hedgehog, the cat or the bird.
 
-00:02:48.264 --> 00:02:51.113
+00:02:22.961 --> 00:02:25.841
 <v Bev>Oh, good. I'd not have played it otherwise.
 
-00:02:51.291 --> 00:02:56.217
+00:02:26.052 --> 00:02:31.123
 <v Colin>Nor would I. And that rule is where most of today ends up, so hold on to it.
 
-00:02:56.484 --> 00:02:59.673
+00:02:31.308 --> 00:02:34.540
 <v Bev>Right then. What's the one idea this week?
 
-00:03:00.089 --> 00:03:05.201
+00:02:34.791 --> 00:02:39.862
 <v Colin>Moving by part of a square. And looking at each square before you step on it.
 
-00:03:05.238 --> 00:03:06.471
+00:02:39.854 --> 00:02:41.087
 <v Bev>That's two ideas.
 
-00:03:06.705 --> 00:03:16.403
+00:02:41.234 --> 00:02:50.938
 <v Colin>It's one idea with a beginning and an end. Here's the beginning. At full speed the mower travels two point five six two five pixels every update.
 
-00:03:16.567 --> 00:03:20.071
+00:02:51.164 --> 00:02:54.709
 <v Bev>Two point five six two five. That's not a nice number.
 
-00:03:20.208 --> 00:03:30.930
+00:02:54.944 --> 00:03:05.653
 <v Colin>It isn't, and it's a problem, because the Zed eighty has no fractions. No floating point, no decimal point, nothing. And the screen has no half pixels either.
 
-00:03:31.171 --> 00:03:35.753
+00:03:05.852 --> 00:03:10.422
 <v Gareth>There's no decimal point anywhere on a Spectrum. Everything's a whole number in a byte.
 
-00:03:36.030 --> 00:03:39.625
+00:03:10.614 --> 00:03:14.210
 <v Bev>So how do you go two and a half pixels if you can only count in whole ones?
 
-00:03:39.985 --> 00:03:53.426
+00:03:14.467 --> 00:03:27.854
 <v Colin>Same way a shop handles money. A shop doesn't keep prices as a fraction of a pound, it keeps them in pence. Two pounds fifty-six is two hundred and fifty-six pence, and every number stays whole.
 
-00:03:53.511 --> 00:03:54.654
+00:03:27.842 --> 00:03:28.985
 <v Bev>Oh, I like that.
 
-00:03:54.876 --> 00:04:09.276
+00:03:29.262 --> 00:03:43.549
 <v Colin>So we cut each square into two hundred and fifty-six thin slivers, and count slivers instead of squares. Then two point five six two five squares is six hundred and fifty-six slivers. Every number in the sum is whole.
 
-00:04:09.563 --> 00:04:12.452
+00:03:43.821 --> 00:03:46.710
 <v Bev>Why two hundred and fifty-six, and not a hundred like pence?
 
-00:04:12.792 --> 00:04:31.611
+00:03:47.120 --> 00:04:06.004
 <v Gareth>Good question, that. It's the one I asked when I started. A byte holds two hundred and fifty-six values, so dividing by two hundred and fifty-six costs the processor nothing at all. You keep the position in two bytes. One byte is the whole pixel, the other is the slivers left over. You don't divide anything, you read one byte or the other.
 
-00:04:31.774 --> 00:04:39.092
+00:04:06.157 --> 00:04:13.644
 <v Colin>The book calls it eight point eight fixed point. Eight bits of whole pixel, eight bits of fraction, and the point fixed between them.
 
-00:04:39.172 --> 00:04:41.056
+00:04:13.687 --> 00:04:15.570
 <v Bev>Fractions in disguise.
 
-00:04:41.260 --> 00:04:43.690
+00:04:15.793 --> 00:04:18.223
 <v Colin>That's the book's phrase, as it happens.
 
-00:04:43.718 --> 00:04:45.300
+00:04:18.223 --> 00:04:19.805
 <v Bev>Now you promised me paper.
 
-00:04:45.478 --> 00:04:58.000
+00:04:19.999 --> 00:04:32.625
 <v Colin>I did. If you're listening and you've got squared paper, put a counter on square nought of a row. Keep a running total in a column beside it. Each turn, add six hundred and fifty-six to the total.
 
-00:04:57.945 --> 00:04:58.759
+00:04:32.640 --> 00:04:33.454
 <v Bev>Then what?
 
-00:04:59.021 --> 00:05:13.375
+00:04:33.792 --> 00:04:47.867
 <v Colin>To find where the counter stands, divide the total by two hundred and fifty-six. The answer is the square. The remainder is how far it's got into the next one. Do four turns. Pause me if you want a go.
 
-00:05:16.557 --> 00:05:22.112
+00:04:51.009 --> 00:04:56.640
 <v Bev>Go on, I'll do it out loud and you can tell me off. Turn one, the total's six hundred and fifty-six.
 
-00:05:22.355 --> 00:05:25.197
+00:04:56.878 --> 00:04:59.720
 <v Colin>And divided by two hundred and fifty-six?
 
-00:05:25.314 --> 00:05:27.214
+00:04:59.848 --> 00:05:01.748
 <v Bev>Two, and a bit over.
 
-00:05:27.427 --> 00:05:32.847
+00:05:01.962 --> 00:05:07.404
 <v Colin>Two, with a hundred and forty-four over. So the counter goes on square two.
 
-00:05:33.131 --> 00:05:39.822
+00:05:07.586 --> 00:05:14.315
 <v Bev>Turn two, I add another six hundred and fifty-six. That's thirteen hundred and twelve. Gareth, help me.
 
-00:05:39.762 --> 00:05:41.912
+00:05:14.311 --> 00:05:16.461
 <v Gareth>Square five, thirty-two over.
 
-00:05:42.167 --> 00:05:45.810
+00:05:16.674 --> 00:05:20.308
 <v Bev>So it jumped three that time. It jumped two and then three.
 
-00:05:45.955 --> 00:05:52.343
+00:05:20.592 --> 00:05:26.926
 <v Colin>Keep going. Turn three is square seven, turn four is square ten, with sixty-four slivers to spare.
 
-00:05:52.610 --> 00:05:56.024
+00:05:27.214 --> 00:05:30.627
 <v Bev>Two, three, two, three. It's lurching.
 
-00:05:56.257 --> 00:06:15.761
+00:05:30.882 --> 00:05:50.367
 <v Colin>Up close it lurches. From across the room, the jumps of two and three average out to a steady glide. And nothing is lost on the way. The remainder remembers the part of a square that hasn't shown yet. After four turns you're on square ten and a quarter, which is exactly four lots of two point five six two five.
 
-00:06:15.917 --> 00:06:18.098
+00:05:50.490 --> 00:05:52.671
 <v Bev>So the leftover is doing the remembering.
 
-00:06:18.283 --> 00:06:25.030
+00:05:52.904 --> 00:05:59.708
 <v Colin>The leftover is doing all the work. That's the whole trick. Never throw the remainder away.
 
-00:06:25.253 --> 00:06:37.266
+00:05:59.869 --> 00:06:11.717
 <v Gareth>And on the Spectrum, adding a speed to a position is one instruction. Add H L, D E. Sixteen bits at once, the carry from the slivers into the pixels handled for you. Eleven ticks of the clock.
 
-00:06:37.466 --> 00:06:39.330
+00:06:11.899 --> 00:06:13.763
 <v Bev>So what would I see on the telly?
 
-00:06:39.746 --> 00:06:44.056
+00:06:14.174 --> 00:06:18.495
 <v Colin>A mower that glides. You'd never see the twos and threes.
 
-00:06:46.556 --> 00:06:53.500
+00:06:20.995 --> 00:06:27.777
 <v Bev>So that's Mower Mayhem playing now. Where does the six hundred and fifty-six come from? Did you pick it out of the air?
 
-00:06:53.873 --> 00:07:11.009
+00:06:28.189 --> 00:06:45.485
 <v Colin>Out of the lawn. A plot of grass is sixteen pixels, and the game updates twenty-five times a second. So one plot a second is a hundred and sixty-four slivers an update. Full speed is four plots a second. Four times a hundred and sixty-four.
 
-00:07:11.096 --> 00:07:12.808
+00:06:45.569 --> 00:06:47.280
 <v Bev>Six hundred and fifty-six.
 
-00:07:12.940 --> 00:07:15.880
+00:06:47.534 --> 00:06:50.504
 <v Colin>There you are. It shows its working.
 
-00:07:16.094 --> 00:07:18.118
+00:06:50.701 --> 00:06:52.725
 <v Bev>And it can go in any direction?
 
-00:07:18.529 --> 00:07:33.427
+00:06:53.123 --> 00:07:07.843
 <v Colin>Sixty-four of them. And that's another rule I like. A full turn is two hundred and fifty-six steps, so a heading fits in one byte. Nought is East, sixty-four is South, a hundred and twenty-eight West, a hundred and ninety-two North.
 
-00:07:33.661 --> 00:07:47.485
+00:07:08.056 --> 00:07:22.037
 <v Gareth>And the lovely bit is the wrap. Face two hundred and fifty, a little short of East, and turn ten steps clockwise. That's two hundred and sixty, which doesn't fit in a byte, so the byte keeps four. A little past East. Exactly where you'd want to be.
 
-00:07:47.615 --> 00:07:50.862
+00:07:22.286 --> 00:07:25.533
 <v Bev>So it goes round the clock face and comes back on its own.
 
-00:07:51.020 --> 00:07:58.368
+00:07:25.766 --> 00:07:33.013
 <v Gareth>On its own. Count in degrees and you'd have to take off three hundred and sixty after every turn. Here the byte does it for free.
 
-00:07:58.508 --> 00:08:02.586
+00:07:33.204 --> 00:07:37.282
 <v Bev>Now when I played it, the mower didn't go full pelt the moment I touched a key.
 
-00:08:02.815 --> 00:08:16.476
+00:07:37.439 --> 00:07:51.088
 <v Colin>No. The speed never jumps. Each update it moves one step toward a target. Hold a direction, and the target is full speed. Let go, and the target is nought.
 
-00:08:16.680 --> 00:08:18.469
+00:07:51.317 --> 00:07:53.106
 <v Bev>How long does it take to get going?
 
-00:08:18.822 --> 00:08:27.122
+00:07:53.433 --> 00:08:01.724
 <v Colin>Seventeen updates to full speed, about two thirds of a second. And a stop from full speed takes thirteen updates, which is about one plot of travel.
 
-00:08:27.275 --> 00:08:28.814
+00:08:01.963 --> 00:08:03.502
 <v Bev>And you worked those out on paper?
 
-00:08:29.066 --> 00:08:40.125
+00:08:03.797 --> 00:08:14.696
 <v Colin>The first acceleration took a whole second to reach full pace. Then after a playtest it went up, from twenty-six a step to thirty-nine. Good playtest, that.
 
-00:08:40.196 --> 00:08:41.688
+00:08:14.737 --> 00:08:16.229
 <v Bev>So the paper was wrong.
 
-00:08:41.939 --> 00:08:47.957
+00:08:16.463 --> 00:08:22.403
 <v Colin>The paper was a first go. The numbers came from play. That's always the way.
 
-00:08:48.235 --> 00:08:50.848
+00:08:22.660 --> 00:08:25.273
 <v Bev>And from standing still, does it just set off?
 
-00:08:51.182 --> 00:09:04.233
+00:08:25.660 --> 00:08:38.674
 <v Colin>From standing still it turns on the spot first, and only starts rolling once it's within forty-five degrees of where you want to go. Try the opposite rule, roll at once whichever way it's facing, and every start begins with a sideways creep.
 
-00:09:04.180 --> 00:09:05.702
+00:08:38.632 --> 00:08:40.153
 <v Bev>Like a supermarket trolley.
 
-00:09:05.646 --> 00:09:07.684
+00:08:40.239 --> 00:08:42.276
 <v Colin>Very like a supermarket trolley.
 
-00:09:07.807 --> 00:09:13.714
+00:08:42.541 --> 00:08:48.627
 <v Bev>And here's what drove me mad. Mowing in a straight line. I kept leaving a thin strip of grass.
 
-00:09:13.867 --> 00:09:26.950
+00:08:48.912 --> 00:09:01.891
 <v Colin>You're not the only one. The very first version steered with O and P and changed speed with Q and A, eight fixed headings, a forty-five degree turn on every press. It was found fiddly, lining up rows above all.
 
-00:09:26.984 --> 00:09:28.688
+00:09:01.834 --> 00:09:03.538
 <v Bev>So what did you do?
 
-00:09:28.958 --> 00:09:44.781
+00:09:03.823 --> 00:09:19.619
 <v Colin>Rebuilt it as direct drive. Hold the direction you want, and the mower turns and rolls there. And there's a little helper called row assist. Hold a straight compass direction, with the mower within twenty degrees of it, and it drifts toward the centre line of the row it's in.
 
-00:09:44.998 --> 00:09:46.949
+00:09:19.845 --> 00:09:21.797
 <v Bev>So it nudges me into the middle.
 
-00:09:47.216 --> 00:09:55.152
+00:09:21.947 --> 00:09:29.765
 <v Colin>Gently. A bit under a pixel an update. From four pixels off, it's on the line after five updates.
 
-00:09:55.306 --> 00:09:58.720
+00:09:29.941 --> 00:09:33.428
 <v Bev>Five updates. That's a fifth of a second.
 
-00:09:58.847 --> 00:10:03.201
+00:09:33.645 --> 00:09:38.001
 <v Gareth>Twenty-five updates a second, so yes. You'd feel it more than see it.
 
-00:10:03.494 --> 00:10:08.440
+00:09:38.239 --> 00:09:43.185
 <v Colin>And twenty degrees is the number I'd tune next, if a row still felt hard to line up.
 
-00:10:09.313 --> 00:10:13.187
+00:09:44.015 --> 00:09:47.917
 <v Bev>Now you said there was an end to the idea. Looking before you step.
 
-00:10:13.368 --> 00:10:22.209
+00:09:48.140 --> 00:09:57.048
 <v Colin>Here's the problem. A step of two and a half pixels could jump across a pixel that touches a flower bed. You'd go straight through the corner.
 
-00:10:22.277 --> 00:10:23.565
+00:09:57.124 --> 00:09:58.413
 <v Bev>And then the hedgehog.
 
-00:10:23.742 --> 00:10:33.588
+00:09:58.542 --> 00:10:08.394
 <v Colin>And then, worse, the hedgehog. So the mower doesn't jump. It walks there one whole pixel at a time, and tests each pixel before it enters it.
 
-00:10:33.731 --> 00:10:38.699
+00:10:08.534 --> 00:10:13.502
 <v Gareth>It's Colin's counter again, moved one square at a time, with each square checked before it lands on it.
 
-00:10:38.762 --> 00:10:40.098
+00:10:13.543 --> 00:10:14.879
 <v Bev>And if a square's blocked?
 
-00:10:40.497 --> 00:10:57.890
+00:10:15.262 --> 00:10:32.590
 <v Colin>It stops on the last clear one. But here's the nice part. If you're going on a diagonal and the diagonal pixel's blocked, it tries going across alone, and then down alone. So when you meet a flower bed at an angle, you slide along its edge instead of sticking to it.
 
-00:10:58.027 --> 00:11:00.552
+00:10:32.848 --> 00:10:35.374
 <v Bev>Isn't that slower, checking every single pixel?
 
-00:11:00.911 --> 00:11:17.565
+00:10:35.773 --> 00:10:52.343
 <v Gareth>You'd think so. The first cut moved in four fixed quarter steps instead, and tested four positions every update, even when only two pixels were crossed. That cost six thousand, one hundred and fifty-six ticks a move on average. The pixel walk costs four thousand, nine hundred and twenty.
 
-00:11:17.744 --> 00:11:20.025
+00:10:52.573 --> 00:10:54.854
 <v Bev>So the careful way is the cheap way.
 
-00:11:20.275 --> 00:11:23.321
+00:10:54.991 --> 00:10:57.996
 <v Gareth>This time. We were all pleased with that one.
 
-00:11:23.602 --> 00:11:27.531
+00:10:58.230 --> 00:11:02.292
 <v Bev>And this is the cold open, isn't it? The rule that read well.
 
-00:11:27.656 --> 00:11:47.164
+00:11:02.557 --> 00:11:21.925
 <v Colin>It is. Picture it. You hold North-East and drive the mower against the top edge of the lawn. On paper it should slide along. In the first version, the look-ahead on the diagonal was blocked, so it stopped. Next update it sped up one step, and stopped again.
 
-00:11:47.177 --> 00:11:47.985
+00:11:21.969 --> 00:11:22.777
 <v Bev>Oh no.
 
-00:11:48.223 --> 00:11:51.988
+00:11:22.935 --> 00:11:26.700
 <v Colin>It crept one point nine seven pixels in a hundred and twenty frames.
 
-00:11:51.944 --> 00:11:54.039
+00:11:26.730 --> 00:11:28.938
 <v Bev>That's nothing. That's a snail.
 
-00:11:54.183 --> 00:12:10.501
+00:11:29.127 --> 00:11:45.527
 <v Colin>That's less than a snail. Now a slide is tested looking along its own direction, and it only stops when no part of the travel is free. It glides eighty-six and a half pixels in the same hundred and twenty frames. And push it head on at a wall and it still stops at once.
 
-00:12:10.688 --> 00:12:12.256
+00:11:45.665 --> 00:11:47.233
 <v Bev>So you had to change the rule.
 
-00:12:12.473 --> 00:12:31.766
+00:11:47.422 --> 00:12:06.756
 <v Colin>And tuned it again. Because the next thing was a crawl of a fraction of a pixel past a hedgehog. Playtesters read that as stuck controls, and they were right to tell us. So a glide must also be at least a quarter of the current speed. Anything less, and it's a safety stop, and the player can see it's a stop.
 
-00:12:32.022 --> 00:12:35.986
+00:12:06.973 --> 00:12:10.864
 <v Bev>That's clever. If it's going to stop, it stops properly.
 
-00:12:36.160 --> 00:12:45.586
+00:12:11.029 --> 00:12:20.495
 <v Colin>On paper it reads well. Whether it plays well is another question. Give every slide rule a minimum, and test it with a person at the keys.
 
-00:12:45.730 --> 00:12:52.350
+00:12:20.630 --> 00:12:27.463
 <v Bev>Now, the hedgehog rule. You said the mower must never touch one. How does the game know two things are touching?
 
-00:12:52.604 --> 00:13:08.129
+00:12:27.757 --> 00:12:43.006
 <v Colin>Boxes. Lay two square cards on a table and slide one toward the other. They only overlap when they overlap both across and down. So you measure the gap between their middles, across and down, and if both gaps are short, they're touching.
 
-00:13:08.168 --> 00:13:09.604
+00:12:42.966 --> 00:12:44.403
 <v Bev>How short is short?
 
-00:13:09.878 --> 00:13:34.568
+00:12:44.657 --> 00:13:09.333
 <v Colin>The mower and a hedgehog are each drawn in a box sixteen pixels square. Half of each is eight, so the two halves make sixteen. Put the hedgehog fifteen pixels to the right and four down. Both gaps are under sixteen, so that's a hit. Move it one more pixel right. The gap across is sixteen, which isn't under sixteen. No hit, even though the boxes share an edge.
 
-00:13:34.828 --> 00:13:40.424
+00:13:09.531 --> 00:13:15.139
 <v Gareth>And the gap is measured by abs diff, the little five-byte routine from the pilot. It turns up everywhere.
 
-00:13:40.472 --> 00:13:41.575
+00:13:15.139 --> 00:13:16.242
 <v Bev>Your favourite.
 
-00:13:41.574 --> 00:13:42.706
+00:13:16.296 --> 00:13:17.427
 <v Gareth>My favourite.
 
-00:13:42.837 --> 00:13:44.735
+00:13:17.565 --> 00:13:19.463
 <v Bev>So did it work first time?
 
-00:13:45.069 --> 00:14:01.786
+00:13:19.834 --> 00:13:36.463
 <v Colin>It did not. It only held after a hunt, and I'm proud of how the team went at it. They built a monitor that checked every single frame of Vik's test rig driving through ten lawns. It found contacts that no test and no playtest had caught. A proper catch, that.
 
-00:14:01.870 --> 00:14:03.688
+00:13:36.486 --> 00:13:38.304
 <v Bev>The mower touched something?
 
-00:14:03.951 --> 00:14:15.976
+00:13:38.681 --> 00:13:50.684
 <v Colin>Touched, in the picture. And fixing each bug uncovered the next one. Eighty-one contact frames. Then fifty-four. Then two hundred.
 
-00:14:16.075 --> 00:14:17.178
+00:13:50.768 --> 00:13:51.870
 <v Bev>It went up?
 
-00:14:17.587 --> 00:14:21.460
+00:13:52.133 --> 00:13:55.874
 <v Colin>It went up before it went down. Then none.
 
-00:14:21.525 --> 00:14:22.627
+00:13:55.942 --> 00:13:57.045
 <v Bev>What was it?
 
-00:14:22.938 --> 00:14:36.890
+00:13:57.401 --> 00:14:11.406
 <v Gareth>Two of the three bugs were the same trap. The Zed eighty's carry flag. When you take one number away from a smaller one, it goes below nought, and the processor sets a little flag to say it borrowed. Like the borrow you do in subtraction at school.
 
-00:14:36.945 --> 00:14:39.317
+00:14:11.470 --> 00:14:13.832
 <v Bev>I remember borrowing. Badly.
 
-00:14:39.505 --> 00:14:52.877
+00:14:14.068 --> 00:14:27.686
 <v Gareth>So in one routine there were two subtractions back to back, and only the second borrow was checked. When the boxes overlapped, the first subtraction went below nought and wrapped round to a big number. The answer came back as about two hundred and fifty pixels.
 
-00:14:53.149 --> 00:14:56.499
+00:14:27.942 --> 00:14:31.292
 <v Bev>So the game thought the bird was miles away, when it was sat on top of you.
 
-00:14:56.717 --> 00:15:05.316
+00:14:31.542 --> 00:14:39.910
 <v Gareth>Exactly that. A bird could land on a stopped mower. The fix is one test after the first take-away. If it borrowed, the gap is nought.
 
-00:15:05.585 --> 00:15:21.462
+00:14:40.182 --> 00:14:56.140
 <v Colin>And the other one was the cat. A routine that answers yes or no in the carry flag. On its normal way out it handed back a carry left over from something unrelated. So every cat on the lawn counted as off the lawn, and the cat's own touch test never fired.
 
-00:15:21.524 --> 00:15:22.439
+00:14:56.196 --> 00:14:57.112
 <v Bev>And that one?
 
-00:15:22.858 --> 00:15:31.176
+00:14:57.420 --> 00:15:05.875
 <v Gareth>One instruction, O R A, which clears the carry before it returns. The lesson is, if a routine answers in the carry flag, every way out has to set it on purpose.
 
-00:15:31.230 --> 00:15:31.877
+00:15:05.962 --> 00:15:06.609
 <v Bev>And now?
 
-00:15:32.266 --> 00:15:38.787
+00:15:06.919 --> 00:15:13.440
 <v Colin>Since the fix, thirty-six thousand, seven hundred and eighty-five frames of test play, and not one contact frame.
 
-00:15:39.072 --> 00:15:44.004
+00:15:13.584 --> 00:15:18.824
 <v Bev>Well, that's the hedgehogs safe. Well done, all of you. So is the mower finished, then?
 
-00:15:44.222 --> 00:15:49.236
+00:15:18.908 --> 00:15:23.950
 <v Colin>Done? Not finished. Never finished.
 
-00:15:49.268 --> 00:15:50.970
+00:15:24.037 --> 00:15:25.739
 <v Gareth>That's Colin for brilliant, that.
 
-00:15:51.171 --> 00:15:54.636
+00:15:25.881 --> 00:15:29.215
 <v Colin>I mean there's a number left to tune. The brake, for a start.
 
-00:15:57.936 --> 00:16:03.457
+00:15:32.515 --> 00:15:38.195
 <v Bev>Go on then, crystal ball time. One day in the future, will anybody still be counting slivers?
 
-00:16:03.861 --> 00:16:06.933
+00:15:38.456 --> 00:15:41.520
 <v Colin>Ask Gareth. I only do pencil.
 
-00:16:07.191 --> 00:16:22.364
+00:15:41.743 --> 00:15:57.199
 <v Gareth>Right. Suppose one day there's a language, call it Python, after Monty Python. You'd write x plus equals two point five six two five, and the computer would carry the fraction for you. No slivers. No remainder byte.
 
-00:16:22.354 --> 00:16:23.846
+00:15:57.174 --> 00:15:58.666
 <v Bev>Like on Tomorrow's World.
 
-00:16:24.096 --> 00:16:28.752
+00:15:58.924 --> 00:16:03.581
 <v Gareth>And for the heading, you'd write remainder three hundred and sixty, and it would go round the clock face for you as well.
 
-00:16:28.954 --> 00:16:32.197
+00:16:03.713 --> 00:16:06.956
 <v Colin>And would it know what to do at the edge of the lawn?
 
-00:16:32.447 --> 00:16:34.970
+00:16:07.281 --> 00:16:09.612
 <v Gareth>No. You'd still have to tell it.
 
-00:16:35.250 --> 00:16:37.611
+00:16:09.788 --> 00:16:12.149
 <v Colin>Then it would still need someone with a pencil.
 
-00:16:37.896 --> 00:16:39.523
+00:16:12.325 --> 00:16:13.952
 <v Bev>So there'll always be a Colin.
 
-00:16:39.688 --> 00:16:44.301
+00:16:14.202 --> 00:16:18.828
 <v Colin>There'll always be a rule that reads well and plays badly. That's my guess.
 
-00:16:44.462 --> 00:16:46.990
+00:16:18.958 --> 00:16:21.486
 <v Bev>What should folk do before next week?
 
-00:16:47.253 --> 00:16:54.895
+00:16:21.905 --> 00:16:29.719
 <v Colin>The chapter is Movement, Fixed Point and Collision. There's an exercise in it called Feel the Ramp, and it's my favourite, because it's about feel.
 
-00:16:54.916 --> 00:16:55.420
+00:16:29.806 --> 00:16:30.310
 <v Bev>Go on.
 
-00:16:55.563 --> 00:17:12.157
+00:16:30.474 --> 00:16:46.967
 <v Colin>In the file of constants, set the acceleration back to twenty-six, the old number. Rebuild the game, and drive off from a standstill. Count the frames to full speed on a test rig that can stop the game a frame at a time. Then put thirty-nine back and compare.
 
-00:17:12.204 --> 00:17:13.218
+00:16:46.988 --> 00:16:48.001
 <v Bev>And what should they find?
 
-00:17:13.506 --> 00:17:19.096
+00:16:48.263 --> 00:16:53.784
 <v Colin>About fifty-two frames with the old number, against thirty-four with the new one. And then I want to know one thing.
 
-00:17:19.082 --> 00:17:20.023
+00:16:53.861 --> 00:16:54.802
 <v Bev>Which is?
 
-00:17:20.165 --> 00:17:21.417
+00:16:54.940 --> 00:16:56.192
 <v Colin>How does it feel now?
 
-00:17:21.770 --> 00:17:29.770
+00:16:56.465 --> 00:17:04.491
 <v Gareth>Go on then. And if you'd rather stay on paper, the chapter's first exercise has you step a diagonal by hand, four updates, the same way Bev did the counter.
 
-00:17:29.773 --> 00:17:30.679
+00:17:04.474 --> 00:17:05.380
 <v Bev>I'll be doing that one.
 
-00:17:34.679 --> 00:17:40.084
+00:17:09.380 --> 00:17:14.732
 <v Bev>That's us for this week. Thanks, Colin, and sorry about the pencil I've walked off with.
 
-00:17:40.164 --> 00:17:42.743
+00:17:14.717 --> 00:17:17.363
 <v Colin>I'd noticed. Keep it.
 
-00:17:42.887 --> 00:17:48.054
+00:17:17.596 --> 00:17:22.848
 <v Bev>And both Manchester clubs are through in the cup this week. City won two nil at Wolves on Tuesday.
 
-00:17:48.351 --> 00:17:53.368
+00:17:23.039 --> 00:17:28.027
 <v Gareth>And United won one nil at Hull last night. Six nil over the two legs.
 
-00:17:53.530 --> 00:18:04.049
+00:17:28.304 --> 00:17:38.665
 <v Bev>Next week Hyun-joo Lee is in the chair, our sprite artist, and she's going to tell us how you draw a game without it flickering. If you've got a question for the team, send it in, and we'll put it to them.
 
-00:18:04.022 --> 00:18:05.409
+00:17:38.627 --> 00:17:40.014
 <v Gareth>Keep the remainder, everyone.
 
-00:18:05.620 --> 00:18:09.237
+00:17:40.154 --> 00:17:43.867
 <v Bev>The theme is by our own Dez. Right then, turn it up.
 
-00:18:09.521 --> 00:18:20.419
-<v Daniel>Today you can play Mower Mayhem free in your browser at dalex-software dot co dot uk. In Python, Colin's slivers would be a float, and the heading a remainder of three hundred and sixty.
+00:17:44.157 --> 00:17:57.913
+<v Daniel>This is Daniel Vaughan, who made the show. Today you can play Mower Mayhem free in your browser at dalex-software dot co dot uk. In Python, Colin's slivers would be a float, and the heading a remainder of three hundred and sixty.
 
-00:18:21.019 --> 00:18:30.834
+00:17:58.513 --> 00:18:08.306
 <v Daniel>The chapter is Movement, Fixed Point and Collision, in Machine Code Mayhem on Leanpub. For Feel the Ramp, count the frames in an emulator that steps a frame at a time.
 
-00:18:31.434 --> 00:18:39.817
-<v Daniel>Thank you for listening. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is by me, Daniel Vaughan.
+00:18:08.906 --> 00:18:22.649
+<v Daniel>Thank you for listening. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is by me, Daniel Vaughan, with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.

@@ -339,59 +339,55 @@
     "date": "2026-10-08",
     "time": "18:00",
     "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/05-colin.mp3",
-    "audio_bytes": 13577007,
-    "seconds": 1121,
+    "audio_bytes": 13370994,
+    "seconds": 1104,
     "chapters": [
       {
         "start": 0,
-        "title": "Before we start"
-      },
-      {
-        "start": 26,
         "title": "Cold open"
       },
       {
-        "start": 48,
+        "start": 22,
         "title": "Welcome"
       },
       {
-        "start": 110,
+        "start": 84,
         "title": "The desk"
       },
       {
-        "start": 176,
+        "start": 151,
         "title": "The big idea"
       },
       {
-        "start": 284,
+        "start": 258,
         "title": "By hand"
       },
       {
-        "start": 404,
+        "start": 378,
         "title": "In the game"
       },
       {
-        "start": 609,
+        "start": 584,
         "title": "Every square looked at"
       },
       {
-        "start": 766,
+        "start": 740,
         "title": "The bug"
       },
       {
-        "start": 958,
+        "start": 932,
         "title": "Crystal ball"
       },
       {
-        "start": 1004,
+        "start": 979,
         "title": "Try this"
       },
       {
-        "start": 1051,
+        "start": 1025,
         "title": "Close"
       },
       {
-        "start": 1089,
+        "start": 1064,
         "title": "After the show"
       }
     ],
