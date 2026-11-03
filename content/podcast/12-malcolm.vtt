@@ -1,0 +1,550 @@
+WEBVTT
+
+00:00:01.000 --> 00:00:05.090
+<v Malcolm>In principle, a wonderful idea. Now tell it me in one sentence.
+
+00:00:05.372 --> 00:00:09.741
+<v Bev>One sentence? I can't order a sandwich in one sentence.
+
+00:00:09.901 --> 00:00:11.708
+<v Malcolm>Then we'll start with the sandwich.
+
+00:00:17.508 --> 00:00:22.056
+<v Gareth>That's a tape loading. Every game on it started as a sentence on Malcolm's desk.
+
+00:00:27.056 --> 00:00:34.277
+<v Bev>Hello there, it's Bev, the kettle's on, and this is Dalex After Hours, the slot where we find out how computer games are really made.
+
+00:00:34.877 --> 00:00:38.384
+<v Bev>Every fact on this show comes out of the book the team's writing.
+
+00:00:38.984 --> 00:00:41.328
+<v Bev>Across the desk, as ever, Gareth.
+
+00:00:41.605 --> 00:00:46.988
+<v Gareth>Hiya, Bev. City beat Birmingham three nil on Saturday, and I told Malcolm on the stairs.
+
+00:00:47.059 --> 00:00:48.255
+<v Bev>And what did Malcolm say?
+
+00:00:48.639 --> 00:00:52.619
+<v Gareth>He said that's what a good first game looks like. Simple, and finished.
+
+00:00:52.793 --> 00:00:56.408
+<v Bev>And we've come upstairs to the commissioning room, where it's raining on the window.
+
+00:00:56.578 --> 00:00:59.067
+<v Malcolm>Atmosphere, Bev. I call it atmosphere.
+
+00:00:59.267 --> 00:01:04.496
+<v Bev>This is Malcolm Winstanley, who commissions every game Dalex makes. Welcome, Malcolm.
+
+00:01:04.715 --> 00:01:10.811
+<v Malcolm>Thank you. It's a great pleasure. I commission every game we make, and I believe in all of them.
+
+00:01:10.909 --> 00:01:11.765
+<v Bev>All of them?
+
+00:01:12.044 --> 00:01:17.697
+<v Malcolm>All of them. And this week, Bev, I'd like to believe in the listener's.
+
+00:01:17.927 --> 00:01:21.541
+<v Bev>Oh, that's nice. Did you hear that, everyone? He believes in you.
+
+00:01:24.841 --> 00:01:26.727
+<v Bev>So what's on your desk, Malcolm?
+
+00:01:27.060 --> 00:01:33.107
+<v Malcolm>A brief for every game on the slate. And a folder, which I keep under my arm, because that's where it's safest.
+
+00:01:33.193 --> 00:01:34.272
+<v Bev>And on the wall?
+
+00:01:34.625 --> 00:01:37.411
+<v Malcolm>A framed poster I keep meaning to change.
+
+00:01:37.624 --> 00:01:39.749
+<v Gareth>He's been meaning to change it for a long time.
+
+00:01:39.958 --> 00:01:41.914
+<v Malcolm>In principle, I will change it.
+
+00:01:42.079 --> 00:01:45.650
+<v Bev>So what's a commissioning editor? I know what a sandwich is.
+
+00:01:45.804 --> 00:01:54.196
+<v Malcolm>I write the brief and keep the folder. The brief is where every game starts. Then it goes to Colin, who turns it into a design.
+
+00:01:54.382 --> 00:01:56.055
+<v Bev>And does Colin ever change it?
+
+00:01:56.296 --> 00:02:02.869
+<v Malcolm>Colin can't leave a rule alone, and the games are better for it. He comes up the stairs and says, what if we changed the rule?
+
+00:02:03.137 --> 00:02:05.235
+<v Gareth>And Malcolm says, is it in the spec?
+
+00:02:05.523 --> 00:02:09.165
+<v Malcolm>And Colin says, no. And then we have a lovely cup of tea about it.
+
+00:02:09.377 --> 00:02:11.524
+<v Bev>You're all very fond of each other, aren't you.
+
+00:02:11.796 --> 00:02:14.727
+<v Malcolm>We are. It helps that the answer's written down.
+
+00:02:14.786 --> 00:02:16.082
+<v Bev>And before Dalex?
+
+00:02:16.339 --> 00:02:21.408
+<v Malcolm>Publishing. I still own a fountain pen. And I plot adventure games on the train.
+
+00:02:21.593 --> 00:02:24.826
+<v Bev>Right then. What's the one idea this week?
+
+00:02:25.076 --> 00:02:32.400
+<v Malcolm>Your first game should be small enough to finish. And the way to keep it small is to say it in one sentence before you write anything else.
+
+00:02:32.392 --> 00:02:34.175
+<v Bev>Just the one sentence.
+
+00:02:34.322 --> 00:02:40.774
+<v Malcolm>One. A sentence is enough if it names who the player is, what they do, and how they lose.
+
+00:02:40.962 --> 00:02:42.728
+<v Bev>Like the blurb on the back of a book.
+
+00:02:43.024 --> 00:02:49.550
+<v Malcolm>Exactly that. If you cannot write the blurb, you do not know the book yet. And it's the same with a game.
+
+00:02:49.592 --> 00:02:50.786
+<v Bev>Give me one, then.
+
+00:02:51.028 --> 00:03:01.044
+<v Malcolm>The book makes one up for the chapter. Apple Catch. You move a basket along the bottom of the screen to catch apples falling from a tree. Miss three and the game is over.
+
+00:03:01.000 --> 00:03:02.283
+<v Bev>Oh, I'd play that.
+
+00:03:02.577 --> 00:03:12.572
+<v Malcolm>Now look what it already has. A hero, the basket. An action, moving left and right. A goal, catching. And a way to lose, missing three.
+
+00:03:12.618 --> 00:03:13.768
+<v Bev>It's very small.
+
+00:03:13.912 --> 00:03:23.936
+<v Malcolm>It's meant to be. A publisher thinks the same way about a first book. A short first edition that is complete beats the first chapter of a long manuscript that never ends.
+
+00:03:24.158 --> 00:03:40.379
+<v Gareth>And it sits close to the template, Bev. That's the starter game in the book the team's writing. An eight-pixel block on a black screen that you move left and right with O and P. A score that ticks up. A game over card after six hundred updates, and a title that says press space.
+
+00:03:40.348 --> 00:03:41.128
+<v Bev>That's a game?
+
+00:03:41.527 --> 00:03:48.316
+<v Gareth>That's the smallest thing that's still a game. A title, a way to play, a way to lose, and a way back to the start.
+
+00:03:48.539 --> 00:03:56.951
+<v Malcolm>The block becomes the basket. O and P already move it. The score already ticks. And the game over card is waiting for a reason to appear.
+
+00:03:57.078 --> 00:04:00.136
+<v Bev>So the less you've got to build, the sooner you're playing it.
+
+00:04:00.414 --> 00:04:01.963
+<v Malcolm>That's precisely why we chose it.
+
+00:04:02.167 --> 00:04:03.542
+<v Bev>Have you got homework for us?
+
+00:04:03.881 --> 00:04:11.686
+<v Malcolm>I have. A sheet of paper and a pencil. Write your game in one sentence. Who, what, and how you lose.
+
+00:04:11.685 --> 00:04:12.642
+<v Bev>Can I have a go?
+
+00:04:12.707 --> 00:04:13.412
+<v Malcolm>Please.
+
+00:04:13.554 --> 00:04:19.091
+<v Bev>You're a cat, you jump between the rooftops catching birds' feathers, and if you fall in a puddle three times it's over.
+
+00:04:19.385 --> 00:04:22.614
+<v Malcolm>In principle, a wonderful idea. Who's the hero?
+
+00:04:22.742 --> 00:04:23.543
+<v Bev>The cat.
+
+00:04:23.567 --> 00:04:24.711
+<v Malcolm>What does the cat do?
+
+00:04:24.911 --> 00:04:26.671
+<v Bev>Jumps, and catches feathers.
+
+00:04:26.666 --> 00:04:28.334
+<v Malcolm>And how do you lose?
+
+00:04:28.488 --> 00:04:30.523
+<v Bev>Puddles. Three of them.
+
+00:04:30.707 --> 00:04:40.539
+<v Malcolm>Then you have a game. Now the second part. Under your sentence, write everything you'd love it to have. Then cross out everything that can wait.
+
+00:04:40.827 --> 00:04:45.447
+<v Bev>Oh, that's harder. I wanted a dog, and a moon, and a high-score table.
+
+00:04:45.702 --> 00:04:48.392
+<v Malcolm>Lovely. Which of them does the sentence need?
+
+00:04:48.474 --> 00:04:49.574
+<v Bev>None of them, really.
+
+00:04:49.770 --> 00:05:00.315
+<v Malcolm>Then they wait. And you write down that they're waiting. The book is firm on that. A feature nobody has placed in a milestone has no date, and so nobody plans for it.
+
+00:05:00.578 --> 00:05:03.852
+<v Bev>So I don't just forget the dog. I put him in a drawer.
+
+00:05:04.102 --> 00:05:10.520
+<v Malcolm>You put him in a drawer with a label on. We don't decide later. We decide now, and we write it down.
+
+00:05:10.673 --> 00:05:14.047
+<v Bev>So I've got a sentence. What comes next?
+
+00:05:14.458 --> 00:05:24.047
+<v Malcolm>A page. One page of plain English that the whole game is built from, written so that someone else could build it. Every game on the Dalex slate was written to one.
+
+00:05:24.030 --> 00:05:25.452
+<v Bev>What goes on the page?
+
+00:05:25.863 --> 00:05:50.216
+<v Malcolm>Who plays and how a session ends, and what's out of scope. The experience every rule serves. The headline features, the ones a reviewer would name. What the player can do. The screens, title, play, game over. Each thing in the game, and what happens when you touch it. Tone rules, what it must never show. The numbers you'll tune. Checks a tester can run. And the milestones.
+
+00:05:50.304 --> 00:05:51.898
+<v Bev>That's a full page.
+
+00:05:52.030 --> 00:05:58.334
+<v Malcolm>It is. And here's the discipline, Bev. It says nothing about pixels, frames, bytes or keys.
+
+00:05:58.625 --> 00:06:01.221
+<v Bev>Nothing about keys? In a computer game?
+
+00:06:01.606 --> 00:06:08.997
+<v Malcolm>Move left, not press O. It keeps the design separate from the machine, so the same page could drive a version for another computer.
+
+00:06:09.246 --> 00:06:12.134
+<v Gareth>Which is lovely for me, because then I get to choose how.
+
+00:06:12.367 --> 00:06:14.507
+<v Bev>And how do I know my page is good?
+
+00:06:14.922 --> 00:06:35.071
+<v Malcolm>Five questions. Does every line avoid keys, pixels and frames? Is every headline feature placed in level one? Can each check be tested by someone who has never spoken to you? Does the first milestone have a way to win points, a way to lose and a way back to the title? And did you write down what's out of scope?
+
+00:06:35.462 --> 00:06:37.300
+<v Bev>And if I say yes to all five?
+
+00:06:37.560 --> 00:06:42.049
+<v Malcolm>Then you have a brief a commissioning editor would sign. It's all in the brief.
+
+00:06:42.255 --> 00:06:44.604
+<v Bev>And Apple Catch? Has it got a hazard?
+
+00:06:44.963 --> 00:06:55.455
+<v Malcolm>The rotten apple. Catch it and it counts as a miss. And it arrives as the fifth apple of level one, not in level five, so a player meets it within the first minute.
+
+00:06:55.659 --> 00:06:57.309
+<v Bev>Why does that matter so much?
+
+00:06:57.662 --> 00:07:03.113
+<v Malcolm>Because a headline the player first meets in level five is a promise the brief makes and the player does not see.
+
+00:07:05.613 --> 00:07:09.054
+<v Bev>So that's Tiger Gorilla playing now. Is there a story here?
+
+00:07:09.327 --> 00:07:15.546
+<v Malcolm>There is, and it's mine to tell, because it's about a brief. The crocodiles were a headline of Tiger Gorilla's spec.
+
+00:07:15.740 --> 00:07:19.009
+<v Bev>The crocodiles. Neil told us about those.
+
+00:07:19.276 --> 00:07:23.737
+<v Malcolm>They first appeared in level five. And the game's owner reported them missing.
+
+00:07:23.695 --> 00:07:25.847
+<v Bev>Missing? They were there.
+
+00:07:26.112 --> 00:07:36.281
+<v Malcolm>In level five. So anyone who stopped before that never saw one. The lesson went into the book. Put each headline in level one, even as a harmless preview.
+
+00:07:36.406 --> 00:07:39.155
+<v Gareth>And now there are harmless crocodiles in the first zone's rivers.
+
+00:07:39.279 --> 00:07:42.371
+<v Bev>So that's milestone one. Everything, but thin.
+
+00:07:42.536 --> 00:07:55.702
+<v Malcolm>That's the phrase. The first milestone is not the first layer of the game. It's the whole game, thin. The loading screen, a title with music, one level with the hero, a hazard, a way to fail and a way to succeed.
+
+00:07:55.929 --> 00:07:59.534
+<v Bev>Like a slice of cake. A bit of every layer.
+
+00:07:59.776 --> 00:08:04.173
+<v Malcolm>The book calls it a vertical slice. A cut through everything at once.
+
+00:08:04.349 --> 00:08:06.855
+<v Bev>And how long do you think about it before you build it?
+
+00:08:07.264 --> 00:08:14.283
+<v Malcolm>Not long. At most one design pass before the first build. A crude tape that loads beats a perfect document.
+
+00:08:14.513 --> 00:08:16.976
+<v Bev>That's a funny thing for a man with a fountain pen to say.
+
+00:08:17.131 --> 00:08:18.851
+<v Malcolm>The pen is for signing, Bev.
+
+00:08:19.074 --> 00:08:21.819
+<v Bev>And when is milestone one finished? Who says?
+
+00:08:22.203 --> 00:08:38.779
+<v Malcolm>Three judges, always in the same order. First, verify, on Vik's test rig, which plays the tape and presses keys at exact moments. A cold load through the real ROM, reaching play, the update rate, how quickly a key press answers, every recipe.
+
+00:08:38.908 --> 00:08:45.531
+<v Gareth>Then a playtest. A player, Vik's rig or you, following a written plan and reporting what they find, graded by how serious it is.
+
+00:08:45.709 --> 00:08:51.643
+<v Malcolm>And last, the gate. A fresh reviewer reads the evidence against the checks in the brief, and writes a verdict.
+
+00:08:51.683 --> 00:08:53.059
+<v Bev>And if something's broken?
+
+00:08:53.443 --> 00:09:03.360
+<v Malcolm>A severity one finding, a crash, say, or broken controls, is always fixed now. The smaller things can ship flagged, with a decision written down for each one.
+
+00:09:03.438 --> 00:09:04.330
+<v Bev>Written down again.
+
+00:09:04.594 --> 00:09:08.387
+<v Malcolm>Everything is written down, Bev. That's why I sleep so well.
+
+00:09:08.645 --> 00:09:11.518
+<v Bev>Do I need the hundred and twenty-eight K, or will the little one do?
+
+00:09:11.917 --> 00:09:31.581
+<v Gareth>Choose by the game. All six of ours are for the hundred and twenty-eight K, and it gives you memory you can page in and out, and the A Y sound chip. On the forty-eight K everything fits in forty-eight kilobytes and the sound comes from the beeper. A single-screen game with a beeper tune can be a fine forty-eight K game. The book says Apple Catch could be either.
+
+00:09:31.820 --> 00:09:35.176
+<v Bev>And how do you know it'll fit? On the little machine?
+
+00:09:35.565 --> 00:09:52.061
+<v Gareth>That's where I come in. You make a budget, the time for one update shared out between the jobs. For Apple Catch, borrowing the other games' first guesses, it comes to sixty-five thousand, one hundred clock ticks, out of a hundred and forty-one thousand, eight hundred and sixteen at two frames an update.
+
+00:09:52.116 --> 00:09:53.096
+<v Bev>Room to spare.
+
+00:09:53.372 --> 00:10:04.459
+<v Gareth>On paper. But every figure in a budget is a guess until the game measures it. WOLF guessed about eight thousand ticks for each character sprite, and measured fifteen thousand to twenty-five thousand.
+
+00:10:04.503 --> 00:10:06.293
+<v Bev>Two or three times over.
+
+00:10:06.452 --> 00:10:16.777
+<v Gareth>Put WOLF's worst case into the Apple Catch table and it's a hundred and thirty-three thousand, one hundred. Still fits at two frames. Not at one.
+
+00:10:16.965 --> 00:10:20.946
+<v Malcolm>The guess said either rate would do. The measurement decides.
+
+00:10:21.748 --> 00:10:24.483
+<v Bev>So go on, there's always a story about something going wrong.
+
+00:10:24.721 --> 00:10:27.509
+<v Malcolm>The one I'd frame, if I could, is from WOLF.
+
+00:10:27.465 --> 00:10:29.934
+<v Bev>The gym game. Emeka's arms.
+
+00:10:30.078 --> 00:10:42.576
+<v Malcolm>The very one. Each check in a brief becomes a recipe, a list of keys to press and what you expect to see. And WOLF's first recipe for the end of a session expected the game to reach the end of the session.
+
+00:10:42.576 --> 00:10:43.849
+<v Bev>That sounds sensible.
+
+00:10:44.066 --> 00:10:46.171
+<v Malcolm>It expected it, and it stopped there.
+
+00:10:46.145 --> 00:10:46.958
+<v Bev>Oh.
+
+00:10:47.123 --> 00:10:51.029
+<v Malcolm>And so WOLF passed every recipe with a dead end the player could not leave.
+
+00:10:51.209 --> 00:10:54.812
+<v Bev>So the test said you'd got to the end, and never tried to get out again.
+
+00:10:55.014 --> 00:11:03.045
+<v Malcolm>Precisely. Now there's a recipe that plays a whole session from the cold load, through the end, back to the title and into play again, in that order.
+
+00:11:03.301 --> 00:11:09.130
+<v Gareth>It runs on about three thousand, eight hundred frames past the end of the session, pressing space every hundred frames to make sure.
+
+00:11:09.162 --> 00:11:10.845
+<v Bev>So the rule is?
+
+00:11:11.139 --> 00:11:20.055
+<v Malcolm>Play past every boundary. Level one into level two. Game over into a new game. And keep playing past each one.
+
+00:11:20.199 --> 00:11:29.038
+<v Gareth>The book's warning on that is the best line in the chapter, I think. Most of these bugs share one cause. A check that tested something near the truth, rather than the truth.
+
+00:11:29.123 --> 00:11:30.018
+<v Bev>Near the truth.
+
+00:11:30.186 --> 00:11:32.556
+<v Malcolm>When you write a check, ask what it would miss.
+
+00:11:32.731 --> 00:11:36.333
+<v Bev>Gareth, you've got that look. You've got one of your own.
+
+00:11:36.565 --> 00:11:51.593
+<v Gareth>Ooh, a little one, from Antigravity. The list of mistakes in that chapter has a dozen, and this is my favourite. The game looked up a rank letter in a table, and then printed it. And the colour it printed it in came from a register that still held half the table's address.
+
+00:11:51.841 --> 00:11:54.145
+<v Bev>I don't know what that means, but I can tell it's bad.
+
+00:11:54.282 --> 00:11:57.216
+<v Gareth>Here's what you'd see on the telly. The letter flashed.
+
+00:11:57.280 --> 00:11:58.287
+<v Bev>Flashed?
+
+00:11:58.676 --> 00:12:07.041
+<v Gareth>The top bit of a colour byte means flash. The table sat high enough in memory that the top bit of its address was set. So the letter flashed, on and off.
+
+00:12:06.991 --> 00:12:08.284
+<v Bev>Like a little disco.
+
+00:12:08.497 --> 00:12:16.287
+<v Gareth>Like a little disco. The fix was one line, setting the colour properly after the lookup. Bright yellow on black.
+
+00:12:16.503 --> 00:12:20.575
+<v Malcolm>And it's in the book so you needn't make it yourself. You can make different ones.
+
+00:12:20.857 --> 00:12:22.887
+<v Bev>That's very generous of the six games.
+
+00:12:22.847 --> 00:12:24.291
+<v Malcolm>They were raised well.
+
+00:12:24.444 --> 00:12:27.328
+<v Bev>Malcolm, you're happiest when someone asks you what next, aren't you.
+
+00:12:27.396 --> 00:12:28.807
+<v Malcolm>I am. Go on.
+
+00:12:28.862 --> 00:12:29.836
+<v Bev>What next?
+
+00:12:30.255 --> 00:12:43.595
+<v Malcolm>First, change something. Pick the game you enjoyed most and make it yours. Swap the word list in Wordris. Retune a constant in Mower Mayhem. Build it, run its checks, and see which ones notice.
+
+00:12:43.638 --> 00:12:45.009
+<v Bev>And then my own.
+
+00:12:45.162 --> 00:12:55.395
+<v Malcolm>Then your own. Keep it small. A game with one screen, one moving thing and one rule is a real game, and finishing it will teach you more than starting three larger ones.
+
+00:12:55.595 --> 00:12:58.705
+<v Bev>What about shooting? Everyone wants shooting.
+
+00:12:58.901 --> 00:13:12.684
+<v Gareth>None of the six games shoots anything that travels, and no enemy shoots back. The book shows how you'd build one from pieces it's already taught. A little record for each shot, its position, its speed, and a byte that says whether it's live.
+
+00:13:12.902 --> 00:13:20.615
+<v Malcolm>And every one of those is, in principle, a good idea. And none of them belongs in your first milestone unless your one sentence needs it.
+
+00:13:20.834 --> 00:13:22.907
+<v Bev>So it goes in the drawer with the dog.
+
+00:13:23.157 --> 00:13:27.077
+<v Malcolm>With a label on. A choice left for later is a choice nobody makes.
+
+00:13:27.150 --> 00:13:28.188
+<v Bev>And keep a diary?
+
+00:13:28.594 --> 00:13:35.921
+<v Malcolm>A decisions log, from the first day. A log started late costs more than one started now, because the reasons you need are the ones already forgotten.
+
+00:13:36.065 --> 00:13:50.676
+<v Gareth>And play your tapes at home, on your own Spectrum and your own telly. Mower Mayhem's last playtest left judging the sound by ear for another day. When the game's owner played it on a real Spectrum, the one-line report was that the music sounded strange. You learn something no recipe can tell you.
+
+00:13:50.730 --> 00:13:51.767
+<v Bev>And the last word?
+
+00:13:52.155 --> 00:14:00.913
+<v Malcolm>The book's last word, not mine. The six games show the machine still has new games in it. There is room for many more. Write one.
+
+00:14:04.213 --> 00:14:08.685
+<v Bev>Go on then, Malcolm, crystal ball time. What will a first game look like in the future?
+
+00:14:08.956 --> 00:14:16.860
+<v Malcolm>In principle, a wonderful question. Suppose one day a program could play a game all night, round after round, and write down everything that annoyed it.
+
+00:14:17.061 --> 00:14:19.814
+<v Gareth>Like Emeka, only it never stops for a cup of tea.
+
+00:14:19.874 --> 00:14:21.367
+<v Bev>Like on Tomorrow's World.
+
+00:14:21.521 --> 00:14:30.685
+<v Malcolm>And then the brief would matter more than ever, Bev. A machine can only follow what's written down. Say it in plain English, and say it in one sentence first.
+
+00:14:30.943 --> 00:14:35.802
+<v Gareth>And suppose anybody could put their first game where the whole world could play it, the same evening they finished it.
+
+00:14:35.934 --> 00:14:38.403
+<v Bev>The whole world. From the back bedroom.
+
+00:14:38.529 --> 00:14:42.594
+<v Malcolm>I'd believe in every one of them. That's my guess, and I'm sticking to it.
+
+00:14:42.770 --> 00:14:45.180
+<v Bev>So what should folk do before next week?
+
+00:14:45.550 --> 00:14:51.680
+<v Gareth>In the book the team's writing, chapter eighteen is called Your First Game, and the first exercise is Write a one-page spec.
+
+00:14:51.693 --> 00:14:52.795
+<v Bev>Pencil job.
+
+00:14:52.926 --> 00:15:02.859
+<v Gareth>Pencil job. A game you'd like to make, in plain English, with no pixels, frames or keys. List its headline features and say where in level one the player meets each one.
+
+00:15:03.024 --> 00:15:07.969
+<v Malcolm>Then ask yourself the five questions. Any no is the next line to rewrite.
+
+00:15:08.130 --> 00:15:14.077
+<v Gareth>And when the book's out, assemble the template unchanged first and load it, so you know the starting point works. Go on then.
+
+00:15:18.077 --> 00:15:23.427
+<v Bev>That's us for this week. Thank you, Malcolm. I've a cat on a rooftop and a dog in a drawer.
+
+00:15:23.569 --> 00:15:29.876
+<v Malcolm>Thank you, Bev. Thank you, Gareth. The desk is yours whenever you are ready. All of you.
+
+00:15:30.029 --> 00:15:41.869
+<v Bev>Next week is a special. We're going across the courtyard to see Brian Openshaw, the editor of INK and PAPER, to find out how he scores a tape. If you've got a question for the team, send it in and we'll put it to them.
+
+00:15:42.084 --> 00:15:44.558
+<v Gareth>I'll bring a tape. He can be the judge of it.
+
+00:15:44.771 --> 00:15:50.824
+<v Bev>And don't forget Children in Need, tomorrow night on BBC One. Put a bit in the tin. Right then, turn it up.
+
+00:15:51.016 --> 00:16:08.459
+<v Daniel>This is Daniel Vaughan, who made the show. That was nineteen eighty-seven. Malcolm's guess came true: an AI agent did play these games, a milestone at a time, and wrote down what it found. And Gareth's: anyone can play all six free in your browser at dalex-software dot co dot uk.
+
+00:16:09.059 --> 00:16:23.340
+<v Daniel>The chapter is Your First Game, chapter eighteen in Machine Code Mayhem on Leanpub, and the first exercise is Write a one-page spec. For the template you'll want an emulator such as Fuse, the sjasmplus assembler and Python three.
+
+00:16:23.940 --> 00:16:38.642
+<v Daniel>Thank you for listening. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is written and produced by me, Daniel Vaughan, with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.

@@ -770,5 +770,72 @@
       }
     ],
     "visible": true
+  },
+  {
+    "number": 12,
+    "slug": "12-malcolm",
+    "title": "Tell it me in one sentence",
+    "guest": "Malcolm Winstanley, commissioning editor",
+    "summary": "Malcolm on your first game: one sentence, a one-page brief, and a first milestone that is the whole game, thin.",
+    "date": "2026-11-26",
+    "time": "19:00",
+    "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/12-malcolm.mp3",
+    "audio_bytes": 12122814,
+    "seconds": 1000,
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Cold open"
+      },
+      {
+        "start": 27,
+        "title": "Welcome"
+      },
+      {
+        "start": 85,
+        "title": "The desk"
+      },
+      {
+        "start": 141,
+        "title": "The big idea"
+      },
+      {
+        "start": 242,
+        "title": "By hand"
+      },
+      {
+        "start": 310,
+        "title": "The brief"
+      },
+      {
+        "start": 423,
+        "title": "In the game"
+      },
+      {
+        "start": 622,
+        "title": "The bug"
+      },
+      {
+        "start": 744,
+        "title": "What next"
+      },
+      {
+        "start": 844,
+        "title": "Crystal ball"
+      },
+      {
+        "start": 883,
+        "title": "Try this"
+      },
+      {
+        "start": 914,
+        "title": "Close"
+      },
+      {
+        "start": 951,
+        "title": "After the show"
+      }
+    ],
+    "visible": true
   }
 ]
