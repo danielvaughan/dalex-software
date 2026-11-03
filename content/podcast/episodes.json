@@ -536,8 +536,8 @@
     "date": "2026-10-29",
     "time": "19:00",
     "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/08-roundup.mp3",
-    "audio_bytes": 10766292,
-    "seconds": 887,
+    "audio_bytes": 10785100,
+    "seconds": 888,
     "chapters": [
       {
         "start": 0,
