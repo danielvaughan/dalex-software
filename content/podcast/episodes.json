@@ -278,5 +278,214 @@
       }
     ],
     "visible": true
+  },
+  {
+    "number": 4,
+    "slug": "04-gareth",
+    "title": "The doorbell and the beat",
+    "guest": "Gareth Cadwaladr, game programmer",
+    "summary": "Bev and Mo turn the tables on Gareth: the interrupt as a doorbell fifty times a second, the frame loop, and Antigravity's whole-number flight.",
+    "date": "2026-10-01",
+    "time": "18:00",
+    "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/04-gareth.mp3",
+    "audio_bytes": 12557660,
+    "seconds": 1036,
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Before we start"
+      },
+      {
+        "start": 29,
+        "title": "Cold open"
+      },
+      {
+        "start": 47,
+        "title": "Welcome"
+      },
+      {
+        "start": 108,
+        "title": "The desk"
+      },
+      {
+        "start": 152,
+        "title": "The big idea"
+      },
+      {
+        "start": 235,
+        "title": "By hand"
+      },
+      {
+        "start": 402,
+        "title": "The lock"
+      },
+      {
+        "start": 481,
+        "title": "What it costs"
+      },
+      {
+        "start": 591,
+        "title": "In the game"
+      },
+      {
+        "start": 727,
+        "title": "The bug"
+      },
+      {
+        "start": 864,
+        "title": "Crystal ball"
+      },
+      {
+        "start": 917,
+        "title": "Try this"
+      },
+      {
+        "start": 962,
+        "title": "Close"
+      },
+      {
+        "start": 1003,
+        "title": "After the show"
+      }
+    ],
+    "visible": true
+  },
+  {
+    "number": 5,
+    "slug": "05-colin",
+    "title": "Part of a square",
+    "guest": "Colin Ollerenshaw, game designer",
+    "summary": "Colin on moving by part of a square, checking every square before you step on it, and the hunt for a collision bug the whole team chased down.",
+    "date": "2026-10-08",
+    "time": "18:00",
+    "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/05-colin.mp3",
+    "audio_bytes": 13577007,
+    "seconds": 1121,
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Before we start"
+      },
+      {
+        "start": 26,
+        "title": "Cold open"
+      },
+      {
+        "start": 48,
+        "title": "Welcome"
+      },
+      {
+        "start": 110,
+        "title": "The desk"
+      },
+      {
+        "start": 176,
+        "title": "The big idea"
+      },
+      {
+        "start": 284,
+        "title": "By hand"
+      },
+      {
+        "start": 404,
+        "title": "In the game"
+      },
+      {
+        "start": 609,
+        "title": "Every square looked at"
+      },
+      {
+        "start": 766,
+        "title": "The bug"
+      },
+      {
+        "start": 958,
+        "title": "Crystal ball"
+      },
+      {
+        "start": 1004,
+        "title": "Try this"
+      },
+      {
+        "start": 1051,
+        "title": "Close"
+      },
+      {
+        "start": 1089,
+        "title": "After the show"
+      }
+    ],
+    "visible": true
+  },
+  {
+    "number": 6,
+    "slug": "06-hyunjoo",
+    "title": "Once, with its final value",
+    "guest": "Hyun-joo Lee, sprite artist",
+    "summary": "Hyun-joo on drawing without flicker: every screen byte written once an update, with its final value. A byte may be late, never wrong.",
+    "date": "2026-10-15",
+    "time": "18:00",
+    "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/06-hyunjoo.mp3",
+    "audio_bytes": 13223480,
+    "seconds": 1091,
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Before we start"
+      },
+      {
+        "start": 28,
+        "title": "Cold open"
+      },
+      {
+        "start": 52,
+        "title": "Welcome"
+      },
+      {
+        "start": 118,
+        "title": "The desk"
+      },
+      {
+        "start": 190,
+        "title": "By hand"
+      },
+      {
+        "start": 334,
+        "title": "A second frame"
+      },
+      {
+        "start": 452,
+        "title": "The big idea"
+      },
+      {
+        "start": 542,
+        "title": "In the game"
+      },
+      {
+        "start": 673,
+        "title": "The bug"
+      },
+      {
+        "start": 842,
+        "title": "Counting the beam"
+      },
+      {
+        "start": 911,
+        "title": "Crystal ball"
+      },
+      {
+        "start": 954,
+        "title": "Try this"
+      },
+      {
+        "start": 1010,
+        "title": "Close"
+      },
+      {
+        "start": 1058,
+        "title": "After the show"
+      }
+    ],
+    "visible": true
   }
 ]

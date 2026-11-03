@@ -1,0 +1,478 @@
+WEBVTT
+
+00:00:01.000 --> 00:00:16.829
+<v Daniel>Hello, I'm Daniel Vaughan. Before we start: Dalex Software and its people are fictional, and the voices you'll hear are synthesised. I wrote and produced this show with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.
+
+00:00:17.429 --> 00:00:27.716
+<v Daniel>The show is set in nineteen eighty-seven, so they say things the nineteen eighty-seven way. When Vik's test rig watches the beam, today that's an emulator recording every write to the screen.
+
+00:00:27.993 --> 00:00:36.586
+<v Hyunjoo>Rub it out, draw it again, rub it out, draw it again. Green, hedgehog, green, hedgehog. Like a faulty bulb.
+
+00:00:36.849 --> 00:00:39.610
+<v Bev>And how many bytes did they catch half drawn, in the end?
+
+00:00:39.745 --> 00:00:41.645
+<v Hyunjoo>None. Not one.
+
+00:00:52.445 --> 00:00:59.666
+<v Bev>Hello there, it's Bev, the kettle's on, and this is Dalex After Hours, the slot where we find out how computer games are really made.
+
+00:01:00.266 --> 00:01:13.511
+<v Bev>Every fact on this show comes out of the book the team's writing. And news from Sunday's chart. The Bee Gees are number one with You Win Again, and they're the first group with a number one in the sixties, the seventies and the eighties.
+
+00:01:14.111 --> 00:01:15.703
+<v Bev>Gareth's across the desk.
+
+00:01:15.715 --> 00:01:18.495
+<v Gareth>Hiya, Bev. Hiya, Hyun-joo.
+
+00:01:18.715 --> 00:01:23.439
+<v Bev>And our guest this week is the sprite artist, Hyun-joo Lee. Welcome.
+
+00:01:23.702 --> 00:01:28.163
+<v Hyunjoo>Thanks, Bev. Nice to be on the radio side of the hi-fi for once.
+
+00:01:28.461 --> 00:01:31.179
+<v Bev>Now I'm told you can spot a stray pixel from the door.
+
+00:01:31.338 --> 00:01:35.864
+<v Hyunjoo>I can. So you can imagine how I feel about flicker.
+
+00:01:36.094 --> 00:01:41.136
+<v Gareth>She found one on my screen last week from the corridor. Saved me a rebuild. I owe her a brew.
+
+00:01:41.349 --> 00:01:44.356
+<v Hyunjoo>Pixels are my job. Bytes are yours.
+
+00:01:44.641 --> 00:01:50.424
+<v Bev>Three decades of number ones, Hyun-joo. That's longer than any sprite you've drawn has stayed still.
+
+00:01:50.637 --> 00:01:54.709
+<v Hyunjoo>I'd hope so. A sprite that stays still that long is a cardboard cut-out.
+
+00:01:58.009 --> 00:01:59.510
+<v Bev>So what's on your desk?
+
+00:01:59.795 --> 00:02:14.819
+<v Hyunjoo>Sprite sheets and one very strict pencil. And my screen shows every frame of whatever I'm animating. Neil decides how a game looks, and I turn his master art into sprites. I draw them and animate them, one pixel at a time.
+
+00:02:15.005 --> 00:02:18.122
+<v Bev>One pixel at a time. That sounds like knitting.
+
+00:02:18.391 --> 00:02:26.360
+<v Hyunjoo>It's exactly like knitting. You count the squares like stitches. And if one stitch is wrong, you see it across the room.
+
+00:02:26.638 --> 00:02:31.314
+<v Bev>And what is a sprite, for the folk at home? I've heard the word, I've never known what it means.
+
+00:02:31.586 --> 00:02:43.354
+<v Hyunjoo>A sprite is a small picture that moves over a background. The mower, a hedgehog, the cat. The background stays put, and the sprite gets stamped onto it in a new place, many times a second.
+
+00:02:43.381 --> 00:02:44.777
+<v Bev>Like a rubber stamp.
+
+00:02:44.989 --> 00:02:51.787
+<v Hyunjoo>Like a rubber stamp, except you have to lift it off again without smudging what was underneath. That's the hard bit.
+
+00:02:51.972 --> 00:03:04.085
+<v Gareth>And the Spectrum gives you no help with it. Some other machines draw sprites in hardware, laid over the background. On the Spectrum the screen is one block of memory, and a sprite only exists as bytes the program copies into it.
+
+00:03:04.275 --> 00:03:06.739
+<v Bev>So every game has to do its own stamping.
+
+00:03:06.917 --> 00:03:09.899
+<v Gareth>Every one of the six. Byte by byte.
+
+00:03:10.166 --> 00:03:12.367
+<v Bev>Now I'm hoping there's squared paper.
+
+00:03:12.555 --> 00:03:26.038
+<v Hyunjoo>There's always squared paper. Picture a grid sixteen squares wide and sixteen tall. Draw a heavier line down the middle, after the eighth column. Each half of a row is going to be one byte.
+
+00:03:26.273 --> 00:03:28.774
+<v Bev>Got it. In my head, anyway.
+
+00:03:28.921 --> 00:03:42.774
+<v Hyunjoo>Every moving thing in Mower Mayhem starts on a grid like that. The mower facing East fills eighty-six of its two hundred and fifty-six squares. Fill a square and it's a one. Leave it empty and it's a nought.
+
+00:03:43.068 --> 00:03:46.061
+<v Bev>So each row is eight ones and noughts, twice.
+
+00:03:46.220 --> 00:03:57.822
+<v Hyunjoo>Twice. Here's row one of the mower. Squares two and four are filled, counting from nought on the left. Everything else is empty. Write the left half down.
+
+00:04:00.966 --> 00:04:04.144
+<v Bev>Nought, nought, one, nought, one, nought, nought, nought.
+
+00:04:04.416 --> 00:04:11.857
+<v Hyunjoo>There. You found it. That's the one. In hex that's two eight, and the right half's all noughts.
+
+00:04:12.011 --> 00:04:13.401
+<v Bev>And that's a bit of a lawnmower?
+
+00:04:13.808 --> 00:04:18.488
+<v Hyunjoo>That's the little checkered mark at the back corner. Picture where the wheel is.
+
+00:04:18.640 --> 00:04:21.916
+<v Bev>Oh, I see it. Go on, give me another one.
+
+00:04:22.152 --> 00:04:25.843
+<v Hyunjoo>Row two is filled at one, three and five.
+
+00:04:26.065 --> 00:04:29.565
+<v Bev>Nought, one, nought, one, nought, one, nought, nought.
+
+00:04:29.753 --> 00:04:46.592
+<v Hyunjoo>Five four. Lovely. And there's a shortcut. The mower facing East is the same upside down. Row fifteen matches row nought, row fourteen matches row one, all the way to the middle. Work out eight rows and you've got all sixteen.
+
+00:04:46.811 --> 00:04:55.322
+<v Gareth>And the mower is thirty-two bytes, then. Two bytes a row, sixteen rows. The game keeps exactly that, plus thirty-two more for its outline.
+
+00:04:55.266 --> 00:04:56.596
+<v Bev>What's the outline for?
+
+00:04:56.903 --> 00:05:08.084
+<v Hyunjoo>To let it sit on the grass. Picture three ways of putting the mower down. Copy the bytes straight in, and every nought wipes out the grass, so you get a hard white box with a mower in it.
+
+00:05:08.130 --> 00:05:09.458
+<v Bev>That'd look daft.
+
+00:05:09.655 --> 00:05:27.691
+<v Hyunjoo>It does. Mix it in on top of the grass instead, and the grass blades show through the body, and the mower gets lost in the lawn. So the third way is a mask. A second picture, just the outline and a ring one square wide round it. Clear the grass inside the mask, then put the mower in the space.
+
+00:05:27.934 --> 00:05:30.680
+<v Bev>So the grass is kept everywhere except right round the mower.
+
+00:05:30.864 --> 00:05:34.412
+<v Hyunjoo>Exactly that. The book calls the pair mask then O R.
+
+00:05:34.669 --> 00:05:37.788
+<v Bev>And how does it move? Does the picture change?
+
+00:05:38.055 --> 00:05:49.789
+<v Hyunjoo>It has a second frame. A second drawing, a little different. On the mower only four rows change, the checkered marks at the two back corners. They move along by one square.
+
+00:05:49.751 --> 00:05:51.105
+<v Bev>Only four rows?
+
+00:05:51.420 --> 00:06:07.188
+<v Hyunjoo>Only four. Swap the two pictures, and those marks seem to travel down the sides while the body stays still. And the mower rolls. Try it on your paper. Draw the second one beside the first, hold it at arm's length, and look from one to the other.
+
+00:06:07.210 --> 00:06:08.224
+<v Bev>Like a flip book.
+
+00:06:08.475 --> 00:06:19.889
+<v Hyunjoo>Like a flip book. Each picture stays up for two updates, which is four television frames. And if the mower is standing still, the count doesn't go up, so the wheels stop turning.
+
+00:06:19.858 --> 00:06:21.348
+<v Bev>Oh, that's a nice touch.
+
+00:06:21.530 --> 00:06:26.992
+<v Hyunjoo>It's a cardboard cut-out otherwise. A picture that only slides about looks like cardboard.
+
+00:06:27.215 --> 00:06:33.311
+<v Bev>Now hang on. If each half row is a byte, can the mower only stand every eight pixels?
+
+00:06:33.600 --> 00:06:45.636
+<v Hyunjoo>Good, you've spotted it. So far it's sat on a byte boundary. But the mower moves one pixel at a time, so most of the time its left edge falls inside a byte.
+
+00:06:45.932 --> 00:06:59.295
+<v Gareth>So the game shifts each row right, by nought to seven pixels. Picture row seven of the mower shifted three to the right. The three pixels at the right of each byte fall off the end and land at the start of the next byte. A row that was two bytes wide now needs three.
+
+00:06:59.548 --> 00:07:01.380
+<v Bev>And it does that sum every time?
+
+00:07:01.724 --> 00:07:11.921
+<v Gareth>No, that would be slow. At start-up it works out every answer in advance and keeps them in tables, three and a half K of them. After that each shift is one look-up. Seven ticks.
+
+00:07:12.054 --> 00:07:24.979
+<v Hyunjoo>And that's why the mask is stored the other way round. Shifting pulls noughts in at the left, and in this mask a nought means keep the background. So the empty pixels beside a shifted mower keep their grass.
+
+00:07:25.072 --> 00:07:25.802
+<v Bev>Otherwise?
+
+00:07:26.087 --> 00:07:31.832
+<v Hyunjoo>Otherwise you'd drag a black stripe beside every sprite. I would not allow it.
+
+00:07:32.074 --> 00:07:35.330
+<v Bev>Right then. What's the one idea this week?
+
+00:07:35.684 --> 00:07:39.684
+<v Hyunjoo>Write every screen byte once each update, with its final value.
+
+00:07:39.979 --> 00:07:43.270
+<v Bev>Once, with its final value. That doesn't sound hard.
+
+00:07:43.462 --> 00:07:51.948
+<v Hyunjoo>It's the hardest thing in the chapter. Picture the obvious way to move a hedgehog. You rub it out where it was, then you draw it where it is now.
+
+00:07:51.923 --> 00:07:52.954
+<v Bev>That's what I'd do.
+
+00:07:53.239 --> 00:08:04.866
+<v Hyunjoo>That's what everyone would do. On a Spectrum it flickers. Because the television is reading the screen memory while you write it, fifty times a second, one line after another.
+
+00:08:05.072 --> 00:08:22.890
+<v Gareth>On the hundred and twenty-eight K a television line takes two hundred and twenty-eight ticks and a frame takes seventy thousand, nine hundred and eight. The beam spends sixty-three lines above the picture. So the top-left pixel appears fourteen thousand, three hundred and sixty-four ticks after the interrupt, and then the beam moves down one pixel row every two hundred and twenty-eight.
+
+00:08:23.066 --> 00:08:25.640
+<v Bev>So it's sweeping down the screen while you're drawing on it.
+
+00:08:25.933 --> 00:08:47.044
+<v Hyunjoo>That's it. Every byte on the screen is shown at a fixed moment in each frame, and you see whatever it holds at that moment. So if the beam passes the hedgehog's rows after you rub it out and before you draw it back, that frame shows grass. Next frame shows the hedgehog. Picture one cell of it. Green, hedgehog, green, hedgehog.
+
+00:08:47.238 --> 00:08:49.102
+<v Bev>So what would I see on the telly?
+
+00:08:49.480 --> 00:08:52.039
+<v Hyunjoo>A hedgehog flickering like a faulty bulb.
+
+00:08:52.306 --> 00:08:54.013
+<v Bev>And if you write it once?
+
+00:08:54.385 --> 00:09:01.681
+<v Hyunjoo>Then a byte can be a frame late, but it's never wrong. Late, you'd never notice. Wrong, I'd notice from the door.
+
+00:09:04.181 --> 00:09:08.482
+<v Bev>So that's Mower Mayhem playing. How does it manage to only write once?
+
+00:09:08.816 --> 00:09:17.020
+<v Hyunjoo>It finishes the next picture somewhere the television can't see, and only copies over the finished bytes. It keeps three copies of the picture.
+
+00:09:16.967 --> 00:09:17.945
+<v Bev>Three.
+
+00:09:18.070 --> 00:09:30.044
+<v Hyunjoo>One is the lawn with nothing moving on it. The book calls it B G. One is the next picture, while it's being put together. That's WORK. And the third is the real screen.
+
+00:09:30.266 --> 00:09:39.254
+<v Gareth>And the two hidden copies are laid out exactly like the screen, odd row order and all. So turning a screen address into a WORK address only changes the high byte. One add.
+
+00:09:39.404 --> 00:09:41.501
+<v Bev>So you do all the rubbing out in the hidden one.
+
+00:09:41.743 --> 00:09:58.402
+<v Hyunjoo>All of it, where nobody's watching. Each update, the game looks at every moving thing and asks what changed. It rubs out the old place by copying clean lawn from B G into WORK. It draws the new place. And it makes a list of the rectangles the screen will need.
+
+00:09:58.448 --> 00:09:59.816
+<v Bev>Only the ones that changed?
+
+00:10:00.166 --> 00:10:14.821
+<v Hyunjoo>Only those. Redrawing everything every update would be too slow. There are twelve slots for moving things. The hedgehogs, the bird, the cat, the cat's peeking head, the mower and a few more.
+
+00:10:14.890 --> 00:10:15.639
+<v Bev>And then?
+
+00:10:16.052 --> 00:10:21.531
+<v Hyunjoo>Then, first thing in the next update, it copies those rectangles to the screen. Top to bottom.
+
+00:10:21.479 --> 00:10:23.022
+<v Bev>Why top to bottom?
+
+00:10:23.323 --> 00:10:36.039
+<v Gareth>Because it's racing the beam. Right after the interrupt, the beam's still up in the top border. The copy starts ahead of it, and works down the screen, rectangle by rectangle, trying to write each one before the beam arrives.
+
+00:10:36.303 --> 00:10:51.940
+<v Hyunjoo>And if it did them in any old order, a low rectangle might go before the beam and a high one after. Then one frame would show the top half of a sprite from one update and the bottom half from the next. At the size the telly shows it, a torn line across the sprite.
+
+00:10:52.007 --> 00:10:53.190
+<v Bev>And you'd see that.
+
+00:10:53.151 --> 00:10:54.534
+<v Hyunjoo>I would see that.
+
+00:10:54.792 --> 00:11:12.344
+<v Gareth>Programmers have been fighting this exact race for years. There's a book from nineteen eighty-four, David Webb's Advanced Spectrum Machine Language, whose sure cure is never to draw where the beam is. Draw in the gap between the interrupt and the picture. This game starts its copy in that gap, and the sorted order lets it run on past.
+
+00:11:13.179 --> 00:11:16.308
+<v Bev>Give me a story, then. Something that went wrong.
+
+00:11:16.446 --> 00:11:29.889
+<v Hyunjoo>The cards. When the game says READY, or PAUSED, or GAME OVER, a little panel comes up on the screen. Playtesters and a reviewer spotted them flashing, half drawn. Good eyes, all of them.
+
+00:11:30.154 --> 00:11:31.783
+<v Bev>Oh, that would have bothered you.
+
+00:11:31.962 --> 00:11:44.012
+<v Hyunjoo>It took the team four attempts, and nobody gave up on it. Waiting for the interrupt first didn't cure it. Blacking out the colours before clearing the panel didn't cure it. A second wait didn't cure it.
+
+00:11:43.956 --> 00:11:45.220
+<v Bev>So what was it?
+
+00:11:45.577 --> 00:11:55.433
+<v Hyunjoo>The frame round the card is made of tiles, and drawing them took longer than the beam took to reach the card. And each tile went down with its white colour already on, so you saw it arriving.
+
+00:11:55.654 --> 00:12:07.720
+<v Gareth>The fix that held is to draw the frame under black. Black ink on black paper shows nothing, whatever's there. Wait for the interrupt. Then one pass sets the whole panel to bright white on black, ahead of the beam.
+
+00:12:07.733 --> 00:12:08.791
+<v Bev>Why's that quicker?
+
+00:12:09.149 --> 00:12:23.044
+<v Gareth>On the Spectrum the colour is kept apart from the pixels, one colour byte for each eight by eight cell. The biggest card is twenty-four cells by twenty-two. That's five hundred and twenty-eight colour bytes, against four thousand, two hundred and twenty-four bytes of picture.
+
+00:12:23.189 --> 00:12:30.286
+<v Hyunjoo>So the slow part is hidden, and the part you see is fast. That pass takes about fifteen thousand ticks.
+
+00:12:30.555 --> 00:12:33.349
+<v Bev>So you draw it in the dark, and switch the light on.
+
+00:12:33.537 --> 00:12:36.625
+<v Hyunjoo>That's it exactly. I'm stealing that.
+
+00:12:36.842 --> 00:12:38.714
+<v Bev>And did colour cause any other bother?
+
+00:12:38.993 --> 00:13:00.941
+<v Hyunjoo>Lots. Because the colour belongs to the cell, not the sprite, a sprite with its own colour would repaint the grass in every cell it touched. So the sprites have no colour of their own. A playtest found the hedgehog and the bird were black shapes on dark grass full of black blades, and the mower, a green outline on green grass, was the hardest thing on the lawn to see.
+
+00:13:01.001 --> 00:13:02.429
+<v Bev>So you coloured them in.
+
+00:13:02.654 --> 00:13:14.486
+<v Hyunjoo>We coloured the cells under them. The first go gave the animals grey ink, and that turned every grass blade in those cells grey too. Each hedgehog became a grey blob in a speckled box.
+
+00:13:14.549 --> 00:13:15.369
+<v Bev>Oh dear.
+
+00:13:15.513 --> 00:13:28.800
+<v Hyunjoo>Now the mower is white line art on a plain patch of its own, and the animals, the bird on long grass apart, are black shapes in their own little clearings. Look at a lawn at the size the telly shows it, and that's what you should see.
+
+00:13:28.760 --> 00:13:29.514
+<v Bev>Any more?
+
+00:13:29.769 --> 00:13:44.846
+<v Hyunjoo>A gentle one. When the player tries to fire the trimmer with an animal in the way, the game says no. One version blinked the animal's cells red. And a playtester warned, very wisely, that a young player could read that as a hit.
+
+00:13:45.077 --> 00:13:47.700
+<v Bev>Oh, no. Not in this game.
+
+00:13:47.898 --> 00:13:57.835
+<v Hyunjoo>Not in a game where no animal is ever harmed. So the signal moved onto the machine instead. A white exclamation mark in a red cell beside the mower.
+
+00:13:57.889 --> 00:13:59.076
+<v Bev>That's much kinder.
+
+00:13:59.214 --> 00:14:02.349
+<v Hyunjoo>And clearer. The hedgehog stays a hedgehog.
+
+00:14:02.608 --> 00:14:06.573
+<v Bev>But how do you know there's no flicker? You can't take a photograph of it.
+
+00:14:06.814 --> 00:14:21.760
+<v Hyunjoo>No, a photograph of the telly can't show flicker. So Vik's test rig watches the beam instead. It records every write to the screen, with the exact tick it happened, and at the end of each frame they work out what the television showed.
+
+00:14:22.016 --> 00:14:31.800
+<v Gareth>A byte that's shown with neither its old value nor its new one was caught in the middle. That's called transient. That's flicker. One shown with its old value is late.
+
+00:14:32.055 --> 00:14:33.245
+<v Bev>And a late one's all right?
+
+00:14:33.646 --> 00:14:41.911
+<v Hyunjoo>Late is the previous picture, complete, for a fiftieth of a second. The rig fails the build on any transient byte in play.
+
+00:14:41.881 --> 00:14:42.823
+<v Bev>And the score?
+
+00:14:43.207 --> 00:14:50.365
+<v Hyunjoo>In four hundred and eighty-four frames of play, nought transient bytes. Fifty-eight late bytes, in six frames.
+
+00:14:50.615 --> 00:14:53.206
+<v Bev>So six times the beam overtook the copy.
+
+00:14:53.505 --> 00:15:03.442
+<v Hyunjoo>Six times, a few bytes of the last picture, for a fiftieth of a second each. And not one byte caught half drawn. That's the frame I want.
+
+00:15:03.702 --> 00:15:08.098
+<v Gareth>That number belongs to the whole team, that. I was made up when we saw it.
+
+00:15:11.398 --> 00:15:16.364
+<v Bev>Go on, Hyun-joo, crystal ball time. One day in the future, how will they draw a sprite?
+
+00:15:16.637 --> 00:15:19.819
+<v Hyunjoo>Gareth can have the code. I'll have the pixels.
+
+00:15:20.076 --> 00:15:35.097
+<v Gareth>Right. Suppose one day there's a language, call it Python, after Monty Python. The whole of mask then O R is one line. Background and not mask, or graphic. You'd write it once and never think about the bytes again.
+
+00:15:35.042 --> 00:15:36.535
+<v Bev>Like on Tomorrow's World.
+
+00:15:36.806 --> 00:15:41.414
+<v Hyunjoo>And suppose the screens get so fine you can't see a single pixel from the door.
+
+00:15:41.632 --> 00:15:42.927
+<v Bev>Would that put you out of a job?
+
+00:15:43.237 --> 00:15:49.659
+<v Hyunjoo>No. I'd move my chair closer. Somebody still has to find the wrong one.
+
+00:15:49.929 --> 00:15:54.063
+<v Gareth>That's the one bit nobody will ever guess, Bev. Who notices.
+
+00:15:54.252 --> 00:15:56.780
+<v Bev>What should folk do before next week?
+
+00:15:57.045 --> 00:16:13.671
+<v Hyunjoo>The chapter is Drawing Without Flicker. The first exercise is called Draw a Hedgehog, then Make it Walk. You draw the hedgehog's first frame on squared paper from its bytes in the game's sprite file, taking only every second byte, because the others are the mask.
+
+00:16:13.635 --> 00:16:14.384
+<v Bev>And then?
+
+00:16:14.753 --> 00:16:28.504
+<v Hyunjoo>Then draw the second frame beside it. You should see a hedgehog from above, facing East, its spines on the right. Between the two frames the feet at the top and bottom of the body change places, and one more pixel moves too.
+
+00:16:28.641 --> 00:16:30.329
+<v Bev>And if one of my squares is out?
+
+00:16:30.747 --> 00:16:38.725
+<v Hyunjoo>That frame's wrong. Look. Well, you can't look, can you. Picture it, then. You'll find it.
+
+00:16:38.980 --> 00:16:49.760
+<v Gareth>Go on then. And if you've got the game building, there's a last one called Break the Sort. Stop the copy being sorted, guess first which count changes, then run it on the test rig. The flicker count should stay at nought.
+
+00:16:53.760 --> 00:16:57.158
+<v Bev>That's us for this week. Thank you, Hyun-joo.
+
+00:16:57.291 --> 00:17:00.677
+<v Hyunjoo>Thank you, Bev. It was lovely.
+
+00:17:00.803 --> 00:17:06.058
+<v Gareth>And United scored four at Sheffield Wednesday on Saturday. Four two, away from home.
+
+00:17:06.234 --> 00:17:09.183
+<v Bev>Next week it's Dez in the chair, on music and sound.
+
+00:17:09.238 --> 00:17:12.919
+<v Hyunjoo>Oh. Dez. That's nice.
+
+00:17:13.199 --> 00:17:14.963
+<v Bev>You've gone a bit pink there.
+
+00:17:15.248 --> 00:17:18.293
+<v Hyunjoo>It's the lights. They're very warm lights.
+
+00:17:18.296 --> 00:17:19.193
+<v Bev>Is that right?
+
+00:17:19.474 --> 00:17:22.589
+<v Gareth>I'll make sure he gets here on time. I'm not promising.
+
+00:17:22.715 --> 00:17:28.706
+<v Hyunjoo>His Lanterns Over the Water is my favourite of his songs. As a song. That's all.
+
+00:17:28.857 --> 00:17:33.689
+<v Bev>I'm sure it is. If you've got a question for the team, send it in, and we'll put it to them.
+
+00:17:34.289 --> 00:17:37.904
+<v Bev>The theme is by our own Dez. Right then, turn it up.
+
+00:17:38.057 --> 00:17:50.137
+<v Daniel>Today you can watch Mower Mayhem draw without flicker in your browser, at dalex-software dot co dot uk. In Python, Hyun-joo's mask then O R is one line, background and not mask, or graphic.
+
+00:17:50.737 --> 00:18:01.386
+<v Daniel>The chapter is Drawing Without Flicker, in Machine Code Mayhem on Leanpub, and the first exercise is Draw a Hedgehog, then Make it Walk. Squared paper is still the best tool for it.
+
+00:18:01.986 --> 00:18:10.355
+<v Daniel>Thank you for listening. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is by me, Daniel Vaughan.
