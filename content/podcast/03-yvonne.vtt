@@ -1,496 +1,490 @@
 WEBVTT
 
-00:00:01.000 --> 00:00:16.829
-<v Daniel>Hello, I'm Daniel Vaughan. Before we start: Dalex Software and its people are fictional, and the voices you'll hear are synthesised. I wrote and produced this show with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.
-
-00:00:17.429 --> 00:00:30.439
-<v Daniel>The show is set in nineteen eighty-seven, so they say things the nineteen eighty-seven way. When Yvonne talks about the tape's fingerprint, today that's a S H A two five six hash, and Vik's test rig is an emulator and a script.
-
-00:00:37.239 --> 00:00:41.482
+00:00:07.800 --> 00:00:11.993
 <v Yvonne>The best thing about it is the dull bit. The same source gives the same tape.
 
-00:00:41.603 --> 00:00:45.753
+00:00:12.274 --> 00:00:16.425
 <v Bev>That's the most exciting thing anyone's ever said to me about a cassette.
 
-00:00:45.824 --> 00:00:47.624
+00:00:16.489 --> 00:00:18.289
 <v Yvonne>Give it fifteen minutes.
 
-00:00:52.624 --> 00:00:59.846
+00:00:23.289 --> 00:00:30.510
 <v Bev>Hello there, it's Bev, the kettle's on, and this is Dalex After Hours, the slot where we find out how computer games are really made.
 
-00:01:00.446 --> 00:01:04.337
+00:00:31.110 --> 00:00:35.002
 <v Bev>Every fact on this show comes out of the book the team at Dalex are writing.
 
-00:01:04.937 --> 00:01:06.530
+00:00:35.602 --> 00:00:37.194
 <v Bev>Gareth's across the desk.
 
-00:01:06.597 --> 00:01:07.350
+00:00:37.170 --> 00:00:37.923
 <v Gareth>Hiya, Bev.
 
-00:01:07.554 --> 00:01:16.228
+00:00:38.097 --> 00:00:46.716
 <v Bev>And sat next to him, which is where she sits at work as well, is our guest. They say if the office has a gadget, she built it. It's Yvonne Standish.
 
-00:01:16.209 --> 00:01:17.311
+00:00:46.787 --> 00:00:47.890
 <v Yvonne>Hello, Bev.
 
-00:01:17.322 --> 00:01:19.687
+00:00:47.958 --> 00:00:50.314
 <v Bev>Is it true? Every gadget?
 
-00:01:19.835 --> 00:01:20.915
+00:00:50.423 --> 00:00:51.503
 <v Yvonne>Most of them.
 
-00:01:21.215 --> 00:01:23.104
+00:00:51.673 --> 00:00:53.563
 <v Bev>Is there one you didn't build?
 
-00:01:23.291 --> 00:01:24.145
+00:00:53.664 --> 00:00:54.518
 <v Yvonne>The kettle.
 
-00:01:24.377 --> 00:01:25.945
+00:00:54.718 --> 00:00:56.286
 <v Gareth>She's had a look at it, mind.
 
-00:01:26.243 --> 00:01:33.458
+00:00:56.497 --> 00:01:03.780
 <v Bev>Now, United beat Hull five nil in the League Cup last night, with five different scorers. Yvonne, I'm told you had something to say about that.
 
-00:01:33.607 --> 00:01:38.124
+00:01:04.079 --> 00:01:08.631
 <v Yvonne>Five goals, five different scorers. That's a proper toolchain.
 
-00:01:38.071 --> 00:01:39.097
+00:01:08.671 --> 00:01:09.697
 <v Bev>How's that a toolchain?
 
-00:01:39.343 --> 00:01:43.366
+00:01:10.115 --> 00:01:14.138
 <v Yvonne>Everybody does one job, in order, and the ball comes out the other end.
 
-00:01:43.579 --> 00:01:47.980
+00:01:14.297 --> 00:01:18.698
 <v Gareth>And City beat Stoke three nil on Saturday, so the sky blue half of the studio's happy too.
 
-00:01:51.280 --> 00:01:53.401
+00:01:21.998 --> 00:01:24.119
 <v Bev>So, Yvonne, what's on your desk?
 
-00:01:53.725 --> 00:02:02.481
+00:01:24.388 --> 00:01:32.950
 <v Yvonne>A terminal. It shows the studio's own tools as they change. Gareth's desk is the games. Mine is the things that build them.
 
-00:02:02.646 --> 00:02:04.881
+00:01:33.154 --> 00:01:35.390
 <v Bev>And what does a toolsmith do all day?
 
-00:02:05.124 --> 00:02:11.504
+00:01:35.795 --> 00:01:42.263
 <v Yvonne>Keeps the tools running, so nobody notices them. A tool nobody notices is a tool that works.
 
-00:02:11.749 --> 00:02:14.971
+00:01:42.476 --> 00:01:45.757
 <v Bev>That's a bit sad, isn't it? Nobody noticing.
 
-00:02:15.157 --> 00:02:22.481
+00:01:45.922 --> 00:01:53.124
 <v Yvonne>No. It's the best bit. Do it once by hand. Then the tool does it, every time.
 
-00:02:22.649 --> 00:02:25.458
+00:01:53.280 --> 00:01:55.987
 <v Gareth>And she labels every drawer. Every one.
 
-00:02:25.670 --> 00:02:27.894
+00:01:56.107 --> 00:01:58.331
 <v Yvonne>Then the next person finds what they're looking for.
 
-00:02:28.166 --> 00:02:29.855
+00:01:58.601 --> 00:02:00.290
 <v Bev>And Gareth tells me you're a birdwatcher.
 
-00:02:30.090 --> 00:02:31.983
+00:02:00.438 --> 00:02:02.330
 <v Yvonne>Saw a goldfinch on the way in.
 
-00:02:32.237 --> 00:02:39.168
+00:02:02.498 --> 00:02:09.581
 <v Bev>Lovely. Now, this week's chapter is called From Text to Tape. I've a feeling that's you all over.
 
-00:02:39.379 --> 00:02:44.421
+00:02:09.853 --> 00:02:14.849
 <v Yvonne>It is. Everything between the words Gareth types and the tape you put in the machine.
 
-00:02:44.418 --> 00:02:45.944
+00:02:14.907 --> 00:02:16.433
 <v Bev>So what's the one idea?
 
-00:02:46.291 --> 00:03:01.400
+00:02:16.689 --> 00:02:31.908
 <v Yvonne>A toolchain is the row of programs that turns the text of a game into a tape a Spectrum can load. And it's exact. Build Mower Mayhem from the source the book uses, and the tape that comes out matches the released one, down to the last byte.
 
-00:03:01.547 --> 00:03:03.065
+00:02:32.093 --> 00:02:33.610
 <v Bev>How would you even know that?
 
-00:03:03.452 --> 00:03:18.740
+00:02:33.958 --> 00:02:49.085
 <v Yvonne>A checksum. The tape's fingerprint. A long number worked out from every byte of the file. Change one byte and the number changes. Mower Mayhem's starts nine, six, eight, three, B, E, nought, F.
 
-00:03:18.974 --> 00:03:25.242
+00:02:49.351 --> 00:02:55.560
 <v Gareth>Build it twice without changing anything and you get the same fingerprint, both times. The release's.
 
-00:03:25.389 --> 00:03:31.156
+00:02:55.856 --> 00:03:01.653
 <v Bev>Now, when I write a letter on the computer, it never looks the same twice. So why is this different?
 
-00:03:31.440 --> 00:03:50.423
+00:03:02.002 --> 00:03:20.780
 <v Yvonne>Because nothing in it is left to chance, and every step can be read. Three steps, in order. An assembler turns the text into bytes and decides where each one lives. A build script checks the result and packs it up ready for tape. And a little BASIC program loads it into the Spectrum and jumps into it.
 
-00:03:50.597 --> 00:03:53.927
+00:03:20.973 --> 00:03:24.148
 <v Bev>Start with the assembler, then. What is it?
 
-00:03:54.287 --> 00:04:11.354
+00:03:24.562 --> 00:03:41.580
 <v Yvonne>Picture a clerk with two books. The first is a dictionary. For each instruction, the bytes it becomes. The second is a ledger. One page keeps a running count, the address the next byte will land at. Another page keeps a list of names, each with the number it stands for.
 
-00:04:11.501 --> 00:04:13.235
+00:03:41.724 --> 00:03:43.458
 <v Bev>And the clerk reads the text.
 
-00:04:13.389 --> 00:04:24.507
+00:03:43.730 --> 00:03:55.027
 <v Yvonne>A line at a time. Looks it up in the dictionary, writes the bytes down at the address in the ledger, and moves the count on by however many bytes that was. Then the next line, to the end of the file.
 
-00:04:24.786 --> 00:04:27.031
+00:03:55.173 --> 00:03:57.418
 <v Gareth>And when the clerk gets to the end, what then?
 
-00:04:27.386 --> 00:04:36.531
+00:03:57.692 --> 00:04:06.872
 <v Yvonne>The clerk writes the bytes and leaves. Nothing of it stays behind. The processor runs them itself, and every byte in memory is one the source asked for.
 
-00:04:36.725 --> 00:04:38.227
+00:04:07.025 --> 00:04:08.526
 <v Bev>So can I be the clerk?
 
-00:04:38.510 --> 00:04:56.283
+00:04:08.926 --> 00:04:26.576
 <v Yvonne>You can. The dictionary is the processor's manual from Zilog, the people who made the chip. Every instruction gets a page. Here's one line from Mower Mayhem. L D A, comma, hex C three. It puts the number C three in the register called A.
 
-00:04:56.539 --> 00:04:59.010
+00:04:26.703 --> 00:04:29.174
 <v Bev>I'll be honest, I've no idea what a register is.
 
-00:04:59.135 --> 00:05:05.558
+00:04:29.452 --> 00:04:35.915
 <v Gareth>A little working box inside the processor itself. A holds one byte. That's all you need for this.
 
-00:05:05.852 --> 00:05:19.657
+00:04:36.170 --> 00:04:49.716
 <v Yvonne>The manual says this instruction's first byte is a pattern. Draw eight boxes. The first two are nought, nought. The last three are one, one, nought. The three in the middle say which register.
 
-00:05:19.653 --> 00:05:21.042
+00:04:49.811 --> 00:04:51.200
 <v Bev>And A is?
 
-00:05:21.388 --> 00:05:25.298
+00:04:51.558 --> 00:04:55.417
 <v Yvonne>One, one, one. If you want a go, pause us now.
 
-00:05:28.482 --> 00:05:33.316
+00:04:58.631 --> 00:05:03.465
 <v Bev>So I've got nought, nought, then one, one, one, then one, one, nought.
 
-00:05:33.529 --> 00:05:43.264
+00:05:03.743 --> 00:05:13.515
 <v Yvonne>Split it into two groups of four, and read each group as a hex digit. Nought, nought, one, one is three. One, one, one, nought is E.
 
-00:05:43.228 --> 00:05:44.339
+00:05:13.564 --> 00:05:14.675
 <v Bev>Three E.
 
-00:05:44.627 --> 00:05:55.179
+00:05:14.859 --> 00:05:25.433
 <v Yvonne>Three E. Then the number you're loading follows unchanged. So the instruction is two bytes. Three E, then C three.
 
-00:05:55.374 --> 00:05:57.505
+00:05:25.721 --> 00:05:27.852
 <v Bev>And how do I know I've got it right?
 
-00:05:57.892 --> 00:06:11.674
+00:05:28.093 --> 00:05:41.780
 <v Yvonne>You check your work against the assembler's. The build writes a listing beside the tape. It's the source again, with two columns added, the address and the bytes. Find that line, and the listing says three E, C three.
 
-00:06:11.886 --> 00:06:14.450
+00:05:41.975 --> 00:05:44.558
 <v Gareth>Same bytes. No magic in it.
 
-00:06:14.611 --> 00:06:24.488
+00:05:44.680 --> 00:05:54.644
 <v Yvonne>That's the procedure. Do it once by hand, then let the tool do it, and compare the two answers. If they agree, you can trust the tool with the rest.
 
-00:06:24.457 --> 00:06:25.887
+00:05:54.666 --> 00:05:56.096
 <v Bev>And if they don't?
 
-00:06:26.189 --> 00:06:29.977
+00:05:56.466 --> 00:06:00.254
 <v Yvonne>Then one of you's wrong, and you've found it before it cost anybody anything.
 
-00:06:30.069 --> 00:06:30.604
+00:06:00.230 --> 00:06:00.765
 <v Bev>I like that.
 
-00:06:30.636 --> 00:06:32.262
+00:06:00.737 --> 00:06:02.363
 <v Yvonne>Which is why you compare.
 
-00:06:32.443 --> 00:06:36.126
+00:06:02.549 --> 00:06:06.213
 <v Bev>You said the ledger has a page of names. What are those for?
 
-00:06:36.537 --> 00:06:46.326
+00:06:06.515 --> 00:06:16.405
 <v Yvonne>So the source can say a name instead of a number. The game's interrupt table lives at hex B E double nought, but nobody wants to type that, so the source names it once, and the clerk looks the name up.
 
-00:06:46.423 --> 00:06:47.627
+00:06:16.436 --> 00:06:17.640
 <v Bev>Like a phone book.
 
-00:06:47.840 --> 00:06:56.211
+00:06:17.822 --> 00:06:26.032
 <v Yvonne>Like a phone book. Labels are names too. A label is worth whatever the ledger's count was at the line where it stands.
 
-00:06:56.435 --> 00:07:05.355
+00:06:26.328 --> 00:06:35.292
 <v Gareth>And here's the snag I love. A jump that goes forward, to a label further down the file. The clerk hasn't got there yet. So how does it know where to jump?
 
-00:07:05.563 --> 00:07:06.067
+00:06:35.470 --> 00:06:35.975
 <v Bev>Go on.
 
-00:07:06.200 --> 00:07:22.982
+00:06:36.199 --> 00:06:53.080
 <v Yvonne>It reads the file more than once. The clerk doesn't need to know where the jump goes to know how big it is. A short jump is always two bytes. So the first reading only counts sizes and writes down every label's address. Then a later reading can write every byte.
 
-00:07:23.247 --> 00:07:31.163
+00:06:53.212 --> 00:07:01.078
 <v Gareth>The assembler the games use reads the source three times. Two passes to work out sizes and labels, and the third writes the code.
 
-00:07:31.412 --> 00:07:34.512
+00:07:01.292 --> 00:07:04.392
 <v Bev>So that's why you can name something before you've said what it is.
 
-00:07:34.745 --> 00:07:49.484
+00:07:04.683 --> 00:07:19.798
 <v Yvonne>That's why. And the assembler writes its ledger out as a file. The symbol file. Every label and its value, one per line. Mower Mayhem's is one thousand, nine hundred and fifty-eight lines long.
 
-00:07:49.642 --> 00:07:54.268
+00:07:20.093 --> 00:07:24.718
 <v Gareth>And the build script reads it, and refuses to build a game that's missing the names the test tools need.
 
-00:07:54.552 --> 00:08:06.445
+00:07:24.898 --> 00:07:36.698
 <v Yvonne>One habit, while we're here. Look addresses up in the symbol file after every build. Don't copy them into your notes. One byte added near the top of the code moves every label after it.
 
-00:08:06.651 --> 00:08:09.567
+00:07:36.856 --> 00:07:39.772
 <v Bev>So last week's address could be pointing at something else today.
 
-00:08:09.794 --> 00:08:15.341
+00:07:40.057 --> 00:07:45.640
 <v Yvonne>Into the middle of a different routine. If you change it by hand, the next build won't know.
 
-00:08:15.516 --> 00:08:19.075
+00:07:45.780 --> 00:07:49.268
 <v Bev>So now we've got bytes. How do they get onto a tape?
 
-00:08:19.399 --> 00:08:33.464
+00:07:49.594 --> 00:08:03.970
 <v Yvonne>The build script reads a small file in the game's folder, which tells it everything it can't guess. Which machine. Which file to start from. Which label to jump to. Which blocks go on the tape, and how the tape should load.
 
-00:08:33.658 --> 00:08:35.048
+00:08:04.173 --> 00:08:05.563
 <v Bev>And then out comes a cassette?
 
-00:08:35.425 --> 00:08:49.463
+00:08:05.916 --> 00:08:19.734
 <v Yvonne>A cassette. A Spectrum saves bytes as sound. A steady tone first, to say something's coming. About five seconds before a header, two before the data. Then the bytes as pulses.
 
-00:08:49.741 --> 00:08:51.708
+00:08:20.001 --> 00:08:21.968
 <v Bev>That's the noise from the top of the show.
 
-00:08:51.922 --> 00:09:02.382
+00:08:22.219 --> 00:08:32.751
 <v Yvonne>That's the noise. Each run of bytes is a block. It starts with a flag byte, nought for a header and two hundred and fifty-five for data, and it ends with a check byte.
 
-00:09:02.327 --> 00:09:03.476
+00:08:32.819 --> 00:08:33.969
 <v Bev>What's a check byte?
 
-00:09:03.720 --> 00:09:18.421
+00:08:34.367 --> 00:08:49.039
 <v Yvonne>Every byte in the block is mixed into it with an operation called exclusive or. The useful part is that if you mix the whole block together, check byte included, you get nought. That's how the computer knows a block loaded cleanly.
 
-00:09:18.643 --> 00:09:27.382
+00:08:49.165 --> 00:08:57.833
 <v Gareth>Mower Mayhem's released tape is five blocks. Twenty-one thousand, five hundred and five bytes. And every block mixes down to nought.
 
-00:09:27.348 --> 00:09:28.889
+00:08:57.812 --> 00:08:59.353
 <v Bev>So what's the first block?
 
-00:09:29.251 --> 00:09:41.671
+00:08:59.627 --> 00:09:12.094
 <v Yvonne>A few lines of BASIC. A Spectrum you've just switched on is running BASIC, and load, quote, quote, loads the first program it finds. So every tape starts with a little BASIC program that loads the rest.
 
-00:09:41.761 --> 00:09:42.888
+00:09:12.128 --> 00:09:13.255
 <v Bev>What does it say?
 
-00:09:43.225 --> 00:10:03.365
+00:09:13.525 --> 00:09:33.748
 <v Yvonne>First it makes room. It moves the top of the memory BASIC uses to one byte below the start of the game, so BASIC never writes over it. Then it loads the screen, so the picture appears while it loads. And there's a poke after that, which is an old trick from commercial loaders. It stops the messages for the later blocks printing over the picture.
 
-00:10:03.493 --> 00:10:08.153
+00:09:34.014 --> 00:09:38.646
 <v Gareth>Then it loads the code, and the last line jumps into it. And the game never comes back.
 
-00:10:08.446 --> 00:10:10.393
+00:09:38.876 --> 00:09:40.823
 <v Bev>And has that loader ever gone wrong?
 
-00:10:10.787 --> 00:10:28.112
+00:09:41.097 --> 00:09:58.261
 <v Yvonne>It taught us something. On the one-twenty-eight K, the loader pages each memory bank in and then loads a block into it. We found, loading our own tapes, that the one-twenty-eight K's BASIC rewrites the bank switch around every load, from its own copy in memory.
 
-00:10:28.289 --> 00:10:30.358
+00:09:58.525 --> 00:10:00.594
 <v Bev>So it undoes what you've just done.
 
-00:10:30.498 --> 00:10:40.795
+00:10:00.887 --> 00:10:11.189
 <v Yvonne>Every bank would have landed in bank nought. So in front of each switch, the loader writes the same value into BASIC's copy first. Then the two stay in step.
 
-00:10:41.071 --> 00:10:43.115
+00:10:11.367 --> 00:10:13.410
 <v Gareth>That's a poke I'd never have guessed.
 
-00:10:43.378 --> 00:10:55.847
+00:10:13.551 --> 00:10:26.026
 <v Yvonne>It's in the loader now. And Mower Mayhem doesn't even use that loader. It uses a packed one: a small machine-code loader hidden in a line of BASIC, that loads the rest without headers and unpacks it as it goes.
 
-00:10:55.928 --> 00:10:56.945
+00:10:26.016 --> 00:10:27.032
 <v Bev>And is it quicker?
 
-00:10:57.220 --> 00:11:05.120
+00:10:27.428 --> 00:10:35.372
 <v Yvonne>The build says this tape loads in a hundred and forty-one seconds. With the computer's own loader it would be two hundred and forty-five.
 
-00:11:05.355 --> 00:11:08.842
+00:10:35.516 --> 00:10:39.003
 <v Gareth>There's a comment in the game's build file that still says a hundred and nineteen.
 
-00:11:09.072 --> 00:11:19.539
+00:10:39.261 --> 00:10:49.623
 <v Yvonne>From when the packed loader first arrived. The game has grown since. A comment stays as it was written. The build prints the current figure every time, so take the build's line.
 
-00:11:19.807 --> 00:11:26.398
+00:10:49.858 --> 00:10:56.364
 <v Bev>So you've got a tape that builds the same every time. But how do you know it actually works? Who plays it?
 
-00:11:26.768 --> 00:11:40.498
+00:10:56.723 --> 00:11:10.338
 <v Yvonne>Two checks after the build. The first asks whether the layout can work at all. Is the interrupt table where the machine needs it, does the code stop below the bank window, is there room for the stack, and does no bank get claimed twice.
 
-00:11:40.647 --> 00:11:44.384
+00:11:10.603 --> 00:11:14.339
 <v Gareth>Every mistake a new Spectrum programmer makes, written down as code.
 
-00:11:44.508 --> 00:11:49.873
+00:11:14.518 --> 00:11:19.897
 <v Yvonne>That's how the chapter puts it. Mower Mayhem's build passes with memory map OK.
 
-00:11:49.848 --> 00:11:51.081
+00:11:19.976 --> 00:11:21.210
 <v Bev>And the second?
 
-00:11:51.423 --> 00:12:00.577
+00:11:21.610 --> 00:11:30.608
 <v Yvonne>Vik's test rig. It plays the tape into a Spectrum through the real Spectrum ROM, presses keys at exact moments, and checks what happens.
 
-00:12:00.766 --> 00:12:03.725
+00:11:30.733 --> 00:11:33.772
 <v Bev>A robot playing your game. Gareth told me about that one.
 
-00:12:03.927 --> 00:12:13.982
+00:11:33.930 --> 00:11:43.985
 <v Yvonne>It plays from recipes. A recipe is a little file of keys to press on given frames, and what should be true afterwards. Mower Mayhem has thirty-one of them.
 
-00:12:13.944 --> 00:12:14.702
+00:11:43.966 --> 00:11:44.724
 <v Bev>Give me one.
 
-00:12:14.941 --> 00:12:27.727
+00:11:44.927 --> 00:11:57.679
 <v Yvonne>Pause and resume. Press space twice to start. Press H four times, to pause and carry on. Then P for a while. After six hundred and twenty frames, the game should be in play.
 
-00:12:27.885 --> 00:12:29.714
+00:11:57.918 --> 00:11:59.747
 <v Bev>And it says pass or fail?
 
-00:12:29.999 --> 00:12:39.501
+00:12:00.136 --> 00:12:09.522
 <v Yvonne>It writes a row in a report. The check, the result, then the evidence. Expected one, got one. A skip is not a pass.
 
-00:12:39.726 --> 00:12:42.907
+00:12:09.686 --> 00:12:12.874
 <v Gareth>And it comes in three sizes. Tell her the sizes.
 
-00:12:43.041 --> 00:12:56.136
+00:12:13.076 --> 00:12:26.295
 <v Yvonne>A full run plays every recipe and takes about thirty-five minutes. One recipe on its own takes minutes. And there's a smoke check, about thirty seconds, for after a rebuild: does it build, does it load, does it reach play.
 
-00:12:56.280 --> 00:12:59.304
+00:12:26.519 --> 00:12:29.577
 <v Bev>Thirty seconds. That's quicker than my kettle.
 
-00:12:59.438 --> 00:13:04.819
+00:12:29.711 --> 00:12:35.063
 <v Yvonne>That's the one you run after every change. The full run is the one that writes the report.
 
-00:13:04.987 --> 00:13:07.890
+00:12:35.206 --> 00:12:38.074
 <v Bev>Go on, then, Yvonne. Something that went wrong.
 
-00:13:08.160 --> 00:13:14.698
+00:12:38.218 --> 00:12:44.649
 <v Yvonne>Five bytes. Late in development, a fix to Mower Mayhem's collision test added five bytes of code.
 
-00:13:14.668 --> 00:13:15.634
+00:12:44.734 --> 00:12:45.700
 <v Bev>Five's not many.
 
-00:13:15.833 --> 00:13:33.767
+00:12:45.868 --> 00:13:03.876
 <v Yvonne>It was enough. Some of the game's tables have to start on a boundary, an address that's an exact multiple of two hundred and fifty-six. It makes them quick to look things up in. To get there, the assembler skips ahead to the next boundary, and the gap it leaves can be up to two hundred and fifty-five bytes.
 
-00:13:33.905 --> 00:13:40.396
+00:13:04.030 --> 00:13:10.521
 <v Gareth>So add five bytes before it, and the table gets pushed onto the next page, and the gap grows by almost a whole page.
 
-00:13:40.647 --> 00:13:44.140
+00:13:10.719 --> 00:13:14.212
 <v Yvonne>And the end of the code moved past the safety margin above the stack.
 
-00:13:44.204 --> 00:13:45.175
+00:13:14.294 --> 00:13:15.264
 <v Bev>What's the stack?
 
-00:13:45.563 --> 00:13:52.963
+00:13:15.572 --> 00:13:23.104
 <v Gareth>The processor's scratch pad. Where it keeps return addresses and saved values. It grows downwards from the top.
 
-00:13:53.176 --> 00:13:55.990
+00:13:23.364 --> 00:13:26.178
 <v Bev>So the code had grown up into its space.
 
-00:13:56.246 --> 00:14:08.970
+00:13:26.446 --> 00:13:39.097
 <v Yvonne>Nearly. The build stopped. There's a line in the source, an assert, that says the end of the code plus two hundred and fifty-six must be below the top of the stack. It was false, so the build refused.
 
-00:14:09.225 --> 00:14:11.253
+00:13:39.310 --> 00:13:41.338
 <v Bev>And if that line hadn't been there?
 
-00:14:11.654 --> 00:14:20.000
+00:13:41.714 --> 00:13:50.073
 <v Yvonne>Nothing would have failed when it was built. The stack would have grown down into the last variables during play, and the bug would have shown up as random corruption.
 
-00:14:20.153 --> 00:14:23.257
+00:13:50.241 --> 00:13:53.293
 <v Bev>Oh, that's horrible. The sort of thing you'd never find.
 
-00:14:23.493 --> 00:14:39.278
+00:13:53.547 --> 00:14:09.273
 <v Yvonne>So a failed assertion is a cheap way to find it. The fix was to move five one-byte variables from before the gap to after the tables. The collision fix was replaced later, when the controls were rebuilt. The five variables stayed where they'd been moved.
 
-00:14:39.538 --> 00:14:50.862
+00:14:09.509 --> 00:14:21.121
 <v Gareth>They're still there. Five little lines at the bottom of the file, with a comment saying why. That assert saved the whole team a lot of hunting. Yvonne's tools catch things before any of us have to.
 
-00:14:51.119 --> 00:14:55.211
+00:14:21.393 --> 00:14:25.489
 <v Yvonne>The team writes the asserts. The build just reads them.
 
-00:14:55.461 --> 00:14:57.549
+00:14:25.680 --> 00:14:27.768
 <v Bev>There's a tool for everything with you, isn't there?
 
-00:14:57.869 --> 00:15:01.765
+00:14:28.123 --> 00:14:31.981
 <v Yvonne>There's a tool for that. I'll show Gareth afterwards.
 
-00:15:05.065 --> 00:15:10.128
+00:14:35.281 --> 00:14:40.556
 <v Bev>Go on, crystal ball time. Thirty years from now. What's a toolchain look like then?
 
-00:15:10.520 --> 00:15:21.577
+00:14:40.926 --> 00:14:51.880
 <v Gareth>Suppose one day there's a language, call it Python, after Monty Python. And it has a phone book built right in. You give it a name and a number, and it calls that a dictionary.
 
-00:15:21.796 --> 00:15:25.509
+00:14:52.076 --> 00:14:55.651
 <v Bev>A dictionary that's a phone book. Like on Tomorrow's World.
 
-00:15:25.697 --> 00:15:31.767
+00:14:55.923 --> 00:15:01.993
 <v Yvonne>And suppose that before it runs your program, it turns your text into a little code of its own, and then runs that code itself.
 
-00:15:32.037 --> 00:15:33.923
+00:15:02.211 --> 00:15:04.097
 <v Bev>So the clerk never goes home.
 
-00:15:34.208 --> 00:15:38.247
+00:15:04.286 --> 00:15:08.357
 <v Yvonne>The clerk never goes home. Something of it always stays behind.
 
-00:15:38.391 --> 00:15:40.597
+00:15:08.607 --> 00:15:10.812
 <v Gareth>And you could use a name before its line has run?
 
-00:15:40.974 --> 00:15:48.932
+00:15:11.121 --> 00:15:19.234
 <v Yvonne>Not in that one, I'd guess. Not before its line has run. Ours reads the file more than once, so ours can.
 
-00:15:49.181 --> 00:15:51.256
+00:15:19.424 --> 00:15:21.499
 <v Bev>And would it give you the same tape twice?
 
-00:15:51.645 --> 00:15:55.146
+00:15:21.764 --> 00:15:25.233
 <v Yvonne>Only if somebody writes the check. I'd write the check.
 
-00:15:55.288 --> 00:15:57.698
+00:15:25.531 --> 00:15:27.941
 <v Bev>So what should folk do before next week?
 
-00:15:57.954 --> 00:16:03.969
+00:15:28.208 --> 00:15:34.168
 <v Yvonne>Chapter four of the book, From Text to Tape. The exercise is called Rebuild and Compare.
 
-00:16:04.110 --> 00:16:13.224
+00:15:34.436 --> 00:15:43.609
 <v Gareth>Go on then. Build Mower Mayhem from its source with the commands in the chapter. Then check that the checksum starts nine, six, eight, three, B, E, nought, F.
 
-00:16:13.425 --> 00:16:21.423
+00:15:43.746 --> 00:15:51.792
 <v Yvonne>Then load the tape on a one-twenty-eight K and watch it. The Dalex Software text, the loading screen arriving, then the title.
 
-00:16:21.394 --> 00:16:22.143
+00:15:51.750 --> 00:15:52.500
 <v Bev>And then?
 
-00:16:22.548 --> 00:16:35.005
+00:15:52.772 --> 00:16:05.365
 <v Yvonne>Open the listing, find the line you assembled by hand, and check your bytes against it. Then look one routine up in the symbol file and check its size against the listing's next address. The chapter gives you the answers to check against.
 
-00:16:35.210 --> 00:16:37.050
+00:16:05.519 --> 00:16:07.360
 <v Bev>And where do they find all the commands?
 
-00:16:37.296 --> 00:16:39.982
+00:16:07.764 --> 00:16:10.431
 <v Yvonne>In the chapter. It's all written down.
 
-00:16:43.982 --> 00:16:56.100
+00:16:14.431 --> 00:16:26.514
 <v Bev>That's us for this week. Next time, it's the turn of the man across the desk. Gareth's in the guest chair, and Mo and I will be asking the questions. If you've got a question for the team, send it in, and we'll put it to them.
 
-00:16:56.049 --> 00:16:57.359
+00:16:26.459 --> 00:16:27.769
 <v Gareth>I'm nervous already.
 
-00:16:57.459 --> 00:16:58.482
+00:16:27.759 --> 00:16:28.782
 <v Bev>Thanks, Yvonne.
 
-00:16:58.762 --> 00:17:03.357
+00:16:28.958 --> 00:16:33.494
 <v Yvonne>Thank you, Bev. Same time next week. Same tape.
 
-00:17:03.548 --> 00:17:08.859
+00:16:33.625 --> 00:16:39.089
 <v Bev>And Rick Astley's number one for a fifth week. Is anyone ever going to give Rick Astley up?
 
-00:17:08.939 --> 00:17:10.547
+00:16:39.291 --> 00:16:40.899
 <v Gareth>Not this week, Bev.
 
-00:17:10.492 --> 00:17:11.723
+00:16:40.986 --> 00:16:42.217
 <v Bev>Right then, turn it up.
 
-00:17:11.934 --> 00:17:25.819
-<v Daniel>That was nineteen eighty-seven. The assembler is sjasmplus, free, for Windows, macOS and Linux, and the build scripts are in Python three, the language from Gareth's crystal ball. It really does have a dictionary built in.
+00:16:42.381 --> 00:16:58.982
+<v Daniel>This is Daniel Vaughan, who made the show. That was nineteen eighty-seven. The assembler is sjasmplus, free, for Windows, macOS and Linux, and the build scripts are in Python three, the language from Gareth's crystal ball. It really does have a dictionary built in.
 
-00:17:26.419 --> 00:17:37.801
+00:16:59.582 --> 00:17:10.799
 <v Daniel>The chapter is From Text to Tape, in Machine Code Mayhem on Leanpub, and the exercise is Rebuild and compare. Load your tape in an emulator such as Fuse, in one-twenty-eight K mode.
 
-00:17:38.401 --> 00:17:47.553
-<v Daniel>Thank you for listening. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is written and produced by me, Daniel Vaughan.
+00:17:11.399 --> 00:17:26.007
+<v Daniel>Thank you for listening. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is written and produced by me, Daniel Vaughan, with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.

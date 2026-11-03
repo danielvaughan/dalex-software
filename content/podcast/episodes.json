@@ -205,63 +205,59 @@
     "date": "2026-09-24",
     "time": "18:00",
     "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/03-yvonne.mp3",
-    "audio_bytes": 12949814,
-    "seconds": 1069,
+    "audio_bytes": 12691139,
+    "seconds": 1047,
     "chapters": [
       {
         "start": 0,
-        "title": "Before we start"
-      },
-      {
-        "start": 30,
         "title": "Cold open"
       },
       {
-        "start": 53,
+        "start": 23,
         "title": "Welcome"
       },
       {
-        "start": 111,
+        "start": 82,
         "title": "The desk"
       },
       {
-        "start": 164,
+        "start": 135,
         "title": "The big idea"
       },
       {
-        "start": 276,
+        "start": 247,
         "title": "By hand"
       },
       {
-        "start": 392,
+        "start": 362,
         "title": "Names and passes"
       },
       {
-        "start": 495,
+        "start": 466,
         "title": "In the game"
       },
       {
-        "start": 680,
+        "start": 650,
         "title": "Does it work"
       },
       {
-        "start": 785,
+        "start": 755,
         "title": "The bug"
       },
       {
-        "start": 905,
+        "start": 875,
         "title": "Crystal ball"
       },
       {
-        "start": 955,
+        "start": 925,
         "title": "Try this"
       },
       {
-        "start": 1000,
+        "start": 970,
         "title": "Close"
       },
       {
-        "start": 1032,
+        "start": 1002,
         "title": "After the show"
       }
     ],
