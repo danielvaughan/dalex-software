@@ -207,5 +207,76 @@
       }
     ],
     "visible": true
+  },
+  {
+    "number": 3,
+    "slug": "03-yvonne",
+    "title": "Same source, same tape",
+    "guest": "Yvonne Standish, toolsmith and researcher",
+    "summary": "Yvonne takes a line of text all the way to tape: the assembler as a clerk with a ledger, the tape's blocks, and why the same source makes the same tape.",
+    "date": "2026-11-03",
+    "time": "11:07",
+    "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/03-yvonne.mp3",
+    "audio_bytes": 12949814,
+    "seconds": 1069,
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Before we start"
+      },
+      {
+        "start": 30,
+        "title": "Cold open"
+      },
+      {
+        "start": 53,
+        "title": "Welcome"
+      },
+      {
+        "start": 111,
+        "title": "The desk"
+      },
+      {
+        "start": 164,
+        "title": "The big idea"
+      },
+      {
+        "start": 276,
+        "title": "By hand"
+      },
+      {
+        "start": 392,
+        "title": "Names and passes"
+      },
+      {
+        "start": 495,
+        "title": "In the game"
+      },
+      {
+        "start": 680,
+        "title": "Does it work"
+      },
+      {
+        "start": 785,
+        "title": "The bug"
+      },
+      {
+        "start": 905,
+        "title": "Crystal ball"
+      },
+      {
+        "start": 955,
+        "title": "Try this"
+      },
+      {
+        "start": 1000,
+        "title": "Close"
+      },
+      {
+        "start": 1032,
+        "title": "After the show"
+      }
+    ],
+    "visible": true
   }
 ]
