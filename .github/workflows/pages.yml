@@ -5,6 +5,8 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+  schedule:
+    - cron: '5 18,19 * * *'   # podcast episodes go out at 19:00 UK time on their day (D-31)
 
 permissions: {}
 

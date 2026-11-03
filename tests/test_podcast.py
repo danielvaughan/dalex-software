@@ -17,7 +17,7 @@ SITE = {'base_url': 'https://dalex-software.co.uk/'}
 
 def episode(number, slug, visible):
     return {'number': number, 'slug': slug, 'title': f'Episode {number}', 'guest': 'Gareth Cadwaladr',
-            'summary': 'A summary.', 'date': f'2026-12-0{number + 1}',
+            'summary': 'A summary.', 'date': f'2026-09-0{number + 1}',
             'audio_url': f'https://github.com/danielvaughan/dalex-software/releases/download/podcast/{slug}.mp3',
             'audio_bytes': 10_000_000, 'seconds': 1080,
             'chapters': [{'start': 0, 'title': 'Welcome'}, {'start': 60, 'title': 'The desk'}], 'visible': visible}
@@ -78,6 +78,15 @@ class Podcast(unittest.TestCase):
         data = json.loads(podcast.chapters_json(eps[0]))
         self.assertEqual([c['startTime'] for c in data['chapters']], [0, 60])
         self.assertEqual(podcast.rss(SITE, show, eps), podcast.rss(SITE, *podcast.load(self.root)[0:1], eps))
+
+    def test_an_episode_waits_for_its_own_day(self):
+        """D-31: each episode goes out on its 1987 recording day; one dated ahead is not built yet."""
+        path = self.root / podcast.CONTENT / 'episodes.json'
+        eps = json.loads(path.read_text())
+        eps[1]['visible'] = True
+        eps[1]['date'] = '2999-01-01'
+        path.write_text(json.dumps(eps))
+        self.assertEqual([ep['slug'] for ep in podcast.load(self.root)[1]], ['pilot'])
 
     def test_chapters_out_of_order_are_refused(self):
         path = self.root / podcast.CONTENT / 'episodes.json'

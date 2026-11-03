@@ -2,7 +2,7 @@
 
 Reads content/podcast/show.json (the show), content/podcast/episodes.json (the episodes) and, for each episode,
 its show notes content/podcast/<slug>.html and transcript content/podcast/<slug>.vtt. Only
-episodes with "visible": true are built anywhere, so an episode the author has not yet listened to never reaches
+episodes with "visible": true whose date and time have come are built anywhere, so an episode the author has not yet listened to never reaches
 the site, the feed or the sitemap (the book's ADR-0025: nothing is published until the author has heard it).
 
 The feed is RSS 2.0 with Apple's iTunes tags and the Podcast Index namespace (podcast:transcript for the WebVTT
@@ -55,11 +55,19 @@ def load(root: Path):
         starts = [c['start'] for c in ep['chapters']]
         if starts != sorted(starts) or (starts and starts[0] != 0):
             raise ValueError(f'{ep["slug"]}: chapters must start at 0 and run in order')
-    shown = [ep for ep in episodes if ep['visible'] is True]
+    now = datetime.now(timezone.utc)   # an episode goes out at its own date and time, not before (D-31)
+    shown = [ep for ep in episodes if ep['visible'] is True and released(ep) <= now]
     for ep in shown:
         ep['notes'] = (folder / f'{ep["slug"]}.html').read_text(encoding='utf-8')
         ep['vtt'] = (folder / f'{ep["slug"]}.vtt').read_text(encoding='utf-8')
     return show, sorted(shown, key=lambda ep: (ep['date'], ep['number']), reverse=True)
+
+
+def released(ep) -> datetime:
+    """When an episode goes out: its date at its time (HH:MM UTC), 19:00 UTC when no time is given."""
+    d = date.fromisoformat(ep['date'])
+    hour, minute = (int(x) for x in (ep.get('time') or '19:00').split(':'))
+    return datetime(d.year, d.month, d.day, hour, minute, tzinfo=timezone.utc)
 
 
 def clock(seconds: int) -> str:

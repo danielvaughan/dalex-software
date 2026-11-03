@@ -432,8 +432,11 @@ replaces the book's ADR-0025 rhythm (weekly, after the author has heard the pilo
   rendered from the script as it now stands (the render queue's script hash). It uploads the MP3 to this repository's
   `podcast` release, and writes the episode's entry (`visible: true`, the publication date and time in UTC), its
   transcript and its show notes into `content/podcast/`. Pushing this repository deploys them.
-- **Dates.** `pubDate` is the publication time, a second later per episode number, so episodes published together keep
-  their order and none is dated in the future. The 1987 recording date is in the show notes, not the feed.
+- **Dates (owner: "publish on the same day of the year as the 1987 dates").** Each episode goes out on its 1987
+  recording day in 2026, at 19:00 UK time: the pilot on 3 September, the roundup on 29 October, the last on Christmas
+  Eve. Episodes whose day has passed appear at once; later ones are uploaded ahead and held back by the build until
+  their time, and the workflow rebuilds daily at 18:05 and 19:05 UTC so each appears on its evening. `pubDate` is that
+  time, a second later per episode number.
 - **Audio** is not in this repository: each MP3 is an asset of the `podcast` release, served from GitHub's download
   host, which answers HEAD and byte-range requests (checked when the release is first made).
 - **Honesty.** The show description, every episode page and every set of notes say the people are fictional and the
