@@ -707,5 +707,68 @@
       }
     ],
     "visible": true
+  },
+  {
+    "number": 11,
+    "slug": "11-derek",
+    "title": "Before it leaves the building",
+    "guest": "Derek Tattersall, release gatekeeper",
+    "summary": "Derek on the tape the player actually gets: a load time you can work out with a pencil, the loading screen, the box, and nothing without evidence.",
+    "date": "2026-11-19",
+    "time": "19:00",
+    "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/11-derek.mp3",
+    "audio_bytes": 12253161,
+    "seconds": 1011,
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Cold open"
+      },
+      {
+        "start": 24,
+        "title": "Welcome"
+      },
+      {
+        "start": 73,
+        "title": "The desk"
+      },
+      {
+        "start": 150,
+        "title": "The big idea"
+      },
+      {
+        "start": 245,
+        "title": "By hand"
+      },
+      {
+        "start": 370,
+        "title": "In the game"
+      },
+      {
+        "start": 600,
+        "title": "The bug"
+      },
+      {
+        "start": 716,
+        "title": "The box"
+      },
+      {
+        "start": 838,
+        "title": "Crystal ball"
+      },
+      {
+        "start": 874,
+        "title": "Try this"
+      },
+      {
+        "start": 936,
+        "title": "Close"
+      },
+      {
+        "start": 964,
+        "title": "After the show"
+      }
+    ],
+    "visible": true
   }
 ]

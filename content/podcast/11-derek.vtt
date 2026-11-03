@@ -1,0 +1,571 @@
+WEBVTT
+
+00:00:01.000 --> 00:00:02.114
+<v Derek>Six minutes to load.
+
+00:00:02.346 --> 00:00:05.742
+<v Bev>Six minutes? I could boil the kettle four times.
+
+00:00:06.001 --> 00:00:08.729
+<v Derek>The reviewer for WOLF made a pot of tea, and drank it.
+
+00:00:14.529 --> 00:00:18.658
+<v Gareth>That's a tape loading. Every second of that is something Derek's counted.
+
+00:00:23.658 --> 00:00:30.879
+<v Bev>Hello there, it's Bev, the kettle's on, and this is Dalex After Hours, the slot where we find out how computer games are really made.
+
+00:00:31.479 --> 00:00:34.986
+<v Bev>Every fact on this show comes out of the book the team's writing.
+
+00:00:35.586 --> 00:00:37.212
+<v Bev>With me as ever is Gareth.
+
+00:00:37.200 --> 00:00:37.952
+<v Gareth>Hiya, Bev.
+
+00:00:38.230 --> 00:00:46.243
+<v Bev>And our guest this week keeps the gate. Nothing leaves the building until he's signed the sheet. Derek Tattersall, welcome.
+
+00:00:46.311 --> 00:00:47.454
+<v Derek>Thank you, Bev.
+
+00:00:49.054 --> 00:00:49.908
+<v Derek>Good evening.
+
+00:00:50.112 --> 00:00:53.133
+<v Bev>Can I get you a cup of tea? The kettle's just boiled.
+
+00:00:53.303 --> 00:00:56.419
+<v Derek>That's kind. I've brought my flask from home, if you don't mind.
+
+00:00:56.430 --> 00:00:57.768
+<v Gareth>He always brings the flask.
+
+00:00:57.979 --> 00:00:59.303
+<v Derek>I know what's in the flask.
+
+00:00:59.522 --> 00:01:01.672
+<v Bev>And I hear you've been enjoying the charts this week.
+
+00:01:01.971 --> 00:01:06.210
+<v Derek>Nina Simone, at number five. My Baby Just Cares for Me.
+
+00:01:07.810 --> 00:01:09.516
+<v Derek>Some things are worth the wait.
+
+00:01:12.816 --> 00:01:15.220
+<v Bev>So, Derek, what's on your desk?
+
+00:01:15.572 --> 00:01:20.070
+<v Derek>Sheets. An in-tray. And a rubber stamp.
+
+00:01:20.300 --> 00:01:23.409
+<v Bev>A rubber stamp. That's very official.
+
+00:01:23.535 --> 00:01:29.275
+<v Derek>It comes down once, Bev. I sign the milestones off. Slowly, and only once.
+
+00:01:29.362 --> 00:01:30.934
+<v Bev>Why slowly?
+
+00:01:31.287 --> 00:01:40.020
+<v Derek>Because the signature has to mean something. Before I sign, I read Vik's report and Emeka's notebook. If I can't be shown it, I can't sign it, mind.
+
+00:01:40.142 --> 00:01:41.589
+<v Bev>And what are you signing, exactly?
+
+00:01:41.680 --> 00:01:43.131
+<v Derek>The tape.
+
+00:01:44.731 --> 00:01:54.026
+<v Derek>The tape is what the player actually gets. Not the code. Not the plan. The tape, the box, the picture on the screen while it loads, and how long it takes.
+
+00:01:54.147 --> 00:01:56.678
+<v Bev>How long it takes? That's part of it?
+
+00:01:56.946 --> 00:02:01.580
+<v Derek>That's part of it. A player is sat there, waiting. That's their time.
+
+00:02:01.791 --> 00:02:03.283
+<v Bev>Have you always been this careful?
+
+00:02:03.675 --> 00:02:10.028
+<v Derek>Before Dalex I did quality control at a cassette factory. Every tape off the line, a fresh pair of eyes.
+
+00:02:10.281 --> 00:02:12.800
+<v Bev>So you've been listening to tapes your whole life.
+
+00:02:12.937 --> 00:02:15.434
+<v Derek>Most of it. The rest is brass bands.
+
+00:02:15.646 --> 00:02:20.998
+<v Gareth>Derek, can I say? Last time I brought you a build, you looked at me over your glasses for about a week.
+
+00:02:20.996 --> 00:02:22.099
+<v Derek>Show me the evidence.
+
+00:02:22.135 --> 00:02:26.249
+<v Gareth>It's in the verify log.
+
+00:02:26.198 --> 00:02:26.770
+<v Derek>Good lad.
+
+00:02:26.960 --> 00:02:29.602
+<v Bev>I feel like I've walked into a very polite western.
+
+00:02:30.202 --> 00:02:33.380
+<v Bev>Right then. What's the one idea this week?
+
+00:02:33.647 --> 00:02:40.497
+<v Derek>A load time is a sum. You can do it with a pencil before anything's loaded. And then you show it with a real load.
+
+00:02:40.723 --> 00:02:47.214
+<v Bev>I'll be honest, I don't know how a cassette holds a computer game at all. It's a tape. It's for music.
+
+00:02:47.456 --> 00:02:54.380
+<v Derek>That's the right place to start. A cassette records sound. And a Spectrum saves a program by playing it a particular sound.
+
+00:02:54.543 --> 00:02:57.583
+<v Bev>So that screech in the cold open is the game.
+
+00:02:57.776 --> 00:03:09.158
+<v Gareth>That screech is the game. The Spectrum switches a signal between two levels, on and off, and the bytes are carried in how long it stays at each. Each change from one level to the other is called an edge.
+
+00:03:09.206 --> 00:03:10.603
+<v Bev>Like Morse code.
+
+00:03:10.777 --> 00:03:26.152
+<v Gareth>That's the book's comparison. A short signal and a long one. A nought is two short pulses. A one is two pulses twice as long. The loader in the Spectrum's ROM times each pair, and if it's shorter than a set length it's a nought, longer it's a one.
+
+00:03:26.442 --> 00:03:29.289
+<v Bev>So a one takes longer to play than a nought.
+
+00:03:29.572 --> 00:03:35.000
+<v Gareth>Twice as long. A byte that's all ones takes twice the tape of a byte that's all noughts.
+
+00:03:35.146 --> 00:03:38.206
+<v Bev>So it matters what's in it, not just how big it is.
+
+00:03:38.360 --> 00:03:40.654
+<v Derek>That's the first thing a tape's size doesn't tell you.
+
+00:03:40.941 --> 00:03:43.232
+<v Bev>And what are all the stripes in the border while it loads?
+
+00:03:43.571 --> 00:03:48.717
+<v Gareth>When the ROM saves, it changes the border between red and cyan as it goes. You're watching the sound.
+
+00:03:48.996 --> 00:03:52.053
+<v Bev>Oh, I like that. You're watching the sound.
+
+00:03:52.275 --> 00:04:00.203
+<v Derek>And before each block there's a steady tone with no data in it at all. About five seconds before a header, and about two before a block of data.
+
+00:04:00.209 --> 00:04:01.605
+<v Bev>Five seconds of nothing.
+
+00:04:01.768 --> 00:04:05.191
+<v Derek>Five seconds of nothing, every header. Hold that thought.
+
+00:04:05.271 --> 00:04:07.085
+<v Bev>So you said a pencil.
+
+00:04:07.289 --> 00:04:10.949
+<v Derek>I did. Get one. I'll take it slowly.
+
+00:04:10.893 --> 00:04:12.508
+<v Bev>You always do.
+
+00:04:12.695 --> 00:04:20.675
+<v Derek>I do. On average, with about half the bits ones, a tape plays about a hundred and seventy bytes a second. That's the first number.
+
+00:04:20.969 --> 00:04:24.382
+<v Bev>A hundred and seventy a second. Write it down.
+
+00:04:24.580 --> 00:04:33.197
+<v Derek>Now, the tape for Antigravity, our game set out in space. Six blocks. Add them up, and there's fourteen thousand, four hundred and eighty-three bytes on the tape.
+
+00:04:33.423 --> 00:04:34.993
+<v Bev>Divide by a hundred and seventy.
+
+00:04:35.236 --> 00:04:44.862
+<v Derek>The book makes it eighty-four point nine seconds of data. Then the leaders. One header with its five seconds, and five data blocks at two seconds each.
+
+00:04:44.925 --> 00:04:47.538
+<v Bev>Five and ten. Fifteen.
+
+00:04:47.685 --> 00:04:53.957
+<v Derek>Fifteen. And a second of silence after each block but the last. That's five more.
+
+00:04:54.223 --> 00:04:57.725
+<v Bev>So eighty-four point nine, and fifteen, and five.
+
+00:04:57.869 --> 00:05:01.970
+<v Derek>A hundred and four point nine seconds. About a minute and three quarters.
+
+00:05:02.040 --> 00:05:02.937
+<v Bev>Is that right?
+
+00:05:03.179 --> 00:05:18.465
+<v Derek>That's an estimate. Now, three numbers, Bev, and they're what I want on the sheet. The estimate, from the pencil. A hundred and four point nine. The calculation, from the tool that writes the tape. It counts every bit of every byte, and it says a hundred and three point one.
+
+00:05:18.436 --> 00:05:19.277
+<v Bev>And the third?
+
+00:05:19.583 --> 00:05:25.908
+<v Derek>The real tape, loading through the real ROM, filmed on video and timed. A hundred and two point four.
+
+00:05:26.090 --> 00:05:28.263
+<v Bev>So all three agree, near enough.
+
+00:05:28.554 --> 00:05:39.870
+<v Derek>Near enough, and the pencil's a little high, because the guess was a little off. Only forty-seven per cent of that tape's bits are ones, not fifty. Every nought costs half as much.
+
+00:05:40.161 --> 00:05:45.047
+<v Gareth>The calculation is a sum. The video is the evidence that a real load agrees with it.
+
+00:05:45.344 --> 00:05:47.402
+<v Derek>Lovely way to put it, Gareth. I'll have that.
+
+00:05:47.616 --> 00:05:51.179
+<v Bev>And the checklist? You've got a checklist, I can tell.
+
+00:05:51.433 --> 00:06:05.355
+<v Derek>Write down, in a column, everything the player gets. The tape. The load time. The loading screen. The box. Then beside each one, how you'd show it's right. You only tick a line when you can show it.
+
+00:06:05.552 --> 00:06:07.133
+<v Bev>Not when you think it's right.
+
+00:06:07.346 --> 00:06:10.467
+<v Derek>Not when you think it's right. That's the whole of the job.
+
+00:06:12.967 --> 00:06:16.762
+<v Bev>So that's Tiger Gorilla playing now. Is this the six minutes?
+
+00:06:17.147 --> 00:06:24.317
+<v Derek>It was. With the ordinary loader its tape ran to four hundred and twenty-nine seconds of border stripes before the gorilla appeared.
+
+00:06:24.372 --> 00:06:26.252
+<v Bev>Seven minutes, near enough.
+
+00:06:26.485 --> 00:06:34.086
+<v Derek>Over seven. The reviewer liked the loading picture and the tunes, and still marked presentation down. Fair enough, I'd say.
+
+00:06:34.243 --> 00:06:35.926
+<v Bev>So where do the minutes go?
+
+00:06:36.175 --> 00:06:51.717
+<v Derek>Two places. First, headers. The ordinary way to load a game with lots of memory banks is a little BASIC program that loads each block in turn, and every block reads a header before its data. Five seconds of tone, nineteen bytes, a gap, then two more seconds of tone.
+
+00:06:51.857 --> 00:07:02.442
+<v Gareth>About six seconds of header a block, carrying nothing the game will use. Tiger Gorilla loads a screen, five banks and its code. Seven headers, about forty-two seconds, before any data at all.
+
+00:07:02.669 --> 00:07:06.339
+<v Bev>Forty-two seconds of nothing. And the second place?
+
+00:07:06.634 --> 00:07:14.996
+<v Derek>The data itself. Tiger Gorilla's whole tape was sixty-seven thousand, five hundred and eighty-seven bytes, at about a hundred and seventy a second.
+
+00:07:15.010 --> 00:07:16.714
+<v Bev>So what did you do?
+
+00:07:17.067 --> 00:07:23.402
+<v Derek>One line. In the build description, the line that said the R O M loader was changed to say packed.
+
+00:07:23.371 --> 00:07:24.185
+<v Bev>One line.
+
+00:07:24.316 --> 00:07:31.733
+<v Derek>One line. It swaps in a little loader, two hundred and fifteen bytes of machine code, hidden in a comment line of the BASIC program.
+
+00:07:31.991 --> 00:07:41.563
+<v Gareth>A REM line, Bev. BASIC's comment, for a note to yourself. BASIC skips the rest of the line, so the line can hold any bytes you like. The loader hides in there.
+
+00:07:41.650 --> 00:07:42.536
+<v Bev>That's sneaky.
+
+00:07:42.800 --> 00:07:53.555
+<v Gareth>It's lovely. It drops the headers, so every block after the first is just its data with a short tone. And every block is packed before it's written, and unpacked as it lands.
+
+00:07:53.502 --> 00:07:54.858
+<v Bev>Packed like a suitcase.
+
+00:07:54.983 --> 00:08:01.881
+<v Gareth>Packed like a suitcase you sit on. Tiger Gorilla's tape fell to thirty-five thousand, eight hundred and ninety-eight bytes.
+
+00:08:02.046 --> 00:08:08.263
+<v Bev>But hang on. If the loader lives in the BASIC program, and the game loads over the top of it?
+
+00:08:08.537 --> 00:08:20.644
+<v Gareth>Good question, that. It's the one I asked when I started. It can't stay where it is, so the first eighteen bytes copy the rest of it down into the printer buffer, a little patch of memory below the BASIC program, and it runs from there.
+
+00:08:20.870 --> 00:08:23.662
+<v Bev>The printer buffer. Has anyone got a printer?
+
+00:08:24.024 --> 00:08:29.688
+<v Gareth>Nobody's using it while a game loads. It's spare. My favourite word.
+
+00:08:29.905 --> 00:08:38.810
+<v Derek>And there's one bit of it I like. If the tape has an error, the loader tries the same block again. So the player can rewind a little and press play.
+
+00:08:39.040 --> 00:08:40.860
+<v Bev>Instead of starting all over again.
+
+00:08:41.014 --> 00:08:44.356
+<v Derek>Instead of starting all over. That's the player's time, again.
+
+00:08:44.956 --> 00:08:57.560
+<v Derek>And every game that measured both loaders cut its load roughly in half. Mower Mayhem went from two hundred and twenty-seven seconds to a hundred and nineteen. Tiger Gorilla from four hundred and twenty-nine to two hundred and thirty-eight.
+
+00:08:57.654 --> 00:08:59.148
+<v Bev>So that's it fixed.
+
+00:08:59.422 --> 00:09:08.372
+<v Derek>Halved. Not short. The games grew again since, and one reviewer of Mower Mayhem still opens with, well over two minutes to load.
+
+00:09:08.363 --> 00:09:09.241
+<v Bev>Do you mind that?
+
+00:09:09.501 --> 00:09:14.487
+<v Derek>I'd rather the review was honest. And every load-time complaint went back into the next fix list.
+
+00:09:14.555 --> 00:09:16.909
+<v Bev>Did anyone try something cleverer?
+
+00:09:17.205 --> 00:09:24.413
+<v Derek>Tiger Gorilla did. It first wrote its own packer, with an unpacker that ran after loading. It took two point three seconds.
+
+00:09:24.671 --> 00:09:26.799
+<v Bev>Two seconds doesn't sound so bad.
+
+00:09:27.078 --> 00:09:40.516
+<v Derek>It shifted every timing counted in frames by a hundred and twenty frames. And Vik's test rig, which plays the tape and presses keys at exact moments, pressed its keys during the unpack, so the recipes for zones two and three quietly played zone one.
+
+00:09:40.739 --> 00:09:43.604
+<v Bev>So the tests passed, but they were testing the wrong thing.
+
+00:09:43.839 --> 00:09:51.125
+<v Derek>That's what quietly means, Bev. The team's own packed loader gave the same load time with none of that, and the game's own packer was deleted.
+
+00:09:51.262 --> 00:09:53.914
+<v Gareth>Hardest thing in the world, deleting your own clever code.
+
+00:09:54.153 --> 00:09:59.182
+<v Derek>Kindest thing for the player, sometimes. And they did it without a fuss. I was proud of them.
+
+00:10:00.047 --> 00:10:04.358
+<v Bev>So go on, there's always a story. Something that nearly got out of the door.
+
+00:10:04.608 --> 00:10:07.125
+<v Derek>Two, if I may. The first is the picture.
+
+00:10:07.207 --> 00:10:08.578
+<v Bev>The loading screen.
+
+00:10:08.727 --> 00:10:23.011
+<v Derek>The loading screen. It's the picture the player looks at for those minutes. A playtest of Mower Mayhem caught about eight frames of garbage as the packed picture unpacked. New picture bytes, showing through the old colours of the text that was there before.
+
+00:10:23.233 --> 00:10:25.676
+<v Bev>Eight frames. That's barely a blink.
+
+00:10:25.864 --> 00:10:29.541
+<v Derek>It's the first thing the player sees, Bev. It doesn't go out like that.
+
+00:10:29.743 --> 00:10:41.918
+<v Gareth>The screen's in two parts. The pixels, and then the colours, one byte for each little square. The fix was in the loader. Before it unpacks the picture, it writes black ink on black paper into every colour byte.
+
+00:10:41.880 --> 00:10:43.502
+<v Bev>So everything goes black.
+
+00:10:43.741 --> 00:10:51.781
+<v Gareth>Everything goes black. Then the pixels arrive and you can't see them. Then the colours land last, and the picture appears, from the top row down.
+
+00:10:51.807 --> 00:10:53.200
+<v Bev>Like the curtains opening.
+
+00:10:53.359 --> 00:10:59.262
+<v Gareth>The book calls it attributes last. Black out the colours, write the pixels unseen, then let the colours arrive.
+
+00:10:59.441 --> 00:11:02.541
+<v Derek>And the second story is the one I'd ask every listener to remember.
+
+00:11:02.555 --> 00:11:03.059
+<v Bev>Go on.
+
+00:11:03.194 --> 00:11:08.816
+<v Derek>While the team's tools were changing, WOLF built with the packed loader one run, and the ordinary loader the next.
+
+00:11:08.876 --> 00:11:10.738
+<v Bev>Without anybody changing anything?
+
+00:11:11.083 --> 00:11:23.558
+<v Derek>The build's defaults are the ordinary loader and no house text. If the game doesn't say which loader it wants, written down, in its build file, the default decides. And the tape you tested need not be the tape that leaves.
+
+00:11:23.620 --> 00:11:25.476
+<v Bev>Oh, that's a horrible thought.
+
+00:11:25.620 --> 00:11:31.959
+<v Derek>So you pin it. Two lines in the build file, before you test. Then the tape I signed is the tape that goes.
+
+00:11:32.243 --> 00:11:46.288
+<v Gareth>And there's a rule for the game itself. Whichever loader started it, it must give the same result. Mower Mayhem compared every byte of memory after both loaders. Only memory the loaders use for themselves differed. Never the game's own blocks.
+
+00:11:46.441 --> 00:11:51.758
+<v Derek>So set your own stack, and set every byte you read. Don't trust what happens to be lying about.
+
+00:11:52.037 --> 00:11:54.562
+<v Bev>Like tidying your desk before you start.
+
+00:11:54.562 --> 00:11:55.586
+<v Derek>Very like.
+
+00:11:55.834 --> 00:11:57.991
+<v Bev>And the box? You said the box.
+
+00:11:58.241 --> 00:12:06.583
+<v Derek>At each milestone the media kit makes what a release comes with. A cassette inlay, an advert, a poster, and a two-page review in INK and PAPER.
+
+00:12:06.655 --> 00:12:07.564
+<v Bev>Brian's magazine.
+
+00:12:07.805 --> 00:12:12.841
+<v Derek>Brian's magazine. And the rule for the box is that nothing on it may claim more than the evidence shows.
+
+00:12:12.972 --> 00:12:16.892
+<v Bev>How do you stop an advert boasting? Adverts always boast.
+
+00:12:17.149 --> 00:12:26.389
+<v Derek>The advert may only quote what a reviewer wrote, word for word. Which is how Mower Mayhem's advert came to carry, well over two minutes to load, so put the kettle on.
+
+00:12:26.372 --> 00:12:28.355
+<v Bev>That's my sort of advert.
+
+00:12:28.571 --> 00:12:36.347
+<v Derek>And an open severity one finding, a crash, say, or broken controls, caps the overall score at fifty-nine. A game can't ship a crash with a good mark.
+
+00:12:36.629 --> 00:12:39.323
+<v Bev>And the picture on the screen? Who says that's good?
+
+00:12:39.596 --> 00:12:48.618
+<v Derek>A fresh pair of eyes, every time. WOLF's first fresh reader was shown the loading picture at real size and asked who the hero was. He named nobody.
+
+00:12:48.673 --> 00:12:49.481
+<v Bev>Oh no.
+
+00:12:49.780 --> 00:12:59.164
+<v Derek>The next version put a lit halo round Dex, the hero, and a new reader named him. A fresh reader is part of the evidence, because the artist already knows who the hero is.
+
+00:12:59.436 --> 00:13:00.754
+<v Bev>And the name on the tape?
+
+00:13:01.134 --> 00:13:12.176
+<v Gareth>Ten letters, that's all a tape name holds. The scaffolding for Gold Master wrote Gold Maste, with the R cut off. The house check refused it. It's G dot Master now.
+
+00:13:12.433 --> 00:13:16.627
+<v Derek>No word cut off. I'd not sign Gold Maste.
+
+00:13:16.827 --> 00:13:20.934
+<v Bev>And the logo? Every Dalex tape has the logo on the loading screen.
+
+00:13:21.130 --> 00:13:33.072
+<v Derek>Always in the same place. Bottom right, ten squares by four. It's stamped on last, byte for byte, and then a check compares every byte of that slot. If one differs, it lists the squares and stops.
+
+00:13:33.262 --> 00:13:36.380
+<v Gareth>Mower Mayhem's charging dock was sat right where the logo goes.
+
+00:13:36.408 --> 00:13:37.746
+<v Bev>So who moved?
+
+00:13:38.116 --> 00:13:39.960
+<v Derek>The art moved, not the logo.
+
+00:13:40.149 --> 00:13:45.075
+<v Bev>And the demos? INK and PAPER's cover tape has had a Dalex demo on it.
+
+00:13:45.361 --> 00:13:54.484
+<v Derek>Built from the release source, with a switch. Then the release is built again and it comes out the same, byte for byte. That proves the demo cost it nothing.
+
+00:13:57.784 --> 00:14:04.121
+<v Bev>Go on, Gareth, crystal ball time. In the future, will we still be sitting through seven minutes of stripes?
+
+00:14:04.387 --> 00:14:14.247
+<v Gareth>Suppose one day a game comes down the telephone line, straight into the computer. No cassette at all. You'd ask for it in the evening and play it before the kettle boiled.
+
+00:14:14.334 --> 00:14:15.826
+<v Bev>Like on Tomorrow's World.
+
+00:14:15.969 --> 00:14:20.605
+<v Derek>And what does the player get, then? No tape. No box.
+
+00:14:20.757 --> 00:14:23.163
+<v Gareth>Perhaps a little picture of the box, on the screen.
+
+00:14:23.386 --> 00:14:27.512
+<v Derek>Then I'd still want a sheet for it. What the player gets, and how you'd show it's right.
+
+00:14:29.112 --> 00:14:30.328
+<v Derek>I'd miss the inlay, mind.
+
+00:14:30.583 --> 00:14:33.459
+<v Bev>We'll see, Derek. I'll keep the kettle on till then.
+
+00:14:34.059 --> 00:14:35.855
+<v Bev>So what's the homework this week?
+
+00:14:36.260 --> 00:14:46.167
+<v Gareth>In the book the team's writing, the chapter is Shipping: Tapes, Loading Screens and the Box, chapter seventeen. The exercise is called Estimate a whole tape.
+
+00:14:46.118 --> 00:14:47.494
+<v Bev>Another pencil job.
+
+00:14:47.699 --> 00:15:03.010
+<v Gareth>The same sum Derek did. Mower Mayhem's released tape has five blocks: nineteen bytes, six hundred and twenty-five, three thousand, nine hundred and seventy-two, four thousand, eight hundred and seventy-nine, and twelve thousand. A hundred and seventy bytes a second, the leaders, the pauses.
+
+00:15:03.065 --> 00:15:04.182
+<v Bev>And the answer?
+
+00:15:04.504 --> 00:15:11.859
+<v Gareth>The book says you should get about a hundred and forty-three seconds. Then compare it with the figure the build prints. Go on then.
+
+00:15:12.139 --> 00:15:16.985
+<v Derek>Write the estimate, the calculation and the measurement side by side. Then you'll know what you've got.
+
+00:15:16.964 --> 00:15:18.264
+<v Bev>And if they don't agree?
+
+00:15:18.575 --> 00:15:23.065
+<v Derek>Then you've learnt something. Find out which one's wrong before anything leaves the building.
+
+00:15:23.208 --> 00:15:31.234
+<v Gareth>And if you want a harder one, the first exercise times a whole screen of noughts against a screen of ones. You'll see the ones take about twice as long for their data.
+
+00:15:31.445 --> 00:15:33.220
+<v Bev>Because ones are the long pulses.
+
+00:15:33.362 --> 00:15:36.170
+<v Gareth>Because ones are the long pulses. Well remembered.
+
+00:15:40.170 --> 00:15:46.566
+<v Bev>That's us for this week. Thank you, Derek. That's the most patient I've ever been, and I enjoyed it.
+
+00:15:46.719 --> 00:15:49.372
+<v Derek>Thank you, Bev. Thank you, Gareth.
+
+00:15:50.972 --> 00:15:52.770
+<v Derek>Not without evidence, mind.
+
+00:15:52.938 --> 00:16:01.990
+<v Bev>Next week we're upstairs with Malcolm, who commissions every game we make, and he wants to hear about yours. If you've got a question for the team, send it in and we'll put it to them.
+
+00:16:02.590 --> 00:16:03.821
+<v Bev>Right then, turn it up.
+
+00:16:03.992 --> 00:16:18.105
+<v Daniel>This is Daniel Vaughan, who made the show. That was nineteen eighty-seven. Gareth's guess came true: a game can come down the line now, no cassette at all. Derek would be pleased that these six still got an inlay, an advert and a review.
+
+00:16:18.705 --> 00:16:34.221
+<v Daniel>The chapter is Shipping: Tapes, Loading Screens and the Box, chapter seventeen in Machine Code Mayhem on Leanpub, and the exercise is Estimate a whole tape. To check your sum, load the tape in an emulator such as Fuse, at normal speed, not instantly.
+
+00:16:34.821 --> 00:16:49.515
+<v Daniel>Thank you for listening. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is written and produced by me, Daniel Vaughan, with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.
