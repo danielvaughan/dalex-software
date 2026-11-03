@@ -68,9 +68,26 @@ def clock(seconds: int) -> str:
     return f'{h}:{m:02d}:{s:02d}' if h else f'{m}:{s:02d}'
 
 
-def rfc2822(iso: str) -> str:
+def rfc2822(iso: str, number: int = 0, at: str = '') -> str:
+    """The publication time (`time`, HH:MM UTC, written when the episode is published; 19:00 when absent), a second
+    later per episode number, so episodes published together keep their order and none is dated in the future."""
     d = date.fromisoformat(iso)
-    return format_datetime(datetime(d.year, d.month, d.day, 19, 0, tzinfo=timezone.utc))
+    hour, minute = (int(x) for x in (at or '19:00').split(':'))
+    return format_datetime(datetime(d.year, d.month, d.day, hour, minute, number % 60, tzinfo=timezone.utc))
+
+
+def transcript_html(vtt: str) -> str:
+    """The WebVTT transcript as paragraphs, one per turn, the speaker in bold."""
+    out, at = [], ''
+    for line in vtt.splitlines():
+        if '-->' in line:
+            at = clock(int(float(line.split('-->')[0].strip().split(':')[-1]) + 60 * int(line.split(':')[-2])
+                           + 3600 * int(line.split(':')[0])))
+            continue
+        voice = re.match(r'<v ([^>]+)>(.*)', line)
+        if voice:
+            out.append(f'<p><span class="small">{e(at)}</span> <strong>{e(voice.group(1))}</strong> {e(voice.group(2))}</p>')
+    return '\n'.join(out) + '\n'
 
 
 def chapters_json(ep) -> str:
@@ -86,7 +103,7 @@ def rss(site, show, episodes) -> str:
       <title>{e(ep["title"])}</title>
       <link>{e(home)}{e(ep["slug"])}/</link>
       <guid isPermaLink="false">dalex-after-hours-{e(ep["slug"])}</guid>
-      <pubDate>{rfc2822(ep["date"])}</pubDate>
+      <pubDate>{rfc2822(ep["date"], int(ep["number"]), ep.get("time", ""))}</pubDate>
       <description>{e(ep["summary"])}</description>
       <enclosure url="{e(ep["audio_url"])}" length="{int(ep["audio_bytes"])}" type="audio/mpeg"/>
       <itunes:episode>{int(ep["number"])}</itunes:episode>
@@ -98,7 +115,7 @@ def rss(site, show, episodes) -> str:
       <podcast:chapters url="{e(home)}{e(ep["slug"])}/chapters.json" type="application/json+chapters"/>
     </item>
 ''' for ep in episodes)
-    latest = rfc2822(episodes[0]['date']) if episodes else rfc2822('1987-01-01')
+    latest = rfc2822(episodes[0]['date'], int(episodes[0]['number']), episodes[0].get('time', '')) if episodes else rfc2822('1987-01-01')
     return f'''<?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:itunes="{ITUNES}" xmlns:podcast="{PODCAST}" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>

@@ -16,7 +16,8 @@ import build  # noqa: E402
 # build.py's copy: 'DLXDEMO1' + XOR with an xorshift32 keystream seeded by FNV-1a of DEMO_KEY.
 MAGIC = b'DLXDEMO1'
 # Currency amounts: £2.99, £ 3, $5, €4, 99p, 7.95 p, 3 pence, 2 quid, 5 pounds, 3/6d, &pound;.
-PRICE = re.compile(r'[£$€]\s?\d|(?<![\w.#-])\d+(?:\.\d+)?\s?p\b(?!x)|\b\d+(?:\.\d+)?\s?(?:pence|quid|pounds?)\b'
+# A Spectrum address written $4100 or $5C00 (four hex digits, as the podcast's transcripts say them) is not a price.
+PRICE = re.compile(r'[£€]\s?\d|\$\s?\d(?![0-9A-Fa-f]{3}\b(?!\.\d))|(?<![\w.#-])\d+(?:\.\d+)?\s?p\b(?!x)|\b\d+(?:\.\d+)?\s?(?:pence|quid|pounds?)\b'
                    r'|\b\d+/\d+d\b|&pound;', re.I)
 TEXT = {'.html', '.xml', '.txt', '.css', '.js', '.json', '.vtt', '.md', '.svg'}
 
@@ -209,10 +210,21 @@ class Built(unittest.TestCase):
             self.assertIn('Price to be confirmed', (self.out / 'games' / slug / 'index.html').read_text(), slug)
 
     def test_price_regex_catches_prices_and_spares_dates(self):
-        for bad in ('£2.99', '£ 3', '$5', '€4.50', '99p', 'only 7.95p', '3 pence', '2 quid', '5 pounds', '3/6d'):
+        for bad in ('£2.99', '£ 3', '$5', '$5.99', '$1999.00', '€4.50', '99p', 'only 7.95p', '3 pence', '2 quid', '5 pounds', '3/6d'):
             self.assertIsNotNone(PRICE.search(bad), bad)
-        for ok in ('29 October 2026', '2026-10-29', '128K', '16px', '1.5em', '#3p', 'A4p', 'level 2 of 4'):
+        for ok in ('29 October 2026', '2026-10-29', '128K', '16px', '1.5em', '#3p', 'A4p', 'level 2 of 4', 'the box at $4100', '$5C00'):
             self.assertIsNone(PRICE.search(ok), ok)
+
+    def test_the_podcast_is_built_with_every_visible_episode(self):
+        """D-31: the podcast page, the feed, and each visible episode's page, transcript and chapters."""
+        import podcast
+        show, episodes = podcast.load(ROOT)
+        self.assertTrue((self.out / 'podcast/index.html').is_file())
+        feed = (self.out / 'podcast/feed.xml').read_text()
+        for ep in episodes:
+            for name in ('index.html', 'transcript.vtt', 'chapters.json'):
+                self.assertTrue((self.out / 'podcast' / ep['slug'] / name).is_file(), (ep['slug'], name))
+            self.assertIn(ep['audio_url'], feed)
 
     def test_game_json_is_not_deployed(self):
         self.assertEqual(sorted(self.out.rglob('game.json')), [])

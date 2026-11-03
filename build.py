@@ -20,6 +20,7 @@ from html.parser import HTMLParser
 from datetime import date
 from pathlib import Path
 from urllib.parse import urlsplit
+import podcast  # Dalex After Hours: pages and feed (D-31)
 
 ROOT = Path(__file__).resolve().parent
 # The only game files deployed: the cover, screen shots, licences and the obfuscated demo (D-16, D-19).
@@ -240,7 +241,7 @@ def page(site, *, root, path, title, body, description='', current='', extra_hea
     path is this page's path below the site root, for the canonical URL."""
     full_title = f'{title} · {site["name"]}' if title != site['name'] else title
     nav = [('', 'Home', 'home'), ('games/', 'Games', 'games'), ('studio/', 'The Studio', 'studio'), ('book/', 'The Book', 'book'),
-           ('articles/', 'Articles', 'articles'), ('about/', 'About', 'about')]
+           ('articles/', 'Articles', 'articles'), ('podcast/', 'Podcast', 'podcast'), ('about/', 'About', 'about')]
     links = ''.join(
         f'<li><a href="{root}{href}"{CURRENT if key == current else ""}>{label}</a></li>'
         for href, label, key in nav)
@@ -752,9 +753,10 @@ def not_found(site):
     return page(site, root=base, path='404.html', title='Page not found', body=body)
 
 
-def sitemap(site, games, arts=()):
+def sitemap(site, games, arts=(), episodes=()):
     urls = [('', None), ('games/', None), ('studio/', None), ('book/', None), ('articles/', None), ('about/', None)]
     urls += [(f'articles/{a["slug"]}/', a['date']) for a in arts]
+    urls += [('podcast/', None)] + [(f'podcast/{ep["slug"]}/', ep['date']) for ep in episodes]
     urls += [(f'games/{g["slug"]}/', (g.get('release') or {}).get('date')) for g in games]
     items = ''.join(f'  <url><loc>{e(site["base_url"] + u)}</loc>'
                     + (f'<lastmod>{e(d)}</lastmod>' if d else '') + '</url>\n' for u, d in urls)
@@ -827,8 +829,23 @@ def build(root: Path = ROOT, config: Path = None, out: Path = None) -> Path:
         if a.get('moved_from_blog'):
             write(out, f'blog/{a["slug"]}/index.html',
                   moved(site, root='../../', path=f'blog/{a["slug"]}/', to=f'articles/{a["slug"]}/', title=a['title']))
+    show, episodes = podcast.load(root)   # Dalex After Hours (D-31): only episodes marked visible
+    if show:
+        feed_link = (f'<link rel="alternate" type="application/rss+xml" title="{e(show["title"])}" '
+                     'href="{root}podcast/feed.xml">\n')
+        write(out, 'podcast/index.html', page(site, root='../', path='podcast/', title=show['title'],
+                                              body=podcast.index_body(show, episodes), current='podcast',
+                                              extra_head=feed_link.replace('{root}', '../'), description=show['description']))
+        for ep in episodes:
+            body = podcast.episode_body(show, ep, podcast.transcript_html(ep['vtt']))
+            write(out, f'podcast/{ep["slug"]}/index.html',
+                  page(site, root='../../', path=f'podcast/{ep["slug"]}/', title=ep['title'], body=body,
+                       current='podcast', extra_head=feed_link.replace('{root}', '../../'), description=ep['summary']))
+            write(out, f'podcast/{ep["slug"]}/transcript.vtt', ep['vtt'])
+            write(out, f'podcast/{ep["slug"]}/chapters.json', podcast.chapters_json(ep))
+        write(out, 'podcast/feed.xml', podcast.rss(site, show, episodes))
     write(out, '404.html', not_found(site))
-    write(out, 'sitemap.xml', sitemap(site, games, arts))
+    write(out, 'sitemap.xml', sitemap(site, games, arts, episodes))
     write(out, 'feed.xml', feed(site, games))
     write(out, 'robots.txt', f'User-agent: *\nAllow: /\n\nSitemap: {site["base_url"]}sitemap.xml\n')
     return out

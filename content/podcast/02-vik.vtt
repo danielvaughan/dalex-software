@@ -1,0 +1,487 @@
+WEBVTT
+
+00:00:01.000 --> 00:00:16.829
+<v Daniel>Hello, I'm Daniel Vaughan. Before we start: Dalex Software and its people are fictional, and the voices you'll hear are synthesised. I wrote and produced this show with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.
+
+00:00:17.429 --> 00:00:28.547
+<v Daniel>The show is set in nineteen eighty-seven, so they say things the nineteen eighty-seven way. When Vik stops the game on his test rig and reads the boxes, today that's an emulator's memory viewer.
+
+00:00:33.347 --> 00:00:38.829
+<v Vik>Write two hundred and fifty-five to the box at $4100, and you might expect a line a third of the way down the screen.
+
+00:00:38.909 --> 00:00:40.008
+<v Bev>And where does it go?
+
+00:00:40.249 --> 00:00:43.673
+<v Vik>One pixel under the first one. I'd rather you didn't take my word for it, though.
+
+00:00:48.673 --> 00:00:55.894
+<v Bev>Hello there, it's Bev, the kettle's on, and this is Dalex After Hours, the slot where we find out how computer games are really made.
+
+00:00:56.494 --> 00:01:00.385
+<v Bev>Every fact on this show comes out of the book the team at Dalex are writing.
+
+00:01:00.985 --> 00:01:02.646
+<v Bev>Gareth's here, as ever.
+
+00:01:02.714 --> 00:01:03.467
+<v Gareth>Hiya, Bev.
+
+00:01:03.671 --> 00:01:11.893
+<v Bev>And this week's guest checks every build at Dalex against its evidence, and he's timing this programme on his wristwatch as we speak. It's Vik Bassi.
+
+00:01:12.063 --> 00:01:14.170
+<v Vik>Good evening, Bev. The watch is running.
+
+00:01:14.182 --> 00:01:15.713
+<v Bev>And is your watch right?
+
+00:01:16.044 --> 00:01:18.418
+<v Vik>I check it against the wall clock. Every morning.
+
+00:01:18.718 --> 00:01:24.670
+<v Bev>Now, City beat Millwall four nil at Maine Road last night. Did you measure that one, Vik?
+
+00:01:25.022 --> 00:01:27.280
+<v Vik>I did. Four more than Millwall.
+
+00:01:27.439 --> 00:01:28.825
+<v Gareth>He wrote it down in the car park.
+
+00:01:28.974 --> 00:01:32.401
+<v Vik>Before I'd got my coat off. You don't trust a score you've only heard about.
+
+00:01:35.701 --> 00:01:37.808
+<v Bev>So, Vik, what's on your desk?
+
+00:01:38.056 --> 00:01:46.097
+<v Vik>I stand, mostly. Test equipment, a Spectrum, a cassette deck and a pile of tapes. I load every tape cold and check it against the list.
+
+00:01:46.382 --> 00:01:49.117
+<v Bev>Cold? Like a cold start in the car?
+
+00:01:49.449 --> 00:01:55.934
+<v Vik>Very like it. Switch on, load from nothing, and see what the player would see. Nothing left over from yesterday.
+
+00:01:55.875 --> 00:01:56.646
+<v Bev>And then what?
+
+00:01:56.921 --> 00:02:02.778
+<v Vik>Then I compare what happened with the evidence that was recorded for that build. Missing evidence is missing, not passed.
+
+00:02:02.934 --> 00:02:06.907
+<v Bev>Ooh, that's a good one. Missing evidence is missing, not passed.
+
+00:02:07.028 --> 00:02:11.013
+<v Gareth>He says it to all of us. Best thing anyone does for my builds.
+
+00:02:11.160 --> 00:02:13.798
+<v Vik>And Gareth's evidence is nearly always there before I ask for it.
+
+00:02:13.781 --> 00:02:14.834
+<v Gareth>I'll take that.
+
+00:02:15.113 --> 00:02:22.645
+<v Bev>Now I've been told this is the episode about the machine. The thing itself. Why is that yours, Vik, and not Gareth's?
+
+00:02:23.000 --> 00:02:30.344
+<v Vik>Because I trust nothing I haven't run, and the machine is what I run it on. If I'm going to load every tape cold, I have to know the machine down to the address.
+
+00:02:30.481 --> 00:02:33.939
+<v Bev>Down to the address. I don't even know what an address is.
+
+00:02:33.960 --> 00:02:35.926
+<v Vik>Good. That's where we'll start.
+
+00:02:36.111 --> 00:02:38.162
+<v Bev>So what's the one idea this week?
+
+00:02:38.510 --> 00:02:50.321
+<v Vik>Inside the Spectrum, everything is a number in a numbered box. The picture, the colours, the score, the game itself. And the second part is mine: before you believe anything about the boxes, say what you expect, run it, and look.
+
+00:02:50.285 --> 00:02:52.233
+<v Bev>Numbered boxes. Go on.
+
+00:02:52.421 --> 00:03:04.046
+<v Vik>Picture a long row of boxes, each with a number painted on the front, starting at nought. That number is the box's address. Inside each box is one small whole number, from nought to two hundred and fifty-five, and nothing else.
+
+00:03:04.275 --> 00:03:06.624
+<v Bev>Why stop at two hundred and fifty-five?
+
+00:03:06.979 --> 00:03:16.089
+<v Vik>Each box is eight tiny switches, on or off. One switch is a bit. Eight bits make a byte, and eight switches can be set two hundred and fifty-six different ways.
+
+00:03:16.252 --> 00:03:20.869
+<v Gareth>That's the bit I love. Two times two times two, eight times over.
+
+00:03:21.006 --> 00:03:22.531
+<v Bev>And how many boxes are there?
+
+00:03:22.945 --> 00:03:31.720
+<v Vik>The processor can name sixty-five thousand, five hundred and thirty-six of them. That's sixty-four K. An address is two bytes together, and two bytes count that far.
+
+00:03:31.894 --> 00:03:35.672
+<v Bev>Sixty-five thousand boxes. And my nephew's game lived in there?
+
+00:03:36.031 --> 00:03:44.412
+<v Vik>Everything a Spectrum game is lives in those boxes. Its instructions, its pictures, its music, the score. There's nowhere else to put anything.
+
+00:03:44.694 --> 00:03:50.400
+<v Gareth>So you could almost draw the whole machine as one long row of boxes, sixty-five thousand long, and stop there.
+
+00:03:50.623 --> 00:04:04.264
+<v Vik>Almost. The book says that picture is honest about the shape and wrong in four places. Some boxes were filled at the factory and can't be changed. Some are wired to the television picture. Some are slower to reach than others. And the keyboard and the sound aren't in that row at all.
+
+00:04:04.543 --> 00:04:06.267
+<v Bev>So the boxes aren't all the same.
+
+00:04:06.502 --> 00:04:08.985
+<v Vik>They're not. And you only find out which by trying.
+
+00:04:09.173 --> 00:04:12.207
+<v Bev>Pencil time, then. What have you brought?
+
+00:04:12.490 --> 00:04:21.348
+<v Vik>A row of a weed. Mower Mayhem has weeds that spring up on the lawn, drawn from squares of eight by eight pixels. Each square is eight bytes, one byte for each row.
+
+00:04:21.552 --> 00:04:23.812
+<v Bev>So one number is one row of the picture.
+
+00:04:24.030 --> 00:04:33.939
+<v Vik>One number, one row. Take a pencil and draw a row of eight squares. Now write over them, from the left: one hundred and twenty-eight, sixty-four, thirty-two, sixteen, eight, four, two, one.
+
+00:04:34.126 --> 00:04:38.760
+<v Gareth>Each one's double the one to its right. Like decimal, with two instead of ten.
+
+00:04:38.902 --> 00:04:46.526
+<v Vik>The weed's fourth row is the number written B three in hexadecimal. Hex is binary written short. One hex digit stands for four bits.
+
+00:04:46.534 --> 00:04:48.129
+<v Bev>You've lost me at hex.
+
+00:04:48.343 --> 00:04:57.230
+<v Vik>Then here are the bits instead. One, nought, one, one. Nought, nought, one, one. Shade a square for every one. If you want a go, pause us now.
+
+00:05:00.414 --> 00:05:05.457
+<v Bev>Right. I've shaded the first, the third, the fourth, and the last two.
+
+00:05:05.715 --> 00:05:07.706
+<v Vik>Now add up the numbers over the shaded squares.
+
+00:05:07.989 --> 00:05:13.321
+<v Bev>A hundred and twenty-eight, thirty-two, sixteen, two and one. That's a hundred and seventy-nine.
+
+00:05:13.609 --> 00:05:24.235
+<v Vik>That's the row. A one is a pixel in the foreground colour, the ink, and a nought is the background, the paper. Shade the other seven rows and you've drawn the weed, exactly as the Spectrum draws it.
+
+00:05:24.380 --> 00:05:27.145
+<v Bev>So when I look at the code, those numbers are pictures.
+
+00:05:27.340 --> 00:05:32.744
+<v Vik>Those numbers are pictures. If your drawing matches the one in the book, you can already read the graphics in every game in it.
+
+00:05:32.866 --> 00:05:36.203
+<v Bev>And where does the colour come from? I've only got ink and paper.
+
+00:05:36.465 --> 00:05:46.475
+<v Vik>Separately. One byte for each eight by eight square of the screen. That byte holds whether it flashes, whether it's bright, a paper colour and an ink colour. The weed's is magenta ink on green paper.
+
+00:05:46.630 --> 00:05:54.460
+<v Gareth>Which is why a square can only ever have two colours. One ink, one paper. A green sprite crossing a red square, and one of them has to give.
+
+00:05:54.643 --> 00:05:56.506
+<v Bev>So what would I see on the telly?
+
+00:05:56.917 --> 00:06:03.854
+<v Gareth>The colours clash. Something changes colour that shouldn't. Every game in the book has a policy for it.
+
+00:06:04.145 --> 00:06:09.902
+<v Bev>Right then, Vik. The puzzle from the top of the show. Why doesn't the line go a third of the way down?
+
+00:06:10.234 --> 00:06:25.386
+<v Vik>Let me set it up properly first. The picture is two hundred and fifty-six pixels across and a hundred and ninety-two down. A row of pixels is thirty-two bytes, so the whole picture is six thousand, one hundred and forty-four boxes, starting at sixteen thousand, three hundred and eighty-four, which is $4000.
+
+00:06:25.640 --> 00:06:27.598
+<v Bev>And the telly looks at those boxes?
+
+00:06:27.942 --> 00:06:34.778
+<v Vik>Sinclair's own chip, the ULA, reads them fifty times a second and sends the picture to the television. Change a box and the picture changes.
+
+00:06:35.056 --> 00:06:37.839
+<v Bev>So write two hundred and fifty-five at the very start.
+
+00:06:38.033 --> 00:06:46.095
+<v Vik>And a line of eight pixels lights up in the top left. Write it in the next box and the line grows eight pixels to the right. So far the screen behaves like a list.
+
+00:06:46.309 --> 00:06:48.489
+<v Gareth>Now go two hundred and fifty-six boxes on.
+
+00:06:48.780 --> 00:06:56.353
+<v Vik>That's $4100. You might expect the line somewhere further down the picture. It lands directly under the first line, one pixel lower.
+
+00:06:56.402 --> 00:06:57.775
+<v Bev>That's just awkward.
+
+00:06:58.024 --> 00:07:06.487
+<v Vik>Nothing's broken. The screen memory is laid out for the chip that draws the picture, not for you. Go only thirty-two boxes on instead, and the line lands eight pixels down.
+
+00:07:06.667 --> 00:07:11.638
+<v Bev>So the next row in the boxes is eight rows down on the telly. Who thought of that?
+
+00:07:11.914 --> 00:07:25.454
+<v Vik>The screen is three thirds of sixty-four pixel rows each, and the rows are interleaved inside each third. It shows if you load a screen from tape with the computer's own loader. First you get eight thin lines scattered down the top third, then the top third fills in, and so on.
+
+00:07:25.725 --> 00:07:38.280
+<v Gareth>And there's a lovely consequence for drawing. Inside one character square, the next pixel row down is always two hundred and fifty-six boxes on. So stepping down a pixel is cheap seven times in eight. The eighth step needs a different sum.
+
+00:07:38.507 --> 00:07:41.864
+<v Bev>So, Gareth, does the game do that sum every time it draws?
+
+00:07:42.223 --> 00:07:56.168
+<v Gareth>No. Mower Mayhem works out the address of every pixel row once, when it starts, and keeps them in a table. Two bytes a row, three hundred and eighty-four bytes in all. After that, any drawing routine finds a row with one look in the table.
+
+00:07:56.401 --> 00:08:07.291
+<v Vik>And I can check that table in a running game. The book says row one hundred and ninety-one should read $57E0, the last row of the picture. So you stop the game on the test rig, read those two boxes, and see if they do.
+
+00:08:07.241 --> 00:08:08.739
+<v Bev>Measured, not guessed.
+
+00:08:08.933 --> 00:08:11.500
+<v Gareth>I could have told you row one ninety-one without looking.
+
+00:08:11.562 --> 00:08:12.828
+<v Vik>Measured, or guessed?
+
+00:08:13.019 --> 00:08:14.900
+<v Gareth>Guessed. Correctly.
+
+00:08:14.858 --> 00:08:15.789
+<v Vik>I'll let that one stand.
+
+00:08:16.073 --> 00:08:20.479
+<v Bev>Now you said some boxes were slower than others. That sounds like a story.
+
+00:08:20.757 --> 00:08:32.097
+<v Vik>It's the one that tells you why I time things. Every instruction the processor runs costs a fixed number of clock ticks. They're called T-states. The manual lists them, so you can add them up and know how long a routine takes before you run it.
+
+00:08:32.221 --> 00:08:33.922
+<v Bev>So you don't need a stopwatch.
+
+00:08:34.087 --> 00:08:46.855
+<v Vik>That's what the tables would have you believe. But the chip that draws the picture reads the screen's boxes while the processor runs, and it can't wait. When they both want the same stretch of memory at once, the ULA wins. It stops the processor's clock until it's done.
+
+00:08:46.801 --> 00:08:47.983
+<v Bev>It just stops it?
+
+00:08:48.329 --> 00:08:56.106
+<v Vik>For a few ticks. And the instruction tables don't tell you so. Counting from the tables tells you what a routine should cost. Only a measurement tells you what it did.
+
+00:08:56.196 --> 00:08:57.765
+<v Gareth>That's going on a mug.
+
+00:08:57.982 --> 00:08:59.937
+<v Bev>And does it matter, a few ticks?
+
+00:09:00.323 --> 00:09:13.785
+<v Vik>WOLF measured it. One row of a sprite three bytes wide, drawn through a mask, costs about two hundred and forty ticks when the sprite and the screen are both in the slow memory. Copying a whole screen buffer to the other screen costs about a hundred and forty thousand. Two frames.
+
+00:09:14.009 --> 00:09:23.671
+<v Gareth>Two whole frames, just copying. So the rule in every game is that the code, the stack and anything read in a tight loop live at hex eight thousand or above, where it's not slowed down.
+
+00:09:23.935 --> 00:09:30.681
+<v Vik>And there's a good one in Mower Mayhem. Its memory map, at the top of its main file, marks the slow block below hex eight thousand as data only.
+
+00:09:30.757 --> 00:09:31.809
+<v Bev>But?
+
+00:09:32.058 --> 00:09:42.042
+<v Vik>But when its code space filled up, two small pieces of code went down there after all. One runs while the picture isn't being drawn, so nothing slows it. The other returns after one test unless you've just pressed space.
+
+00:09:42.274 --> 00:09:44.233
+<v Gareth>So the label's older than the move.
+
+00:09:44.497 --> 00:09:47.925
+<v Vik>The label's older than the move. Which is why I read the code, not the comment.
+
+00:09:48.200 --> 00:09:52.294
+<v Bev>You said the keyboard isn't in the row of boxes at all. So where is it?
+
+00:09:52.558 --> 00:10:04.613
+<v Vik>In a second row, called the ports. Picture boxes with nothing inside. Behind each one is a piece of hardware. Reading a port asks the hardware a question, like which keys are down. Writing one gives it an order, like which colour to make the border.
+
+00:10:04.848 --> 00:10:07.227
+<v Bev>And how many questions can you ask the keyboard?
+
+00:10:07.577 --> 00:10:14.943
+<v Vik>Eight. The forty keys are wired as eight half-rows of five. The port number picks the half-row, and you get back one bit for each key.
+
+00:10:15.211 --> 00:10:24.822
+<v Gareth>And here's the one that catches everybody once. A pressed key reads as a nought, not a one. So the first thing the game does is flip every bit, so that a one means pressed.
+
+00:10:24.877 --> 00:10:27.792
+<v Bev>Backwards. Of course it is.
+
+00:10:28.073 --> 00:10:34.053
+<v Vik>And writing that same port sets three things at once. The border colour, the socket that saves to tape, and the loudspeaker.
+
+00:10:34.178 --> 00:10:36.795
+<v Bev>The border and the speaker on the same switch?
+
+00:10:37.152 --> 00:10:43.124
+<v Vik>The same port. So a routine that makes sound by flicking the speaker has to write the border colour back every single time it does.
+
+00:10:43.345 --> 00:10:45.809
+<v Bev>So what would I see on the telly, if it forgot?
+
+00:10:46.219 --> 00:10:50.868
+<v Vik>I'd rather you ran it and told me. But the book's reason is in the bits: every write to that port sets the border.
+
+00:10:51.033 --> 00:10:56.854
+<v Gareth>And it's not only the keyboard. The clock's different between the machines, too. Tell her, Vik.
+
+00:10:56.992 --> 00:11:05.658
+<v Vik>The original forty-eight K runs at three and a half million ticks a second. On the one-twenty-eight K, an engineer's probe on the processor's clock pin reads three point five four six eight nine million.
+
+00:11:05.620 --> 00:11:07.088
+<v Bev>So it's a bit quicker.
+
+00:11:07.327 --> 00:11:18.762
+<v Vik>About one point three per cent faster. The same routine finishes slightly sooner. And a frame is seventy thousand, nine hundred and eight ticks on the one-twenty-eight K, against sixty-nine thousand, eight hundred and eighty-eight on the forty-eight K.
+
+00:11:18.949 --> 00:11:21.994
+<v Gareth>Which is why we say which machine, every time we say a number.
+
+00:11:22.211 --> 00:11:25.404
+<v Bev>Have you ever caught the books out? The proper manuals?
+
+00:11:25.689 --> 00:11:35.326
+<v Vik>The one-twenty-eight K has eight banks of memory, sixteen K each. The processor still only sees sixty-four K, so it shows one bank at a time in a window at the top, like turning to a page in a ring binder.
+
+00:11:35.339 --> 00:11:36.866
+<v Bev>And which pages are slow?
+
+00:11:37.121 --> 00:11:46.134
+<v Vik>That's the thing. Banks five and seven hold screens, so the ULA reads them, and they're slow. Banks nought and two aren't. Beyond that the sources disagree.
+
+00:11:46.196 --> 00:11:47.229
+<v Bev>Disagree how?
+
+00:11:47.493 --> 00:11:58.281
+<v Vik>The service manual says banks nought to three are fast and four to seven are slow. The answers the Spectrum enthusiasts pass round say that on the one-twenty-eight K and the plus two, banks one, three, five and seven are the slow ones.
+
+00:11:58.242 --> 00:11:59.588
+<v Bev>So who's right?
+
+00:11:59.843 --> 00:12:08.129
+<v Vik>I'd rather not guess on the radio. Let me tell you what the games do. They follow the enthusiasts. Wordris keeps its dictionary in bank four, not one or three.
+
+00:12:08.399 --> 00:12:17.842
+<v Gareth>And until you've measured the machine you ship for, the book's safe rule is the overlap. Code and the busy data in bank two or bank nought, and the others for anything that can afford to wait.
+
+00:12:17.996 --> 00:12:21.089
+<v Vik>That's a rule I can live with. It's right whichever source is right.
+
+00:12:21.368 --> 00:12:23.898
+<v Bev>It's like a cricket umpire with two rule books.
+
+00:12:24.085 --> 00:12:27.341
+<v Vik>It's exactly that. And a good umpire waits for the replay.
+
+00:12:27.479 --> 00:12:33.423
+<v Bev>One more. Why does every game keep a copy of what's in that window? Can't it just look?
+
+00:12:33.811 --> 00:12:43.334
+<v Vik>The bank switch is write-only. The game can't read back what it last wrote. So every game keeps its own copy, the shadow, and changes the copy and the switch together, with interrupts off.
+
+00:12:43.547 --> 00:12:52.529
+<v Gareth>And the music needs that copy too. Fifty times a second the interrupt pages in the bank with the sound driver, plays the music, and puts back exactly what it found.
+
+00:12:55.829 --> 00:13:01.203
+<v Bev>Go on, crystal ball time. Thirty years from now. What happens to your numbered boxes?
+
+00:13:01.540 --> 00:13:13.719
+<v Gareth>Suppose one day there's a language, call it Python, after Monty Python. And you could write the whole Spectrum in it as one list of bytes, sixty-five thousand, five hundred and thirty-six long, in a single line.
+
+00:13:13.802 --> 00:13:15.295
+<v Bev>Like on Tomorrow's World.
+
+00:13:15.437 --> 00:13:21.821
+<v Vik>And it would be wrong in the same four places, Gareth. No factory boxes, no television, no slow memory and no keyboard.
+
+00:13:22.085 --> 00:13:31.891
+<v Gareth>Fair. Then suppose a computer's so quick it can pretend to be a whole Spectrum, ULA and all. You stop it on any frame you like and read every box.
+
+00:13:32.190 --> 00:13:37.386
+<v Vik>Then I'd want to know it slows down in the right places. I'd measure the pretend one against a real one before I trusted it.
+
+00:13:37.657 --> 00:13:39.908
+<v Bev>Even in the future, you'd want evidence.
+
+00:13:39.972 --> 00:13:41.302
+<v Vik>Especially in the future, Bev.
+
+00:13:41.493 --> 00:13:45.258
+<v Bev>Homework, then. What should folk do before next week?
+
+00:13:45.531 --> 00:13:54.888
+<v Vik>Chapter two of the book, The Machine on Your Desk. The exercise is called Light the Row Below, and you don't need to build anything. You need a Spectrum, switched on, at the BASIC prompt.
+
+00:13:55.137 --> 00:14:03.843
+<v Gareth>Go on then. Type poke sixteen thousand, three hundred and eighty-four, comma, two hundred and fifty-five. Press enter. A short line in the top left.
+
+00:14:03.969 --> 00:14:11.277
+<v Vik>Now, before you press enter on the next one, write down where you expect it. Poke sixteen thousand, six hundred and forty, comma, two hundred and fifty-five.
+
+00:14:11.495 --> 00:14:13.360
+<v Bev>That's the one that goes one pixel down.
+
+00:14:13.550 --> 00:14:19.739
+<v Vik>That's what I've told you. Don't take my word for it. Write down what you expect first. Then run it. Then look.
+
+00:14:19.929 --> 00:14:28.859
+<v Gareth>Then try sixteen thousand, four hundred and sixteen, which lands eight pixels down, and eighteen thousand, four hundred and thirty-two, which jumps a third of the way down the screen.
+
+00:14:29.004 --> 00:14:38.539
+<v Vik>And last, poke sixteen thousand, three hundred and eighty-four with a hundred and seventy-nine, and you should see the weed's row from the pencil job, in black on white, because that square's colours are BASIC's, not the lawn's.
+
+00:14:38.796 --> 00:14:40.135
+<v Bev>And if it doesn't do what you said?
+
+00:14:40.554 --> 00:14:47.485
+<v Vik>Then you've learnt something, and you've got the evidence. Show me the checksum, as we say at work. Or in this case, show me the screen.
+
+00:14:51.485 --> 00:15:01.805
+<v Bev>That's us for this week. Next time, Yvonne Standish is in the chair, and she's taking us from text to tape. If you've got a question for the team, send it in, and we'll put it to them.
+
+00:15:02.405 --> 00:15:03.419
+<v Bev>Thanks, Vik.
+
+00:15:03.561 --> 00:15:05.631
+<v Vik>Thank you, Bev. I've stopped the watch.
+
+00:15:05.729 --> 00:15:06.413
+<v Gareth>And?
+
+00:15:06.492 --> 00:15:07.546
+<v Vik>I'll write it down first.
+
+00:15:07.698 --> 00:15:18.614
+<v Bev>Rick Astley's number one for a fourth week, and up to number two is Pump Up the Volume. A record made out of other records. Dez has been playing it on repeat in the Audio office.
+
+00:15:18.674 --> 00:15:19.750
+<v Gareth>He says it's the future.
+
+00:15:19.721 --> 00:15:20.951
+<v Bev>Right then, turn it up.
+
+00:15:21.236 --> 00:15:37.401
+<v Daniel>That was nineteen eighty-seven. Gareth's pretend Spectrum is real, and it's called an emulator. Fuse runs on Linux, macOS and Windows, and JSSpeccy runs in a web browser with nothing to install. Vik would still want you to check it against a real one.
+
+00:15:38.001 --> 00:15:48.756
+<v Daniel>Light the row below works at the BASIC prompt of a forty-eight K emulator, or in forty-eight BASIC on a one-twenty-eight K. Gareth's list of bytes in Python is in the chapter too.
+
+00:15:49.356 --> 00:15:58.860
+<v Daniel>The chapter is The Machine on Your Desk, in Machine Code Mayhem on Leanpub. For the later exercises you'll want the sjasmplus assembler and Python three as well.
+
+00:15:59.460 --> 00:16:08.578
+<v Daniel>Thank you for listening. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is written and produced by me, Daniel Vaughan.

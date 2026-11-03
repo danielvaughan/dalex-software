@@ -1,0 +1,523 @@
+WEBVTT
+
+00:00:01.000 --> 00:00:16.829
+<v Daniel>Hello, I'm Daniel Vaughan. Before we start: Dalex Software and its people are fictional, and the voices you'll hear are synthesised. I wrote and produced this show with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.
+
+00:00:17.429 --> 00:00:29.050
+<v Daniel>The show is set in nineteen eighty-seven, so they say things the nineteen eighty-seven way. When Mo says the checks measure the update rate on every milestone, today that's an emulator and a script, counting the ticks.
+
+00:00:34.850 --> 00:00:39.991
+<v Mo>When the measure said players were left waiting, nobody touched a rule. Only numbers changed.
+
+00:00:40.112 --> 00:00:42.862
+<v Bev>That sounds like a woman who's run a few deadlines.
+
+00:00:42.933 --> 00:00:44.075
+<v Mo>One or two.
+
+00:00:49.075 --> 00:00:56.296
+<v Bev>Hello there, it's Bev, the kettle's on, and this is Dalex After Hours, the slot where we find out how computer games are really made.
+
+00:00:56.896 --> 00:01:02.223
+<v Bev>Every fact on this show comes out of the book the team at Dalex are writing, and they bring it in a chapter at a time.
+
+00:01:02.823 --> 00:01:05.423
+<v Bev>Across the desk, as ever, is Gareth.
+
+00:01:05.490 --> 00:01:06.243
+<v Gareth>Hiya, Bev.
+
+00:01:06.447 --> 00:01:10.411
+<v Bev>Now, Gareth, did you see Knightmare on Monday? On Children's ITV?
+
+00:01:10.702 --> 00:01:20.143
+<v Gareth>I did. It's an adventure game, but on the telly. A lad in a helmet who can't see a thing, and his friends watching a screen and telling him where to step.
+
+00:01:20.363 --> 00:01:22.949
+<v Bev>I was shouting at him. Left, left!
+
+00:01:23.211 --> 00:01:25.800
+<v Gareth>That's exactly what playtesting sounds like, Bev.
+
+00:01:26.032 --> 00:01:35.554
+<v Bev>And our first guest. She runs the board, she chases everyone, and she gets the tape out of the door. It's Mo Greenhalgh, the producer at Dalex.
+
+00:01:35.703 --> 00:01:39.960
+<v Mo>Hello, Bev. Thanks for having me. I've brought my clipboard.
+
+00:01:40.086 --> 00:01:42.710
+<v Bev>I can see. Is that Percy asleep on it?
+
+00:01:43.033 --> 00:01:46.966
+<v Mo>He was on it before I sat down. I've learnt to write round him.
+
+00:01:47.007 --> 00:01:48.480
+<v Gareth>He runs the place, really.
+
+00:01:51.780 --> 00:01:55.824
+<v Bev>So, Mo, tell me about your desk. Or have you even got one?
+
+00:01:56.153 --> 00:02:08.683
+<v Mo>I've got one, but I'm hardly at it. I stand in Production by the milestone board, clipboard in hand. Gareth's at the left-hand desk, Yvonne at the right, Vik's at his test equipment and Derek's at his in-tray.
+
+00:02:08.734 --> 00:02:09.853
+<v Bev>And what's on the board?
+
+00:02:10.129 --> 00:02:21.676
+<v Mo>Cards. Every job is a card, and every card has the same layout. A title, an owner and a stage. One rule moves any card along. The board doesn't need a rule for each card.
+
+00:02:21.844 --> 00:02:27.069
+<v Bev>And what does a producer actually do, all day? Because I'll be honest, I've never been sure.
+
+00:02:27.281 --> 00:02:38.470
+<v Mo>I make sure everybody knows their next step, and that nothing moves until it's earned it. Six tapes have gone out of this building, and every one of them had to fit a machine you could carry under one arm.
+
+00:02:38.705 --> 00:02:42.303
+<v Gareth>That's the bit I like. Mo's got every number on that clipboard.
+
+00:02:42.439 --> 00:02:47.490
+<v Mo>He's being kind, Bev. He's the one who makes the numbers come in. He counts bytes out loud.
+
+00:02:47.570 --> 00:02:50.648
+<v Gareth>Only the good ones.
+
+00:02:50.833 --> 00:02:53.714
+<v Bev>So which numbers does a producer care about?
+
+00:02:54.062 --> 00:03:06.795
+<v Mo>Time, mostly. On my board a card doesn't move until its numbers are in, and the update rate is one of those numbers. The checks measure it on every milestone, and a tape that can't keep it doesn't go out of the door.
+
+00:03:06.942 --> 00:03:10.452
+<v Bev>Right, Mo. What's the one idea this week?
+
+00:03:10.760 --> 00:03:20.189
+<v Mo>A budget. Every game has a purse, and you count what you spend from it. And the best place to keep the numbers is somewhere you can change them without touching anything else.
+
+00:03:20.418 --> 00:03:23.130
+<v Bev>A purse of what, though? Not money.
+
+00:03:23.372 --> 00:03:27.132
+<v Mo>Time. Gareth, you do the clock ticks, you're better at saying them.
+
+00:03:27.332 --> 00:03:41.435
+<v Gareth>Right. The processor does its work in steps of one tick, and every instruction costs a known number of them. Programmers call a tick a T-state. On the hundred and twenty-eight K, one picture on the telly gets seventy thousand, nine hundred and eight of them.
+
+00:03:41.729 --> 00:03:45.158
+<v Bev>That's one picture. And the telly does fifty of those a second.
+
+00:03:45.399 --> 00:03:55.206
+<v Gareth>Fifty a second. Gold Master and Mower Mayhem take two pictures for every update, so every trip round the loop has a hundred and forty-one thousand, eight hundred and sixteen ticks to spend.
+
+00:03:55.484 --> 00:03:59.563
+<v Mo>That's the purse. And it's refilled to the same amount every update.
+
+00:03:59.524 --> 00:04:00.812
+<v Bev>And if you spend less?
+
+00:04:01.204 --> 00:04:05.657
+<v Gareth>The processor sits in one instruction, halt, and waits for the next picture to start.
+
+00:04:05.748 --> 00:04:07.131
+<v Bev>And if you spend more?
+
+00:04:07.533 --> 00:04:14.693
+<v Mo>Then the update runs late, the game slows down for a moment, and the next one has to catch up. You see it on the screen as a stutter.
+
+00:04:14.839 --> 00:04:16.703
+<v Bev>So what would I see on the telly?
+
+00:04:16.978 --> 00:04:21.992
+<v Gareth>The game catching its foot for a moment. Not a crash. A hiccup.
+
+00:04:22.271 --> 00:04:26.598
+<v Bev>And who decides it's two pictures? Why not one, or ten?
+
+00:04:26.941 --> 00:04:40.052
+<v Mo>The team does, right at the start. Choosing the update rate is one of the first design decisions in every game. Wordris and Antigravity do all their work every single picture. Tiger Gorilla and WOLF take four.
+
+00:04:40.179 --> 00:04:44.994
+<v Gareth>Because moving the camera over a window of jungle can cost more than three pictures' worth of ticks.
+
+00:04:45.272 --> 00:04:49.947
+<v Mo>And Tiger Gorilla tried three first. Nearly a quarter of its updates ran over.
+
+00:04:50.166 --> 00:04:55.383
+<v Bev>So it's like booking a room for a do. Book it too small and folk are stood in the corridor.
+
+00:04:55.638 --> 00:04:58.843
+<v Mo>That's a producer's answer, Bev. I'll have you on the board yet.
+
+00:04:59.030 --> 00:05:00.740
+<v Bev>And do you plan it, or just hope?
+
+00:05:00.986 --> 00:05:13.883
+<v Mo>Both, and then you measure. Mower Mayhem planned its spending before any code was written, routine by routine. The plan added up to a hundred and thirty-one thousand ticks, with about ten thousand, eight hundred spare.
+
+00:05:14.080 --> 00:05:20.874
+<v Gareth>And when it was measured during development, the average came to about seventy-three thousand, seven hundred. About half the purse.
+
+00:05:21.151 --> 00:05:23.809
+<v Bev>Well, that's good, isn't it? Money left over.
+
+00:05:24.035 --> 00:05:37.833
+<v Mo>On average. But averages hide the bad moments. One part of it, the bit that builds the next picture, once took a hundred and nine thousand ticks in a single update, when five or more sprites changed in one cluster.
+
+00:05:38.046 --> 00:05:39.932
+<v Bev>So you can't just look at the average.
+
+00:05:40.190 --> 00:05:50.723
+<v Mo>You can't. That's why the book says nine updates in ten finish within about seventy per cent of the budget, and not just the average. The bad moments are the ones the player feels.
+
+00:05:50.844 --> 00:05:54.411
+<v Bev>Now, every week there's a pencil job. What's yours, Mo?
+
+00:05:54.797 --> 00:06:02.440
+<v Mo>A board. Get a scrap of paper. Right, three columns: to do, doing, done. That's a board.
+
+00:06:02.563 --> 00:06:05.464
+<v Bev>To do, doing, done. I've got that.
+
+00:06:05.726 --> 00:06:21.465
+<v Mo>Now write a card for each stage of making a tape in Gold Master. The coders build it. Vik verifies it. Emeka playtests it. Derek signs it off. Then the duplicator makes the gold master, and Omnibot takes it away. If you want a go, pause us now.
+
+00:06:24.756 --> 00:06:30.171
+<v Bev>So I've got five cards in to do. Build, verify, playtest, sign off, duplicate.
+
+00:06:30.353 --> 00:06:39.820
+<v Mo>Good. Now, the rule. A card moves only when its stage has earned it. Verify can't start until there's a build tape to verify.
+
+00:06:40.116 --> 00:06:41.732
+<v Bev>Can I move build to doing, then?
+
+00:06:42.065 --> 00:06:47.890
+<v Mo>Go on. The coders have their tea, they're building. Now, can I move verify?
+
+00:06:48.043 --> 00:06:50.225
+<v Bev>Not yet. There's no tape.
+
+00:06:50.503 --> 00:06:52.847
+<v Mo>There you are. You're a producer.
+
+00:06:53.133 --> 00:06:57.251
+<v Bev>So it's a queue, really. Everyone waiting on the one before.
+
+00:06:57.448 --> 00:07:16.253
+<v Mo>That's every production line I've ever run. And here's the second rule, the one that matters. When a playtest finds something bad, it's graded from one to three. Severity one is a crash, a soft lock, controls that don't work, progress that's impossible, or something that breaks the game's tone rules.
+
+00:07:16.518 --> 00:07:18.365
+<v Bev>And what happens to a severity one?
+
+00:07:18.727 --> 00:07:27.870
+<v Mo>It stops the card where it is. It doesn't move to the next column until the fix is in and checked again. That rule is why the games went out of the door finished.
+
+00:07:27.863 --> 00:07:29.456
+<v Bev>And the twos and threes?
+
+00:07:29.768 --> 00:07:40.003
+<v Mo>Two is something unfair or unclear. Three is polish. Those can be fixed, or set aside on purpose, with the reason written down in the game's decisions log.
+
+00:07:39.977 --> 00:07:41.827
+<v Gareth>So nobody quietly forgets one.
+
+00:07:42.112 --> 00:07:44.130
+<v Mo>Nobody forgets anything on my board.
+
+00:07:46.630 --> 00:07:50.456
+<v Bev>So this is Gold Master. And Mo, you're in it?
+
+00:07:50.717 --> 00:07:57.566
+<v Mo>In it you play me. It's a management game set in a software studio, a lot like this one, and the whole office runs on tea.
+
+00:07:57.583 --> 00:07:58.621
+<v Bev>That sounds about right.
+
+00:07:58.848 --> 00:08:08.661
+<v Mo>When Gareth's mug runs dry, his build stops. A little mug blinks over his head, the progress bar stops growing, and a stop sign with an empty mug comes up on the status strip.
+
+00:08:08.650 --> 00:08:09.399
+<v Bev>And then?
+
+00:08:09.813 --> 00:08:17.375
+<v Mo>Then I walk to the kettle, pick up a mug of tea and carry it back. Gareth smiles, the score goes up by seventy-five, and the build carries on.
+
+00:08:17.608 --> 00:08:20.544
+<v Gareth>Fifty for handing it over, and twenty-five for the tea.
+
+00:08:20.779 --> 00:08:22.348
+<v Bev>And is that true to life, Gareth?
+
+00:08:22.438 --> 00:08:23.494
+<v Gareth>I'll not deny it.
+
+00:08:23.625 --> 00:08:26.188
+<v Bev>So how does the game know how much tea he's had?
+
+00:08:26.502 --> 00:08:38.317
+<v Gareth>Tea's a number. It's measured in frames of building. While a coder has tea, every update drains a bit of tea and adds the same amount of work to the build. Tea turns into work, frame for frame.
+
+00:08:38.602 --> 00:08:41.643
+<v Bev>Hang on. So a mug of tea is a length of time.
+
+00:08:41.921 --> 00:08:47.692
+<v Gareth>That's exactly it. Give or take the last sip, a mug can yield a frame or so more work than it held.
+
+00:08:47.977 --> 00:08:59.924
+<v Mo>And this is where it's my sort of chapter. Every rule about tea reads one record of numbers per level. Twenty-three bytes. The whole economy of the game is in that record.
+
+00:08:59.905 --> 00:09:01.138
+<v Bev>Give me level one, then.
+
+00:09:01.303 --> 00:09:13.316
+<v Mo>Level one gives the courier a hundred and eighty seconds. The build needs one thousand, five hundred frames of coder work. And a full mug is fourteen seconds of tea, which is seven hundred frames.
+
+00:09:13.443 --> 00:09:22.434
+<v Gareth>And a coder only takes a mug when he's below half full. So below three hundred and fifty. And both coders start the level at two hundred and eighty each, forty per cent.
+
+00:09:22.676 --> 00:09:28.694
+<v Bev>Now I'm writing this down. So they start with five hundred and sixty between them, and the build needs fifteen hundred.
+
+00:09:28.870 --> 00:09:34.345
+<v Mo>So at least two more mugs have to arrive before the build is done. Do the sum and the economy appears.
+
+00:09:34.562 --> 00:09:37.014
+<v Bev>And if I get keen and take him a mug too early?
+
+00:09:37.400 --> 00:09:40.939
+<v Gareth>He shakes his head. A mug offered too early is refused.
+
+00:09:41.169 --> 00:09:45.108
+<v Bev>That's my nephew, that. Won't take a brew until he's gasping.
+
+00:09:45.331 --> 00:09:53.641
+<v Gareth>Here's one for you, Bev. I've got exactly three hundred and fifty frames of tea left, and Mo offers me a mug. Do I take it?
+
+00:09:54.035 --> 00:09:58.446
+<v Bev>Oh, go on. Three hundred and fifty is half. Yes?
+
+00:09:58.743 --> 00:10:07.180
+<v Gareth>No. It has to be below three hundred and fifty. At exactly half, I shake my head. At three hundred and forty-nine, I take it.
+
+00:10:07.170 --> 00:10:10.070
+<v Bev>One frame! That's precise.
+
+00:10:10.333 --> 00:10:19.499
+<v Gareth>That's what the processor does, though. It takes one number from the other, and the only question it asks is whether it had to borrow. No borrow, no tea.
+
+00:10:19.655 --> 00:10:25.282
+<v Mo>And that's a rule that's the same on every level. Only the numbers it compares change.
+
+00:10:25.882 --> 00:10:40.150
+<v Mo>And nothing in the code says Gareth, by the way. There's no routine with his name on it. Every desk, every person and every machine is a sixteen-byte record in one table, and a few small routines ask every row the same questions.
+
+00:10:40.287 --> 00:10:43.300
+<v Bev>Like your board. Same card for everybody.
+
+00:10:43.534 --> 00:10:46.909
+<v Mo>Same card for everybody. Add a desk and you add a row.
+
+00:10:47.173 --> 00:10:54.970
+<v Gareth>Even the production line is a table. Four short lines of data say which desk wants what, what it makes, and how long the job takes.
+
+00:10:55.220 --> 00:11:04.445
+<v Mo>So if you want to reorder the studio, you edit four lines of data. Each stage waits for the one before, as on any production line, and the tables are where that order is written down.
+
+00:11:05.326 --> 00:11:09.982
+<v Bev>So why does it matter that the numbers live in a table? I'd have thought a rule's a rule.
+
+00:11:10.107 --> 00:11:22.371
+<v Mo>Because of what happened next. The player was never meant to be left waiting. Then a measure found nothing to do for forty to fifty-six per cent of the frames between the build and the sign-off, on levels two to four.
+
+00:11:22.592 --> 00:11:25.926
+<v Bev>Nothing to do for half the time? I'd switch off.
+
+00:11:26.114 --> 00:11:34.504
+<v Mo>So would any child. It was mostly fixed waits at desks. So we set a target. Twenty-five per cent idle, at most.
+
+00:11:34.505 --> 00:11:35.953
+<v Gareth>And nobody touched a rule.
+
+00:11:36.097 --> 00:11:52.162
+<v Mo>Only the tuning changed. The four desk jobs came down from six, eight, five and five seconds to two, three, two and three. Levels two to four got less build work, and smaller mugs. They got bugs every four seconds, and shorter naps for Percy.
+
+00:11:52.349 --> 00:11:55.282
+<v Bev>So when the work stops, how does the player know why?
+
+00:11:55.619 --> 00:12:02.964
+<v Mo>The status strip draws a stop sign, with a picture for each reason. A loose bug, Percy on a working desk, or an empty mug.
+
+00:12:02.944 --> 00:12:05.060
+<v Bev>Bugs? Real ones?
+
+00:12:05.382 --> 00:12:12.486
+<v Gareth>Little crawling ones, out of my monitor. While one's loose on the floor the work stops, until Mo squashes it and it pops into a star.
+
+00:12:12.742 --> 00:12:15.586
+<v Bev>Well, that's lovely. And did it work?
+
+00:12:15.880 --> 00:12:25.945
+<v Mo>Twelve candidate sets of numbers were measured. The measure moved three or four points with small changes, so we chose the set that gave about twenty-one per cent on every level. That leaves a margin.
+
+00:12:25.906 --> 00:12:28.018
+<v Bev>A margin. That's very you.
+
+00:12:28.161 --> 00:12:30.552
+<v Mo>Thank you. I'll take that as a compliment.
+
+00:12:30.835 --> 00:12:33.721
+<v Bev>And what does a smaller mug look like, in numbers?
+
+00:12:34.009 --> 00:12:42.937
+<v Gareth>Level four's mug is six seconds of tea. That's three hundred frames full, taken only below a hundred and fifty, and each coder starts the level on a hundred and twenty.
+
+00:12:43.010 --> 00:12:44.392
+<v Bev>Still forty per cent.
+
+00:12:44.624 --> 00:12:50.793
+<v Gareth>Still forty per cent. Same rule, smaller numbers. You're getting the hang of this, Bev.
+
+00:12:50.980 --> 00:12:54.266
+<v Bev>Don't tell anyone. I've a reputation to keep.
+
+00:12:54.403 --> 00:13:03.126
+<v Mo>And that was the whole team, measuring every set and playing every level. Keep your tuning in data, and a retune costs you a rebuild, not a rewrite.
+
+00:13:03.386 --> 00:13:06.423
+<v Bev>Gareth, what does that mean for you, on the code side?
+
+00:13:06.812 --> 00:13:15.658
+<v Gareth>It means the routines never changed. Every rule about tea reads the level's record, and does the same sum. Different numbers in, a different game out.
+
+00:13:15.790 --> 00:13:23.099
+<v Bev>Go on, Mo, crystal ball time. Twenty, thirty years from now. What does a producer's board look like?
+
+00:13:23.373 --> 00:13:32.018
+<v Mo>Suppose one day the board isn't on the wall at all. It's on a screen, and every card moves on everybody's screen at once, even for folk working from their own kitchen table.
+
+00:13:32.044 --> 00:13:33.536
+<v Bev>Like on Tomorrow's World.
+
+00:13:33.791 --> 00:13:38.690
+<v Gareth>And suppose the computer on every desk is so quick that nobody counts their ticks any more.
+
+00:13:38.971 --> 00:13:41.252
+<v Mo>Then I'd want to know who's minding the purse.
+
+00:13:41.394 --> 00:13:43.078
+<v Bev>Would it still need a producer?
+
+00:13:43.351 --> 00:13:47.706
+<v Mo>Somebody still has to say a card hasn't earned it. I'll put my name down now.
+
+00:13:47.942 --> 00:13:51.413
+<v Bev>Go on, give us a story. Something that went wrong.
+
+00:13:51.712 --> 00:13:58.601
+<v Mo>This one's about the purse. When Percy went into the game, one stretch of play went up to two point seven eight frames per update.
+
+00:13:58.873 --> 00:14:00.345
+<v Bev>And it's supposed to be two.
+
+00:14:00.605 --> 00:14:04.659
+<v Mo>Two frames, every update. So that's a card that does not move.
+
+00:14:04.894 --> 00:14:07.121
+<v Bev>What was he doing, the little monkey?
+
+00:14:07.394 --> 00:14:16.650
+<v Gareth>Being a cat. He sleeps, he wakes up, he picks a desk where work is running, he stretches as a warning, and then he walks over and sits on the work until Mo shoos him off.
+
+00:14:16.907 --> 00:14:18.752
+<v Bev>That's every cat I've ever had.
+
+00:14:19.001 --> 00:14:27.970
+<v Gareth>Three changes fixed it. First, a sleeping Percy gets drawn once into the room's clean background, instead of being drawn as a moving sprite every update.
+
+00:14:28.158 --> 00:14:30.697
+<v Bev>So when he's asleep he's part of the furniture.
+
+00:14:30.892 --> 00:14:43.912
+<v Gareth>Pretty much. Second, when there's nothing for him to pick, he looks again every sixteen frames, not all the time. And third, he walks round the furniture, so he stops crossing the desks, which then had to be redrawn on both screens.
+
+00:14:44.101 --> 00:14:45.979
+<v Bev>So you taught the cat manners.
+
+00:14:46.007 --> 00:14:47.323
+<v Gareth>Cheaper ones, anyway.
+
+00:14:47.573 --> 00:14:58.822
+<v Mo>And there's a second Percy story I like. He used to give up on a trip whenever the coder he was heading for ran out of tea, because an empty mug stops the work. To a player, it looked aimless.
+
+00:14:59.108 --> 00:15:02.765
+<v Bev>A cat that changes its mind. I can believe that.
+
+00:15:02.909 --> 00:15:10.493
+<v Mo>The fix cost fourteen bytes. Now he keeps a coder as his target for the whole of the build, because an empty mug only pauses the work.
+
+00:15:10.791 --> 00:15:14.252
+<v Bev>Fourteen bytes. Gareth's gone a bit misty.
+
+00:15:14.500 --> 00:15:17.860
+<v Gareth>It's a good fix, that. The whole team was pleased with that one.
+
+00:15:18.145 --> 00:15:23.620
+<v Mo>Everyone measured, everyone tested, and the cat got his manners. That's my favourite sort of card.
+
+00:15:26.920 --> 00:15:29.448
+<v Bev>What should folk do before next week?
+
+00:15:29.705 --> 00:15:37.123
+<v Mo>Chapter twelve of the book is Gold Master, Rooms, People and Words. The exercise is called Make the Coders Thirstier.
+
+00:15:37.264 --> 00:15:43.429
+<v Gareth>Go on then. In the table of levels, change level one's tea from fourteen seconds to seven, and rebuild the game.
+
+00:15:43.652 --> 00:15:49.434
+<v Mo>But before you play it, predict. Do the sum. How many mugs does the level need now?
+
+00:15:49.708 --> 00:15:56.565
+<v Gareth>A full mug is now three hundred and fifty frames, accepted below a hundred and seventy-five, and the coders start with two hundred and eighty between them.
+
+00:15:56.652 --> 00:15:58.206
+<v Bev>Don't tell them the answer.
+
+00:15:58.365 --> 00:16:05.044
+<v Mo>The book does tell you, at the end of the exercise. Work it out first. Then play it, and count your trips to the kettle.
+
+00:16:05.250 --> 00:16:08.021
+<v Bev>And that one number changes the whole level?
+
+00:16:08.267 --> 00:16:15.940
+<v Mo>That one number. Not one rule changes. That's where we are. Quickly, then, back to you, Bev.
+
+00:16:19.940 --> 00:16:30.497
+<v Bev>That's us for this week. Next time, Vik Bassi's in the chair, and he's going to open up the machine on your desk. If you've got a question for the team, send it in, and we'll put it to them.
+
+00:16:31.097 --> 00:16:32.315
+<v Bev>Thanks, Mo.
+
+00:16:32.595 --> 00:16:37.141
+<v Mo>Thank you, Bev. Thank you, Gareth. There's a mug going spare downstairs.
+
+00:16:37.144 --> 00:16:38.693
+<v Gareth>Below half full, I hope.
+
+00:16:38.854 --> 00:16:45.239
+<v Bev>And before I go, Rick Astley's number one for a third week, and the Fat Boys and the Beach Boys are at number two with Wipeout.
+
+00:16:45.381 --> 00:16:48.508
+<v Mo>Wipeout. That's what happens to a schedule without a board.
+
+00:16:48.528 --> 00:16:49.759
+<v Bev>Right then, turn it up.
+
+00:16:49.901 --> 00:17:00.496
+<v Daniel>That was nineteen eighty-seven. Mo's board did end up on a screen. These games were made through Dalex Studio, where AI agents write, build, test and playtest them a milestone at a time.
+
+00:17:01.096 --> 00:17:12.543
+<v Daniel>To try the exercise you need an emulator such as Fuse, the sjasmplus assembler and Python three, and you can play Gold Master free in your browser at dalex-software dot co dot uk.
+
+00:17:13.143 --> 00:17:24.388
+<v Daniel>The chapter is Gold Master: Rooms, People and Words, in Machine Code Mayhem on Leanpub, and the exercise is Make the coders thirstier. Mo's quite right: work it out before you play it.
+
+00:17:24.988 --> 00:17:34.177
+<v Daniel>Thank you for listening. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is written and produced by me, Daniel Vaughan.

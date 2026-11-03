@@ -417,3 +417,27 @@ be included in ink and paper". Asked how far the magazine form goes, the owner c
 - The Blog's D-29 rules otherwise stand: never the demo key or scheme, CI machines, credentials, hidden projects,
   customers or the child, and Suno is not used. The first article was rewritten as a feature with its fact-checked
   content unchanged.
+
+## D-31 Dalex After Hours on the site, published as each episode is ready (owner, 2026-11-03)
+
+The owner: "I would like the podcasts to be published to the website as they are ready. Please prepare the website
+pages and rss feed in anticipation. I use overcast on my phone I would like to be able to test the feed there". This
+replaces the book's ADR-0025 rhythm (weekly, after the author has heard the pilot and two episodes).
+
+- **Pages and feed.** `podcast.py` (written 2026-11-02) is now part of the build: `podcast/` lists the episodes,
+  `podcast/<slug>/` has the player, show notes, chapters and transcript, `podcast/<slug>/transcript.vtt` and
+  `chapters.json` back the feed's Podcast Index tags, and `podcast/feed.xml` is the RSS feed with Apple's iTunes tags.
+  `Podcast` joins the main navigation; the episode pages join the sitemap.
+- **Published when ready.** The book repo's `tools/podcast_publish.py` publishes an episode only when its audio was
+  rendered from the script as it now stands (the render queue's script hash). It uploads the MP3 to this repository's
+  `podcast` release, and writes the episode's entry (`visible: true`, the publication date and time in UTC), its
+  transcript and its show notes into `content/podcast/`. Pushing this repository deploys them.
+- **Dates.** `pubDate` is the publication time, a second later per episode number, so episodes published together keep
+  their order and none is dated in the future. The 1987 recording date is in the show notes, not the feed.
+- **Audio** is not in this repository: each MP3 is an asset of the `podcast` release, served from GitHub's download
+  host, which answers HEAD and byte-range requests (checked when the release is first made).
+- **Honesty.** The show description, every episode page and every set of notes say the people are fictional and the
+  voices synthesised. A Spectrum address written `$4100` in a transcript is not a price (the price test spares four
+  hex digits).
+- **Cover.** `static/assets/podcast/cover.jpg` (3000 by 3000, for the feed) and `cover-1400.jpg` (the page), from the
+  book's `podcast/art/`.

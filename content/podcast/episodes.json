@@ -1,1 +1,211 @@
-[]
+[
+  {
+    "number": 0,
+    "slug": "00-pilot",
+    "title": "Wait, read, move, draw",
+    "guest": "Bev and Gareth",
+    "summary": "Bev and Gareth open the slot: why anyone would write for the Spectrum, and the one loop every game runs. Wait, read, move, draw.",
+    "date": "2026-11-03",
+    "time": "11:06",
+    "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/00-pilot.mp3",
+    "audio_bytes": 11195319,
+    "seconds": 922,
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Before we start"
+      },
+      {
+        "start": 36,
+        "title": "Cold open"
+      },
+      {
+        "start": 57,
+        "title": "Welcome"
+      },
+      {
+        "start": 135,
+        "title": "The desk"
+      },
+      {
+        "start": 283,
+        "title": "The big idea"
+      },
+      {
+        "start": 347,
+        "title": "By hand"
+      },
+      {
+        "start": 454,
+        "title": "In the game"
+      },
+      {
+        "start": 547,
+        "title": "Six games"
+      },
+      {
+        "start": 614,
+        "title": "Will it fit"
+      },
+      {
+        "start": 694,
+        "title": "The rule"
+      },
+      {
+        "start": 776,
+        "title": "Crystal ball"
+      },
+      {
+        "start": 824,
+        "title": "Try this"
+      },
+      {
+        "start": 861,
+        "title": "Close"
+      },
+      {
+        "start": 883,
+        "title": "After the show"
+      }
+    ],
+    "visible": true
+  },
+  {
+    "number": 1,
+    "slug": "01-mo",
+    "title": "A budget a producer can respect",
+    "guest": "Mo Greenhalgh, producer",
+    "summary": "Mo on budgets a producer can respect: ticks per update, and keeping the numbers in a table so a game can be retuned without touching a rule.",
+    "date": "2026-11-03",
+    "time": "11:06",
+    "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/01-mo.mp3",
+    "audio_bytes": 12789261,
+    "seconds": 1055,
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Before we start"
+      },
+      {
+        "start": 29,
+        "title": "Cold open"
+      },
+      {
+        "start": 49,
+        "title": "Welcome"
+      },
+      {
+        "start": 112,
+        "title": "The desk"
+      },
+      {
+        "start": 187,
+        "title": "The big idea"
+      },
+      {
+        "start": 351,
+        "title": "By hand"
+      },
+      {
+        "start": 464,
+        "title": "In the game"
+      },
+      {
+        "start": 665,
+        "title": "The retune"
+      },
+      {
+        "start": 796,
+        "title": "Crystal ball"
+      },
+      {
+        "start": 828,
+        "title": "The bug"
+      },
+      {
+        "start": 927,
+        "title": "Try this"
+      },
+      {
+        "start": 976,
+        "title": "Close"
+      },
+      {
+        "start": 1010,
+        "title": "After the show"
+      }
+    ],
+    "visible": true
+  },
+  {
+    "number": 2,
+    "slug": "02-vik",
+    "title": "Measured, or guessed?",
+    "guest": "Vik Bassi, verification engineer",
+    "summary": "Vik on the machine as numbered boxes, why the screen is laid out so oddly, and his rule: write down what you expect, run it, then look.",
+    "date": "2026-11-03",
+    "time": "11:06",
+    "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/02-vik.mp3",
+    "audio_bytes": 11762088,
+    "seconds": 970,
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Before we start"
+      },
+      {
+        "start": 28,
+        "title": "Cold open"
+      },
+      {
+        "start": 49,
+        "title": "Welcome"
+      },
+      {
+        "start": 96,
+        "title": "The desk"
+      },
+      {
+        "start": 156,
+        "title": "The big idea"
+      },
+      {
+        "start": 249,
+        "title": "By hand"
+      },
+      {
+        "start": 364,
+        "title": "In the game"
+      },
+      {
+        "start": 496,
+        "title": "The slow boxes"
+      },
+      {
+        "start": 588,
+        "title": "The other boxes"
+      },
+      {
+        "start": 682,
+        "title": "The disagreement"
+      },
+      {
+        "start": 776,
+        "title": "Crystal ball"
+      },
+      {
+        "start": 821,
+        "title": "Try this"
+      },
+      {
+        "start": 888,
+        "title": "Close"
+      },
+      {
+        "start": 921,
+        "title": "After the show"
+      }
+    ],
+    "visible": true
+  }
+]
