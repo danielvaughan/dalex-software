@@ -272,8 +272,8 @@
     "date": "2026-10-01",
     "time": "18:00",
     "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/04-gareth.mp3",
-    "audio_bytes": 12328451,
-    "seconds": 1017,
+    "audio_bytes": 12277042,
+    "seconds": 1013,
     "chapters": [
       {
         "start": 0,
@@ -284,11 +284,11 @@
         "title": "Welcome"
       },
       {
-        "start": 80,
+        "start": 79,
         "title": "The desk"
       },
       {
-        "start": 124,
+        "start": 123,
         "title": "The big idea"
       },
       {
@@ -296,35 +296,35 @@
         "title": "By hand"
       },
       {
-        "start": 374,
+        "start": 372,
         "title": "The lock"
       },
       {
-        "start": 453,
+        "start": 450,
         "title": "What it costs"
       },
       {
-        "start": 563,
+        "start": 559,
         "title": "In the game"
       },
       {
-        "start": 700,
+        "start": 695,
         "title": "The bug"
       },
       {
-        "start": 836,
+        "start": 831,
         "title": "Crystal ball"
       },
       {
-        "start": 890,
+        "start": 884,
         "title": "Try this"
       },
       {
-        "start": 934,
+        "start": 928,
         "title": "Close"
       },
       {
-        "start": 975,
+        "start": 971,
         "title": "After the show"
       }
     ],
