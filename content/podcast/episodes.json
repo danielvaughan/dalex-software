@@ -644,5 +644,68 @@
       }
     ],
     "visible": true
+  },
+  {
+    "number": 10,
+    "slug": "10-emeka",
+    "title": "Feel it in your arm",
+    "guest": "Emeka Ezeani, playtester",
+    "summary": "Emeka on WOLF's timing and waggling: why a rhythm you can feel belongs to the frame, and why mashing must never beat a steady arm.",
+    "date": "2026-11-12",
+    "time": "19:00",
+    "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/10-emeka.mp3",
+    "audio_bytes": 12217104,
+    "seconds": 1008,
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Cold open"
+      },
+      {
+        "start": 22,
+        "title": "Welcome"
+      },
+      {
+        "start": 88,
+        "title": "The desk"
+      },
+      {
+        "start": 176,
+        "title": "The big idea"
+      },
+      {
+        "start": 255,
+        "title": "By hand"
+      },
+      {
+        "start": 347,
+        "title": "In the game"
+      },
+      {
+        "start": 560,
+        "title": "The meter"
+      },
+      {
+        "start": 664,
+        "title": "The bug"
+      },
+      {
+        "start": 850,
+        "title": "Crystal ball"
+      },
+      {
+        "start": 888,
+        "title": "Try this"
+      },
+      {
+        "start": 930,
+        "title": "Close"
+      },
+      {
+        "start": 957,
+        "title": "After the show"
+      }
+    ],
+    "visible": true
   }
 ]
