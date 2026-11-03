@@ -526,5 +526,60 @@
       }
     ],
     "visible": true
+  },
+  {
+    "number": 8,
+    "slug": "08-roundup",
+    "title": "Every card earned",
+    "guest": "Bev, Gareth and Mo",
+    "summary": "The mid-season roundup: four threads from the first seven weeks, a quiz for the listener, and every card earned.",
+    "date": "2026-10-29",
+    "time": "19:00",
+    "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/08-roundup.mp3",
+    "audio_bytes": 10767859,
+    "seconds": 887,
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Cold open"
+      },
+      {
+        "start": 21,
+        "title": "Welcome"
+      },
+      {
+        "start": 96,
+        "title": "Measured, or guessed?"
+      },
+      {
+        "start": 257,
+        "title": "A budget you can respect"
+      },
+      {
+        "start": 410,
+        "title": "Do it once by hand"
+      },
+      {
+        "start": 505,
+        "title": "By hand"
+      },
+      {
+        "start": 608,
+        "title": "Caught together"
+      },
+      {
+        "start": 741,
+        "title": "Crystal ball"
+      },
+      {
+        "start": 779,
+        "title": "Close"
+      },
+      {
+        "start": 842,
+        "title": "After the show"
+      }
+    ],
+    "visible": true
   }
 ]

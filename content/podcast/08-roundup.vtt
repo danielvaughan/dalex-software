@@ -1,0 +1,463 @@
+WEBVTT
+
+00:00:05.800 --> 00:00:10.517
+<v Mo>Seven guests, seven cards. And every one of them said the same thing, in their own way.
+
+00:00:10.601 --> 00:00:11.712
+<v Bev>Which was?
+
+00:00:12.092 --> 00:00:13.462
+<v Mo>Don't take my word for it.
+
+00:00:13.438 --> 00:00:14.997
+<v Gareth>That's Vik, that.
+
+00:00:14.985 --> 00:00:16.068
+<v Mo>That's all of them.
+
+00:00:21.068 --> 00:00:28.289
+<v Bev>Hello there, it's Bev, the kettle's on, and this is Dalex After Hours, the slot where we find out how computer games are really made.
+
+00:00:28.889 --> 00:00:34.712
+<v Bev>The clocks went back on Sunday, so it's darker evenings now. Perfect for staying in with a Spectrum.
+
+00:00:34.833 --> 00:00:37.981
+<v Gareth>I got an extra hour in bed and spent it thinking about the interrupt.
+
+00:00:38.249 --> 00:00:42.410
+<v Bev>Course you did. Gareth's across the desk, as ever.
+
+00:00:42.425 --> 00:00:43.177
+<v Gareth>Hiya, Bev.
+
+00:00:43.352 --> 00:00:54.495
+<v Bev>And this week there's nobody in the guest chair. We're halfway through the season, so we're looking back over the first seven, and I've brought in the woman who keeps the board. Our very first guest, Mo Greenhalgh.
+
+00:00:54.695 --> 00:01:00.655
+<v Mo>Hello again, Bev. I've written every episode on a card. Seven cards, all in done.
+
+00:01:00.722 --> 00:01:01.699
+<v Bev>And have they earned it?
+
+00:01:02.051 --> 00:01:04.603
+<v Mo>Every one. That's why they're in done.
+
+00:01:04.762 --> 00:01:14.455
+<v Bev>Now, every fact on this show comes out of the book the team at Dalex are writing, and that's still true tonight. Everything we say about the last seven weeks, somebody said in that chair first.
+
+00:01:14.685 --> 00:01:18.218
+<v Gareth>So no new numbers. Only the good ones, again.
+
+00:01:18.345 --> 00:01:20.070
+<v Bev>Mo, how do you want to do this?
+
+00:01:20.403 --> 00:01:29.913
+<v Mo>Four threads. I read the cards back, and the same four ideas kept turning up, whoever was in the chair. We take them one at a time, and we name everybody who said it.
+
+00:01:30.147 --> 00:01:32.607
+<v Bev>Lovely. Right then, the first one.
+
+00:01:35.907 --> 00:01:38.898
+<v Mo>The first one has to be Vik's. Measured, or guessed?
+
+00:01:39.183 --> 00:01:44.985
+<v Bev>Vik was episode two, the machine on your desk. He timed the whole programme on his wristwatch.
+
+00:01:45.139 --> 00:01:49.440
+<v Gareth>And he checks the watch against the wall clock. Every morning.
+
+00:01:49.596 --> 00:01:54.240
+<v Bev>What stuck with me was one line of his. Missing evidence is missing, not passed.
+
+00:01:54.361 --> 00:02:03.438
+<v Mo>I've got that one on a card of its own. And the other one I wrote down from Vik was about the clock ticks. Every instruction has its cost in the manual, so you can add them up before you run anything.
+
+00:02:03.717 --> 00:02:09.799
+<v Gareth>And then the chip that draws the picture stops the processor's clock whenever they both want the same memory, and the tables don't tell you.
+
+00:02:10.011 --> 00:02:15.969
+<v Mo>So Vik said, counting from the tables tells you what a routine should cost. Only a measurement tells you what it did.
+
+00:02:16.204 --> 00:02:23.227
+<v Bev>And then he had us all poking the screen. Write down where you expect the line first. Then run it. Then look.
+
+00:02:23.438 --> 00:02:28.422
+<v Gareth>Sixteen thousand, six hundred and forty. One pixel down, not a third of the way.
+
+00:02:28.607 --> 00:02:29.999
+<v Bev>I still don't like that, you know.
+
+00:02:30.226 --> 00:02:34.692
+<v Gareth>Nobody does, Bev. The screen's laid out for the chip that draws it, not for you.
+
+00:02:34.882 --> 00:02:39.725
+<v Mo>And then the same thread turned up on Gareth's own episode. Tell her the music one.
+
+00:02:39.872 --> 00:02:51.561
+<v Gareth>Oh, that one. A cheaper music loop once shifted every update's timing slightly. It sent Vik's test rig down a new route, into a crowded lawn, and the update rate check went from two per cent slow to eight point seven.
+
+00:02:51.857 --> 00:02:54.452
+<v Bev>So the music got cheaper and the game got slower.
+
+00:02:54.678 --> 00:02:59.170
+<v Gareth>Because the rig only measures where it goes. That's why it's measured on every build.
+
+00:02:59.404 --> 00:03:04.627
+<v Bev>And Hyun-joo, in episode six. She said a photograph of the telly can't show flicker.
+
+00:03:04.774 --> 00:03:10.683
+<v Mo>So Vik's rig watches the beam instead. It records every write to the screen, with the exact tick it happened.
+
+00:03:10.846 --> 00:03:17.078
+<v Gareth>Four hundred and eighty-four frames of play, and nought bytes caught half drawn. Fifty-eight late bytes, in six frames.
+
+00:03:17.215 --> 00:03:21.966
+<v Bev>And late's all right, because late is the last picture, complete, for a fiftieth of a second.
+
+00:03:22.260 --> 00:03:25.372
+<v Gareth>Late, never wrong. That was Hyun-joo's.
+
+00:03:25.613 --> 00:03:29.336
+<v Mo>And then Dez, of all people. The man with his headphones round his neck.
+
+00:03:29.614 --> 00:03:33.330
+<v Bev>He said hearing is a poor test. I nearly fell off my chair.
+
+00:03:33.474 --> 00:03:43.644
+<v Gareth>Because the music player once left a pointer at the very start of memory, and played garbage on a real machine. On the test rig it played correctly, because the rig's memory started out all noughts.
+
+00:03:43.934 --> 00:03:46.686
+<v Bev>So the ears were fooled, and so was the rig.
+
+00:03:46.969 --> 00:03:59.258
+<v Mo>So now the rig checks the sound chip's settings against what the music tool says they should be, frame by frame. Every song in Mower Mayhem matches on every frame. The theme, five hundred and thirty of five hundred and thirty.
+
+00:03:59.413 --> 00:04:04.453
+<v Gareth>And the lawn tune, eighteen thousand, eight hundred and ninety-three of eighteen thousand, eight hundred and ninety-three.
+
+00:04:04.740 --> 00:04:07.208
+<v Bev>And Gareth, you never did get away with guessing, did you?
+
+00:04:07.547 --> 00:04:10.511
+<v Gareth>Row one hundred and ninety-one. I'd have got it right, mind.
+
+00:04:10.593 --> 00:04:11.771
+<v Mo>Measured, or guessed?
+
+00:04:12.126 --> 00:04:15.778
+<v Gareth>Guessed. Correctly. You've been practising that, Mo.
+
+00:04:15.784 --> 00:04:16.933
+<v Mo>I've been listening.
+
+00:04:17.096 --> 00:04:19.785
+<v Bev>Thread two. And this one's yours, Mo.
+
+00:04:20.063 --> 00:04:26.126
+<v Mo>It's where we started. A budget. Every game has a purse of time, and you count what you spend from it.
+
+00:04:26.382 --> 00:04:33.278
+<v Bev>You and Gareth taught me the ticks. On the one-twenty-eight K, one picture on the telly gets seventy thousand, nine hundred and eight of them.
+
+00:04:33.465 --> 00:04:41.063
+<v Gareth>And Gold Master takes two pictures for every update, so every trip round the loop has a hundred and forty-one thousand, eight hundred and sixteen to spend.
+
+00:04:41.188 --> 00:04:48.444
+<v Mo>But the bit I wanted folk to keep is that averages hide the bad moments. That's why the book says nine updates in ten, and not the average.
+
+00:04:48.738 --> 00:04:51.879
+<v Bev>Because the bad moments are the ones the player feels.
+
+00:04:52.117 --> 00:04:58.648
+<v Mo>That's it. And it came back with Gareth. His interrupt, the doorbell that rings fifty times a second.
+
+00:04:58.925 --> 00:05:03.419
+<v Bev>The doorbell while you're cooking. I've thought about that every time I've made a sauce since.
+
+00:05:03.645 --> 00:05:12.467
+<v Gareth>Getting into the routine, saving every register, putting them back and returning comes to two hundred and eighty-nine ticks. About nought point four per cent of a frame.
+
+00:05:12.650 --> 00:05:22.734
+<v Mo>And Antigravity, which only gets one picture for each update. Nine updates in ten stayed under thirty-one thousand, two hundred and twenty-three ticks. That's forty-four per cent of the frame.
+
+00:05:25.234 --> 00:05:29.353
+<v Bev>That's Antigravity now. Robin Vance, falling up to the ceiling.
+
+00:05:29.500 --> 00:05:34.040
+<v Gareth>Eighty-eight updates with your hands off the keys. Every time.
+
+00:05:34.161 --> 00:05:38.719
+<v Bev>And Dez spends his budget like a sensible lad. I was surprised, I'll be honest.
+
+00:05:38.985 --> 00:05:47.966
+<v Mo>His music player works out all thirteen of the chip's settings every frame, and only writes the ones that changed. In the lawn tune, more than a third of the frames change nothing at all.
+
+00:05:48.161 --> 00:05:56.483
+<v Gareth>Which keeps it inside the budget. It peaks between six thousand, two hundred and forty-six and seven thousand, nine hundred and eighteen ticks a frame, depending on the song.
+
+00:05:57.206 --> 00:06:02.970
+<v Bev>Now the other half of this one was the table. You said keep the numbers somewhere you can change them.
+
+00:06:03.232 --> 00:06:18.056
+<v Mo>Gold Master's tea. Every rule about tea reads one record of numbers per level, twenty-three bytes. When a measure found players with nothing to do for forty to fifty-six per cent of the frames on levels two to four, nobody touched a rule. Only numbers changed.
+
+00:06:18.242 --> 00:06:19.557
+<v Bev>And you got it down to?
+
+00:06:19.829 --> 00:06:31.482
+<v Mo>About twenty-one per cent on every level, against a target of twenty-five at most. Twelve candidate sets of numbers, all measured. Keep your tuning in data, and a retune costs you a rebuild, not a rewrite.
+
+00:06:31.705 --> 00:06:40.769
+<v Gareth>And Colin did the same with the mower. The first acceleration took a whole second to reach full pace. Then after a playtest it went up, from twenty-six a step to thirty-nine.
+
+00:06:41.060 --> 00:06:44.946
+<v Bev>And Colin said, the paper was a first go. The numbers came from play.
+
+00:06:45.242 --> 00:06:50.144
+<v Mo>That's the budget thread. Plan it, measure it, then tune the numbers and leave the rules alone.
+
+00:06:50.358 --> 00:06:55.483
+<v Bev>Thread three. And I'll be honest, this is my favourite, because it's the one where I did the work.
+
+00:06:55.737 --> 00:07:02.485
+<v Mo>Yvonne's. Episode three. Do it once by hand. Then the tool does it, every time.
+
+00:07:02.771 --> 00:07:08.623
+<v Bev>She made me be the clerk. The assembler. And I got three E, then C three.
+
+00:07:08.837 --> 00:07:17.391
+<v Gareth>L D A, comma, C three. And the listing the assembler writes said three E, C three. Same bytes. No magic in it.
+
+00:07:17.633 --> 00:07:26.462
+<v Mo>And Yvonne's point was the comparing. Do it once by hand, let the tool do it, and compare the two answers. If they agree, you can trust the tool with the rest.
+
+00:07:26.757 --> 00:07:30.955
+<v Bev>And if they don't, one of you's wrong, and you've found it before it cost anybody anything.
+
+00:07:31.135 --> 00:07:35.536
+<v Gareth>And every guest brought a pencil job. Vik had Bev shading a row of a weed.
+
+00:07:35.693 --> 00:07:38.694
+<v Bev>A hundred and seventy-nine. I've still got it on the fridge.
+
+00:07:38.853 --> 00:07:43.485
+<v Mo>Colin had a counter on squared paper, adding six hundred and fifty-six slivers a turn.
+
+00:07:43.770 --> 00:07:49.154
+<v Bev>Two, three, two, three. It lurched. Up close, it lurched.
+
+00:07:49.383 --> 00:07:55.415
+<v Gareth>And from across the room it glides. Never throw the remainder away. That was Colin's.
+
+00:07:55.590 --> 00:08:04.172
+<v Mo>Mine was the board, three columns. Gareth's was six boxes for six frames, and a tap of P that no update saw, until the interrupt wrote it down for the next one.
+
+00:08:04.376 --> 00:08:13.333
+<v Bev>Hyun-joo had me filling in a lawnmower on a grid, square by square, like knitting. And Dez made me divide a clock by a D, and I said I'm not doing that in my head.
+
+00:08:13.567 --> 00:08:18.580
+<v Gareth>A hundred and eighty-nine. You were right not to. I did it for you.
+
+00:08:18.774 --> 00:08:24.922
+<v Mo>The point of every one is the same. Do the sum yourself once, and then you know what the machine ought to say, and you can tell when it doesn't.
+
+00:08:25.189 --> 00:08:29.448
+<v Bev>So I've asked Mo for a quiz. A little one, for the listener.
+
+00:08:29.588 --> 00:08:31.931
+<v Gareth>Go on then. Pencil out, everyone.
+
+00:08:32.196 --> 00:08:40.330
+<v Mo>Right. Four questions, all from the first seven weeks. Write your answers down, and pause us if you want longer.
+
+00:08:40.930 --> 00:08:50.288
+<v Mo>One. In Gold Master, on level one, a full mug is seven hundred frames of tea. Gareth has exactly three hundred and fifty left, and I offer him a mug. Does he take it?
+
+00:08:50.888 --> 00:09:00.640
+<v Mo>Two. Colin's counter starts on square nought and moves six hundred and fifty-six slivers a turn, with two hundred and fifty-six slivers to a square. Which square is it on after the first turn?
+
+00:09:01.240 --> 00:09:07.501
+<v Mo>Three. The one-twenty-eight K's sound chip. How many channels has it got, and which one do the sound effects borrow?
+
+00:09:08.101 --> 00:09:17.656
+<v Mo>Four. Yvonne's tape. Mix every byte of a block together with exclusive or, check byte included. What should it come to, if the block loaded cleanly?
+
+00:09:21.925 --> 00:09:26.537
+<v Bev>I've had a go. One. Three hundred and fifty is half, so he takes it.
+
+00:09:26.713 --> 00:09:34.996
+<v Gareth>No. It has to be below three hundred and fifty. At exactly half I shake my head. At three hundred and forty-nine, I take it.
+
+00:09:35.226 --> 00:09:38.579
+<v Bev>One frame. I got that wrong on Mo's episode as well.
+
+00:09:38.611 --> 00:09:40.244
+<v Mo>You did. Two.
+
+00:09:40.509 --> 00:09:43.461
+<v Bev>Square two, with a hundred and forty-four slivers over.
+
+00:09:43.555 --> 00:09:46.072
+<v Mo>That's right. Three.
+
+00:09:46.201 --> 00:09:50.159
+<v Bev>Three channels, a three-piece band. And the effects borrow C.
+
+00:09:50.336 --> 00:09:53.861
+<v Gareth>Which is why every song has to stand up on A and B alone.
+
+00:09:53.819 --> 00:09:54.501
+<v Mo>Four.
+
+00:09:54.734 --> 00:09:58.694
+<v Bev>Nought. If it all mixes down to nought, it loaded.
+
+00:09:58.871 --> 00:10:04.275
+<v Mo>Three out of four, Bev, and the one you missed is the one everybody misses. You're a producer.
+
+00:10:04.539 --> 00:10:07.708
+<v Bev>Don't tell anyone. I've a reputation to keep.
+
+00:10:08.308 --> 00:10:09.738
+<v Bev>And thread four, Mo?
+
+00:10:10.116 --> 00:10:16.162
+<v Mo>Nobody does it alone. Every story with a bug in it had somebody else catching it, and the whole team going at it.
+
+00:10:16.134 --> 00:10:17.587
+<v Bev>Colin's hedgehogs.
+
+00:10:17.810 --> 00:10:25.592
+<v Gareth>The team built a monitor that checked every frame of Vik's test rig driving through ten lawns, and it found contacts that no test and no playtest had caught.
+
+00:10:25.827 --> 00:10:30.227
+<v Bev>Eighty-one, then fifty-four, then two hundred, then none. It went up before it went down.
+
+00:10:30.365 --> 00:10:34.679
+<v Gareth>And two of the three bugs were the same trap. The Zed eighty's carry flag.
+
+00:10:34.912 --> 00:10:42.498
+<v Mo>And since the fix, thirty-six thousand, seven hundred and eighty-five frames of test play, and not one contact frame. That's the hedgehogs safe.
+
+00:10:42.762 --> 00:10:48.621
+<v Bev>And Hyun-joo's cards. Ready, paused and game over, flashing up half drawn.
+
+00:10:48.871 --> 00:10:54.432
+<v Mo>Playtesters and a reviewer spotted them. It took the team four attempts, and nobody gave up on it.
+
+00:10:54.713 --> 00:11:00.890
+<v Gareth>Draw the frame under black, wait for the interrupt, then one pass sets the whole panel to bright white on black, ahead of the beam.
+
+00:11:01.040 --> 00:11:05.377
+<v Bev>Draw it in the dark and switch the light on. That was mine, that, and she pinched it.
+
+00:11:05.614 --> 00:11:08.695
+<v Mo>She did, and she said so. And there was the red blink.
+
+00:11:08.916 --> 00:11:17.417
+<v Bev>Oh, that one. A playtester warned that a young player could read the animal's cells blinking red as a hit. In a game where no animal is ever harmed.
+
+00:11:17.583 --> 00:11:22.799
+<v Gareth>So the signal moved onto the machine. A white exclamation mark in a red cell beside the mower.
+
+00:11:23.037 --> 00:11:30.779
+<v Mo>Then Dez. Somebody played Mower Mayhem on a real Spectrum and sent one line back. The music sounds strange on a real device.
+
+00:11:30.923 --> 00:11:34.669
+<v Bev>And it wasn't the songs at all. It was the lawnmower.
+
+00:11:34.939 --> 00:11:43.662
+<v Gareth>The engine hum, looping on the free channel C under every bar. The fix was a rule, not a new player. No engine hum while the music plays.
+
+00:11:43.879 --> 00:11:52.818
+<v Mo>And Yvonne's assert. Five bytes from a fix to the collision test pushed a table onto the next page, and one line in the source stopped the build before the stack could grow down into the variables.
+
+00:11:52.982 --> 00:11:57.424
+<v Bev>And she said, the team writes the asserts. The build just reads them.
+
+00:11:57.627 --> 00:12:05.914
+<v Mo>Even Percy had his card. When he went into Gold Master, he pushed one stretch of play to two point seven eight frames per update. Three changes fixed it.
+
+00:12:06.088 --> 00:12:11.253
+<v Gareth>And a fourteen-byte fix stopped him giving up on his trips halfway. The whole team was pleased with that one.
+
+00:12:11.510 --> 00:12:13.493
+<v Bev>So what's the thread, in one line?
+
+00:12:13.757 --> 00:12:17.970
+<v Mo>Found it, fixed it, wrote it down for the next person. And thank whoever found it.
+
+00:12:21.270 --> 00:12:26.382
+<v Bev>Go on, Mo, crystal ball time. You did the first one, so you can do the halfway one.
+
+00:12:26.516 --> 00:12:37.735
+<v Mo>Suppose one day you don't have to be in on a Thursday night to hear this slot. Every episode is kept, and folk listen whenever they like, on a little player in their pocket, on the bus. Call it a podcast.
+
+00:12:37.910 --> 00:12:41.658
+<v Bev>Like on Tomorrow's World. A wireless you carry about with you.
+
+00:12:41.890 --> 00:12:46.387
+<v Gareth>And suppose they could stop us mid-sentence, go back, and hear the bit about the borrow again.
+
+00:12:46.540 --> 00:12:48.708
+<v Bev>I'd want that for half of what you say.
+
+00:12:48.717 --> 00:12:49.789
+<v Gareth>Fair.
+
+00:12:50.068 --> 00:12:53.578
+<v Mo>Then I'd still want a card for every episode, and nothing goes out until it's earned it.
+
+00:12:53.766 --> 00:12:56.393
+<v Bev>So in the future there's still a board.
+
+00:12:56.641 --> 00:12:59.027
+<v Mo>There's always a board. That one's not a guess.
+
+00:13:03.027 --> 00:13:15.154
+<v Bev>That's us for this week, and halfway through the season. Seven guests, and every one a cracker. Mo, Vik, Yvonne, Gareth, Colin, Hyun-joo and Dez. Thank you, all of you.
+
+00:13:15.202 --> 00:13:17.671
+<v Gareth>And Percy. And Omnibot.
+
+00:13:17.803 --> 00:13:22.076
+<v Bev>And Percy and Omnibot. And Dez made it to his own episode in the end.
+
+00:13:22.138 --> 00:13:22.827
+<v Mo>Late.
+
+00:13:22.797 --> 00:13:23.684
+<v Gareth>Fashionably.
+
+00:13:23.852 --> 00:13:26.050
+<v Bev>And then asked whether Hyun-joo would be listening.
+
+00:13:26.266 --> 00:13:27.639
+<v Mo>That's not one for the board.
+
+00:13:27.893 --> 00:13:33.470
+<v Bev>On Sunday's chart, You Win Again is number one for a third week, and George Michael's Faith is at number two.
+
+00:13:33.751 --> 00:13:37.237
+<v Mo>Faith at number two. It's waiting for the Bee Gees to finish their slot.
+
+00:13:37.391 --> 00:13:48.902
+<v Bev>Next week Neil Whitworth is in the chair, our art director, with Tiger Gorilla. Scrolling a jungle, and what happens when the colours clash. If you've got a question for the team, send it in, and we'll put it to them.
+
+00:13:49.502 --> 00:13:50.719
+<v Bev>Thanks, Mo.
+
+00:13:50.969 --> 00:13:58.128
+<v Mo>Thank you, Bev. Thank you, Gareth. Seven cards done, and the next one's Neil's. Quickly, then, back to you, Bev.
+
+00:13:58.320 --> 00:14:01.965
+<v Bev>The theme is by our own Dez. Right then, turn it up.
+
+00:14:02.118 --> 00:14:18.049
+<v Daniel>This is Daniel Vaughan, who made the show. That was the first seven episodes, told the nineteen eighty-seven way. Today Vik's measurements come from an emulator and a script, and you can play Mower Mayhem and Antigravity free in your browser at dalex-software dot co dot uk.
+
+00:14:18.649 --> 00:14:29.972
+<v Daniel>Every thread tonight comes from Machine Code Mayhem on Leanpub. Each of the first seven episodes names its chapter and an exercise to try, and the pencil jobs are still the best way in.
+
+00:14:30.572 --> 00:14:45.747
+<v Daniel>Thank you for listening, and for the first half of the season. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is by me, Daniel Vaughan, with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.
