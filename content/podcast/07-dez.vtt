@@ -1,0 +1,490 @@
+WEBVTT
+
+00:00:01.000 --> 00:00:03.804
+<v Dez>Nothing in the songs was wrong. Not one note.
+
+00:00:03.888 --> 00:00:05.151
+<v Bev>So what was it?
+
+00:00:05.336 --> 00:00:06.023
+<v Dez>The lawnmower.
+
+00:00:16.823 --> 00:00:24.045
+<v Bev>Hello there, it's Bev, the kettle's on, and this is Dalex After Hours, the slot where we find out how computer games are really made.
+
+00:00:24.645 --> 00:00:28.152
+<v Bev>Every fact on this show comes out of the book the team's writing.
+
+00:00:28.752 --> 00:00:30.947
+<v Bev>Gareth's across the desk, as always.
+
+00:00:30.923 --> 00:00:31.675
+<v Gareth>Hiya, Bev.
+
+00:00:31.849 --> 00:00:39.042
+<v Bev>And this week's guest is the man who wrote our theme tune, Dez Mulvaney, the musician. Who is, I can't help noticing, not here.
+
+00:00:38.983 --> 00:00:39.835
+<v Gareth>He'll be on his way.
+
+00:00:39.906 --> 00:00:41.589
+<v Bev>It's his own episode, Gareth.
+
+00:00:41.852 --> 00:00:43.913
+<v Gareth>Then he'll have heard something good on the way in.
+
+00:00:43.928 --> 00:00:46.431
+<v Dez>Sorry. Sorry I'm late. Again.
+
+00:00:46.411 --> 00:00:47.671
+<v Bev>You're late, Dez.
+
+00:00:47.682 --> 00:00:48.394
+<v Dez>Fashionably.
+
+00:00:48.605 --> 00:00:52.745
+<v Bev>That's Mo's line, and I've pinched it. Sit down, the tea's still warm.
+
+00:00:53.044 --> 00:00:59.594
+<v Dez>Cheers, Bev. Was Hyun-joo in last week? Just asking. For the show.
+
+00:00:59.743 --> 00:01:02.325
+<v Bev>She was. She was very good.
+
+00:01:02.453 --> 00:01:06.193
+<v Dez>She is. Very good. At sprites, I mean.
+
+00:01:06.208 --> 00:01:07.104
+<v Bev>Is that right?
+
+00:01:07.509 --> 00:01:12.433
+<v Dez>It's warm in here. Right, music. Ask me about music.
+
+00:01:12.597 --> 00:01:20.644
+<v Bev>Right, music. Sunday's chart. The Bee Gees are still number one, and Crockett's Theme, from Miami Vice, has gone up to number two.
+
+00:01:20.888 --> 00:01:27.191
+<v Dez>Jan Hammer. A television theme at number two. One day it'll be a computer game's tune up there.
+
+00:01:27.132 --> 00:01:29.097
+<v Gareth>Yours, I hope.
+
+00:01:29.366 --> 00:01:32.116
+<v Dez>Give us a chance. I've only just sat down.
+
+00:01:35.416 --> 00:01:38.300
+<v Bev>Go on then, what's on your desk? When you're at it.
+
+00:01:38.579 --> 00:01:48.524
+<v Dez>Fair. Keyboards, a mixer, a chalk board for whatever cue I'm on, and the headphones, which live round my neck. I write the tunes and the bleeps for the Spectrum's sound chip.
+
+00:01:48.778 --> 00:01:51.294
+<v Bev>And you're always listening to something, I'm told.
+
+00:01:51.431 --> 00:01:57.805
+<v Dez>Always. I log what I listen to, on the hi-fi downstairs. For ideas, never for copying.
+
+00:01:58.082 --> 00:02:01.385
+<v Bev>That's how you came to write ten songs of your own for the hi-fi.
+
+00:02:01.570 --> 00:02:06.645
+<v Dez>That's how. Lanterns Over the Water is one of them. Somebody's favourite, I'm told.
+
+00:02:06.823 --> 00:02:08.992
+<v Bev>I'm told the same. I play it.
+
+00:02:09.063 --> 00:02:11.925
+<v Dez>Do you? Good. That's good.
+
+00:02:12.151 --> 00:02:16.229
+<v Gareth>It's a lovely song, that. Best one on the hi-fi, if you ask me.
+
+00:02:16.464 --> 00:02:21.027
+<v Bev>It is. So the Spectrum. What does it sing with?
+
+00:02:21.346 --> 00:02:27.985
+<v Dez>The hundred and twenty-eight K has a proper sound chip, the A Y. General Instrument made it. Three voices.
+
+00:02:28.080 --> 00:02:29.168
+<v Bev>Only three?
+
+00:02:29.447 --> 00:02:41.087
+<v Dez>Only three. Picture a three-piece band. One plays the tune, one plays the bass, one plays the chords. And the music, the sound effects and anything else all want those same three players.
+
+00:02:41.326 --> 00:02:43.560
+<v Bev>So it's a very small band with a lot of work on.
+
+00:02:43.521 --> 00:02:45.228
+<v Dez>That's the whole chapter, that.
+
+00:02:45.500 --> 00:02:49.692
+<v Bev>Start me off right at the beginning, then. I don't know what a sound even is.
+
+00:02:49.975 --> 00:02:59.311
+<v Dez>Air, pushed back and forth. Put a finger on a loudspeaker playing a low note and you can feel it shake. It pushes the air out, pulls it back, pushes again.
+
+00:02:59.598 --> 00:03:01.550
+<v Bev>And how many pushes is a note?
+
+00:03:01.890 --> 00:03:14.909
+<v Dez>Count them in a second and that's the pitch. The A that orchestras tune to is four hundred and forty pushes a second. Twice that, eight hundred and eighty, is the same note an octave up. Half, two hundred and twenty, an octave down.
+
+00:03:14.940 --> 00:03:15.834
+<v Bev>And louder?
+
+00:03:16.141 --> 00:03:18.952
+<v Dez>Push harder. Same pitch, further each way.
+
+00:03:19.115 --> 00:03:26.537
+<v Gareth>You could keep a sound as a long stream of numbers, the speaker's position thousands of times a second. Those numbers are called samples.
+
+00:03:26.814 --> 00:03:36.857
+<v Dez>The A Y doesn't do that. Every channel makes the simplest wave there is. The speaker's either out or in, on or off, and it flips at a steady rate. A square wave.
+
+00:03:36.917 --> 00:03:38.346
+<v Bev>On, off, on, off.
+
+00:03:38.470 --> 00:03:41.680
+<v Dez>On, off, on, off. Higher note, faster flips.
+
+00:03:41.806 --> 00:03:44.943
+<v Bev>Right then. What's the one idea this week?
+
+00:03:45.357 --> 00:03:48.125
+<v Dez>A note is a number. And the chip holds it.
+
+00:03:48.133 --> 00:03:48.876
+<v Bev>Holds it?
+
+00:03:49.210 --> 00:03:59.452
+<v Dez>Holds it. This is the best thing about the A Y. You set a pitch and a volume, and it keeps playing that note by itself until you change them. A note on the A Y is a setting, not a stream.
+
+00:03:59.636 --> 00:04:06.954
+<v Gareth>So the game only has to change the settings once a frame, fifty times a second. A list of samples would need thousands of numbers a second.
+
+00:04:07.212 --> 00:04:10.643
+<v Dez>And then it can spend the rest of the frame on everything else. Mowing and that.
+
+00:04:10.790 --> 00:04:12.841
+<v Bev>So a song is a list of numbers.
+
+00:04:13.129 --> 00:04:18.469
+<v Dez>A song is a list of what each player plays, one row at a time. And every note in it is one number.
+
+00:04:18.724 --> 00:04:21.799
+<v Bev>Go on, then. Make me a number out of a note.
+
+00:04:21.944 --> 00:04:36.375
+<v Dez>Pencil out. The chip takes its clock, and the music tools work with one million, seven hundred and seventy-three thousand, four hundred. It divides that by sixteen, and then by a number called the tone period. Bigger period, lower note.
+
+00:04:36.415 --> 00:04:38.158
+<v Bev>So I need the period.
+
+00:04:38.420 --> 00:04:51.142
+<v Dez>You do. Take the first note of the tune you hear while you're mowing. It's a D, five semitones above that four-forty A. Its frequency is five hundred and eighty-seven point three three. Times sixteen.
+
+00:04:51.111 --> 00:04:51.928
+<v Bev>Gareth.
+
+00:04:52.110 --> 00:04:55.706
+<v Gareth>Nine thousand, three hundred and ninety-seven point three.
+
+00:04:55.997 --> 00:04:59.526
+<v Dez>Now divide the clock by that. Have a go, or pause me.
+
+00:05:02.707 --> 00:05:04.776
+<v Bev>I'll be honest, I'm not doing that in my head.
+
+00:05:04.944 --> 00:05:06.699
+<v Gareth>A hundred and eighty-eight point seven.
+
+00:05:06.991 --> 00:05:17.916
+<v Dez>Which rounds to a hundred and eighty-nine. That's the D. One number. For the A of four-forty itself you get two hundred and fifty-two. Middle C is four hundred and twenty-four.
+
+00:05:18.197 --> 00:05:21.313
+<v Bev>And does the game do that sum every time it plays a note?
+
+00:05:21.686 --> 00:05:31.869
+<v Dez>Never. The tools bake a table of ninety-six periods, one for every semitone, into the game. Each octave up halves the period. And you hear the same note, higher.
+
+00:05:32.063 --> 00:05:33.874
+<v Bev>So how do you write a tune down?
+
+00:05:34.280 --> 00:05:50.645
+<v Dez>Each note gets a number from a scale music software uses, one number a semitone. The tune opens D, B, G, B. Those are seventy-four, seventy-one, sixty-seven and seventy-one. Take twenty-four off each, and you've got its place in the table.
+
+00:05:50.810 --> 00:05:53.266
+<v Bev>Fifty, forty-seven, forty-three, forty-seven.
+
+00:05:53.531 --> 00:05:59.885
+<v Dez>That's the song. Those four bytes are in the game, right there in the tune's data, after a byte that picks the instrument.
+
+00:05:59.939 --> 00:06:01.486
+<v Bev>The instrument?
+
+00:06:01.839 --> 00:06:13.407
+<v Dez>The shape each note takes. A pluck that dies away, or a held organ note. And each note lasts one row, and in this song a row is five frames. So each of those notes sounds for a tenth of a second.
+
+00:06:13.379 --> 00:06:14.477
+<v Bev>That's quick.
+
+00:06:14.606 --> 00:06:17.825
+<v Dez>It's a jolly tune. You're mowing a lawn, Bev, it's not a funeral.
+
+00:06:20.325 --> 00:06:27.905
+<v Bev>So this is Mower Mayhem playing now, music and effects and all, recorded from the tape. Who's playing what?
+
+00:06:28.297 --> 00:06:39.592
+<v Dez>Lead on channel A, that's the tune. Bass and the drums both sit on channel B, and the drum is a short burst of hiss mixed into the bass. And channel C, the chord channel, says nothing at all.
+
+00:06:39.819 --> 00:06:42.630
+<v Bev>Nothing? Why's it sat there doing nothing?
+
+00:06:42.926 --> 00:06:45.614
+<v Dez>Keep that in your head. It matters in a minute.
+
+00:06:45.818 --> 00:06:48.653
+<v Bev>And how does a whole song fit in a computer this small?
+
+00:06:49.006 --> 00:07:02.505
+<v Dez>Blocks. A song isn't one long list. It's short blocks of notes, called patterns, sixteen rows each. Then an order list says which three patterns play together, one for each player, and in what order. Like a running order for the band.
+
+00:07:02.763 --> 00:07:10.888
+<v Gareth>At five frames a row, one pattern lasts eighty frames, a second and six tenths. And patterns repeat, so a whole song fits in a few hundred bytes.
+
+00:07:11.139 --> 00:07:15.461
+<v Dez>And all six games play their songs with the same pattern player. Here's the clever bit.
+
+00:07:15.547 --> 00:07:16.051
+<v Bev>Go on.
+
+00:07:16.316 --> 00:07:30.554
+<v Dez>Every frame, the player works out all thirteen of the chip's sound settings fresh. Then it only writes the ones that changed. In the lawn tune, nearly four frames in five change two settings or fewer. More than a third change nothing at all.
+
+00:07:30.680 --> 00:07:46.137
+<v Gareth>And it keeps a copy of what it last wrote, a shadow, because the game never reads the chip back. Writing only the changes keeps it inside the budget. The player peaks between six thousand, two hundred and forty-six and seven thousand, nine hundred and eighteen ticks a frame, depending on the song.
+
+00:07:46.302 --> 00:07:50.161
+<v Bev>And who keeps it in time? You're not there pressing a button.
+
+00:07:50.383 --> 00:08:04.332
+<v Dez>The interrupt. The player runs inside it, fifty times a second, so the music keeps time however long the rest of the game takes over its update. The main program wants a new song, it leaves one byte in a little mailbox, and the interrupt picks it up.
+
+00:08:05.082 --> 00:08:10.466
+<v Bev>Now the cold open. Nothing wrong with the songs. It was the lawnmower.
+
+00:08:10.642 --> 00:08:22.515
+<v Dez>This is the best lesson I ever had on the A Y, and it wasn't about notes at all. Somebody played Mower Mayhem on a real Spectrum and sent one line back. The music sounds strange on a real device.
+
+00:08:22.754 --> 00:08:24.330
+<v Bev>Oh, that's a heart-sink line.
+
+00:08:24.560 --> 00:08:37.194
+<v Dez>Total heart-sink. And the best thing anyone could have told us. Nothing in the songs was wrong. The trouble was the engine hum. A buzz that rose with the mower's speed, and it played without a break under every bar.
+
+00:08:37.487 --> 00:08:38.926
+<v Bev>And where did the buzz live?
+
+00:08:39.320 --> 00:08:51.275
+<v Dez>Channel C. The empty one. The sound effects borrow channel C from the music. The engine buzz was an effect that looped on that free channel whenever nothing else was playing. So it never stopped.
+
+00:08:51.539 --> 00:08:54.433
+<v Bev>And a buzz that never stops is a fourth player who won't shut up.
+
+00:08:54.609 --> 00:09:02.515
+<v Dez>That's it exactly. It wasn't loud. It smothered the tune anyway. And on a three-voice chip it holds a channel too.
+
+00:09:02.577 --> 00:09:04.176
+<v Bev>So what was the fix?
+
+00:09:04.575 --> 00:09:17.890
+<v Dez>A rule, not a new player. No engine hum while the music plays. With the music on, the buzz level is nought. Turn the music off, and the buzz comes back, rising with your speed. And all the other effects still play either way.
+
+00:09:18.130 --> 00:09:20.366
+<v Gareth>Two lines of logic, the book says.
+
+00:09:20.599 --> 00:09:31.090
+<v Dez>And then WOLF wrote the lesson down as a design rule. Bass and lead on A and B. The chord on C when it's free. Effects on C. And each piece must stand up on A and B alone.
+
+00:09:31.367 --> 00:09:34.156
+<v Bev>Because C can be taken off you at any moment.
+
+00:09:34.437 --> 00:09:39.809
+<v Dez>At any moment. A song that stands up on two players can lose the third and still be a song.
+
+00:09:39.934 --> 00:09:43.639
+<v Bev>And when an effect borrows channel C, how does the chord get back in?
+
+00:09:43.996 --> 00:10:01.532
+<v Dez>Picture a mixing desk with C muted. The chord part keeps playing behind the mute. Nobody hears it, but the player's still working it out, in that shadow copy. When the effect ends, the game writes C's settings back from the shadow, and the chord comes back in on the right note, mid-phrase. Not from the top of the bar.
+
+00:10:01.697 --> 00:10:04.451
+<v Bev>And who wins if two sounds want channel C at once?
+
+00:10:04.773 --> 00:10:18.921
+<v Gareth>Each effect has a priority. The engine buzzes are nought, the lowest. The trimmer's sounds are three. The cat's miaow and the low battery warning are four. A new effect only takes over if it ranks at least as high as the one playing.
+
+00:10:19.191 --> 00:10:21.598
+<v Dez>So the warning is never cut off by the hum.
+
+00:10:21.786 --> 00:10:26.065
+<v Bev>Well, that's sensible. I'd want to know my battery's going.
+
+00:10:26.282 --> 00:10:39.205
+<v Dez>And one channel for effects does have a limit. Gold Master's sound check, on a recording of it being played, found three of a hundred and eighty-two effects starting two to four frames late. Every one of them was queued behind another effect on channel C.
+
+00:10:39.385 --> 00:10:42.513
+<v Bev>Two to four frames. Would I hear that?
+
+00:10:42.768 --> 00:10:46.715
+<v Gareth>Maybe not. The check heard it, and that's the point of the check.
+
+00:10:46.939 --> 00:10:51.986
+<v Bev>But how do you know a song plays right? Do you sit and listen to it all day?
+
+00:10:52.240 --> 00:11:06.117
+<v Dez>I do sit and listen to it all day. But hearing is a poor test. The player once left a pointer pointing at the very start of memory, so channels A and B read a byte of the machine's own built-in program as a note, and played garbage on a real machine.
+
+00:11:06.078 --> 00:11:07.170
+<v Bev>Did you hear it?
+
+00:11:07.425 --> 00:11:14.857
+<v Dez>Not on the test rig. Its memory started out all noughts, so it played them correctly. Right there, that's why you don't trust your ears alone.
+
+00:11:15.032 --> 00:11:27.701
+<v Gareth>So Vik's test rig compares numbers instead. The music tool writes, beside each song, all thirteen settings it should produce on every frame. The rig plays the real tape and checks the chip against that, frame by frame.
+
+00:11:27.671 --> 00:11:28.614
+<v Bev>And the score?
+
+00:11:28.932 --> 00:11:42.356
+<v Dez>Every song in Mower Mayhem matches on every frame. The theme, five hundred and thirty of five hundred and thirty. The lawn tune, eighteen thousand, eight hundred and ninety-three of eighteen thousand, eight hundred and ninety-three. A hundred per cent.
+
+00:11:42.413 --> 00:11:43.475
+<v Bev>That's lovely.
+
+00:11:43.735 --> 00:11:47.530
+<v Gareth>That's a proper result, Dez. The whole floor cheered that one.
+
+00:11:47.771 --> 00:11:54.262
+<v Dez>It proves the song plays as written. Whether it stands up on its own is still a job for your ears. On the real machine.
+
+00:11:54.475 --> 00:11:57.880
+<v Bev>And can I turn it off? Sometimes I want a bit of quiet.
+
+00:11:58.034 --> 00:12:13.877
+<v Dez>Press M, every game. The music stops, the effects keep playing. And a playtester found the title screen only printed the music line after you'd pressed M, so you couldn't see the switch was there. Now every screen that takes M says music on or music off, from its first frame.
+
+00:12:14.158 --> 00:12:16.479
+<v Bev>And can you turn the effects off and keep the music?
+
+00:12:16.741 --> 00:12:26.425
+<v Dez>In Wordris, yes, with E. And the first version got it wrong, for a reason I like. The test for effects off listened for any sound on channel C while effects were off.
+
+00:12:26.675 --> 00:12:28.256
+<v Bev>But the chord plays on C.
+
+00:12:28.556 --> 00:12:41.750
+<v Dez>You've got it faster than the test did. It couldn't tell a chord from an effect, so it failed. And the first fix made the test pass by holding channel C as if an effect was playing. So whenever effects were off, the music lost its chord.
+
+00:12:41.941 --> 00:12:43.560
+<v Bev>Oh, anyone could make that one.
+
+00:12:43.795 --> 00:13:02.396
+<v Dez>A playtester flagged it, and a good flag it was. If you turn effects off, you expect the effects to stop, not the tune to change. So the team put the real fix into the test. It learned which part of the program made each sound, the effects player or the music player. And Wordris went back to letting the chord play.
+
+00:13:02.584 --> 00:13:09.825
+<v Gareth>The book's rule for that one is lovely. A test that can't tell two causes apart will push the code toward the wrong design. Fix the test.
+
+00:13:10.097 --> 00:13:13.934
+<v Bev>And the old Spectrum, the forty-eight K? Did that have a chip?
+
+00:13:14.244 --> 00:13:35.558
+<v Dez>No chip. One bit, driving a little loudspeaker, and the processor has to flip it at the right moments itself. None of the six games plays a note that way. Tiger Gorilla tried a bit of speech, nought point eight three seconds of the game's title in eight hundred and twenty-nine bytes, and never plays it. Speech costs a thousand bytes a second, and there was nowhere left to put it.
+
+00:13:38.858 --> 00:13:44.204
+<v Bev>Go on, Dez, crystal ball time. One day in the future, what does game music sound like?
+
+00:13:44.514 --> 00:13:49.459
+<v Dez>Ooh. Gareth does the computer bit. I'll do the tune.
+
+00:13:49.606 --> 00:14:04.829
+<v Gareth>Right. Suppose one day every computer plays sound the long way. That stream of numbers, thousands of them a second, never a chip holding a note. And there's a language, call it Python, after Monty Python, where you hand the whole list of samples to the sound card in one go.
+
+00:14:04.789 --> 00:14:06.281
+<v Bev>Like on Tomorrow's World.
+
+00:14:06.418 --> 00:14:09.670
+<v Dez>So no three-piece band. As many players as you want.
+
+00:14:09.811 --> 00:14:12.909
+<v Gareth>As many as you want. Nobody counting channels.
+
+00:14:13.132 --> 00:14:18.056
+<v Dez>Then I'd still write it for three first. If it stands up on three, it stands up on anything.
+
+00:14:18.116 --> 00:14:19.324
+<v Bev>Is that a guess?
+
+00:14:19.415 --> 00:14:20.301
+<v Dez>That one's a promise.
+
+00:14:20.586 --> 00:14:23.114
+<v Bev>What should folk do before next week?
+
+00:14:23.393 --> 00:14:38.273
+<v Dez>The chapter is Music and Sound on the A Y. The first exercise is Decode a Pattern by Hand. Pencil only. Take the tune's first pattern from the chapter, and the rule that each byte is its note's number less twenty-four, and write it out row by row.
+
+00:14:38.218 --> 00:14:39.401
+<v Bev>And what should they get?
+
+00:14:39.697 --> 00:14:50.140
+<v Dez>D, B, G, B. Then D held for two rows, a rest of two rows. Then E, D, B, D, and a rest of four. Sixteen rows, eighty frames.
+
+00:14:50.439 --> 00:14:59.865
+<v Gareth>And if you've got the game building, there's one called Hear the Hum. Take out the rule, put the buzz back under the music, and listen with the music on and then off. Then put it back.
+
+00:15:00.029 --> 00:15:02.574
+<v Dez>Go on then, that's Gareth's line, but I'll have it this once.
+
+00:15:02.577 --> 00:15:03.211
+<v Gareth>Go on then.
+
+00:15:07.211 --> 00:15:08.693
+<v Dez>Hang on, great bit coming up.
+
+00:15:08.854 --> 00:15:10.084
+<v Bev>We'll let it play under us.
+
+00:15:10.684 --> 00:15:14.854
+<v Bev>That's us for this week. Thanks, Dez. Worth the wait.
+
+00:15:15.064 --> 00:15:20.243
+<v Dez>Thanks, Bev. Sorry again. Will Hyun-joo hear this one, do you think?
+
+00:15:20.638 --> 00:15:22.204
+<v Bev>I'd say there's a fair chance.
+
+00:15:22.222 --> 00:15:25.951
+<v Dez>Right. Good. Fine. Good.
+
+00:15:26.122 --> 00:15:30.457
+<v Bev>And four goals for City at Bradford last night. Four two.
+
+00:15:30.690 --> 00:15:33.403
+<v Dez>I'll write them a fanfare. Three channels.
+
+00:15:33.594 --> 00:15:41.502
+<v Bev>Next week it's the roundup, with Mo in, looking back over everything so far. If you've got a question for the team, send it in, and we'll put it to them.
+
+00:15:42.102 --> 00:15:46.864
+<v Bev>The theme is by our own Dez, who made it in, and we're glad he did. Right then, turn it up.
+
+00:15:47.017 --> 00:16:02.684
+<v Daniel>This is Daniel Vaughan, who made the show. Today you can hear Mower Mayhem's music on the A Y, free in your browser, at dalex-software dot co dot uk. And a computer now plays sound the long way, as a stream of samples, the way Gareth guessed.
+
+00:16:03.284 --> 00:16:13.001
+<v Daniel>The chapter is Music and Sound on the A Y, in Machine Code Mayhem on Leanpub, and the first exercise is Decode a Pattern by Hand. Pencil only.
+
+00:16:13.601 --> 00:16:27.377
+<v Daniel>Thank you for listening. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is by me, Daniel Vaughan, with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.

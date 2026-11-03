@@ -459,5 +459,72 @@
       }
     ],
     "visible": true
+  },
+  {
+    "number": 7,
+    "slug": "07-dez",
+    "title": "A note is a number",
+    "guest": "Dez Mulvaney, musician",
+    "summary": "Dez, eventually, on music and sound on the AY chip: a note is one number, three channels carry a tune, and a lawnmower that drowned the music.",
+    "date": "2026-10-22",
+    "time": "18:00",
+    "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/07-dez.mp3",
+    "audio_bytes": 11987714,
+    "seconds": 988,
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Cold open"
+      },
+      {
+        "start": 17,
+        "title": "Welcome"
+      },
+      {
+        "start": 95,
+        "title": "The desk"
+      },
+      {
+        "start": 165,
+        "title": "What a sound is"
+      },
+      {
+        "start": 222,
+        "title": "The big idea"
+      },
+      {
+        "start": 258,
+        "title": "By hand"
+      },
+      {
+        "start": 378,
+        "title": "In the game"
+      },
+      {
+        "start": 485,
+        "title": "The bug"
+      },
+      {
+        "start": 647,
+        "title": "Proving the songs"
+      },
+      {
+        "start": 819,
+        "title": "Crystal ball"
+      },
+      {
+        "start": 860,
+        "title": "Try this"
+      },
+      {
+        "start": 903,
+        "title": "Close"
+      },
+      {
+        "start": 947,
+        "title": "After the show"
+      }
+    ],
+    "visible": true
   }
 ]
