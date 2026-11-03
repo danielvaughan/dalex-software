@@ -272,8 +272,8 @@
     "date": "2026-10-01",
     "time": "18:00",
     "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/04-gareth.mp3",
-    "audio_bytes": 12277042,
-    "seconds": 1013,
+    "audio_bytes": 12276102,
+    "seconds": 1012,
     "chapters": [
       {
         "start": 0,
