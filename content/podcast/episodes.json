@@ -900,5 +900,68 @@
       }
     ],
     "visible": true
+  },
+  {
+    "number": 14,
+    "slug": "14-simon",
+    "title": "Colours last",
+    "guest": "Simon Ainscough, screen and cover artist",
+    "summary": "Simon on loading screens and covers: two colours a square, 6,912 bytes, and why the colours arrive last.",
+    "date": "2026-12-10",
+    "time": "19:00",
+    "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/14-simon.mp3",
+    "audio_bytes": 12564421,
+    "seconds": 1036,
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Cold open"
+      },
+      {
+        "start": 21,
+        "title": "Welcome"
+      },
+      {
+        "start": 80,
+        "title": "The desk"
+      },
+      {
+        "start": 156,
+        "title": "The big idea"
+      },
+      {
+        "start": 240,
+        "title": "By hand"
+      },
+      {
+        "start": 343,
+        "title": "In the game"
+      },
+      {
+        "start": 517,
+        "title": "The cover"
+      },
+      {
+        "start": 715,
+        "title": "The bug"
+      },
+      {
+        "start": 852,
+        "title": "Crystal ball"
+      },
+      {
+        "start": 893,
+        "title": "Try this"
+      },
+      {
+        "start": 942,
+        "title": "Close"
+      },
+      {
+        "start": 982,
+        "title": "After the show"
+      }
+    ],
+    "visible": true
   }
 ]

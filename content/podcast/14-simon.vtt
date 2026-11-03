@@ -1,0 +1,583 @@
+WEBVTT
+
+00:00:01.000 --> 00:00:02.864
+<v Bev>So what would I see on the telly?
+
+00:00:03.216 --> 00:00:09.582
+<v Simon>Ah. Now that's my favourite question, Bev. Give it a minute. A picture comes in slowly.
+
+00:00:21.382 --> 00:00:28.603
+<v Bev>Hello there, it's Bev, the kettle's on, and this is Dalex After Hours, the slot where we find out how computer games are really made.
+
+00:00:29.203 --> 00:00:34.144
+<v Bev>Every fact on this show comes out of the book the team's writing, and from the games themselves.
+
+00:00:34.744 --> 00:00:36.405
+<v Bev>Gareth's here, as ever.
+
+00:00:36.485 --> 00:00:37.237
+<v Gareth>Hiya, Bev.
+
+00:00:37.358 --> 00:00:48.366
+<v Bev>And our special guest has come down from the first floor, from the easels in the Art office. It's Simon Ainscough, who does the loading screens and the cassette covers. Hello, Simon.
+
+00:00:48.570 --> 00:00:51.661
+<v Simon>Hello, Bev.  Don't rush me. I've only just sat down.
+
+00:00:51.645 --> 00:00:53.821
+<v Bev>Nobody rushes Simon, I'm told.
+
+00:00:53.987 --> 00:00:56.251
+<v Gareth>We tried once. He painted slower.
+
+00:00:56.851 --> 00:01:06.452
+<v Gareth>Simon, have you seen? Microsoft in America have brought out the new Windows, version two. The windows on the screen can overlap now. I've been reading all about it.
+
+00:01:06.714 --> 00:01:11.283
+<v Simon>Overlapping windows. Like my cover sketches, all on top of each other on the desk.
+
+00:01:11.381 --> 00:01:12.579
+<v Bev>Is that a good thing?
+
+00:01:12.858 --> 00:01:16.419
+<v Simon>On a desk it's a mess, Bev. On a screen I'm told it's progress.
+
+00:01:19.719 --> 00:01:22.889
+<v Bev>So what's at your desk, Simon? Or is it an easel?
+
+00:01:23.137 --> 00:01:32.867
+<v Simon>Easels. Loading screens on one, inlays on another, and the kit artwork. Everything that goes on the box, or on the screen before the game starts.
+
+00:01:33.071 --> 00:01:36.603
+<v Bev>And what's a loading screen, for anyone who's never waited for a tape?
+
+00:01:37.008 --> 00:01:44.945
+<v Simon>It's the picture you look at while the game loads. On a Spectrum that can be a few minutes. So it had better be worth looking at.
+
+00:01:45.109 --> 00:01:50.744
+<v Gareth>Mower Mayhem's tape takes about two minutes and twenty seconds today. Tiger Gorilla's takes over four.
+
+00:01:50.899 --> 00:01:54.289
+<v Bev>Four minutes! What do you do for four minutes?
+
+00:01:54.566 --> 00:01:57.067
+<v Simon>You look at my picture, Bev. That's the deal.
+
+00:01:57.188 --> 00:01:59.260
+<v Bev>And is it a painting, like on a wall?
+
+00:01:59.650 --> 00:02:08.505
+<v Simon>It's the opposite of a painting on a wall. It's a copy of the Spectrum's own screen memory. Six thousand nine hundred and twelve bytes, loaded straight onto the screen.
+
+00:02:08.784 --> 00:02:10.765
+<v Bev>So the picture is the numbers.
+
+00:02:10.977 --> 00:02:13.771
+<v Simon>The picture is the numbers. Nicely put.
+
+00:02:14.007 --> 00:02:23.599
+<v Gareth>BASIC even has a name for it. SCREEN dollar. It means those six thousand nine hundred and twelve bytes, starting at sixteen thousand, three hundred and eighty-four.
+
+00:02:23.817 --> 00:02:25.947
+<v Bev>You're doing the numbers voice again, Gareth.
+
+00:02:25.969 --> 00:02:27.185
+<v Gareth>I can't help it.
+
+00:02:27.462 --> 00:02:30.910
+<v Simon>Now hold on. Percy's come up. He's on my lap.
+
+00:02:31.040 --> 00:02:34.115
+<v Bev>Oh, bless him. Can you still paint?
+
+00:02:34.413 --> 00:02:36.095
+<v Simon>Now I can't paint. Worth it.
+
+00:02:36.362 --> 00:02:39.031
+<v Bev>Right then, what's the one idea this week?
+
+00:02:39.339 --> 00:02:49.083
+<v Simon>Two colours a square. The Spectrum's screen is split into little squares, eight dots by eight. Every square gets two colours, an ink and a paper, and that's your lot.
+
+00:02:49.318 --> 00:02:52.148
+<v Bev>Two colours. For the whole square?
+
+00:02:52.415 --> 00:02:57.792
+<v Simon>For the whole square. So you don't paint a loading screen. You solve it, square by square.
+
+00:02:57.984 --> 00:03:09.661
+<v Gareth>Here's how the bytes split. The first six thousand one hundred and forty-four are the dots, one bit for each dot, on or off. The last seven hundred and sixty-eight are the colours. One byte for every square.
+
+00:03:09.902 --> 00:03:11.678
+<v Bev>Why seven hundred and sixty-eight?
+
+00:03:11.972 --> 00:03:23.068
+<v Gareth>Thirty-two squares across, twenty-four down. Thirty-two times twenty-four is seven hundred and sixty-eight. And each colour byte holds an ink, a paper, a bright bit and a flash bit.
+
+00:03:23.340 --> 00:03:32.347
+<v Simon>So when I plan a sky, I'm not picking one blue. I'm picking an ink and a paper for every square the sky touches, and then I'm making the dots do the shading.
+
+00:03:32.630 --> 00:03:34.196
+<v Bev>How do you shade with dots?
+
+00:03:34.538 --> 00:03:43.312
+<v Simon>Dither. A regular pattern of ink dots. The more dots, the darker it reads. Stand back from the telly and your eye mixes them.
+
+00:03:43.531 --> 00:03:46.416
+<v Bev>Like those newspaper photos, when you look at them close up.
+
+00:03:46.568 --> 00:03:51.587
+<v Simon>A lot like that. But neater. Every dot's put there on purpose.
+
+00:03:51.775 --> 00:03:54.640
+<v Bev>And where does the idea come from? Do you just start?
+
+00:03:54.923 --> 00:03:57.531
+<v Simon>Start with the sky. Everything else sits under it.
+
+00:03:57.611 --> 00:03:58.855
+<v Gareth>He says that about everything.
+
+00:03:58.870 --> 00:04:00.332
+<v Simon>It's true about everything.
+
+00:04:00.551 --> 00:04:02.971
+<v Bev>You promised me something to do with my eyes closed.
+
+00:04:03.149 --> 00:04:08.105
+<v Simon>I did. Close your eyes. Picture an old telly, black, and a tape playing.
+
+00:04:08.105 --> 00:04:09.934
+<v Bev>Eyes closed. Go on.
+
+00:04:10.076 --> 00:04:12.243
+<v Simon>Gareth, tell her how the ROM fills the screen.
+
+00:04:12.537 --> 00:04:23.731
+<v Gareth>The Spectrum's own loader writes the bytes in order, from the first byte of the screen upwards. But the screen isn't stored top to bottom. It's three thirds, and inside each third the lines are shuffled.
+
+00:04:23.945 --> 00:04:26.904
+<v Bev>Shuffled? Why would anyone do that?
+
+00:04:27.206 --> 00:04:43.317
+<v Gareth>Good question, that. It's the one I asked when I started. The book's chapter on the machine has the whole story. For now, picture it. After the first two hundred and fifty-six bytes, there are eight thin lines, scattered down the top third. The top row of dots of each band of squares.
+
+00:04:43.464 --> 00:04:45.835
+<v Simon>Like someone ruling a page, very faintly.
+
+00:04:46.123 --> 00:04:55.285
+<v Gareth>After two K of bytes, eight times as many, the whole top third is there. Black and white, no colour yet. On Mower Mayhem that's the title and the top of the garden.
+
+00:04:55.551 --> 00:04:57.784
+<v Bev>Black and white. I can see it.
+
+00:04:57.979 --> 00:05:08.269
+<v Gareth>Keep going. After six thousand one hundred and forty-four, the whole picture's there, still black and white. The fence, the mower, the hedgehog, the dock and the Dalex logo.
+
+00:05:08.502 --> 00:05:11.972
+<v Simon>And now the last seven hundred and sixty-eight bytes. The colours.
+
+00:05:12.185 --> 00:05:21.612
+<v Gareth>They come in from the top row of squares down. A yellow title on blue. A cyan sky. A green lawn. The Dalex logo in yellow and red.
+
+00:05:21.581 --> 00:05:22.853
+<v Simon>Open your eyes.
+
+00:05:25.035 --> 00:05:28.494
+<v Bev>Oh, that's lovely. I could see the sky come in.
+
+00:05:28.717 --> 00:05:31.922
+<v Simon>The sky comes in first. I didn't plan that, but I'll take it.
+
+00:05:32.091 --> 00:05:33.948
+<v Bev>And that's what folk at home sit and watch?
+
+00:05:34.359 --> 00:05:43.068
+<v Gareth>That's how the Spectrum's own loader does it. Our games use a different loader, and it does something cleverer with the colours. We'll come to that.
+
+00:05:45.568 --> 00:05:49.522
+<v Bev>So this is Mower Mayhem playing now. Tell me about its loading screen.
+
+00:05:49.803 --> 00:05:54.712
+<v Simon>It took a while. The first one was a flat plan view, the garden from straight above.
+
+00:05:54.744 --> 00:05:55.586
+<v Bev>Like a map.
+
+00:05:55.782 --> 00:06:01.709
+<v Simon>Like a map. And forty-three per cent of its squares were blank. Nearly half the screen with nothing in it.
+
+00:06:01.797 --> 00:06:03.562
+<v Bev>That's a lot of nothing.
+
+00:06:03.695 --> 00:06:09.571
+<v Simon>It's a lot of nothing for a player to stare at for two minutes. So it was redone. Fifteen rounds.
+
+00:06:09.551 --> 00:06:12.857
+<v Bev>Fifteen! Simon!
+
+00:06:13.099 --> 00:06:27.640
+<v Simon>I don't hurry. It ended as a poster of a back garden, seen low, from three quarters on. Every square got a planned ink and paper. The shading came from that ordered dither. And the blank squares came down to ten per cent.
+
+00:06:27.644 --> 00:06:29.358
+<v Gareth>From forty-three to ten.
+
+00:06:29.330 --> 00:06:30.592
+<v Bev>And was everyone happy?
+
+00:06:30.841 --> 00:06:37.909
+<v Simon>Not at first. The early mower was drawn front on. And when someone fresh looked at it, they thought it was a tub.
+
+00:06:38.050 --> 00:06:40.373
+<v Bev>A tub? Like a bath tub?
+
+00:06:40.699 --> 00:06:45.637
+<v Simon>A tub. So the hero was redrawn. You can't argue with a fresh eye.
+
+00:06:45.626 --> 00:06:48.185
+<v Bev>Why not? You're the artist.
+
+00:06:48.389 --> 00:06:54.493
+<v Simon>That's exactly why. I already know it's a mower. The person who's never seen it is the only one who can tell me if it reads.
+
+00:06:54.624 --> 00:07:00.838
+<v Gareth>WOLF had the same thing. Its first fresh reader was shown the loading screen at real size and asked who the hero was.
+
+00:07:00.901 --> 00:07:01.621
+<v Bev>And?
+
+00:07:01.811 --> 00:07:03.139
+<v Gareth>Named nobody.
+
+00:07:03.391 --> 00:07:08.108
+<v Simon>So the next version put a lit halo round Dex, the hero. And the next new reader named him.
+
+00:07:08.392 --> 00:07:10.957
+<v Bev>A halo. For a man in a gym.
+
+00:07:11.557 --> 00:07:12.547
+<v Bev>Was that your idea?
+
+00:07:12.945 --> 00:07:23.829
+<v Simon>The halo's mine. But the fresh reader is the one who earned it. And Neil decides how a game looks before anyone draws a pixel, so I start from his look. A loading screen is never one person's.
+
+00:07:24.429 --> 00:07:34.740
+<v Simon>Every hero deserves a bit of light, Bev. The book the team's writing calls a fresh reader part of the evidence. I'd go further. A fresh reader is the only review that counts, before the tape goes out.
+
+00:07:34.904 --> 00:07:37.035
+<v Bev>And is there anything you're not allowed to paint over?
+
+00:07:37.309 --> 00:07:45.412
+<v Simon>The logo. The Dalex logo sits in the same place on every loading screen. Ten squares across, four down, in the bottom right corner.
+
+00:07:45.562 --> 00:07:56.578
+<v Gareth>Rows twenty to twenty-three, columns twenty-two to thirty-one. It's stamped in last, byte for byte, by one of Yvonne's tools. And another tool checks every byte of that slot before the tape goes.
+
+00:07:56.754 --> 00:07:59.815
+<v Simon>On Mower Mayhem the charging dock sat right where the logo goes.
+
+00:07:59.906 --> 00:08:00.667
+<v Bev>Who won?
+
+00:08:01.004 --> 00:08:05.505
+<v Simon>The logo. The art moved, not the logo. That's house style.
+
+00:08:05.735 --> 00:08:09.038
+<v Bev>And do people notice all this work, or just the game?
+
+00:08:09.313 --> 00:08:18.554
+<v Gareth>They notice. Brian's reviewers once opened a Tiger Gorilla review with four words, six minutes to load. But the same reviewer liked the loading picture.
+
+00:08:18.847 --> 00:08:22.696
+<v Simon>I'll take liked. From Ink and Paper, liked is a bouquet.
+
+00:08:22.825 --> 00:08:27.104
+<v Gareth>And the loading times are shorter now. The whole floor got that one sorted together.
+
+00:08:27.281 --> 00:08:32.887
+<v Simon>And WOLF's richer loading screen added seven seconds to its load. I'm told that was worth it.
+
+00:08:33.120 --> 00:08:36.528
+<v Gareth>Seven seconds of Dex in a halo. Worth every one.
+
+00:08:37.305 --> 00:08:40.826
+<v Bev>And what about the cover, on the box? Do you really paint those?
+
+00:08:41.209 --> 00:08:49.110
+<v Simon>The honest answer, Bev, is that a cover starts as words. A paragraph, written down. The brief. Then I paint from that.
+
+00:08:49.082 --> 00:08:50.194
+<v Bev>Go on, read me one.
+
+00:08:50.417 --> 00:09:02.814
+<v Simon>Mower Mayhem's. Cassette box art. A plucky little robot lawn mower with a glowing yellow charge light carves bright striped bands across a vast, overgrown English back garden lawn, at golden evening light.
+
+00:09:03.053 --> 00:09:05.785
+<v Bev>Golden evening light. There's your sky.
+
+00:09:06.053 --> 00:09:15.406
+<v Simon>Every cover deserves a sky. Then a startled hedgehog curls up in its path, a ginger cat leaps across the grass, and a pigeon flaps up from a red brick flower bed.
+
+00:09:15.585 --> 00:09:18.487
+<v Bev>Oh, I can see it. Is that the whole thing?
+
+00:09:18.883 --> 00:09:28.764
+<v Simon>Not quite. The brief also says, leave a clear band across the top fifth for the title. And no text, no lettering, no numbers, no logos anywhere in the picture.
+
+00:09:28.889 --> 00:09:32.946
+<v Bev>Why no words? It's a cover. It needs a title.
+
+00:09:33.167 --> 00:09:40.766
+<v Simon>The title goes on afterwards, in the right place. I'd rather not paint my own title into the sky. Leave it room, and add it later.
+
+00:09:40.968 --> 00:09:48.335
+<v Gareth>And there's a limit on how many goes it gets. Ten pictures at most, for every character and every scene, and each one is counted on the card before it's started.
+
+00:09:48.474 --> 00:09:51.209
+<v Bev>So how many goes did the Mower Mayhem cover take?
+
+00:09:51.330 --> 00:09:51.946
+<v Gareth>One.
+
+00:09:52.090 --> 00:09:53.796
+<v Simon>Some days the paint goes on right.
+
+00:09:53.842 --> 00:09:54.774
+<v Bev>And the others?
+
+00:09:55.164 --> 00:10:01.761
+<v Gareth>Antigravity, Tiger Gorilla and Wordris took one each. Gold Master took three, and WOLF took four.
+
+00:10:01.948 --> 00:10:03.825
+<v Bev>What's on the Gold Master one?
+
+00:10:04.162 --> 00:10:20.917
+<v Simon>Mo, with her big cloud of dark curly hair and her white jacket, striding through the studio, holding a shining gold cassette up high. The little courier robot waits by the door with a parcel trolley. A slim brown cat naps on a pile of papers. And a few tiny cartoon bugs scurry out of a computer monitor.
+
+00:10:21.119 --> 00:10:23.987
+<v Bev>That's Percy! On a pile of papers.
+
+00:10:24.048 --> 00:10:24.978
+<v Simon>Where else would he be.
+
+00:10:25.202 --> 00:10:30.601
+<v Gareth>And Gold Master's loading screen is Simon's too. The Production room, with Mo, Percy and Omnibot.
+
+00:10:30.735 --> 00:10:32.843
+<v Bev>And what goes in the box with the tape?
+
+00:10:33.220 --> 00:10:42.459
+<v Simon>What a release came with in the eighties. A cassette inlay, an advert, a poster, and Brian's two page review. Every milestone gets a fresh set.
+
+00:10:42.594 --> 00:10:47.074
+<v Gareth>And nothing on the box may claim more than the evidence shows. That's the rule for all of it.
+
+00:10:47.242 --> 00:10:54.646
+<v Simon>Which suits me. A cover should never promise something the game doesn't have. If there's a hedgehog on the box, there's a hedgehog on the lawn.
+
+00:10:54.685 --> 00:10:55.920
+<v Bev>And there is.
+
+00:10:56.073 --> 00:11:00.853
+<v Simon>There is. Hyun-joo drew him. He's a very good hedgehog.
+
+00:11:00.853 --> 00:11:02.064
+<v Bev>And Tiger Gorilla?
+
+00:11:02.432 --> 00:11:13.026
+<v Simon>A grinning orange gorilla with black tiger stripes, swinging one handed from a vine, with a parrot flapping just out of reach. And the brief says his face is friendly and funny, never frightening.
+
+00:11:13.277 --> 00:11:14.945
+<v Bev>I like that you have to say it.
+
+00:11:15.204 --> 00:11:21.513
+<v Simon>You always have to say it. These are family games. Every face on the box is a friendly one.
+
+00:11:21.645 --> 00:11:25.244
+<v Bev>Hyun-joo was in a couple of months back. Does she rate your covers?
+
+00:11:25.620 --> 00:11:28.092
+<v Simon>She says my covers have more pixels than the screen.
+
+00:11:28.062 --> 00:11:29.210
+<v Bev>And what do you say?
+
+00:11:29.498 --> 00:11:34.631
+<v Simon>I say hers have no sky. It's a running joke. Neither of us has won.
+
+00:11:34.714 --> 00:11:36.365
+<v Bev>She's lovely, Hyun-joo.
+
+00:11:36.507 --> 00:11:47.180
+<v Simon>She is. Sharp eyes, and generous with them. She'll show you the stray pixel so you can see it too. And I'll say no more than this, Bev. She smiles a bit more when Dez comes in.
+
+00:11:47.469 --> 00:11:49.346
+<v Bev>Oh, I'll not say a word.
+
+00:11:49.618 --> 00:11:52.763
+<v Gareth>Nor me. Though I notice he's been on time all week.
+
+00:11:52.767 --> 00:11:54.944
+<v Simon>So he has. Good lad.
+
+00:11:55.097 --> 00:11:58.685
+<v Bev>Give me a story, then. Something that went wrong with a picture.
+
+00:11:58.941 --> 00:12:08.983
+<v Simon>Emeka's playtest caught this one, bless him. He plays it properly and writes down everything that bothers him. As the Mower Mayhem picture loaded, there was rubbish on the screen for a moment.
+
+00:12:08.984 --> 00:12:11.397
+<v Bev>Rubbish? What kind of rubbish?
+
+00:12:11.643 --> 00:12:24.140
+<v Gareth>About eight frames of it. Our loader packs the picture small, and unpacks it onto the screen as it lands. While the new dots were unpacking, the colours on screen were still the old ones, from the Dalex Software text that shows before the picture.
+
+00:12:24.358 --> 00:12:29.716
+<v Simon>So you saw my garden through somebody else's colours. Like wallpaper going up over the old pattern.
+
+00:12:29.904 --> 00:12:31.768
+<v Bev>So what would I see on the telly?
+
+00:12:32.158 --> 00:12:36.119
+<v Gareth>A flicker of garbage, a sixth of a second or so, over the house text.
+
+00:12:36.404 --> 00:12:37.807
+<v Bev>And how do you fix that?
+
+00:12:38.117 --> 00:12:50.813
+<v Gareth>You turn the lights off first. Before anything unpacks, the loader writes black ink on black paper into every one of the seven hundred and sixty-eight colour bytes. A square that's black on black shows nothing, whatever its dots say.
+
+00:12:51.112 --> 00:12:52.947
+<v Simon>So the dots go on in the dark.
+
+00:12:53.094 --> 00:12:59.336
+<v Gareth>The dots go on in the dark, where nobody can see them. Then the colours unpack last, and the picture appears as they land.
+
+00:12:59.604 --> 00:13:01.748
+<v Bev>Why blank the colours and not the dots?
+
+00:13:02.154 --> 00:13:09.714
+<v Gareth>Because there are only seven hundred and sixty-eight colour bytes, and six thousand one hundred and forty-four bytes of dots. You blank the small one.
+
+00:13:09.851 --> 00:13:14.201
+<v Simon>The book calls it attributes last. I call it lifting the cloth off the painting.
+
+00:13:14.160 --> 00:13:15.365
+<v Bev>And who thought of that?
+
+00:13:15.637 --> 00:13:25.145
+<v Simon>It's in the toolkit's own loader, the one the games share. I paint the picture. The loader makes sure it arrives in one piece. I've never had a picture treated better.
+
+00:13:25.430 --> 00:13:31.601
+<v Gareth>And Emeka gets the credit for spotting it. Eight frames is a sixth of a second. You have to be watching properly.
+
+00:13:31.733 --> 00:13:33.404
+<v Bev>Well done, Emeka, if you're listening.
+
+00:13:33.610 --> 00:13:35.590
+<v Simon>He'll be listening. He'll have notes.
+
+00:13:35.767 --> 00:13:38.544
+<v Bev>And the loop that does it, is it big?
+
+00:13:38.840 --> 00:13:49.113
+<v Gareth>Tiny. It walks down from the last colour byte and stops by itself, without a counter. It checks one bit of the address, which is set for every colour byte and clear just below them.
+
+00:13:49.243 --> 00:13:50.335
+<v Bev>I'll take your word for it.
+
+00:13:50.434 --> 00:13:51.740
+<v Gareth>Most people do.
+
+00:13:52.020 --> 00:13:57.184
+<v Bev>So the Spectrum's own loader shows the dots arriving in stripes, and yours shows nothing, and then the colour?
+
+00:13:57.589 --> 00:14:05.257
+<v Simon>The house text stays up while the picture loads. Then the screen goes black. Then the picture comes, its colours arriving from the top down.
+
+00:14:05.217 --> 00:14:06.310
+<v Bev>Sky first.
+
+00:14:06.436 --> 00:14:08.955
+<v Simon>Sky first. It looks better on a telly.
+
+00:14:12.255 --> 00:14:17.169
+<v Bev>Go on, Simon, crystal ball time. What will covers be like, years from now?
+
+00:14:17.440 --> 00:14:19.920
+<v Simon>Give me a minute. A guess comes in slowly.
+
+00:14:20.520 --> 00:14:29.654
+<v Simon>Suppose one day you could type a paragraph into a computer. Golden evening light, a startled hedgehog, a ginger cat. And it painted you the picture in a few seconds.
+
+00:14:29.895 --> 00:14:33.108
+<v Bev>A computer that paints? Like on Tomorrow's World.
+
+00:14:33.323 --> 00:14:40.964
+<v Gareth>And suppose it had to be told what not to paint. No lettering, a clear band across the top for the title. The same as Simon's brief.
+
+00:14:41.197 --> 00:14:45.717
+<v Simon>Then the paragraph would be most of the painting. And somebody would still have to remember the sky.
+
+00:14:45.908 --> 00:14:48.344
+<v Bev>Would it put Percy on a pile of papers?
+
+00:14:48.726 --> 00:14:52.621
+<v Simon>It might, if you asked it nicely. It'd never get him on my lap, mind.
+
+00:14:52.773 --> 00:14:55.301
+<v Bev>What should folk do before next week?
+
+00:14:55.566 --> 00:15:04.942
+<v Gareth>The book the team's writing has a chapter called Shipping: Tapes, Loading Screens and the Box. Its fourth exercise is called Watch the reveal.
+
+00:15:04.919 --> 00:15:05.423
+<v Bev>Go on.
+
+00:15:05.718 --> 00:15:13.021
+<v Gareth>You build Wordris's tape with the team's tools, load it on a Spectrum at normal speed, and watch the moment the loading screen replaces the house text.
+
+00:15:13.178 --> 00:15:16.101
+<v Simon>Don't skip ahead. Sit and watch it, like a player would.
+
+00:15:16.311 --> 00:15:28.221
+<v Gareth>You should see the house text stay up while the picture loads, then the screen go black, then the picture appear within a moment, its colours from the top row down. Then the exercise asks you to explain the difference from the Spectrum's own loader.
+
+00:15:28.348 --> 00:15:29.925
+<v Bev>And for the eyes closed people?
+
+00:15:30.222 --> 00:15:40.275
+<v Simon>Picture the screen arriving. Dots first, in stripes, black and white. Then the colour. Then imagine you're the player, with two minutes to wait. Is the picture worth it?
+
+00:15:40.674 --> 00:15:42.256
+<v Gareth>Go on then. Have a look.
+
+00:15:46.256 --> 00:15:56.530
+<v Bev>That's us for this week. The Pet Shop Boys are climbing, up to four with Always on My Mind. Them doing Elvis. They first did it on the telly, for the Elvis tribute.
+
+00:15:56.803 --> 00:16:00.124
+<v Simon>A good song takes its time to arrive. Like a sky.
+
+00:16:00.377 --> 00:16:04.053
+<v Gareth>And United won two nil at Q P R on Saturday, so I'm taking my time too.
+
+00:16:04.227 --> 00:16:13.837
+<v Bev>Next time it's our last special, and it's Ken from Accounts, on estimates. If you've got a question for the team, or for Simon, send it in, and we'll put it to them.
+
+00:16:14.437 --> 00:16:15.475
+<v Bev>Thanks, Simon.
+
+00:16:15.731 --> 00:16:20.415
+<v Simon>Thank you, Bev. I'll put Percy back in his bed. Slowly.
+
+00:16:20.408 --> 00:16:21.639
+<v Bev>Right then, turn it up.
+
+00:16:21.928 --> 00:16:35.416
+<v Daniel>This is Daniel Vaughan, who made the show. That was nineteen eighty-seven. Simon's guess came true, as you'll have worked out: each cover began as a written brief, and an image model painted it. Somebody still had to remember the sky.
+
+00:16:36.016 --> 00:16:55.239
+<v Daniel>The chapter is Shipping: Tapes, Loading Screens and the Box, chapter seventeen in Machine Code Mayhem on Leanpub, and the exercise is Watch the reveal. Build Wordris with the toolkit, using sjasmplus and Python three, and load it in an emulator such as Fuse at normal speed.
+
+00:16:55.839 --> 00:17:15.446
+<v Daniel>Thank you for listening. The covers were made with AI image tools from the briefs read on air. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is written and produced by me, Daniel Vaughan, with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.
