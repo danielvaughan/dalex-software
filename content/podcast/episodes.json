@@ -79,59 +79,55 @@
     "date": "2026-09-10",
     "time": "18:00",
     "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/01-mo.mp3",
-    "audio_bytes": 12789261,
-    "seconds": 1055,
+    "audio_bytes": 12475729,
+    "seconds": 1029,
     "chapters": [
       {
         "start": 0,
-        "title": "Before we start"
-      },
-      {
-        "start": 29,
         "title": "Cold open"
       },
       {
-        "start": 49,
+        "start": 21,
         "title": "Welcome"
       },
       {
-        "start": 112,
+        "start": 84,
         "title": "The desk"
       },
       {
-        "start": 187,
+        "start": 159,
         "title": "The big idea"
       },
       {
-        "start": 351,
+        "start": 322,
         "title": "By hand"
       },
       {
-        "start": 464,
+        "start": 436,
         "title": "In the game"
       },
       {
-        "start": 665,
+        "start": 636,
         "title": "The retune"
       },
       {
-        "start": 796,
+        "start": 767,
         "title": "Crystal ball"
       },
       {
-        "start": 828,
+        "start": 799,
         "title": "The bug"
       },
       {
-        "start": 927,
+        "start": 898,
         "title": "Try this"
       },
       {
-        "start": 976,
+        "start": 947,
         "title": "Close"
       },
       {
-        "start": 1010,
+        "start": 981,
         "title": "After the show"
       }
     ],
