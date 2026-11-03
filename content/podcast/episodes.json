@@ -780,8 +780,8 @@
     "date": "2026-11-26",
     "time": "19:00",
     "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/12-malcolm.mp3",
-    "audio_bytes": 12122814,
-    "seconds": 1000,
+    "audio_bytes": 12160117,
+    "seconds": 1003,
     "chapters": [
       {
         "start": 0,
