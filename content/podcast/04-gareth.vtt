@@ -1,466 +1,460 @@
 WEBVTT
 
-00:00:01.000 --> 00:00:16.829
-<v Daniel>Hello, I'm Daniel Vaughan. Before we start: Dalex Software and its people are fictional, and the voices you'll hear are synthesised. I wrote and produced this show with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.
-
-00:00:17.429 --> 00:00:29.016
-<v Daniel>The show is set in nineteen eighty-seven, so everyone in it talks the nineteen eighty-seven way. When Vik's test rig plays the tape and presses keys at exact moments, today that's an emulator and a script.
-
-00:00:33.816 --> 00:00:37.212
+00:00:05.800 --> 00:00:09.196
 <v Gareth>The interrupt is the part of a game nobody sees and everybody feels.
 
-00:00:37.489 --> 00:00:38.960
+00:00:09.428 --> 00:00:10.899
 <v Mo>That's going on the board, that.
 
-00:00:38.901 --> 00:00:40.523
+00:00:10.982 --> 00:00:12.605
 <v Bev>Gareth, you're blushing.
 
-00:00:40.595 --> 00:00:41.994
+00:00:12.669 --> 00:00:14.068
 <v Gareth>I am not.
 
-00:00:46.994 --> 00:00:54.215
+00:00:19.068 --> 00:00:26.290
 <v Bev>Hello there, it's Bev, the kettle's on, and this is Dalex After Hours, the slot where we find out how computer games are really made.
 
-00:00:54.815 --> 00:00:58.322
+00:00:26.890 --> 00:00:30.397
 <v Bev>Every fact on this show comes out of the book the team's writing.
 
-00:00:58.922 --> 00:01:06.466
+00:00:30.997 --> 00:00:38.392
 <v Bev>Now this week's a bit different. The man who usually sits across the desk explaining everything is in the guest chair. It's Gareth.
 
-00:01:06.641 --> 00:01:10.325
+00:00:38.670 --> 00:00:42.300
 <v Gareth>Hiya, Bev. It feels a lot further from the microphone, this side.
 
-00:01:10.491 --> 00:01:16.238
+00:00:42.567 --> 00:00:48.314
 <v Bev>And helping me ask the questions, because I don't know what to ask a programmer, is the producer at Dalex, Mo Greenhalgh.
 
-00:01:16.438 --> 00:01:20.725
+00:00:48.578 --> 00:00:52.857
 <v Mo>Hello again, Bev. I've brought him a mug of tea, so he's got no excuse.
 
-00:01:20.753 --> 00:01:22.302
+00:00:52.846 --> 00:00:54.395
 <v Gareth>Below half full, I hope.
 
-00:01:22.601 --> 00:01:25.234
+00:00:54.565 --> 00:00:57.090
 <v Mo>Exactly half. You'll have to wait.
 
-00:01:25.466 --> 00:01:30.547
+00:00:57.290 --> 00:01:02.274
 <v Bev>And from my day job, a bit of news. Pump Up the Volume went to number one this week.
 
-00:01:30.705 --> 00:01:34.581
+00:01:02.493 --> 00:01:06.536
 <v Gareth>The M A R R S record. Dez has had it on all week.
 
-00:01:34.812 --> 00:01:40.931
+00:01:06.799 --> 00:01:13.109
 <v Bev>Gareth, that's samples, isn't it? Little recordings, played back on cue. Sounds like your interrupt.
 
-00:01:41.144 --> 00:01:44.495
+00:01:13.268 --> 00:01:16.558
 <v Gareth>Hold that thought, Bev. You're closer than you know.
 
-00:01:47.795 --> 00:01:51.235
+00:01:19.858 --> 00:01:23.297
 <v Bev>So, Gareth, for once you get to tell us about your own desk.
 
-00:01:51.520 --> 00:01:58.415
+00:01:23.528 --> 00:01:30.306
 <v Gareth>The left-hand desk in Production. A swivel chair, a monitor that shows the code I'm working on, and Yvonne at the next desk along.
 
-00:01:58.627 --> 00:02:00.872
+00:01:30.432 --> 00:01:32.681
 <v Mo>And a mug. Always a mug.
 
-00:02:01.037 --> 00:02:08.853
+00:01:32.885 --> 00:01:40.969
 <v Gareth>Always a mug. I write the Zed eighty for the games. And today I want to talk about the bit of every game I'm proudest of, and nobody ever notices.
 
-00:02:08.904 --> 00:02:09.845
+00:01:40.991 --> 00:01:41.932
 <v Bev>Which is?
 
-00:02:10.121 --> 00:02:21.792
+00:01:42.262 --> 00:01:53.907
 <v Gareth>The beat. Every Spectrum game runs to a beat. Fifty times a second the hardware taps the processor on the shoulder, and the game uses that tap to keep time, to catch every key and to play its music.
 
-00:02:21.940 --> 00:02:28.305
+00:01:54.152 --> 00:02:00.504
 <v Mo>I'll say this for him. On my board, the update rate is one of the numbers a card waits for, and Gareth's games keep it.
 
-00:02:28.584 --> 00:02:31.925
+00:02:00.690 --> 00:02:03.931
 <v Gareth>Most of the time. I'll tell you about the time they didn't.
 
-00:02:32.198 --> 00:02:35.175
+00:02:04.200 --> 00:02:07.080
 <v Bev>So what's an interrupt? Plain words, please.
 
-00:02:35.428 --> 00:02:50.969
+00:02:07.248 --> 00:02:22.804
 <v Gareth>Picture yourself cooking from a recipe, and the doorbell rings. You finish the step you're on, so the sauce doesn't burn. You remember where you were. Step four, the onions. You answer the door, deal with whoever's there, and come back to step four as if nothing had happened.
 
-00:02:51.154 --> 00:02:53.019
+00:02:23.057 --> 00:02:24.922
 <v Bev>And the recipe doesn't mention the doorbell.
 
-00:02:53.246 --> 00:03:06.163
+00:02:25.059 --> 00:02:38.127
 <v Gareth>It doesn't need to. That's an interrupt. The processor finishes the instruction it's on, remembers the address of the next one, and jumps off to a short routine. When that routine's done, it carries on exactly where it was.
 
-00:03:06.233 --> 00:03:07.141
+00:02:38.163 --> 00:02:39.070
 <v Mo>And who rings the bell?
 
-00:03:07.449 --> 00:03:17.248
+00:02:39.321 --> 00:02:48.948
 <v Gareth>The ULA, Sinclair's chip that draws the picture. Once every twenty milliseconds, as each picture on the telly starts. Fifty times a second, on the dot.
 
-00:03:17.284 --> 00:03:18.906
+00:02:48.912 --> 00:02:50.534
 <v Bev>That's a lot of doorbells.
 
-00:03:19.141 --> 00:03:32.954
+00:02:50.801 --> 00:03:04.910
 <v Gareth>And here's where the cooking stops being a good picture. The visitor works in your kitchen. The routine uses the same registers, the same little working boxes, as the program it interrupted. So it has to put every one back exactly as it found it.
 
-00:03:32.933 --> 00:03:33.335
+00:03:04.947 --> 00:03:05.350
 <v Bev>Or?
 
-00:03:33.647 --> 00:03:41.018
+00:03:05.704 --> 00:03:13.191
 <v Gareth>Or the main program carries on with a wrong value, at a random moment, once in thousands of frames. The hardest kind of bug there is to find.
 
-00:03:41.313 --> 00:03:43.243
+00:03:13.339 --> 00:03:15.269
 <v Mo>So the routine tidies up after itself.
 
-00:03:43.402 --> 00:03:55.423
+00:03:15.468 --> 00:03:27.423
 <v Gareth>Every register it, or anything it calls, might change. Picture a visitor who can turn up between any two of your instructions, and borrows every box you're using. It's the machine's only way of doing two things at once.
 
-00:03:55.700 --> 00:03:59.575
+00:03:27.561 --> 00:03:31.496
 <v Bev>Now, you've done pencil jobs with every guest. Your turn.
 
-00:03:59.718 --> 00:04:10.993
+00:03:31.655 --> 00:03:42.942
 <v Gareth>Right, pencil out. Squared paper. Draw six boxes in a row, one for each frame. Mark an interrupt at the left edge of each box and number them one to six.
 
-00:04:10.956 --> 00:04:12.841
+00:03:42.903 --> 00:03:44.788
 <v Bev>Six boxes, one to six.
 
-00:04:12.996 --> 00:04:23.600
+00:03:45.060 --> 00:03:55.633
 <v Gareth>Mower Mayhem runs one update, one pass of the game, every two frames. So mark an update straight after interrupts two, four and six. That's when the game asks the keyboard what you're pressing.
 
-00:04:23.752 --> 00:04:25.838
+00:03:55.856 --> 00:03:57.794
 <v Mo>Two, four and six. Got it.
 
-00:04:26.074 --> 00:04:40.463
+00:03:57.949 --> 00:04:12.648
 <v Gareth>Now the tap. P goes down just before interrupt three, and comes up just before interrupt four. A tap one frame long. Here's the question. Does any update see it? If you want a go, pause us now.
 
-00:04:43.740 --> 00:04:46.866
+00:04:15.871 --> 00:04:18.996
 <v Bev>Well, the update after two is before you press it.
 
-00:04:47.070 --> 00:04:49.737
+00:04:19.184 --> 00:04:21.850
 <v Mo>And the update after four is after you've let go.
 
-00:04:49.955 --> 00:04:53.955
+00:04:22.044 --> 00:04:25.885
 <v Bev>So no. Nobody sees it. It's lost.
 
-00:04:54.080 --> 00:05:03.803
+00:04:26.163 --> 00:04:35.926
 <v Gareth>If the update only asks, is P down right now? Then yes, it's lost. The only moment anything sees P is interrupt three, and interrupt three doesn't run an update.
 
-00:05:04.097 --> 00:05:06.595
+00:04:36.182 --> 00:04:38.679
 <v Bev>So you'd press the key and nothing would happen.
 
-00:05:06.834 --> 00:05:16.603
+00:04:38.804 --> 00:04:48.576
 <v Gareth>And you'd blame the keyboard. So the fix has to start at interrupt three. Interrupt three has to write the key down, and the update after four has to collect what was written.
 
-00:05:16.880 --> 00:05:19.807
+00:04:48.718 --> 00:04:51.645
 <v Mo>Like a note left on the board for the next shift.
 
-00:05:19.989 --> 00:05:34.575
+00:04:51.939 --> 00:05:06.508
 <v Gareth>That's it exactly. The game keeps two bytes. One holds what's down now. The other is the latch. It collects every key seen since the main loop last looked. The interrupt only ever adds keys into it, and never takes them out.
 
-00:05:34.661 --> 00:05:35.814
+00:05:06.542 --> 00:05:07.695
 <v Bev>And who empties it?
 
-00:05:36.081 --> 00:05:47.200
+00:05:08.059 --> 00:05:19.281
 <v Gareth>The main loop, once per update. It takes what's held and what's latched together, then empties the latch for next time. So the update after four sees P, one frame after the interrupt that saw it.
 
-00:05:47.466 --> 00:05:50.049
+00:05:19.565 --> 00:05:22.151
 <v Mo>And does it work? I like a number, Gareth.
 
-00:05:50.244 --> 00:06:01.458
+00:05:22.439 --> 00:05:33.638
 <v Gareth>Vik's test rig plays the tape and presses keys at exact moments. It taps P thirty times, each tap one frame long. Every one of them turns or moves the mower within three frames of the key going down.
 
-00:06:01.499 --> 00:06:03.095
+00:05:33.708 --> 00:05:35.304
 <v Bev>Thirty out of thirty.
 
-00:06:03.357 --> 00:06:17.466
+00:05:35.449 --> 00:05:49.634
 <v Gareth>Thirty out of thirty. And choosing what to watch took a bit of thought. After about seven taps of P, the mower faces east, and later taps only roll it a fraction of a pixel. So neither its heading nor its position changes on every tap.
 
-00:06:17.622 --> 00:06:19.875
+00:05:49.867 --> 00:05:52.120
 <v Mo>So the check couldn't see it working.
 
-00:06:20.060 --> 00:06:41.604
+00:05:52.383 --> 00:06:13.837
 <v Gareth>So now the game counts each update in which the mower turns or moves, and the check watches that counter. Lovely bit of teamwork, that one. But be careful what that promises. The interrupt looks at the keyboard once a frame. A tap that goes down and up again between two interrupts leaves nothing to latch. The promise is that every tap an interrupt sees reaches the next update. Not every tap there is.
 
-00:06:41.896 --> 00:06:49.265
+00:06:14.019 --> 00:06:21.307
 <v Mo>Now here's my question. The interrupt can come in at any moment. What if it comes in while the main loop's emptying the latch?
 
-00:06:49.598 --> 00:06:52.829
+00:06:21.608 --> 00:06:24.789
 <v Gareth>Good question, that. It's the one I asked when I started.
 
-00:06:53.110 --> 00:06:55.930
+00:06:25.081 --> 00:06:27.841
 <v Bev>I'm lost already. Why would it matter?
 
-00:06:56.274 --> 00:07:09.548
+00:06:28.257 --> 00:06:41.592
 <v Gareth>Say the main loop reads the latch. Then, before it's written the empty value back, the doorbell goes. The interrupt sees a new key and adds it to the latch. Then the main loop carries on, and writes empty over the top.
 
-00:07:09.499 --> 00:07:10.767
+00:06:41.625 --> 00:06:42.892
 <v Bev>And the new key's gone.
 
-00:07:10.964 --> 00:07:24.675
+00:06:43.089 --> 00:06:56.826
 <v Gareth>The very tap the latch exists to keep. So the main loop turns interrupts off, with an instruction called D I, empties the latch, and turns them back on with E I. It's a lock. Do not disturb, for eight instructions.
 
-00:07:24.940 --> 00:07:26.393
+00:06:56.959 --> 00:06:58.412
 <v Mo>And what does the lock cost?
 
-00:07:26.755 --> 00:07:35.425
+00:06:58.730 --> 00:07:07.359
 <v Gareth>That's a producer's question. The eight instructions inside it take sixty-eight T-states, sixty-eight ticks of the clock, and the processor's deaf for about eighty-five.
 
-00:07:35.658 --> 00:07:37.452
+00:07:07.651 --> 00:07:09.445
 <v Bev>Deaf meaning it can't hear the doorbell?
 
-00:07:37.867 --> 00:07:49.896
+00:07:09.730 --> 00:07:21.978
 <v Gareth>And on the forty-eight K, the doorbell only rings for thirty-two ticks. If it rings and stops while the lock's on, the processor never hears it. That frame goes uncounted. No key scan, no music.
 
-00:07:49.871 --> 00:07:51.480
+00:07:22.074 --> 00:07:23.683
 <v Mo>So keep the lock short.
 
-00:07:51.765 --> 00:08:01.375
+00:07:23.863 --> 00:07:33.403
 <v Gareth>Every lock in the game is a handful of instructions. And if you ever add a line in there, count it first. Every tick you add is one more in which a frame can come and go unseen.
 
-00:08:01.603 --> 00:08:08.986
+00:07:33.532 --> 00:07:40.978
 <v Mo>Now, all that saving and putting back. Every push costs ticks. What does the doorbell cost you, every frame?
 
-00:08:09.345 --> 00:08:20.014
+00:07:41.370 --> 00:07:51.929
 <v Gareth>Less than you'd think. Getting into the routine, saving every register, putting them back and returning comes to two hundred and eighty-nine ticks. Out of seventy thousand, nine hundred and eight in a frame.
 
-00:08:20.029 --> 00:08:20.816
+00:07:51.945 --> 00:07:52.733
 <v Bev>Is that a lot?
 
-00:08:21.169 --> 00:08:36.830
+00:07:53.080 --> 00:08:09.057
 <v Gareth>About nought point four per cent of a frame. A rounding error. The useful work is the big bit. The team gave the routine eighteen thousand ticks over the two frames of an update. It averages nine thousand and peaks at fifteen thousand, so there's three thousand spare at the worst.
 
-00:08:36.892 --> 00:08:37.905
+00:08:09.098 --> 00:08:10.111
 <v Mo>And where does it go?
 
-00:08:38.292 --> 00:08:48.953
+00:08:10.465 --> 00:08:21.017
 <v Gareth>Almost all of it to the music. The music player alone takes between six thousand, two hundred and forty-six and seven thousand, nine hundred and eighteen ticks in its busiest frame, depending on the song.
 
-00:08:49.093 --> 00:08:51.850
+00:08:21.148 --> 00:08:23.905
 <v Bev>So Dez's tunes are the expensive guest.
 
-00:08:52.135 --> 00:09:00.550
+00:08:24.099 --> 00:08:32.556
 <v Gareth>Worth every tick. And that's the lesson the team took. If the routine's too slow, look at what it calls before you start trimming the saves.
 
-00:09:00.835 --> 00:09:04.267
+00:08:32.696 --> 00:08:36.302
 <v Mo>And there's a rule that came out of the music, isn't there? The one in the comment.
 
-00:09:04.393 --> 00:09:18.989
+00:08:36.566 --> 00:08:51.522
 <v Gareth>The memory one. While the music plays, the routine swaps a different bank of memory into the top sixteen K. So whatever normally lives up there isn't there. Once, to free some space, the code that fires the mower's trimmer moved into the music's bank.
 
-00:09:18.959 --> 00:09:19.679
+00:08:51.469 --> 00:08:52.189
 <v Bev>And?
 
-00:09:20.021 --> 00:09:35.077
+00:08:52.435 --> 00:09:07.423
 <v Gareth>The game crashed on the first weed cut. The trimmer redraws the cut grass into the picture buffers up top, and with the music's bank paged in, those addresses held the music player instead. The redraw wrote over it, and the next interrupt called into garbage.
 
-00:09:35.044 --> 00:09:35.851
+00:09:07.403 --> 00:09:08.211
 <v Bev>Oh no.
 
-00:09:36.093 --> 00:09:45.629
+00:09:08.364 --> 00:09:18.010
 <v Gareth>The trimmer code went back where it belonged, and the rule went into the comment, so nobody trips on it again. A routine in a paged bank must never touch the buffers of the bank it pages out.
 
-00:09:45.805 --> 00:09:50.675
+00:09:18.137 --> 00:09:22.937
 <v Mo>That's the team all over. Found it, fixed it, wrote it down for the next person.
 
-00:09:53.175 --> 00:09:55.125
+00:09:25.437 --> 00:09:27.387
 <v Bev>So which game are we hearing?
 
-00:09:55.462 --> 00:10:11.813
+00:09:27.657 --> 00:09:44.097
 <v Gareth>Antigravity. You play Robin Vance, an engineer in a suit, on a space station where gravity's upside down. Press space on the briefing, take your hands off the keys, and Robin falls upwards. Slowly, then faster, until the top of the helmet touches the ceiling.
 
-00:10:12.036 --> 00:10:13.943
+00:09:44.314 --> 00:09:46.221
 <v Bev>That sounds like me on a trampoline.
 
-00:10:13.890 --> 00:10:14.354
+00:09:46.291 --> 00:09:46.755
 <v Mo>Bev.
 
-00:10:14.618 --> 00:10:21.149
+00:09:46.993 --> 00:09:53.321
 <v Gareth>And Antigravity doesn't take two frames for an update. It runs one update every frame. Fifty a second.
 
-00:10:21.278 --> 00:10:25.349
+00:09:53.545 --> 00:09:57.556
 <v Mo>So its purse is half the size. One frame of ticks for everything.
 
-00:10:25.526 --> 00:10:38.807
+00:09:57.821 --> 00:10:11.167
 <v Gareth>And it fits. Across eighteen runs on the test rig, the middle play update cost twenty-seven thousand and thirty ticks. Nine in ten stayed under thirty-one thousand, two hundred and twenty-three. That's forty-four per cent of the frame.
 
-00:10:38.983 --> 00:10:41.223
+00:10:11.348 --> 00:10:13.587
 <v Bev>So more than half the frame left over.
 
-00:10:41.498 --> 00:11:01.563
+00:10:13.764 --> 00:10:33.898
 <v Gareth>For ordinary flying. Not every update. The costliest one measured, in the recipe that flies all ten sectors, took four hundred and thirteen thousand, one hundred and twenty-nine ticks. Nearly six frames. And the book's honest about it. The rig only reports that cost. Nothing yet enforces a budget for it.
 
-00:11:01.798 --> 00:11:03.700
+00:10:34.041 --> 00:10:35.943
 <v Mo>That's a card I'd want on the board.
 
-00:11:03.930 --> 00:11:05.685
+00:10:36.201 --> 00:10:37.956
 <v Bev>And where's the interrupt in all this?
 
-00:11:05.943 --> 00:11:16.185
+00:10:38.355 --> 00:10:48.623
 <v Gareth>Everywhere. The byte of keys the physics reads is the one the interrupt fills. Hold the down key and the thruster pushes. And there's a second byte, the keys the interrupt saw one frame earlier.
 
-00:11:16.364 --> 00:11:18.695
+00:10:48.760 --> 00:10:51.091
 <v Bev>Why would you want the keys from before?
 
-00:11:19.064 --> 00:11:33.084
+00:10:51.450 --> 00:11:05.456
 <v Gareth>For the noise. If the down key is pressed now, and it wasn't a frame ago, that's a fresh press, so the thrust sound plays. Hold it down and it roars once, when the key goes down, rather than starting again every frame.
 
-00:11:33.233 --> 00:11:37.350
+00:11:05.721 --> 00:11:09.898
 <v Bev>Oh, that's clever. It knows the difference between pressing and holding.
 
-00:11:37.588 --> 00:11:53.848
+00:11:10.148 --> 00:11:26.181
 <v Gareth>Just by comparing now with a frame ago. And the oxygen is counted in frames as well. It starts at three thousand, which is sixty seconds, and goes down by one every update. On the frame it reaches exactly five hundred, ten seconds left, the alarm goes off, once.
 
-00:11:54.013 --> 00:11:55.873
+00:11:26.418 --> 00:11:28.278
 <v Mo>And the flight with your hands off the keys?
 
-00:11:56.195 --> 00:12:06.757
+00:11:28.557 --> 00:11:39.268
 <v Gareth>Eighty-eight updates, every time. A little under two seconds. Because every update is the same sum on the same beat, you can work out with a pencil which update the suit hits the ceiling on, before you press a key.
 
-00:12:07.546 --> 00:12:11.242
+00:11:40.057 --> 00:11:43.777
 <v Bev>Right, Gareth. Mo says you've a story where it didn't keep the beat.
 
-00:12:11.481 --> 00:12:24.275
+00:11:43.979 --> 00:11:56.638
 <v Gareth>I do. It's in the main loop. The loop sleeps on an instruction called halt until the doorbell goes. A counter called frames goes up by one at every interrupt. When it reaches two, the loop runs an update.
 
-00:12:24.250 --> 00:12:25.476
+00:11:56.684 --> 00:11:57.911
 <v Bev>And then starts counting again.
 
-00:12:25.640 --> 00:12:34.221
+00:11:58.180 --> 00:12:06.751
 <v Gareth>That's what we did first. Set the counter back to nought after each wait. Now suppose one update is slow, and runs on into a third frame.
 
-00:12:34.282 --> 00:12:35.248
+00:12:06.726 --> 00:12:07.692
 <v Mo>Over budget.
 
-00:12:35.472 --> 00:12:44.962
+00:12:07.856 --> 00:12:17.292
 <v Gareth>Over budget. The interrupt has already counted that third frame. And then the main loop sets the counter to nought, and throws it away. The game fell a frame behind, for good.
 
-00:12:45.106 --> 00:12:48.275
+00:12:17.548 --> 00:12:20.717
 <v Bev>So every slow update made the whole game a little bit later.
 
-00:12:48.419 --> 00:13:00.086
+00:12:20.941 --> 00:12:32.579
 <v Gareth>For good. The fix was three lines. Instead of setting it to nought, take two off. The extra frame stays in the counter, so the next update starts a frame early, and the beat catches up.
 
-00:13:00.254 --> 00:13:03.521
+00:12:32.722 --> 00:12:35.954
 <v Bev>Three lines. You must have been chuffed.
 
-00:13:03.791 --> 00:13:17.998
+00:12:36.098 --> 00:12:50.157
 <v Gareth>I was. And the nice part is we can see it holding. Vik's rig plays every build through, pressing its keys on cue, and measures the update rate. Two point nought nought nought frames per update, with the worst stretch two per cent slow.
 
-00:13:18.186 --> 00:13:20.310
+00:12:50.427 --> 00:12:52.551
 <v Mo>Lovely numbers, as Vik would say.
 
-00:13:20.910 --> 00:13:24.381
+00:12:53.151 --> 00:12:56.604
 <v Mo>Debt. You carry the debt over and pay it back.
 
-00:13:24.519 --> 00:13:35.878
+00:12:56.757 --> 00:13:08.080
 <v Gareth>The book calls it catch-up debt. And there's a cap. Mower Mayhem never carries more than two frames of debt, so a long pause, like building a new lawn, doesn't cause a burst of rushed updates afterwards.
 
-00:13:36.147 --> 00:13:38.735
+00:13:08.267 --> 00:13:10.855
 <v Bev>Like a bus that's late, and then three come at once.
 
-00:13:38.976 --> 00:13:54.802
+00:13:11.103 --> 00:13:27.215
 <v Gareth>That's the burst the cap stops. And the other games set their own cap. WOLF takes four frames an update, so it caps its debt at four. With a cap of two, its heaviest updates lost a frame or two for good, and the worst stretch went over the limit its checks allow.
 
-00:13:55.058 --> 00:13:58.735
+00:13:27.483 --> 00:13:31.257
 <v Mo>And there's the one about the music, isn't there? Tell Bev that one.
 
-00:13:58.903 --> 00:14:10.609
+00:13:31.443 --> 00:13:43.010
 <v Gareth>Oh, that one. A cheaper music loop once shifted every update's timing slightly. It sent Vik's test rig down a new route, into a crowded lawn, and the update rate check went from two per cent slow to eight point seven.
 
-00:14:10.891 --> 00:14:13.690
+00:13:43.266 --> 00:13:46.065
 <v Bev>So you made the music cheaper, and the game got slower?
 
-00:14:13.953 --> 00:14:18.188
+00:13:46.340 --> 00:13:50.575
 <v Gareth>The music got cheaper and the game got slower, because the rig only measures where it goes.
 
-00:14:18.341 --> 00:14:20.264
+00:13:50.743 --> 00:13:52.665
 <v Mo>Which is why it's measured on every build.
 
-00:14:23.564 --> 00:14:31.378
+00:13:55.965 --> 00:14:03.783
 <v Bev>Go on, Gareth. You're in the hot seat, so you get the crystal ball. Twenty years from now. What's programming like?
 
-00:14:31.797 --> 00:14:46.607
+00:14:04.045 --> 00:14:18.863
 <v Gareth>Ooh. Right. Suppose one day there's a language, call it Python, after Monty Python. You never see a register. And for my lock, you'd just write with lock, and the language does the D I and the E I for you.
 
-00:14:46.576 --> 00:14:48.068
+00:14:18.953 --> 00:14:20.446
 <v Bev>Like on Tomorrow's World.
 
-00:14:48.325 --> 00:14:50.275
+00:14:20.717 --> 00:14:22.667
 <v Mo>And who counts the ticks inside it?
 
-00:14:50.651 --> 00:14:54.756
+00:14:23.047 --> 00:14:27.087
 <v Gareth>Nobody, probably. The computers would be that quick you'd stop counting.
 
-00:14:54.957 --> 00:14:56.773
+00:14:27.322 --> 00:14:29.139
 <v Mo>I'd still want the number on the board.
 
-00:14:56.961 --> 00:15:09.746
+00:14:29.292 --> 00:14:42.246
 <v Gareth>You would. And here's my real guess. That doorbell never goes away. There'll always be some little routine that can turn up between any two lines of yours, and share every variable with you. Same trap, same tidy-up.
 
-00:15:09.936 --> 00:15:13.639
+00:14:42.434 --> 00:14:46.137
 <v Bev>So the hardest bug of nineteen eighty-seven is still the hardest bug in the future.
 
-00:15:13.857 --> 00:15:17.222
+00:14:46.332 --> 00:14:49.559
 <v Gareth>That's my guess. Ask me again in twenty years.
 
-00:15:17.410 --> 00:15:19.938
+00:14:49.831 --> 00:14:52.359
 <v Bev>What should folk do before next week?
 
-00:15:20.328 --> 00:15:26.749
+00:14:52.697 --> 00:14:59.012
 <v Gareth>Chapter five of the book the team's writing, The Frame Loop and the Interrupt. The exercise is called Lose the Latch.
 
-00:15:26.939 --> 00:15:30.519
+00:14:59.230 --> 00:15:02.927
 <v Mo>He's going to make you break his game. Look at his face.
 
-00:15:30.776 --> 00:15:37.605
+00:15:03.116 --> 00:15:09.912
 <v Gareth>Go on then. In the interrupt routine, delete the four lines that add keys into the latch, so the main loop only sees what's down right now.
 
-00:15:37.569 --> 00:15:39.197
+00:15:10.000 --> 00:15:11.628
 <v Bev>And then rebuild it?
 
-00:15:39.566 --> 00:15:52.368
+00:15:11.938 --> 00:15:24.882
 <v Gareth>Not yet. First, on paper, work out which one-frame taps can still get through. The answer's in the chapter, but have a go first. Then rebuild, let the test rig tap it, and compare the count with thirty out of thirty.
 
-00:15:52.505 --> 00:15:55.109
+00:15:25.029 --> 00:15:27.578
 <v Mo>And then put the code back. I mean it.
 
-00:15:55.250 --> 00:15:56.809
+00:15:27.847 --> 00:15:29.406
 <v Gareth>And then put the code back.
 
-00:15:56.961 --> 00:16:01.757
+00:15:29.692 --> 00:15:34.417
 <v Mo>Right. That's where we are. Quickly, then, back to you, Bev.
 
-00:16:05.757 --> 00:16:11.524
+00:15:38.417 --> 00:15:44.231
 <v Bev>That's us for this week. And both Manchester teams won this week, so write down the date.
 
-00:16:11.678 --> 00:16:15.709
+00:15:44.372 --> 00:15:48.256
 <v Gareth>One nil against Spurs on Saturday. A penalty, but I'll take it.
 
-00:16:15.868 --> 00:16:19.968
+00:15:48.479 --> 00:15:52.514
 <v Mo>And City won three one at Hull on Tuesday. Two cards moved in one week.
 
-00:16:20.100 --> 00:16:27.522
+00:15:52.769 --> 00:16:00.134
 <v Bev>Next time, Colin Ollerenshaw's in the chair, with a pencil, I'm told. If you've got a question for the team, send it in, and we'll put it to them.
 
-00:16:28.122 --> 00:16:31.246
+00:16:00.734 --> 00:16:04.035
 <v Bev>Thanks, Gareth. You were a natural.
 
-00:16:31.236 --> 00:16:33.490
+00:16:04.010 --> 00:16:06.354
 <v Gareth>Thanks, Bev. Thanks, Mo.
 
-00:16:33.739 --> 00:16:37.580
+00:16:06.487 --> 00:16:10.323
 <v Mo>Thank you, Bev. Thank you, Gareth. Your tea's below half now.
 
-00:16:37.679 --> 00:16:38.759
+00:16:10.313 --> 00:16:11.392
 <v Gareth>Finally.
 
-00:16:39.039 --> 00:16:42.739
+00:16:11.569 --> 00:16:15.230
 <v Bev>The theme is by our own Dez. Right then, turn it up.
 
-00:16:42.904 --> 00:16:53.945
-<v Daniel>That was nineteen eighty-seven. Today you can play Antigravity free in your browser at dalex-software dot co dot uk, and the assembler in the book is sjasmplus.
+00:16:15.432 --> 00:16:29.231
+<v Daniel>This is Daniel Vaughan, who made the show. That was nineteen eighty-seven. Today you can play Antigravity free in your browser at dalex-software dot co dot uk, and the assembler in the book is sjasmplus.
 
-00:16:54.545 --> 00:17:05.988
+00:16:29.831 --> 00:16:41.406
 <v Daniel>If you know Python, Gareth's doorbell is a signal handler, and his lock is with lock. The chapter is The Frame Loop and the Interrupt, in Machine Code Mayhem on Leanpub, and the exercise is Lose the Latch.
 
-00:17:06.588 --> 00:17:14.876
-<v Daniel>Thank you for listening. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is by me, Daniel Vaughan.
+00:16:42.006 --> 00:16:55.781
+<v Daniel>Thank you for listening. The theme is by Dez, the characters are fictional, the voices are synthesised, and the show is by me, Daniel Vaughan, with AI agents, from my book Machine Code Mayhem. The games are real, and so is every fact.
