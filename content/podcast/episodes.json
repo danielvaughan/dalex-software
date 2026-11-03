@@ -847,8 +847,8 @@
     "date": "2026-12-03",
     "time": "19:00",
     "audio_url": "https://github.com/danielvaughan/dalex-software/releases/download/podcast/13-brian.mp3",
-    "audio_bytes": 12445933,
-    "seconds": 1027,
+    "audio_bytes": 12441231,
+    "seconds": 1026,
     "chapters": [
       {
         "start": 0,
