@@ -102,6 +102,10 @@ class Podcast(unittest.TestCase):
         self.assertIn('Synthesised voices', body)
         self.assertIn('<audio controls preload="none"', body)   # nothing autoplays sound
 
+    def test_a_transcript_line_is_timed_by_its_start(self):
+        vtt = 'WEBVTT\n\n00:00:57.200 --> 00:01:02.000\n<v Bev>Across the minute.\n'
+        self.assertIn('>0:57<', podcast.transcript_html(vtt))   # not 1:57, the end's minute with the start's seconds
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -89,8 +89,8 @@ def transcript_html(vtt: str) -> str:
     out, at = [], ''
     for line in vtt.splitlines():
         if '-->' in line:
-            at = clock(int(float(line.split('-->')[0].strip().split(':')[-1]) + 60 * int(line.split(':')[-2])
-                           + 3600 * int(line.split(':')[0])))
+            h, m, s = line.split('-->')[0].strip().split(':')   # the cue's start, never its end
+            at = clock(int(h) * 3600 + int(m) * 60 + int(float(s)))
             continue
         voice = re.match(r'<v ([^>]+)>(.*)', line)
         if voice:
