@@ -53,8 +53,8 @@
       "featured": false,
       "demo": {
         "milestone": null,
-        "sha256": "5057aa3da1b6ac6d780348f0d24690fe50972155ed999f859fd162fc560b9fff",
-        "contains": "Level 1 demo: Zone 1, level 1 of 12",
+        "sha256": "3a0685fdb7c2b21fe7e91f13d3538d597bab09e0cf7114614a5e2aba19d569c2",
+        "contains": "Level 1 demo",
         "source_tape": "tiger-gorilla-demo.tap"
       },
       "touch": {

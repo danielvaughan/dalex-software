@@ -4,8 +4,8 @@
   "title": "Tiger Gorilla",
   "machine": "ZX Spectrum 128K",
   "jsspeccy_machine": 128,
-  "tagline": "Swing, boost and sneak through twelve wrap-round jungle levels, catching parrots to feed the hungry babies back at the nest.",
-  "blurb": "Swing, boost and sneak through twelve wrap-round jungle levels, catching parrots to feed the hungry babies back at the nest. Dodge the photographers' FLASH!, keep out of the crocodiles' pools and slip past the camera drones of the Waterfall Gorge. Feed every baby in all three zones and the family is safe!",
+  "tagline": "He's a gorilla in tiger stripes with a rocket-powered bottom!",
+  "blurb": "He's a gorilla in tiger stripes with a rocket-powered bottom! Swing through twelve wrap-round jungle levels, catching parrots to feed the hungry babies in the nest. Photographers prowl the floor, crocodiles lurk in the pools and camera drones hover over the Waterfall Gorge. Feed every baby and the family is safe!",
   "controls": [
     [
       "O / P",
@@ -13,7 +13,7 @@
     ],
     [
       "SPACE",
-      "Release"
+      "Release (and start)"
     ],
     [
       "A (hold)",
@@ -38,38 +38,42 @@
     [
       "M",
       "Music on/off"
+    ],
+    [
+      "Z",
+      "Starting zone (title)"
     ]
   ],
   "release": {
-    "source_tape": "tiger-gorilla-m4.tap",
-    "sha256": "60f33ae3633821235b01660e3d75b4dfbada3c76bd30c29411f571643115234b",
-    "size": 37554,
-    "milestone": 4,
-    "date": "2026-10-30"
+    "source_tape": "tiger-gorilla-m5.tap",
+    "sha256": "9e5d52b4f9fe3058caadb09ba2d192a807b502519bd6af96bc7140c88e42476f",
+    "size": 37518,
+    "milestone": 5,
+    "date": "2026-11-04"
   },
   "demo": {
     "src": "demo.bin",
-    "sha256": "5057aa3da1b6ac6d780348f0d24690fe50972155ed999f859fd162fc560b9fff",
-    "size": 37546,
+    "sha256": "3a0685fdb7c2b21fe7e91f13d3538d597bab09e0cf7114614a5e2aba19d569c2",
+    "size": 37510,
     "milestone": null,
     "source_tape": "tiger-gorilla-demo.tap",
-    "contains": "Level 1 demo: Zone 1, level 1 of 12"
+    "contains": "Level 1 demo"
   },
   "review": {
     "magazine": "INK & PAPER",
-    "overall": 72,
+    "overall": 75,
     "scores": {
-      "presentation": 76,
-      "graphics": 69,
-      "sound": 65,
-      "playability": 73,
-      "addictive_qualities": 73,
-      "overall": 72
+      "presentation": 79,
+      "graphics": 72,
+      "sound": 71,
+      "playability": 76,
+      "addictive_qualities": 74,
+      "overall": 75
     },
     "award": null,
     "verdict": "",
     "quote": {
-      "text": "Snatching a parrot mid-air and plopping down at the nest for a YUM YUM",
+      "text": "Grabbing and catching are both automatic, so it's all about rhythm and timing",
       "reviewer": "Zippy Dee"
     }
   },
@@ -98,29 +102,29 @@
       {
         "src": "shots/shot-1.png",
         "size": [
-          256,
-          192
+          320,
+          240
         ],
-        "caption": "Did you hear that?! Our hero drops right into the cameraman's line of fire.",
-        "alt": "Tiger Gorilla screenshot: Did you hear that?! Our hero drops right into the cameraman's line of fire."
+        "caption": "A sleepy croc, and a gorilla who isn't worried in the slightest. Wait till level 3.",
+        "alt": "Tiger Gorilla screenshot: A sleepy croc, and a gorilla who isn't worried in the slightest. Wait till level 3."
       },
       {
         "src": "shots/shot-2.png",
         "size": [
-          256,
-          192
+          320,
+          240
         ],
-        "caption": "A sleepy croc, says the message. Best not to wake him, all the same.",
-        "alt": "Tiger Gorilla screenshot: A sleepy croc, says the message. Best not to wake him, all the same."
+        "caption": "Say cheese! The stars round his head mean the snapper got his picture.",
+        "alt": "Tiger Gorilla screenshot: Say cheese! The stars round his head mean the snapper got his picture."
       },
       {
         "src": "shots/shot-3.png",
         "size": [
-          256,
-          192
+          320,
+          240
         ],
-        "caption": "Yum yum! A nest full of fed babies and two thousand for not being spotted.",
-        "alt": "Tiger Gorilla screenshot: Yum yum! A nest full of fed babies and two thousand for not being spotted."
+        "caption": "Now you see him, now you don't: the snapper only heard him.",
+        "alt": "Tiger Gorilla screenshot: Now you see him, now you don't: the snapper only heard him."
       },
       {
         "src": "shots/shot-4.png",
@@ -128,14 +132,14 @@
           256,
           192
         ],
-        "caption": "The family is safe and nobody saw a thing. Aaah.",
-        "alt": "Tiger Gorilla screenshot: The family is safe and nobody saw a thing. Aaah."
+        "caption": "The family is safe, and nobody saw a thing. Aaah.",
+        "alt": "Tiger Gorilla screenshot: The family is safe, and nobody saw a thing. Aaah."
       }
     ]
   },
   "source": {
     "repo": "danielvaughan/zx-tiger-gorilla",
-    "commit": "59b6cc4fb75b6cdcb17851fdd3e5b92e3fe5fa8a",
-    "kit": "game/media-kit/m4"
+    "commit": "ef3ebd3558e1fee2ac308ee2f02fcfb8373bdf86",
+    "kit": "game/media-kit/m5"
   }
 }
