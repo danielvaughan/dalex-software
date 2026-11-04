@@ -221,6 +221,28 @@ figcaption { color: var(--muted); font-size: .9rem; margin-top: 6px; }
 .transcript { margin: 1.5rem 0; max-width: 70ch; }
 .transcript summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; }
 .studio-link { margin-top: 2rem; }
+/* home: the front door (D-35) */
+.welcome { margin: 22px 0 8px; max-width: 46rem; }
+.welcome-title { font-size: clamp(1.9rem, 5.2vw, 3rem); line-height: 1.1; margin: .15em 0 .35em; text-transform: none; letter-spacing: -.02em; }
+.welcome .lede { color: var(--muted); }
+.shelf { list-style: none; padding: 0; margin: 0 0 .6rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 14px; }
+.shelf a { display: block; color: inherit; text-decoration: none; }
+.shelf a:hover span { text-decoration: underline; }
+.shelf-art { display: block; width: 100%; aspect-ratio: 3 / 4; height: auto; object-fit: cover; border: 1px solid var(--line); background: #000; }
+.shelf span { display: block; margin-top: 6px; font-weight: 700; }
+.doors { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; }
+.door a { display: flex; flex-direction: column; gap: 6px; height: 100%; color: inherit; text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--z-cyan); padding: 0 0 14px; }
+.door:nth-child(1) a { border-top-color: var(--z-red); }
+.door:nth-child(2) a { border-top-color: var(--z-yellow); }
+.door:nth-child(3) a { border-top-color: var(--z-green); }
+.door a > * { margin: 0 14px; }
+.door a > img, .door .team { margin: 0; width: 100%; height: 170px; object-fit: cover; object-position: top; background: #000; }
+.door .team { display: flex; align-items: flex-end; justify-content: center; gap: 4px; padding-top: 18px; box-sizing: border-box; }
+.door .team img { width: 48px; height: 96px; }
+.door strong { font-size: 1.15rem; }
+.door a:hover strong { text-decoration: underline; }
+.door .kicker { margin-top: 10px; }
+@media (max-width: 600px) { .shelf { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; } .shelf span { font-size: .9rem; } }
 
 /* The player: focus ring, the stage (screen and touch pad, the full-screen element) and the pad (D-21, D-22) */
 .screen:focus-within { outline: 3px solid var(--focus); outline-offset: 3px; }

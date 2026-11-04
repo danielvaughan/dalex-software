@@ -322,7 +322,8 @@ def card(game, root):
 
 # ------------------------------------------------------------------ pages
 
-def home(site, games, featured):
+def home(site, games, featured, episodes=()):
+    """The front door: what Dalex is, the new release, the shelf of games, and a way into each section (D-35)."""
     root = ''
     hero = ''
     if featured:
@@ -343,18 +344,35 @@ def home(site, games, featured):
     <p class="actions">{(f'<a class="button primary" href="{g}#play-now">Play the demo</a> ') if featured['_demo'] else ''}<a class="button{'' if featured['_demo'] else ' primary'}" href="{g}">About the game</a></p>
   </div>
 </section>'''
-    cards = '\n'.join(card(x, root) for x in games)
-    body = f'''<h1 class="sr-only">{e(site["name"])}: games for the ZX Spectrum</h1>
-<p class="intro">{e(site.get("intro", ""))}</p>
-{hero}
-<section aria-labelledby="all-games">
-  <h2 id="all-games">The games</h2>
-  <ul class="grid">{cards}</ul>
+    shelf = '\n'.join(f'''  <li><a href="games/{e(x["slug"])}/">{cover_img(x, f'games/{x["slug"]}/', cls='shelf-art')}<span>{e(x["title"])}</span></a></li>'''
+                      for x in games)
+    latest = episodes[0] if episodes else None
+    listen = (f'Latest: episode {e(latest["number"])}, <em>{e(latest["title"])}</em>.' if latest
+              else 'Bev and Gareth talk to the team about how the games were made.')
+    team = ''.join(f'<img class="px" src="assets/people/{who}.png" width="48" height="96" alt=""{LAZY}>'
+                   for who in ('malcolm', 'mo', 'gareth', 'hyunjoo', 'dez'))
+    body = f'''<section class="welcome" aria-labelledby="welcome-title">
+  <p class="kicker">A Manchester software house</p>
+  <h1 id="welcome-title" class="welcome-title">New games for the ZX Spectrum, and how to make your own</h1>
+  <p class="lede">{e(site.get("intro", ""))}</p>
+  <p class="actions"><a class="button primary" href="games/">Play the games</a> <a class="button" href="book/">Learn how they were made</a></p>
 </section>
-<section class="studio-link" aria-labelledby="studio-film">
-  <h2 id="studio-film">How the studio works</h2>
-  <p>Take the five-minute tour of the studio where these games are made, from the first idea to the magazine review.
-  <a href="studio/">Watch the film</a>.</p>
+{hero}
+<section aria-labelledby="shelf-title">
+  <h2 id="shelf-title">The games</h2>
+  <ul class="shelf">
+{shelf}
+  </ul>
+  <p><a href="games/">All the games, with their free demos and reviews</a></p>
+</section>
+<section aria-labelledby="doors-title">
+  <h2 id="doors-title">How they are made</h2>
+  <ul class="doors">
+  <li class="door"><a href="studio/"><img src="assets/home/studio.jpg" width="480" height="360" alt="A frame from the studio film: the production room in pixel art, the team at their desks around the milestone board"{LAZY}><span class="kicker">Studio</span><strong>Watch the studio at work</strong><span>A five-minute film of a game going from the first idea to the magazine review.</span></a></li>
+  <li class="door"><a href="book/"><img src="{BOOK_COVER}" width="300" height="450" alt="The cover of Machine Code Mayhem"{LAZY}><span class="kicker">Book</span><strong>Machine Code Mayhem</strong><span>Learn to write Spectrum games in Z80 assembly from these six complete games, then make your own.</span></a></li>
+  <li class="door"><a href="podcast/"><img src="assets/home/podcast.jpg" width="360" height="360" alt="The cover of Dalex After Hours"{LAZY}><span class="kicker">Podcast · new on Thursdays</span><strong>Dalex After Hours</strong><span>{listen}</span></a></li>
+  <li class="door"><a href="about/"><span class="team">{team}</span><span class="kicker">About</span><strong>Meet the team</strong><span>The people who make the games, from commissioning to the review, and the cat.</span></a></li>
+  </ul>
 </section>'''
     return page(site, root=root, path='', title=site['name'], body=body, current='home')
 
@@ -814,7 +832,7 @@ def build(root: Path = ROOT, config: Path = None, out: Path = None) -> Path:
     shutil.copytree(root / 'static', out)
     if (root / 'CNAME').is_file():
         shutil.copyfile(root / 'CNAME', out / 'CNAME')
-    write(out, 'index.html', home(site, games, featured))
+    write(out, 'index.html', home(site, games, featured, podcast.load(root)[1]))
     write(out, 'games/index.html', games_index(site, games))
     for g in games:
         src = root / 'games' / g['slug']

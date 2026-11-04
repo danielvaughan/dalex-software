@@ -292,6 +292,17 @@ class Built(unittest.TestCase):
             title = json.loads((ROOT / 'games' / featured[0]['slug'] / 'game.json').read_text())['title']
             self.assertIn(f'<h2 id="hero-title" class="hero-title">{build.e(title)}</h2>', home)
 
+    def test_home_is_the_front_door(self):
+        """D-35: the home page says what Dalex is, shelves every visible game, and opens each section."""
+        home = (self.out / 'index.html').read_text()
+        self.assertIn('New games for the ZX Spectrum, and how to make your own', home)
+        for slug in self.visible:
+            self.assertIn(f'href="games/{slug}/"', home)
+        for section in ('games/', 'studio/', 'book/', 'podcast/', 'about/'):
+            self.assertRegex(home, rf'<li class="door"><a href="{section}"' if section != 'games/' else
+                             r'href="games/">All the games', section)
+        self.assertNotIn('<ul class="grid">', home)          # the full cards live on the Games page
+
     def test_no_tracking(self):
         for p in self.out.rglob('*.html'):
             text = p.read_text(encoding='utf-8').lower()

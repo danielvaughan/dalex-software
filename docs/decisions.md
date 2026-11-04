@@ -494,3 +494,18 @@ games and their tapes.
   the SVGs need no font. It needs fontTools, which the site's build does not. `favicon.png` and `favicon.ico` are
   rendered from `favicon.svg`.
 - **No pixel scaling on the logo.** `image-rendering: pixelated` now applies only to `.px`, the game art.
+
+## D-35 The home page is the front door (owner, 2026-11-04)
+
+The owner: "Please revise the home page now there are dedicated pages for games, studio etc". The home page no longer
+repeats the Games page; it says what Dalex is and opens every section, around the owner's idea "enjoy my games, and
+learn how to make your own".
+
+- **Welcome.** "New games for the ZX Spectrum, and how to make your own", the intro from `site.json`, and two
+  buttons: Play the games, and Learn how they were made (the Book).
+- **New release.** The featured game's hero stays (D-07).
+- **The games.** A shelf of every visible game's cover and title, each to its page, and a link to the Games page; the
+  full cards are only on the Games page.
+- **How they are made.** One card each for the Studio (the film), the Book, the Podcast (its latest episode, so the
+  page changes each Thursday) and About (the team). The card pictures are small copies in `static/assets/home/`.
+- **No prices** on the home page (D-19); the book's price stays on its own page (D-28).
