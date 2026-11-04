@@ -98,9 +98,30 @@ class Podcast(unittest.TestCase):
 
     def test_the_episode_page_says_the_voices_are_synthesised(self):
         show, eps = podcast.load(self.root)
-        body = podcast.episode_body(show, eps[0], '<p>Transcript.</p>')
+        body = podcast.episode_body(SITE, show, eps[0], '<p>Transcript.</p>')
         self.assertIn('Synthesised voices', body)
         self.assertIn('<audio controls preload="none"', body)   # nothing autoplays sound
+
+    def test_the_player_and_feed_use_the_sites_own_copy(self):
+        """D-32: an iPhone will not play GitHub's octet-stream download, so both point at the site's audio/mpeg copy."""
+        show, eps = podcast.load(self.root)
+        own = f'https://dalex-software.co.uk/podcast/audio/{eps[0]["slug"]}.mp3'
+        self.assertIn(f'src="{own}"', podcast.episode_body(SITE, show, eps[0], ''))
+        feed = podcast.rss(SITE, show, eps)
+        self.assertIn(f'url="{own}"', feed)
+        self.assertNotIn('releases/download', feed)
+
+    def test_fetch_audio_refuses_a_short_download(self):
+        import io, contextlib
+        sys.path.insert(0, str(ROOT / 'tools'))
+        import fetch_audio
+        dest = self.root / 'site' / podcast.AUDIO / 'x.mp3'
+        opener = lambda url: contextlib.closing(io.BytesIO(b'ID3' + bytes(7)))
+        fetch_audio.fetch('https://example.invalid/x.mp3', dest, 10, opener)
+        self.assertEqual(dest.stat().st_size, 10)
+        with self.assertRaises(SystemExit):
+            fetch_audio.fetch('https://example.invalid/x.mp3', dest.with_name('y.mp3'), 11, opener)
+        self.assertFalse(dest.with_name('y.mp3').exists() or dest.with_name('y.part').exists())
 
     def test_a_transcript_line_is_timed_by_its_start(self):
         vtt = 'WEBVTT\n\n00:00:57.200 --> 00:01:02.000\n<v Bev>Across the minute.\n'

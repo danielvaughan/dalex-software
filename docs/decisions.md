@@ -437,10 +437,27 @@ replaces the book's ADR-0025 rhythm (weekly, after the author has heard the pilo
   Eve. Episodes whose day has passed appear at once; later ones are uploaded ahead and held back by the build until
   their time, and the workflow rebuilds daily at 18:05 and 19:05 UTC so each appears on its evening. `pubDate` is that
   time, a second later per episode number.
-- **Audio** is not in this repository: each MP3 is an asset of the `podcast` release, served from GitHub's download
-  host, which answers HEAD and byte-range requests (checked when the release is first made).
+- **Audio** is not in this repository: each MP3 is an asset of the `podcast` release. It was first served from
+  GitHub's download host; D-32 serves the site's own copy instead.
 - **Honesty.** The show description, every episode page and every set of notes say the people are fictional and the
   voices synthesised. A Spectrum address written `$4100` in a transcript is not a price (the price test spares four
   hex digits).
 - **Cover.** `static/assets/podcast/cover.jpg` (3000 by 3000, for the feed) and `cover-1400.jpg` (the page), from the
   book's `podcast/art/`.
+
+## D-32 Episodes play from the site's own copy of the audio (owner, 2026-11-04)
+
+The owner, on an iPhone: the episode player showed "Error". GitHub's release download host sends every asset as
+`application/octet-stream` with `Content-Disposition: attachment`, whatever content type the asset was uploaded
+with (all of ours are stored as `audio/mpeg`). Desktop Chrome, Firefox and Safari's engine sniff the bytes and play
+it; iOS will not.
+
+- The MP3s stay release assets, out of Git (D-31): `audio_url` in `content/podcast/episodes.json` is still where an
+  episode's audio lives, and the book's `podcast_publish.py` still uploads there.
+- The deploy copies each episode the build published into `_site/podcast/audio/<slug>.mp3`
+  (`tools/fetch_audio.py`, after the tests and before the Pages upload; it stops on a wrong byte count). GitHub
+  Pages sends those as `audio/mpeg` with byte ranges.
+- The episode pages' player and the feed's `<enclosure>` give that address (`podcast.served`). The `guid` is
+  unchanged, so podcast apps keep the same episodes and fetch the audio from the new address.
+- Each deploy carries every published episode, about 12 MB each: about 210 MB when all 17 are out, within Pages'
+  1 GB site limit.

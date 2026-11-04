@@ -7,7 +7,9 @@ the site, the feed or the sitemap (the book's ADR-0025: nothing is published unt
 
 The feed is RSS 2.0 with Apple's iTunes tags and the Podcast Index namespace (podcast:transcript for the WebVTT
 transcript, podcast:chapters for JSON chapters). The audio is not in this repository: each episode's MP3 is a
-GitHub release asset, named by its full URL and byte length. Every page and the feed say plainly that the people
+GitHub release asset, named by its full URL (`audio_url`) and byte length. The deploy copies each visible episode's
+MP3 into the site (tools/fetch_audio.py) and the pages and feed point at that copy, because GitHub's download host
+sends every asset as application/octet-stream and an iPhone will not play that (D-32). Every page and the feed say plainly that the people
 are fictional and the voices synthesised. The output is deterministic: no timestamps beyond the episodes' own dates.
 """
 import html
@@ -25,6 +27,14 @@ EPISODE_KEYS = ('number', 'slug', 'title', 'guest', 'summary', 'date', 'audio_ur
                 'chapters', 'visible')
 ITUNES = 'http://www.itunes.com/dtds/podcast-1.0.dtd'
 PODCAST = 'https://podcastindex.org/namespace/1.0'
+
+
+AUDIO = 'podcast/audio/'   # where the deploy puts each visible episode's MP3 (D-32)
+
+
+def served(site, ep) -> str:
+    """The episode's MP3 on the site itself, sent as audio/mpeg (D-32)."""
+    return f'{site["base_url"]}{AUDIO}{ep["slug"]}.mp3'
 
 
 def e(s) -> str:
@@ -113,7 +123,7 @@ def rss(site, show, episodes) -> str:
       <guid isPermaLink="false">dalex-after-hours-{e(ep["slug"])}</guid>
       <pubDate>{rfc2822(ep["date"], int(ep["number"]), ep.get("time", ""))}</pubDate>
       <description>{e(ep["summary"])}</description>
-      <enclosure url="{e(ep["audio_url"])}" length="{int(ep["audio_bytes"])}" type="audio/mpeg"/>
+      <enclosure url="{e(served(site, ep))}" length="{int(ep["audio_bytes"])}" type="audio/mpeg"/>
       <itunes:episode>{int(ep["number"])}</itunes:episode>
       <itunes:episodeType>{"trailer" if ep["number"] == 0 else "full"}</itunes:episodeType>
       <itunes:duration>{int(ep["seconds"])}</itunes:duration>
@@ -162,7 +172,7 @@ def index_body(show, episodes) -> str:
 '''
 
 
-def episode_body(show, ep, transcript_html: str) -> str:
+def episode_body(site, show, ep, transcript_html: str) -> str:
     """The episode page: a player, then show notes in a fixed shape (the notes fragment carries In this episode,
     the topic sections, Summary, Resources and Related episodes), the chapters and the transcript."""
     chapters = ''.join(f'<li><span class="small">{e(clock(c["start"]))}</span> {e(c["title"])}</li>\n'
@@ -170,7 +180,7 @@ def episode_body(show, ep, transcript_html: str) -> str:
     return f'''<p class="small"><a href="../">{e(show["title"])}</a> · episode {e(ep["number"])}</p>
 <h1>{e(ep["title"])}</h1>
 <p>With {e(ep["guest"])}. {e(clock(ep["seconds"]))}.</p>
-<audio controls preload="none" src="{e(ep["audio_url"])}"></audio>
+<audio controls preload="none" src="{e(served(site, ep))}"></audio>
 <p class="small">Synthesised voices; the people are fictional and the facts about the games are real.</p>
 {ep["notes"]}
 <h2>Chapters</h2>

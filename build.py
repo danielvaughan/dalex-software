@@ -837,7 +837,7 @@ def build(root: Path = ROOT, config: Path = None, out: Path = None) -> Path:
                                               body=podcast.index_body(show, episodes), current='podcast',
                                               extra_head=feed_link.replace('{root}', '../'), description=show['description']))
         for ep in episodes:
-            body = podcast.episode_body(show, ep, podcast.transcript_html(ep['vtt']))
+            body = podcast.episode_body(site, show, ep, podcast.transcript_html(ep['vtt']))
             write(out, f'podcast/{ep["slug"]}/index.html',
                   page(site, root='../../', path=f'podcast/{ep["slug"]}/', title=ep['title'], body=body,
                        current='podcast', extra_head=feed_link.replace('{root}', '../../'), description=ep['summary']))

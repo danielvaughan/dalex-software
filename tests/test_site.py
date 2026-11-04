@@ -224,7 +224,8 @@ class Built(unittest.TestCase):
         for ep in episodes:
             for name in ('index.html', 'transcript.vtt', 'chapters.json'):
                 self.assertTrue((self.out / 'podcast' / ep['slug'] / name).is_file(), (ep['slug'], name))
-            self.assertIn(ep['audio_url'], feed)
+            self.assertIn(podcast.served(self.cfg['site'], ep), feed)   # D-32: the site's own copy
+            self.assertNotIn(ep['audio_url'], feed)
 
     def test_game_json_is_not_deployed(self):
         self.assertEqual(sorted(self.out.rglob('game.json')), [])
