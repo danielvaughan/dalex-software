@@ -267,7 +267,7 @@ figcaption { color: var(--muted); font-size: .9rem; margin-top: 6px; }
   --f-text: Charter, "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif; }
 .articles { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: 18px; max-width: 820px; }
 .article-item { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--z-cyan); padding: 12px 18px; }
-.article-item h2 { margin: .2rem 0 .4rem; text-transform: none; letter-spacing: -.01em; font: 900 1.6rem/1.15 var(--f-display); }
+.article-item h2, .article-item h3 { margin: .2rem 0 .4rem; text-transform: none; letter-spacing: -.01em; font: 900 1.6rem/1.15 var(--f-display); }
 .article-item .standfirst { font-family: var(--f-text); font-size: 1.05rem; margin: .3rem 0; }
 .feature { max-width: 74ch; }
 .feature-head { border-bottom: 1px solid var(--line); padding-bottom: 6px; margin-bottom: 1.4rem; }

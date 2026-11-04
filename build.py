@@ -5,7 +5,8 @@
 
 Reads site.json (which games exist and which are shown), games/<slug>/game.json (written by the
 toolkit's zx-website skill), content/about.html, static/ (with the studio film in static/media/) and
-content/studio.html and the articles (content/articles/articles.json and one HTML fragment each, D-29, D-30). Only
+content/studio.html and the articles (content/articles/articles.json and one HTML fragment each, D-29, D-30; the
+Studio's Learn more, D-33). Only
 games with "visible": true are
 built into any page, the sitemap or the feed, and only their files are copied to the output, so a
 hidden game is not deployed at all. The output is deterministic: the same inputs give the same bytes.
@@ -241,7 +242,7 @@ def page(site, *, root, path, title, body, description='', current='', extra_hea
     path is this page's path below the site root, for the canonical URL."""
     full_title = f'{title} · {site["name"]}' if title != site['name'] else title
     nav = [('', 'Home', 'home'), ('games/', 'Games', 'games'), ('studio/', 'The Studio', 'studio'), ('book/', 'The Book', 'book'),
-           ('articles/', 'Articles', 'articles'), ('podcast/', 'Podcast', 'podcast'), ('about/', 'About', 'about')]
+           ('podcast/', 'Podcast', 'podcast'), ('about/', 'About', 'about')]
     links = ''.join(
         f'<li><a href="{root}{href}"{CURRENT if key == current else ""}>{label}</a></li>'
         for href, label, key in nav)
@@ -569,9 +570,10 @@ def transcript(vtt: str) -> str:
     return '\n'.join(f'<p>{"<strong>" + e(w) + ":</strong> " if w else ""}{e(" ".join(t))}</p>' for w, t in turns)
 
 
-def studio(site, root_dir: Path, games):
-    """The Studio: the documentary film of how Dalex makes its games, with captions and a transcript. A link to a
-    game that is hidden in site.json becomes plain text, so a hidden game is never linked."""
+def studio(site, root_dir: Path, games, arts=()):
+    """The Studio: the documentary film of how Dalex makes its games, with captions and a transcript, and the
+    articles as its Learn more section (D-33). A link to a game that is hidden in site.json becomes plain text, so a
+    hidden game is never linked."""
     root = '../'
     shown = {g['slug'] for g in games}
     frag = (root_dir / 'content' / 'studio.html').read_text(encoding='utf-8')
@@ -587,8 +589,12 @@ def studio(site, root_dir: Path, games):
   <figcaption>How the studio works: a five-minute film recorded in the Dalex Studio. Captions are on; use the
   player&rsquo;s controls to turn them off. <a href="{root}{FILM}.mp4" download>Download the film (MP4)</a>.</figcaption>
 </figure>'''
-    body = frag.replace('<!-- film -->', film).replace('<!-- transcript -->', transcript(vtt))
+    if '<!-- learn more -->' not in frag:
+        raise BuildError('content/studio.html has no <!-- learn more --> placeholder for the articles (D-33)')
+    body = (frag.replace('<!-- film -->', film).replace('<!-- transcript -->', transcript(vtt))
+            .replace('<!-- learn more -->', learn_more(arts)))
     return page(site, root=root, path='studio/', title='The Studio', body=body, current='studio',
+                extra_head=articles_feed_link(site, root) if arts else '',
                 description='A five-minute film of how Dalex Software makes its games: every role carried out by AI agents, '
                             'with people steering.')
 
@@ -662,7 +668,7 @@ def article_meta(a) -> str:
 
 def articles_feed_link(site, root):
     return (f'<link rel="alternate" type="application/atom+xml" title="{e(site["name"])} articles" '
-            f'href="{root}articles/feed.xml">\n')
+            f'href="{root}studio/feed.xml">\n')
 
 
 OOC = ('<p class="ooc"><strong>Out of character.</strong> Dalex Software, its staff and <em>INK &amp; PAPER</em> are '
@@ -670,31 +676,32 @@ OOC = ('<p class="ooc"><strong>Out of character.</strong> Dalex Software, its st
        'behind the games.</p>')
 
 
-def articles_index(site, arts):
-    """Articles: INK & PAPER features, out of character, on how the games and the studio are really made (D-29, D-30)."""
-    root = '../'
+def learn_more(arts):
+    """The Studio page's Learn more section: the INK & PAPER features, out of character, on how the games and the
+    studio are really made (D-29, D-30, D-33). There is no separate Articles section. Each shows its kicker, title and
+    the magazine's tease, never the byline or standfirst: the Studio page names no real person (test_studio)."""
+    if not arts:
+        return ''
     items = '\n'.join(f'''  <li class="article-item">
     <p class="kicker">{e(a["kicker"])}</p>
-    <h2><a href="{e(a["slug"])}/">{e(a["title"])}</a></h2>
-    <p class="standfirst">{e(a["standfirst"])}</p>
-    {article_meta(a)}
+    <h3><a href="{e(a["slug"])}/">{e(a["title"])}</a></h3>
+    <p class="standfirst">{e(a["tease"])}.</p>
+    <p class="meta"><span>{a["minutes"]} min read</span></p>
   </li>''' for a in arts)
-    body = f'''<h1>Articles</h1>
-<p class="lede">Features from <em>INK &amp; PAPER</em>, the Spectrum games monthly. The reviews on this site stay in
-1987; these step out of character to show how the games are really made today, with AI agents, an assembler, emulators
-and a lot of checks.</p>
-<p class="small"><a href="feed.xml">Articles feed (Atom)</a></p>
+    return f'''<section class="learn-more" aria-labelledby="learn-more">
+<h2 id="learn-more">Learn more</h2>
+<p>Features from <em>INK &amp; PAPER</em>, the Spectrum games monthly. The rest of this site stays in 1987; these step
+out of character to show how the games are really made today, with AI agents, an assembler, emulators and a lot of
+checks. <a href="feed.xml">Feed (Atom)</a>.</p>
 <ul class="articles">
 {items}
-</ul>'''
-    return page(site, root=root, path='articles/', title='Articles', body=body, current='articles',
-                extra_head=articles_feed_link(site, root),
-                description='INK & PAPER features from Dalex Software: how the ZX Spectrum games are really made with AI agents.')
+</ul>
+</section>'''
 
 
 def article_page(site, a, games):
     root = '../../'
-    body = f'''<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Articles</a> <span aria-hidden="true">/</span> <span aria-current="page">{e(a["title"])}</span></nav>
+    body = f'''<nav class="crumbs" aria-label="Breadcrumb"><a href="../">The Studio</a> <span aria-hidden="true">/</span> <span aria-current="page">{e(a["title"])}</span></nav>
 <article class="feature">
 <header class="feature-head">
   <p class="feature-mark" aria-hidden="true">INK<span>&amp;</span>PAPER</p>
@@ -708,17 +715,17 @@ def article_page(site, a, games):
 {show_shown_games(a["body"], games)}
 </div>
 </article>
-<p class="actions"><a class="button" href="../">All articles</a></p>'''
-    return page(site, root=root, path=f'articles/{a["slug"]}/', title=a['title'], body=body, current='articles',
+<p class="actions"><a class="button" href="../">Back to the Studio</a></p>'''
+    return page(site, root=root, path=f'studio/{a["slug"]}/', title=a['title'], body=body, current='studio',
                 extra_head=articles_feed_link(site, root), description=a['standfirst'])
 
 
 def moved(site, *, root, path, to, title):
-    """A stub at an old address (the Blog's, D-30) that sends the reader to the article's new one."""
+    """A stub at an old address (the Blog's, D-30, and the Articles section's, D-33) that sends the reader on."""
     url = site['base_url'] + to
     body = f'''<h1>{e(title)}</h1>
 <p class="lede">This has moved to <a href="{root}{to}">{e(url)}</a>.</p>'''
-    return page(site, root=root, path=to, title=title, body=body, current='articles',
+    return page(site, root=root, path=to, title=title, body=body, current='studio',
                 extra_head=f'<meta http-equiv="refresh" content="0; url={root}{to}">\n')
 
 
@@ -726,7 +733,7 @@ def articles_atom(site, arts):
     base = site['base_url']
     entries = ''.join(f'''  <entry>
     <title>{e(a["title"])}</title>
-    <link href="{e(base)}articles/{e(a["slug"])}/"/>
+    <link href="{e(base)}studio/{e(a["slug"])}/"/>
     <id>{e(base)}articles/{e(a["slug"])}/</id>
     <updated>{e(a["date"])}T00:00:00Z</updated>
     <author><name>{e(a["byline"])}</name></author>
@@ -737,8 +744,8 @@ def articles_atom(site, arts):
     return f'''<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>{e(site["name"])} articles</title>
-  <link href="{e(base)}articles/"/>
-  <link rel="self" href="{e(base)}articles/feed.xml"/>
+  <link href="{e(base)}studio/"/>
+  <link rel="self" href="{e(base)}studio/feed.xml"/>
   <id>{e(base)}articles/</id>
   <updated>{e(updated)}T00:00:00Z</updated>
 {entries}</feed>
@@ -754,8 +761,8 @@ def not_found(site):
 
 
 def sitemap(site, games, arts=(), episodes=()):
-    urls = [('', None), ('games/', None), ('studio/', None), ('book/', None), ('articles/', None), ('about/', None)]
-    urls += [(f'articles/{a["slug"]}/', a['date']) for a in arts]
+    urls = [('', None), ('games/', None), ('studio/', None), ('book/', None), ('about/', None)]
+    urls += [(f'studio/{a["slug"]}/', a['date']) for a in arts]
     urls += [('podcast/', None)] + [(f'podcast/{ep["slug"]}/', ep['date']) for ep in episodes]
     urls += [(f'games/{g["slug"]}/', (g.get('release') or {}).get('date')) for g in games]
     items = ''.join(f'  <url><loc>{e(site["base_url"] + u)}</loc>'
@@ -818,17 +825,22 @@ def build(root: Path = ROOT, config: Path = None, out: Path = None) -> Path:
                 shutil.copyfile(f, d)
         write(out, f'games/{g["slug"]}/index.html', game_page(site, g))
     write(out, 'about/index.html', about(site, root))
-    write(out, 'studio/index.html', studio(site, root, games))
-    write(out, 'book/index.html', book(site, root, games))
     arts = load_articles(root)
-    write(out, 'articles/index.html', articles_index(site, arts))
+    write(out, 'studio/index.html', studio(site, root, games, arts))
+    write(out, 'book/index.html', book(site, root, games))
+    # The articles are the Studio's Learn more (D-33): no Articles section; its old addresses and the Blog's send
+    # readers on, and the feed is also left at its old address for anyone subscribed to it.
+    write(out, 'studio/feed.xml', articles_atom(site, arts))
     write(out, 'articles/feed.xml', articles_atom(site, arts))
-    write(out, 'blog/index.html', moved(site, root='../', path='blog/', to='articles/', title='Articles'))
+    write(out, 'articles/index.html', moved(site, root='../', path='articles/', to='studio/', title='The Studio'))
+    write(out, 'blog/index.html', moved(site, root='../', path='blog/', to='studio/', title='The Studio'))
     for a in arts:
-        write(out, f'articles/{a["slug"]}/index.html', article_page(site, a, games))
+        write(out, f'studio/{a["slug"]}/index.html', article_page(site, a, games))
+        write(out, f'articles/{a["slug"]}/index.html',
+              moved(site, root='../../', path=f'articles/{a["slug"]}/', to=f'studio/{a["slug"]}/', title=a['title']))
         if a.get('moved_from_blog'):
             write(out, f'blog/{a["slug"]}/index.html',
-                  moved(site, root='../../', path=f'blog/{a["slug"]}/', to=f'articles/{a["slug"]}/', title=a['title']))
+                  moved(site, root='../../', path=f'blog/{a["slug"]}/', to=f'studio/{a["slug"]}/', title=a['title']))
     show, episodes = podcast.load(root)   # Dalex After Hours (D-31): only episodes marked visible
     if show:
         feed_link = (f'<link rel="alternate" type="application/rss+xml" title="{e(show["title"])}" '

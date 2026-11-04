@@ -461,3 +461,21 @@ it; iOS will not.
   unchanged, so podcast apps keep the same episodes and fetch the audio from the new address.
 - Each deploy carries every published episode, about 12 MB each: about 210 MB when all 17 are out, within Pages'
   1 GB site limit.
+
+## D-33 No Articles section: the articles are the Studio's Learn more (owner, 2026-11-04)
+
+The owner: "On the website there should not be an article section. The article should be part of the studio section
+as a learn more". This replaces D-30's `articles/` section; the articles themselves, their sources and their
+magazine form are unchanged.
+
+- **Navigation.** `Articles` is gone from the main navigation.
+- **Learn more.** The Studio page ends its notes on the film with a `Learn more` section (the `<!-- learn more -->`
+  placeholder in `content/studio.html`) listing each article by kicker, title and the magazine's `tease`. It shows
+  no byline or standfirst, because the Studio page names no real person (`tests/test_studio.py`).
+- **Addresses.** Each article is at `studio/<slug>/`, under The Studio in the navigation and breadcrumb. `articles/`,
+  `articles/<slug>/`, `blog/` and `blog/<slug>/` are stubs that send readers on, with canonical URLs at the new
+  addresses, in no sitemap or feed.
+- **Feed.** `studio/feed.xml`, also written to `articles/feed.xml` for anyone subscribed there. Entry ids keep their
+  old `articles/<slug>/` form so a feed reader does not show the articles again as new.
+- **Sources.** Still `content/articles/` (`articles.json` and one fragment each), which the toolkit's magazine skill
+  also prints (D-30).

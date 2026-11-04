@@ -39,17 +39,24 @@ class Articles(unittest.TestCase):
     def tearDownClass(cls):
         shutil.rmtree(cls.tmp, ignore_errors=True)
 
-    def test_index_lists_every_article_and_the_nav_links_articles(self):
-        index = (self.out / 'articles/index.html').read_text(encoding='utf-8')
+    def test_the_studio_page_lists_every_article_as_learn_more_and_there_is_no_articles_section(self):
+        """D-33: no Articles in the navigation; the articles are the Studio page's Learn more."""
+        studio = (self.out / 'studio/index.html').read_text(encoding='utf-8')
+        self.assertIn('<h2 id="learn-more">Learn more</h2>', studio)
         for a in self.arts:
-            self.assertIn(f'href="{a["slug"]}/"', index)
+            self.assertIn(f'href="{a["slug"]}/"', studio)
+            self.assertIn(build.e(a['tease']), studio)
+        for page in sorted(self.out.rglob('*.html')):
+            text = page.read_text(encoding='utf-8')
+            self.assertNotRegex(text, r'<li><a href="[./]*articles/"', page)   # not in the nav
+            self.assertNotIn('>Articles<', text, page)
         home = (self.out / 'index.html').read_text(encoding='utf-8')
-        self.assertIn('href="articles/"', home)
+        self.assertNotIn('href="articles/"', home)
         self.assertNotIn('href="blog/"', home)
 
     def test_each_article_is_a_feature_with_byline_and_says_it_is_out_of_character(self):
         for a in self.arts:
-            html = (self.out / 'articles' / a['slug'] / 'index.html').read_text(encoding='utf-8')
+            html = (self.out / 'studio' / a['slug'] / 'index.html').read_text(encoding='utf-8')
             self.assertIn('<article class="feature">', html)
             self.assertIn(f'<p class="kicker">{build.e(a["kicker"])}</p>', html)
             self.assertIn(f'<p class="standfirst">{build.e(a["standfirst"])}</p>', html)
@@ -57,25 +64,36 @@ class Articles(unittest.TestCase):
             self.assertIn(f'<time datetime="{a["date"]}">', html)
             self.assertRegex(html, r'\d+ min read')
             self.assertIn('Out of character.', html)
-            self.assertIn('href="../../articles/feed.xml"', html)
+            self.assertIn('href="../../studio/feed.xml"', html)
+            self.assertIn('<a href="../">The Studio</a>', html)                 # the breadcrumb
+            self.assertIn(f'<link rel="canonical" href="{self.base}studio/{a["slug"]}/">', html)
 
-    def test_the_blogs_old_addresses_send_readers_to_the_articles(self):
-        stub = (self.out / 'blog/index.html').read_text(encoding='utf-8')
-        self.assertIn('<meta http-equiv="refresh" content="0; url=../articles/">', stub)
-        self.assertIn(f'<link rel="canonical" href="{self.base}articles/">', stub)
+    def test_the_old_addresses_send_readers_to_the_studio(self):
+        """The Blog's (D-30) and the Articles section's (D-33) old addresses are stubs, in no sitemap or feed."""
+        for old, to in (('blog/index.html', '../studio/'), ('articles/index.html', '../studio/')):
+            stub = (self.out / old).read_text(encoding='utf-8')
+            self.assertIn(f'<meta http-equiv="refresh" content="0; url={to}">', stub)
+            self.assertIn(f'<link rel="canonical" href="{self.base}studio/">', stub)
         for a in self.arts:
+            stub = (self.out / 'articles' / a['slug'] / 'index.html').read_text(encoding='utf-8')
+            self.assertIn(f'url=../../studio/{a["slug"]}/"', stub)
             if a.get('moved_from_blog'):
                 stub = (self.out / 'blog' / a['slug'] / 'index.html').read_text(encoding='utf-8')
-                self.assertIn(f'url=../../articles/{a["slug"]}/"', stub)
-        self.assertNotIn('/blog/', (self.out / 'sitemap.xml').read_text(encoding='utf-8'))
+                self.assertIn(f'url=../../studio/{a["slug"]}/"', stub)
+        sm = (self.out / 'sitemap.xml').read_text(encoding='utf-8')
+        self.assertNotIn('/blog/', sm)
+        self.assertNotIn('/articles/', sm)
 
     def test_feed_and_sitemap_list_exactly_the_articles(self):
-        feed = ET.parse(self.out / 'articles/feed.xml').getroot()
-        links = sorted(x.find(ATOM + 'link').get('href') for x in feed.findall(ATOM + 'entry'))
-        self.assertEqual(links, sorted(f'{self.base}articles/{a["slug"]}/' for a in self.arts))
+        for where in ('studio/feed.xml', 'articles/feed.xml'):     # the old address stays for its subscribers
+            feed = ET.parse(self.out / where).getroot()
+            links = sorted(x.find(ATOM + 'link').get('href') for x in feed.findall(ATOM + 'entry'))
+            self.assertEqual(links, sorted(f'{self.base}studio/{a["slug"]}/' for a in self.arts))
+            ids = sorted(x.find(ATOM + 'id').text for x in feed.findall(ATOM + 'entry'))
+            self.assertEqual(ids, sorted(f'{self.base}articles/{a["slug"]}/' for a in self.arts))  # unchanged ids
         sm = (self.out / 'sitemap.xml').read_text(encoding='utf-8')
         for a in self.arts:
-            self.assertIn(f'{self.base}articles/{a["slug"]}/</loc>', sm)
+            self.assertIn(f'{self.base}studio/{a["slug"]}/</loc>', sm)
         self.assertNotIn('blog/feed.xml', ''.join(p.read_text() for p in self.out.rglob('*.html')))
 
     def test_magazine_lines_keep_the_magazines_rules(self):
@@ -84,8 +102,8 @@ class Articles(unittest.TestCase):
                 self.assertIsNone(MAGAZINE_BANNED.search(a[k]), f'{a["slug"]} {k}: {a[k]!r}')
 
     def test_articles_name_nothing_private(self):
-        files = [self.out / 'articles/index.html', self.out / 'articles/feed.xml']
-        files += sorted((self.out / 'articles').glob('*/index.html')) + sorted((self.out / 'blog').rglob('*.html'))
+        files = [self.out / 'studio/feed.xml'] + sorted((self.out / 'articles').rglob('*.*'))
+        files += [self.out / 'studio' / a['slug'] / 'index.html' for a in self.arts] + sorted((self.out / 'blog').rglob('*.html'))
         for f in files:
             text = f.read_text(encoding='utf-8')
             hits = sorted({m.group(0) for d in DENY for m in re.finditer(d, text, re.I)})
