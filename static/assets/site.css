@@ -44,7 +44,7 @@ body {
   font: 1.0625rem/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 img { max-width: 100%; height: auto; }
-.px, .brand img, .foot img { image-rendering: pixelated; image-rendering: crisp-edges; }
+.px { image-rendering: pixelated; image-rendering: crisp-edges; }   /* game art; the logo is smooth (D-34) */
 a { color: var(--link); text-underline-offset: 3px; }
 a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
@@ -62,7 +62,7 @@ h3 { font-size: 1.1rem; margin: 0 0 .3rem; }
 /* masthead: black plate like the cassette inlay, stripe underneath */
 .masthead { background: #000; color: #fff; }
 .masthead-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; flex-wrap: wrap; }
-.brand img { display: block; width: 160px; height: 64px; }
+.brand img { display: block; width: 176px; height: 64px; }
 .masthead nav ul { list-style: none; display: flex; gap: 6px; margin: 0; padding: 0; flex-wrap: wrap; }
 .masthead nav a { color: #fff; text-decoration: none; font-family: ui-monospace, Menlo, Consolas, monospace; text-transform: uppercase; letter-spacing: .08em; padding: 10px 12px; display: inline-block; border-bottom: 3px solid transparent; }
 .masthead nav a:hover { border-bottom-color: #ffe600; }

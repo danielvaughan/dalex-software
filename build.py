@@ -256,6 +256,7 @@ def page(site, *, root, path, title, body, description='', current='', extra_hea
 <meta name="color-scheme" content="dark light">
 <link rel="canonical" href="{e(site['base_url'] + path)}">
 <link rel="icon" href="{root}favicon.ico" sizes="any">
+<link rel="icon" href="{root}favicon.svg" type="image/svg+xml">
 <link rel="icon" href="{root}favicon.png" type="image/png">
 <link rel="alternate" type="application/atom+xml" title="{e(site['name'])} releases" href="{root}feed.xml">
 <link rel="stylesheet" href="{root}assets/site.css">
@@ -264,7 +265,7 @@ def page(site, *, root, path, title, body, description='', current='', extra_hea
 <a class="skip" href="#main">Skip to content</a>
 <header class="masthead">
   <div class="wrap masthead-in">
-    <a class="brand" href="{root or './'}"><img src="{root}assets/dalex-lockup.png" width="160" height="64" alt="Dalex Software"></a>
+    <a class="brand" href="{root or './'}"><img src="{root}assets/dalex-logo.svg" width="176" height="64" alt="Dalex Software"></a>
     <nav aria-label="Main"><ul>{links}</ul></nav>
   </div>
   <div class="rainbow" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
@@ -274,7 +275,7 @@ def page(site, *, root, path, title, body, description='', current='', extra_hea
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><img src="{root}assets/dalex-mark.png" width="48" height="16" alt=""> <strong>{e(site['name'])}</strong>. {e(site.get('footer', ''))}</p>
+    <p><img src="{root}assets/dalex-mark.svg" width="48" height="16" alt=""> <strong>{e(site['name'])}</strong>. {e(site.get('footer', ''))}</p>
     <p>Play in the browser with <a href="https://jsspeccy.zxdemo.org/">JSSpeccy</a> by Matt Westcott,
     used under the <a href="{root}jsspeccy/COPYING">GPL-3.0</a> (<a href="{root}jsspeccy/README.md">source and changes</a>).
     No cookies, no tracking. <a href="{root}feed.xml">Releases feed</a>.</p>

@@ -480,3 +480,17 @@ magazine form are unchanged.
   old `articles/<slug>/` form so a feed reader does not show the articles again as new.
 - **Sources.** Still `content/articles/` (`articles.json` and one fragment each), which the toolkit's magazine skill
   also prints (D-30).
+
+## D-34 The website's logo is smooth; the pixel lockup stays with the Studio (owner, 2026-11-04)
+
+The owner: "On the website the logo should be modern and smooth not pixelated. Leave that to the studio". This
+replaces D-10's pixel lockup on the website only; the toolkit's house-style lockup remains the mark of the Studio, the
+games and their tapes.
+
+- **The same parts, drawn as vectors.** `static/assets/dalex-logo.svg` (masthead, shown 176 by 64),
+  `static/assets/dalex-mark.svg` (footer) and `static/favicon.svg`: the yellow disc with a red D, DALEX over
+  SOFTWARE in white, and the four-colour stripe, in the site's own colours (`--z-red` and so on).
+- **Letters as outlines.** `tools/make_logo.py` takes the letters from Ubuntu Sans (Ubuntu Font Licence) as paths, so
+  the SVGs need no font. It needs fontTools, which the site's build does not. `favicon.png` and `favicon.ico` are
+  rendered from `favicon.svg`.
+- **No pixel scaling on the logo.** `image-rendering: pixelated` now applies only to `.px`, the game art.
