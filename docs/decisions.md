@@ -468,7 +468,8 @@ The owner: "On the website there should not be an article section. The article s
 as a learn more". This replaces D-30's `articles/` section; the articles themselves, their sources and their
 magazine form are unchanged.
 
-- **Navigation.** `Articles` is gone from the main navigation.
+- **Navigation.** `Articles` is gone from the main navigation. Each item is one word, to match the others (owner: "This should be
+  just studio and book"): Home, Games, Studio, Book, Podcast, About. The pages keep their headings.
 - **Learn more.** The Studio page ends its notes on the film with a `Learn more` section (the `<!-- learn more -->`
   placeholder in `content/studio.html`) listing each article by kicker, title and the magazine's `tease`. It shows
   no byline or standfirst, because the Studio page names no real person (`tests/test_studio.py`).

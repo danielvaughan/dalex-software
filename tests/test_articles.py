@@ -65,7 +65,7 @@ class Articles(unittest.TestCase):
             self.assertRegex(html, r'\d+ min read')
             self.assertIn('Out of character.', html)
             self.assertIn('href="../../studio/feed.xml"', html)
-            self.assertIn('<a href="../">The Studio</a>', html)                 # the breadcrumb
+            self.assertIn('<a href="../">Studio</a>', html)                     # the breadcrumb, as in the nav
             self.assertIn(f'<link rel="canonical" href="{self.base}studio/{a["slug"]}/">', html)
 
     def test_the_old_addresses_send_readers_to_the_studio(self):

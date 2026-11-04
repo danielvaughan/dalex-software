@@ -241,7 +241,7 @@ def page(site, *, root, path, title, body, description='', current='', extra_hea
     """A whole HTML page. root is the relative prefix back to the site root ('' / '../' / ...);
     path is this page's path below the site root, for the canonical URL."""
     full_title = f'{title} · {site["name"]}' if title != site['name'] else title
-    nav = [('', 'Home', 'home'), ('games/', 'Games', 'games'), ('studio/', 'The Studio', 'studio'), ('book/', 'The Book', 'book'),
+    nav = [('', 'Home', 'home'), ('games/', 'Games', 'games'), ('studio/', 'Studio', 'studio'), ('book/', 'Book', 'book'),
            ('podcast/', 'Podcast', 'podcast'), ('about/', 'About', 'about')]
     links = ''.join(
         f'<li><a href="{root}{href}"{CURRENT if key == current else ""}>{label}</a></li>'
@@ -701,7 +701,7 @@ checks. <a href="feed.xml">Feed (Atom)</a>.</p>
 
 def article_page(site, a, games):
     root = '../../'
-    body = f'''<nav class="crumbs" aria-label="Breadcrumb"><a href="../">The Studio</a> <span aria-hidden="true">/</span> <span aria-current="page">{e(a["title"])}</span></nav>
+    body = f'''<nav class="crumbs" aria-label="Breadcrumb"><a href="../">Studio</a> <span aria-hidden="true">/</span> <span aria-current="page">{e(a["title"])}</span></nav>
 <article class="feature">
 <header class="feature-head">
   <p class="feature-mark" aria-hidden="true">INK<span>&amp;</span>PAPER</p>
