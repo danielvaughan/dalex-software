@@ -237,10 +237,52 @@ def nice_date(iso: str) -> str:
     return f'{d.day} {d.strftime("%B")} {d.year}'
 
 
-def page(site, *, root, path, title, body, description='', current='', extra_head='', scripts=''):
+# The picture a page shows when it is shared (Open Graph, D-36), as (path below the site root, alt, width, height).
+DEFAULT_IMAGE = ('media/studio-documentary-poster.jpg', 'A frame from the studio film: the production room in pixel '
+                 'art, the team at their desks around the milestone board', 1280, 960)
+
+
+def ld_json(*things) -> str:
+    """schema.org structured data, one <script type="application/ld+json"> each (D-36). <, > and & are escaped so
+    the JSON can never close the script element."""
+    out = ''
+    for t in things:
+        s = json.dumps({'@context': 'https://schema.org', **t}, ensure_ascii=False, separators=(',', ':'))
+        s = s.replace('&', '\\u0026').replace('<', '\\u003c').replace('>', '\\u003e')
+        out += f'<script type="application/ld+json">{s}</script>\n'
+    return out
+
+
+def publisher(site) -> dict:
+    return {'@type': 'Organization', 'name': site['name'], 'url': site['base_url'],
+            'logo': site['base_url'] + 'assets/dalex-logo.svg'}
+
+
+def breadcrumbs(site, *trail) -> dict:
+    """BreadcrumbList for (name, path below the site root) pairs, starting from the home page."""
+    items = [(site['name'], '')] + list(trail)
+    return {'@type': 'BreadcrumbList', 'itemListElement': [
+        {'@type': 'ListItem', 'position': i, 'name': n, 'item': site['base_url'] + u}
+        for i, (n, u) in enumerate(items, 1)]}
+
+
+def social(site, *, path, title, description, image, og_type) -> str:
+    """Open Graph and card tags, so a shared link shows a title, summary and picture (D-36)."""
+    src, alt, w, h = image or DEFAULT_IMAGE
+    tags = [('og:type', og_type), ('og:site_name', site['name']), ('og:locale', 'en_GB'), ('og:title', title),
+            ('og:description', description), ('og:url', site['base_url'] + path),
+            ('og:image', site['base_url'] + src), ('og:image:width', w), ('og:image:height', h), ('og:image:alt', alt)]
+    return (''.join(f'<meta property="{k}" content="{e(v)}">\n' for k, v in tags)
+            + '<meta name="twitter:card" content="summary_large_image">\n')
+
+
+def page(site, *, root, path, title, body, description='', current='', extra_head='', scripts='',
+         head_title='', image=None, og_type='website', ld=''):
     """A whole HTML page. root is the relative prefix back to the site root ('' / '../' / ...);
-    path is this page's path below the site root, for the canonical URL."""
-    full_title = f'{title} · {site["name"]}' if title != site['name'] else title
+    path is this page's path below the site root, for the canonical URL. head_title, when given, is the <title>
+    in place of 'title · site name' (D-36); image is the shared picture (see DEFAULT_IMAGE); ld is structured data."""
+    full_title = head_title or (f'{title} · {site["name"]}' if title != site['name'] else title)
+    description = description or site.get('description', '')
     nav = [('', 'Home', 'home'), ('games/', 'Games', 'games'), ('studio/', 'Studio', 'studio'), ('book/', 'Book', 'book'),
            ('podcast/', 'Podcast', 'podcast'), ('about/', 'About', 'about')]
     links = ''.join(
@@ -252,7 +294,7 @@ def page(site, *, root, path, title, body, description='', current='', extra_hea
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(full_title)}</title>
-<meta name="description" content="{e(description or site.get('description', ''))}">
+<meta name="description" content="{e(description)}">
 <meta name="color-scheme" content="dark light">
 <link rel="canonical" href="{e(site['base_url'] + path)}">
 <link rel="icon" href="{root}favicon.ico" sizes="any">
@@ -260,7 +302,7 @@ def page(site, *, root, path, title, body, description='', current='', extra_hea
 <link rel="icon" href="{root}favicon.png" type="image/png">
 <link rel="alternate" type="application/atom+xml" title="{e(site['name'])} releases" href="{root}feed.xml">
 <link rel="stylesheet" href="{root}assets/site.css">
-{extra_head}</head>
+{social(site, path=path, title=title, description=description, image=image, og_type=og_type)}{ld}{extra_head}</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="masthead">
@@ -374,7 +416,10 @@ def home(site, games, featured, episodes=()):
   <li class="door"><a href="about/"><span class="team">{team}</span><span class="kicker">About</span><strong>Meet the team</strong><span>The people who make the games, from commissioning to the review, and the cat.</span></a></li>
   </ul>
 </section>'''
-    return page(site, root=root, path='', title=site['name'], body=body, current='home')
+    ld = ld_json({'@type': 'WebSite', 'name': site['name'], 'url': site['base_url'],
+                  'description': site.get('description', ''), 'inLanguage': 'en-GB'}, publisher(site))
+    return page(site, root=root, path='', title=site['name'], body=body, current='home', ld=ld,
+                head_title=f'{site["name"]}: new ZX Spectrum games to play in your browser')
 
 
 def games_index(site, games):
@@ -396,8 +441,15 @@ def games_index(site, games):
     body = f'''<h1>Games</h1>
 <p class="intro">Every Dalex release. Free demos play in your browser; more are on the way.</p>
 <ul class="rows">{''.join(rows)}</ul>'''
-    return page(site, root=root, path='games/', title='Games', body=body, current='games',
-                description='All Dalex Software games for the ZX Spectrum.')
+    ld = ld_json(breadcrumbs(site, ('Games', 'games/')), {
+        '@type': 'ItemList', 'itemListElement': [
+            {'@type': 'ListItem', 'position': i, 'url': f'{site["base_url"]}games/{x["slug"]}/', 'name': x['title']}
+            for i, x in enumerate(games, 1)]})
+    return page(site, root=root, path='games/', title='Games', body=body, current='games', ld=ld,
+                head_title=f'ZX Spectrum games · {site["name"]}',
+                description='All Dalex Software games for the ZX Spectrum, each with a free demo to play in your '
+                            'browser.' if any(x['_demo'] for x in games) else
+                            'All Dalex Software games for the ZX Spectrum.')
 
 
 def game_page(site, game):
@@ -530,15 +582,34 @@ def game_page(site, game):
     {lic_html}
   </section>
 </div>'''
-    return page(site, root=root, path=f'games/{game["slug"]}/', title=game['title'], body=body,
-                current='games', description=f'{game["title"]} for the {game["machine"]}: '
-                + (game.get('tagline') or ''),
+    path = f'games/{game["slug"]}/'
+    art = cover or (imgs.get('shots') or [None])[0]
+    image = (path + art['src'], art['alt'], art['size'][0], art['size'][1]) if art else None
+    description = (f'{game["title"]} for the {game["machine"]}: {game.get("tagline") or ""}'
+                   + (' Play the free demo in your browser.' if demo else '')).strip()
+    vg = {'@type': 'VideoGame', 'name': game['title'], 'url': site['base_url'] + path,
+          'description': game.get('blurb') or description, 'gamePlatform': game['machine'],
+          'applicationCategory': 'Game', 'operatingSystem': 'ZX Spectrum', 'inLanguage': 'en',
+          'publisher': publisher(site)}
+    if image:
+        vg['image'] = site['base_url'] + image[0]
+    if rel.get('date'):
+        vg['datePublished'] = rel['date']
+    shot_urls = [site['base_url'] + path + s['src'] for s in imgs.get('shots') or []]
+    if shot_urls:
+        vg['screenshot'] = shot_urls
+    return page(site, root=root, path=path, title=game['title'], body=body, current='games',
+                head_title=(f'{game["title"]}: play the free ZX Spectrum demo · {site["name"]}' if demo
+                            else f'{game["title"]} for the ZX Spectrum · {site["name"]}'),
+                description=description, image=image, ld=ld_json(vg, breadcrumbs(
+                    site, ('Games', 'games/'), (game['title'], path))),
                 scripts=scripts)
 
 
 def about(site, root_dir: Path):
     frag = (root_dir / 'content' / 'about.html').read_text(encoding='utf-8')
     return page(site, root='../', path='about/', title='About Dalex Software', body=frag, current='about',
+                ld=ld_json(breadcrumbs(site, ('About', 'about/'))),
                 description='Dalex Software, a small Spectrum games house in a Manchester mill, and the people who make its games.')
 
 
@@ -564,7 +635,14 @@ def book(site, root_dir: Path, games):
     words = (f'the minimum is ${p["minimum"]} and the suggested price ${p["suggested"]}, and anything above the '
              f'minimum is up to you.')
     body = frag.replace('<!-- cover -->', cover).replace('<!-- price -->', price).replace('<!-- price-words -->', words)
+    book_ld = {'@type': 'Book', 'name': 'Machine Code Mayhem', 'url': site['base_url'] + 'book/',
+               'image': site['base_url'] + BOOK_COVER, 'author': {'@type': 'Person', 'name': 'Daniel Vaughan'},
+               'inLanguage': 'en-GB', 'sameAs': 'https://leanpub.com/machinecodemayhem',
+               'about': 'Writing ZX Spectrum games in Z80 assembly'}
     return page(site, root=root, path='book/', title='Machine Code Mayhem', body=body, current='book',
+                head_title=f'Machine Code Mayhem: write ZX Spectrum games in Z80 assembly · {site["name"]}',
+                image=(BOOK_COVER, 'The cover of Machine Code Mayhem', 600, 900), og_type='book',
+                ld=ld_json(book_ld, breadcrumbs(site, ('Book', 'book/'))),
                 description='Machine Code Mayhem, the Dalex Software book on writing ZX Spectrum games in Z80 assembly '
                             'from six complete games. Out now on Leanpub.')
 
@@ -613,6 +691,7 @@ def studio(site, root_dir: Path, games, arts=()):
     body = (frag.replace('<!-- film -->', film).replace('<!-- transcript -->', transcript(vtt))
             .replace('<!-- learn more -->', learn_more(arts)))
     return page(site, root=root, path='studio/', title='The Studio', body=body, current='studio',
+                ld=ld_json(breadcrumbs(site, ('Studio', 'studio/'))),
                 extra_head=articles_feed_link(site, root) if arts else '',
                 description='A five-minute film of how Dalex Software makes its games: every role carried out by AI agents, '
                             'with people steering.')
@@ -735,8 +814,15 @@ def article_page(site, a, games):
 </div>
 </article>
 <p class="actions"><a class="button" href="../">Back to the Studio</a></p>'''
-    return page(site, root=root, path=f'studio/{a["slug"]}/', title=a['title'], body=body, current='studio',
-                extra_head=articles_feed_link(site, root), description=a['standfirst'])
+    path = f'studio/{a["slug"]}/'
+    art = {'@type': 'Article', 'headline': a['title'], 'description': a['standfirst'],
+           'datePublished': a['date'], 'author': {'@type': 'Person', 'name': a['byline']},
+           'publisher': publisher(site), 'mainEntityOfPage': site['base_url'] + path,
+           'image': site['base_url'] + DEFAULT_IMAGE[0], 'inLanguage': 'en-GB'}
+    return page(site, root=root, path=path, title=a['title'], body=body, current='studio', og_type='article',
+                ld=ld_json(art, breadcrumbs(site, ('Studio', 'studio/'), (a['title'], path))),
+                extra_head=articles_feed_link(site, root) + f'<meta property="article:published_time" content="{e(a["date"])}">\n',
+                description=a['standfirst'])
 
 
 def moved(site, *, root, path, to, title):
@@ -864,14 +950,18 @@ def build(root: Path = ROOT, config: Path = None, out: Path = None) -> Path:
     if show:
         feed_link = (f'<link rel="alternate" type="application/rss+xml" title="{e(show["title"])}" '
                      'href="{root}podcast/feed.xml">\n')
+        cover = (show['cover_small'], show['cover_alt'], 1400, 1400)
         write(out, 'podcast/index.html', page(site, root='../', path='podcast/', title=show['title'],
                                               body=podcast.index_body(show, episodes), current='podcast',
-                                              extra_head=feed_link.replace('{root}', '../'), description=show['description']))
+                                              extra_head=feed_link.replace('{root}', '../'), description=show['description'],
+                                              image=cover, ld=ld_json(breadcrumbs(site, (show['title'], 'podcast/')))))
         for ep in episodes:
             body = podcast.episode_body(site, show, ep, podcast.transcript_html(ep['vtt']))
             write(out, f'podcast/{ep["slug"]}/index.html',
                   page(site, root='../../', path=f'podcast/{ep["slug"]}/', title=ep['title'], body=body,
-                       current='podcast', extra_head=feed_link.replace('{root}', '../../'), description=ep['summary']))
+                       current='podcast', extra_head=feed_link.replace('{root}', '../../'), description=ep['summary'],
+                       image=cover, ld=ld_json(breadcrumbs(site, (show['title'], 'podcast/'),
+                                                           (ep['title'], f'podcast/{ep["slug"]}/')))))
             write(out, f'podcast/{ep["slug"]}/transcript.vtt', ep['vtt'])
             write(out, f'podcast/{ep["slug"]}/chapters.json', podcast.chapters_json(ep))
         write(out, 'podcast/feed.xml', podcast.rss(site, show, episodes))

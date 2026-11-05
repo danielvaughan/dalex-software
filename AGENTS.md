@@ -15,7 +15,8 @@ deployed to <https://dalex-software.co.uk/> by GitHub Pages. Read [README.md](RE
 - **Standard library only.** `build.py` and the tests use Python 3 and nothing else, so CI needs no
   installs. Keep the build deterministic (no timestamps, sorted output).
 - **Relative links.** Pages link relatively so the site works at `/` and under a project path; only
-  canonical URLs, the sitemap, the feed, robots.txt and `404.html` use `site.base_url`.
+  canonical URLs, share tags and structured data (D-36), the sitemap, the feed, robots.txt and `404.html` use
+  `site.base_url`.
 - **In-world and honest.** The site speaks as the 1987 studio. Scores and quotes come only from
   the INK & PAPER review in each game's media kit; never invent features, scores or quotes.
 - **Accessible and private.** Keyboard-usable, alt text on every image, good contrast in both

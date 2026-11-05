@@ -509,3 +509,19 @@ learn how to make your own".
 - **How they are made.** One card each for the Studio (the film), the Book, the Podcast (its latest episode, so the
   page changes each Thursday) and About (the team). The card pictures are small copies in `static/assets/home/`.
 - **No prices** on the home page (D-19); the book's price stays on its own page (D-28).
+
+## D-36 Every page can be found and shared (owner, 2026-11-05)
+
+The owner asked for search engine optimisation after adding the site to Google Search Console (verified by a DNS TXT
+record at Squarespace; the sitemap is submitted there). `build.py` now writes, on every page:
+
+- **Titles that say what it is.** The home page is "Dalex Software: new ZX Spectrum games to play in your browser";
+  the Games page "ZX Spectrum games"; a game page "<title>: play the free ZX Spectrum demo" (or "<title> for the ZX
+  Spectrum" with no demo); the Book names Z80 assembly. Headings on the page are unchanged.
+- **Share cards.** Open Graph and `twitter:card` tags: title, description, canonical URL and a picture with its alt
+  text (the game's cover, the book's cover, the podcast's cover, or the studio film's poster).
+- **Structured data.** schema.org JSON-LD: WebSite and Organization on the home page, VideoGame on each game page,
+  Book, Article for each article, and a BreadcrumbList below the home page.
+- **Honest structured data.** No `aggregateRating`, `review` or `offers`: the INK & PAPER review is in-world, and
+  nothing on the site has a price (D-19). No founding date or invented facts. `tests/test_site.py` (`Discovery`) checks
+  all of this.

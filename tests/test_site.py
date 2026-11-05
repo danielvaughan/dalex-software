@@ -310,6 +310,54 @@ class Built(unittest.TestCase):
                 self.assertNotIn(bad, text, p)
 
 
+class Discovery(unittest.TestCase):
+    """D-36: every page tells search engines and link previews what it is, and the structured data stays honest."""
+
+    @classmethod
+    def setUpClass(cls):
+        Built.setUpClass.__func__(cls)
+
+    @classmethod
+    def tearDownClass(cls):
+        Built.tearDownClass.__func__(cls)
+
+    META = re.compile(r'<meta (?:property|name)="([^"]+)" content="([^"]*)">')
+    LD = re.compile(r'<script type="application/ld\+json">(.*?)</script>', re.S)
+
+    def pages(self):
+        return [p for p in sorted(self.out.rglob('*.html')) if 'jsspeccy' not in p.relative_to(self.out).parts]
+
+    def test_every_page_has_a_share_card_pointing_at_itself(self):
+        base = self.cfg['site']['base_url']
+        for p in self.pages():
+            text = p.read_text(encoding='utf-8')
+            meta = dict(self.META.findall(text))
+            rel = p.relative_to(self.out)
+            for k in ('og:title', 'og:description', 'og:url', 'og:image', 'og:image:alt', 'twitter:card'):
+                self.assertTrue(meta.get(k), f'{rel}: no {k}')
+            canonical = re.search(r'<link rel="canonical" href="([^"]+)">', text).group(1)
+            self.assertEqual(meta['og:url'], canonical, rel)
+            self.assertTrue(meta['og:image'].startswith(base), rel)
+            self.assertTrue((self.out / meta['og:image'][len(base):]).is_file(), f'{rel}: {meta["og:image"]}')
+
+    def test_structured_data_is_valid_json_and_makes_no_claims(self):
+        """No ratings, reviews or offers: the INK & PAPER review is in-world, and nothing has a price (D-19)."""
+        for p in self.pages():
+            for blob in self.LD.findall(p.read_text(encoding='utf-8')):
+                data = json.loads(blob)
+                self.assertEqual(data['@context'], 'https://schema.org', p)
+                for bad in ('aggregateRating', 'review', 'offers', 'price'):
+                    self.assertNotIn(f'"{bad}"', blob, p)
+
+    def test_every_visible_game_is_a_video_game(self):
+        for slug in self.visible:
+            text = (self.out / 'games' / slug / 'index.html').read_text(encoding='utf-8')
+            types = [json.loads(b)['@type'] for b in self.LD.findall(text)]
+            self.assertIn('VideoGame', types, slug)
+            self.assertIn('BreadcrumbList', types, slug)
+            self.assertIn('ZX Spectrum', re.search(r'<title>(.*?)</title>', text).group(1), slug)
+
+
 class Player(unittest.TestCase):
     """The keyboard contract of static/assets/player.js (D-21) and the touch pad (D-22), checked statically."""
 
