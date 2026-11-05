@@ -4,7 +4,8 @@
     "base_url": "https://dalex-software.co.uk/",
     "description": "Dalex Software: new games for the ZX Spectrum, playable in your browser.",
     "intro": "Play the free demos in your browser, then learn how every one was made, from the first idea to the tape.",
-    "footer": "A Manchester games house, est. 1987. Dalex Software and INK & PAPER are fictional; the games are real."
+    "footer": "A Manchester games house, est. 1987. Dalex Software and INK & PAPER are fictional; the games are real.",
+    "spec_desk_api": null
   },
   "games": [
     {

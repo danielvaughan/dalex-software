@@ -321,3 +321,23 @@ figcaption { color: var(--muted); font-size: .9rem; margin-top: 6px; }
 .pipeline { counter-reset: stage; list-style: none; padding: 0; display: grid; gap: 6px; }
 .pipeline li { counter-increment: stage; display: grid; grid-template-columns: 2.2rem 1fr; gap: 8px; margin: 0; }
 .pipeline li::before { content: counter(stage); font: 900 1.3rem/1.2 var(--f-display); color: var(--accent); }
+
+/* The spec desk (D-36) */
+.desk { margin: 1.5rem 0 2rem; padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; max-width: 72ch; }
+.desk-closed { font-weight: 700; }
+.desk-log { display: grid; gap: 14px; }
+.turn { padding: 12px 14px; border-left: 4px solid var(--z-cyan); background: var(--bg); overflow-wrap: anywhere; }
+.turn-visitor { border-left-color: var(--accent); }
+.turn-head { display: flex; align-items: center; gap: 12px; }
+.turn-head img { width: 64px; height: 64px; border-radius: 4px; image-rendering: auto; flex: none; }
+.turn-who { margin: 0; color: var(--muted); }
+.turn-who strong { color: var(--text); display: block; }
+.turn-who:focus { outline: none; }
+.turn .questions { padding-left: 1.6em; margin: .6em 0 0; }
+.turn .questions li { margin: 0 0 .9em; }
+.turn .q { margin: 0 0 .25em; font-weight: 700; }
+.turn .rec { margin: 0 0 .4em; }
+.rec-label { color: var(--muted); }
+.desk-form label { display: block; font-weight: 700; margin: .8em 0 .3em; }
+.desk-form textarea { width: 100%; box-sizing: border-box; min-height: 5em; padding: 10px; font: inherit; color: var(--text); background: var(--bg); border: 2px solid var(--line); border-radius: 4px; }
+.desk-form textarea:focus { border-color: var(--focus); }

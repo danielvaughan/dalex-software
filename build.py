@@ -688,8 +688,10 @@ def studio(site, root_dir: Path, games, arts=()):
 </figure>'''
     if '<!-- learn more -->' not in frag:
         raise BuildError('content/studio.html has no <!-- learn more --> placeholder for the articles (D-33)')
+    desk = ('<p class="actions"><a class="button primary" href="spec-desk/">Bring your idea to the spec desk</a></p>\n'
+            if spec_desk_api(site) else '')
     body = (frag.replace('<!-- film -->', film).replace('<!-- transcript -->', transcript(vtt))
-            .replace('<!-- learn more -->', learn_more(arts)))
+            .replace('<!-- learn more -->', desk + learn_more(arts)))
     return page(site, root=root, path='studio/', title='The Studio', body=body, current='studio',
                 ld=ld_json(breadcrumbs(site, ('Studio', 'studio/'))),
                 extra_head=articles_feed_link(site, root) if arts else '',
@@ -867,6 +869,7 @@ def not_found(site):
 
 def sitemap(site, games, arts=(), episodes=()):
     urls = [('', None), ('games/', None), ('studio/', None), ('book/', None), ('about/', None)]
+    urls += [('studio/spec-desk/', None)] if spec_desk_api(site) else []
     urls += [(f'studio/{a["slug"]}/', a['date']) for a in arts]
     urls += [('podcast/', None)] + [(f'podcast/{ep["slug"]}/', ep['date']) for ep in episodes]
     urls += [(f'games/{g["slug"]}/', (g.get('release') or {}).get('date')) for g in games]
@@ -902,6 +905,57 @@ def feed(site, games):
 
 # ------------------------------------------------------------------ build
 
+SPEC_DESK = 'content/spec-desk.html'
+
+
+def spec_desk_api(site):
+    """The spec desk service's address (site.json spec_desk_api, D-37): None while the desk is not open, else an https
+    URL, or an http loopback one for a check on this machine."""
+    api = site.get('spec_desk_api')
+    if api is None:
+        return None
+    parts = urlsplit(str(api))
+    if parts.scheme == 'https' and parts.hostname:
+        return str(api).rstrip('/')
+    if parts.scheme == 'http' and parts.hostname in ('127.0.0.1', 'localhost'):
+        return str(api).rstrip('/')
+    raise BuildError('site.spec_desk_api must be null, an https URL, or http://127.0.0.1 for a local check')
+
+
+def spec_desk(site, root_dir: Path):
+    """The spec desk page (D-37): a conversation with Malcolm from the Studio's spec desk service. While
+    spec_desk_api is null the page says the desk opens soon and loads no script."""
+    root = '../../'
+    api = spec_desk_api(site)
+    frag = (root_dir / SPEC_DESK).read_text(encoding='utf-8')
+    if '<!-- desk -->' not in frag:
+        raise BuildError(f'{SPEC_DESK} has no <!-- desk --> placeholder')
+    if api is None:
+        desk = ('<div class="desk soon"><p class="desk-closed">The spec desk opens soon. Malcolm is clearing his desk '
+                'for your ideas.</p><p>In the meantime, <a href="../../games/">play the games</a> or read '
+                '<a href="../../book/">the Book</a>.</p></div>')
+        scripts = ''
+    else:
+        desk = f'''<div id="spec-desk" class="desk" data-api="{e(api)}" data-people="{root}assets/people/" aria-busy="false">
+  <noscript><p class="desk-closed">The spec desk needs JavaScript to talk to Malcolm.</p></noscript>
+  <div id="desk-log" class="desk-log" aria-live="polite"></div>
+  <p id="desk-status" class="desk-status small" role="status"></p>
+  <p><button id="desk-start" class="button primary big" type="button" hidden>Sit down with Malcolm</button></p>
+  <form id="desk-form" class="desk-form" hidden>
+    <label for="desk-text">Your answer (by number, for example &ldquo;2 yes, 3 a hedgehog&rdquo;)</label>
+    <textarea id="desk-text" rows="3" maxlength="600" autocomplete="off"></textarea>
+    <p><button class="button primary" type="submit">Send</button></p>
+  </form>
+  <p id="desk-tools" class="actions" hidden><button id="desk-notes" class="button" type="button">Download your notes</button>
+  <button id="desk-delete" class="button" type="button">Delete my brief</button></p>
+</div>'''
+        scripts = f'<script src="{root}assets/spec-desk.js" defer></script>\n'
+    return page(site, root=root, path='studio/spec-desk/', title='The spec desk', body=frag.replace('<!-- desk -->', desk),
+                current='studio', scripts=scripts,
+                description='Bring your game idea to Malcolm at the Dalex spec desk and take home the first page of its '
+                            'specification.')
+
+
 def write(out: Path, rel: str, text: str):
     p = out / rel
     p.parent.mkdir(parents=True, exist_ok=True)
@@ -933,6 +987,7 @@ def build(root: Path = ROOT, config: Path = None, out: Path = None) -> Path:
     arts = load_articles(root)
     write(out, 'studio/index.html', studio(site, root, games, arts))
     write(out, 'book/index.html', book(site, root, games))
+    write(out, 'studio/spec-desk/index.html', spec_desk(site, root))
     # The articles are the Studio's Learn more (D-33): no Articles section; its old addresses and the Blog's send
     # readers on, and the feed is also left at its old address for anyone subscribed to it.
     write(out, 'studio/feed.xml', articles_atom(site, arts))

@@ -525,3 +525,27 @@ record at Squarespace; the sitemap is submitted there). `build.py` now writes, o
 - **Honest structured data.** No `aggregateRating`, `review` or `offers`: the INK & PAPER review is in-world, and
   nothing on the site has a price (D-19). No founding date or invented facts. `tests/test_site.py` (`Discovery`) checks
   all of this.
+
+## D-37 The spec desk page: talk to Malcolm, take your notes home (dalex-software #1, 2026-11-05)
+
+The owner's idea, "the creation of a spec ... through a chat interface with the correct character", as a page at
+`studio/spec-desk/` that talks to the Studio's spec desk service (dalex-studio #161, ADR-0055).
+
+- **Closed until it opens.** `site.json` `spec_desk_api` is `null` until the owner decides how the site reaches the
+  service (dalex-studio #162). While it is null the page says the desk opens soon, loads no script, and is neither
+  linked from the Studio page nor listed in the sitemap. Once set (an https address, or http on 127.0.0.1 for a check
+  on this machine), the page loads `assets/spec-desk.js` and the Studio page links to it.
+- **The site's own script only.** Vanilla JavaScript, no third-party code, no cookies or browser storage; the session
+  id lives in the page, so reloading starts a new brief. Replies and the visitor's words are written as text, never
+  as HTML.
+- **The conversation.** Each reply has the speaker's portrait and name; a round's questions are a numbered list, each
+  with Malcolm's suggestion and an Accept button; the visitor can answer in their own words. Download your notes at
+  any time; Delete my brief removes it from the service at once. If the service does not answer within 5 s, the page
+  says the desk is closed and offers the games and the Book.
+- **Honest.** The page says Malcolm is a character, the replies are written by an AI model on the studio's own
+  computer, what is kept and for how long (30 days, pending the owner's answer in dalex-studio #162), and asks
+  visitors not to type personal details. The full privacy notice is #2.
+- **Checked in a browser by hand** with `tools/spec_desk_check.mjs` (Playwright): keyboard only, desktop and phone
+  widths, no console errors, no sideways scroll, the closed state within 5 s. CI keeps to the standard-library tests.
+- **Not yet:** Colin's and Mo's stages and the downloadable spec wait for the service to reach them; the page already
+  shows their names and portraits when they speak.
