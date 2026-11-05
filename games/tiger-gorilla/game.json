@@ -84,7 +84,7 @@
     },
     {
       "role": "Reviewed by",
-      "name": "Zippy Dee, Marjorie Plunkett and Grumpy Ken for INK & PAPER"
+      "name": "Zippy Dee, Marjorie Plunkett and Stan Hollis for INK & PAPER"
     }
   ],
   "in_game_credits": [],
@@ -139,7 +139,7 @@
   },
   "source": {
     "repo": "danielvaughan/zx-tiger-gorilla",
-    "commit": "ef3ebd3558e1fee2ac308ee2f02fcfb8373bdf86",
+    "commit": "2e99c7ae6d83e16e224dd1bfb4ea69996807db2f",
     "kit": "game/media-kit/m5"
   }
 }
