@@ -74,7 +74,7 @@
     "verdict": "",
     "quote": {
       "text": "The mower turns the instant you touch Q A O P, and two keys at once take it round the diagonals",
-      "reviewer": "Gaz Pocket"
+      "reviewer": "Baz Pocket"
     }
   },
   "credits": [
@@ -88,7 +88,7 @@
     },
     {
       "role": "Reviewed by",
-      "name": "Gaz Pocket, Prue Fairley and Norm Crabtree for INK & PAPER"
+      "name": "Baz Pocket, Prue Fairley and Norm Crabtree for INK & PAPER"
     }
   ],
   "in_game_credits": [],
@@ -143,7 +143,7 @@
   },
   "source": {
     "repo": "danielvaughan/zx-mower-mayhem",
-    "commit": "218bf391114d5cf80287cc1ff643d24428091d7e",
+    "commit": "53144d166d032fbcf556ba8f9e8965fa55bb401b",
     "kit": "game/media-kit/m6"
   }
 }
