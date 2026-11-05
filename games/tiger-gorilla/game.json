@@ -4,20 +4,20 @@
   "title": "Tiger Gorilla",
   "machine": "ZX Spectrum 128K",
   "jsspeccy_machine": 128,
-  "tagline": "He's a gorilla in tiger stripes with a rocket-powered bottom!",
-  "blurb": "He's a gorilla in tiger stripes with a rocket-powered bottom! Swing through twelve wrap-round jungle levels, catching parrots to feed the hungry babies in the nest. Photographers prowl the floor, crocodiles lurk in the pools and camera drones hover over the Waterfall Gorge. Feed every baby and the family is safe!",
+  "tagline": "Swing through the jungle canopy, grab the parrots and feed the hungry babies back at the nest, while the photographers prowl below and the crocodiles lurk in the pools.",
+  "blurb": "Swing through the jungle canopy, grab the parrots and feed the hungry babies back at the nest, while the photographers prowl below and the crocodiles lurk in the pools. Twelve levels in three zones, a chilli-powered boost and a vanishing trick, all on the 128 with music. Nobody must see a thing!",
   "controls": [
     [
       "O / P",
-      "Left / right"
+      "Left / right (walk, swing, along a branch)"
     ],
     [
       "SPACE",
-      "Release (and start)"
+      "Let go of a branch or vine; start"
     ],
     [
       "A (hold)",
-      "Drop"
+      "Drop through, skip grabs"
     ],
     [
       "Q",
@@ -25,11 +25,11 @@
     ],
     [
       "W",
-      "Boost sideways"
+      "Dash"
     ],
     [
       "S",
-      "Invisibility"
+      "Vanish on / off"
     ],
     [
       "H",
@@ -37,24 +37,28 @@
     ],
     [
       "M",
-      "Music on/off"
+      "Music on / off (title and pause)"
     ],
     [
       "Z",
-      "Starting zone (title)"
+      "Choose starting zone (title)"
+    ],
+    [
+      "3 / 4",
+      "Kempston / Sinclair joystick (title): two taps to dash, fire + down to vanish"
     ]
   ],
   "release": {
-    "source_tape": "tiger-gorilla-m5.tap",
-    "sha256": "9e5d52b4f9fe3058caadb09ba2d192a807b502519bd6af96bc7140c88e42476f",
-    "size": 37518,
-    "milestone": 5,
-    "date": "2026-11-04"
+    "source_tape": "tiger-gorilla-m6.tap",
+    "sha256": "e1ef8254e70a4e985817070ff4ab7f1abfbe414bc3a2a3e0871e625ccf049bcb",
+    "size": 37781,
+    "milestone": 6,
+    "date": "2026-11-05"
   },
   "demo": {
     "src": "demo.bin",
-    "sha256": "3a0685fdb7c2b21fe7e91f13d3538d597bab09e0cf7114614a5e2aba19d569c2",
-    "size": 37510,
+    "sha256": "4b661f16dd8e62e1af657c182a47c486b77d5f422b49314c84e1c6a47902d7d5",
+    "size": 37777,
     "milestone": null,
     "source_tape": "tiger-gorilla-demo.tap",
     "contains": "Level 1 demo"
@@ -64,16 +68,16 @@
     "overall": 75,
     "scores": {
       "presentation": 79,
-      "graphics": 72,
-      "sound": 71,
-      "playability": 76,
-      "addictive_qualities": 74,
+      "graphics": 76,
+      "sound": 80,
+      "playability": 72,
+      "addictive_qualities": 76,
       "overall": 75
     },
     "award": null,
-    "verdict": "",
+    "verdict": "A swinging good time up in the canopy, with a few hairy moments on the ground. Go ape.",
     "quote": {
-      "text": "Grabbing and catching are both automatic, so it's all about rhythm and timing",
+      "text": "I loved this from the very first swing",
       "reviewer": "Zippy Dee"
     }
   },
@@ -84,7 +88,7 @@
     },
     {
       "role": "Reviewed by",
-      "name": "Zippy Dee, Marjorie Plunkett and Stan Hollis for INK & PAPER"
+      "name": "Zippy Dee, Marjorie Plunkett and Norm Crabtree for INK & PAPER"
     }
   ],
   "in_game_credits": [],
@@ -105,26 +109,26 @@
           320,
           240
         ],
-        "caption": "A sleepy croc, and a gorilla who isn't worried in the slightest. Wait till level 3.",
-        "alt": "Tiger Gorilla screenshot: A sleepy croc, and a gorilla who isn't worried in the slightest. Wait till level 3."
+        "caption": "Pick your keys or your stick and swing into it. The parrot already looks nervous.",
+        "alt": "Tiger Gorilla screenshot: Pick your keys or your stick and swing into it. The parrot already looks nervous."
       },
       {
         "src": "shots/shot-2.png",
         "size": [
-          320,
-          240
+          256,
+          192
         ],
-        "caption": "Say cheese! The stars round his head mean the snapper got his picture.",
-        "alt": "Tiger Gorilla screenshot: Say cheese! The stars round his head mean the snapper got his picture."
+        "caption": "A river full of crocs on level one, but this lot are only snoozing.",
+        "alt": "Tiger Gorilla screenshot: A river full of crocs on level one, but this lot are only snoozing."
       },
       {
         "src": "shots/shot-3.png",
         "size": [
-          320,
-          240
+          256,
+          192
         ],
-        "caption": "Now you see him, now you don't: the snapper only heard him.",
-        "alt": "Tiger Gorilla screenshot: Now you see him, now you don't: the snapper only heard him."
+        "caption": "YUM YUM! Babies fed, nobody looking, and a fat bonus for staying out of shot.",
+        "alt": "Tiger Gorilla screenshot: YUM YUM! Babies fed, nobody looking, and a fat bonus for staying out of shot."
       },
       {
         "src": "shots/shot-4.png",
@@ -132,14 +136,14 @@
           256,
           192
         ],
-        "caption": "The family is safe, and nobody saw a thing. Aaah.",
-        "alt": "Tiger Gorilla screenshot: The family is safe, and nobody saw a thing. Aaah."
+        "caption": "The family is safe and nobody saw a thing. Aww.",
+        "alt": "Tiger Gorilla screenshot: The family is safe and nobody saw a thing. Aww."
       }
     ]
   },
   "source": {
     "repo": "danielvaughan/zx-tiger-gorilla",
-    "commit": "2e99c7ae6d83e16e224dd1bfb4ea69996807db2f",
-    "kit": "game/media-kit/m5"
+    "commit": "03b08613bc0cb49ed362bcb3e2d1ea6557aaf56f",
+    "kit": "game/media-kit/m6"
   }
 }
