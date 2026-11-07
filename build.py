@@ -608,7 +608,8 @@ def game_page(site, game):
 
 def about(site, root_dir: Path):
     frag = (root_dir / 'content' / 'about.html').read_text(encoding='utf-8')
-    return page(site, root='../', path='about/', title='About Dalex Software', body=frag, current='about',
+    scripts = '<script src="../assets/people-switch.js" defer></script>\n'   # the photo switch (D-39)
+    return page(site, root='../', path='about/', title='About Dalex Software', body=frag, current='about', scripts=scripts,
                 ld=ld_json(breadcrumbs(site, ('About', 'about/'))),
                 description='Dalex Software, a small Spectrum games house in a Manchester mill, and the people who make its games.')
 

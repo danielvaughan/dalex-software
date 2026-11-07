@@ -559,3 +559,15 @@ The owner's idea, "the creation of a spec ... through a chat interface with the 
   hands and sign spelling (dalex-studio `.claude/skills/cast-pictures`).
 - Two sizes (688 and 1376 px wide JPEGs, `srcset`), lazy-loaded, with width and height so the page does not jump.
   The caption names everyone, left to right.
+
+## D-39 The About page can switch to 1987 photos (owner, 2026-11-07)
+
+- The owner asked for a switch on the About page between the pixel art and real photos, with each person's photo a
+  "LinkedIn-style" headshot. One button above the group picture (`static/assets/people-switch.js`) swaps the group
+  picture, its caption (the photo has people in a different order) and every card's picture and alt text.
+- Pixel art stays the default and the page works without the script: the button is `hidden` until the script shows it,
+  and it uses `aria-pressed`. Nothing is remembered: no cookies or storage, so each visit starts on the pixel art.
+- The headshots are generated, like the portraits: the local FLUX 3 Image Klein model in dalex-studio
+  (`devtools/dalex/cast_headshots.py`), each person's 1987 portrait as identity, head and shoulders on a plain studio
+  backdrop with hands out of frame, checked with the `cast-pictures` skill. Shown at 192 px square (384 px files).
+- The small print already says the studio and its staff are fictional; the photos are part of that world.

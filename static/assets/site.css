@@ -216,6 +216,9 @@ figcaption { color: var(--muted); font-size: .9rem; margin-top: 6px; }
 /* The team photo on the About page (D-38) */
 .team-photo { margin: 1rem 0 1.5rem; max-width: 960px; }
 .team-photo img { display: block; width: 100%; height: auto; border: 3px solid #000; }
+/* The photo switch (D-39): the same cards with each person's 1987 headshot, square and not pixelated */
+.people-switch { margin: .5rem 0 .75rem; }
+html.photos .people img, html.photos .critic img { width: 192px; height: 192px; object-fit: cover; image-rendering: auto; border: 3px solid #000; }
 .book-cover { float: right; margin: 0 0 1rem 1.5rem; max-width: 40%; }
 .book-cover img { display: block; width: 100%; height: auto; image-rendering: pixelated; }
 .book-cover figcaption { margin-top: .4rem; color: var(--muted); font-size: .9rem; text-align: center; }
