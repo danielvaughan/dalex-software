@@ -552,10 +552,10 @@ The owner's idea, "the creation of a spec ... through a chat interface with the 
 
 ## D-38 The About page shows the whole team in the courtyard (owner, 2026-11-07)
 
-- The owner asked for the non-jumping group photo of the whole team, in the courtyard, on the website, perhaps on
-  the About page. It sits under "Who works here", before the list of people.
-- The picture is generated, like the portraits: Gemini, from the cast's 1987 portrait photos (dalex-studio
-  `assets/source/cast-photos/team/courtyard-photo-group.*`, with its prompts). The page's small print already says the
-  studio and its staff are fictional; the alt text calls it a photograph because it reads as one in the 1987 world.
+- The owner asked for the group photo of the whole team in the courtyard on the About page, then chose the pixel-art
+  version over the photo, to match the pixel portraits below it. It sits under "Who works here".
+- The picture is generated, like the portraits: Gemini, from the Studio courtyard and the cast's pixel strips
+  (dalex-studio `assets/source/cast-photos/team/courtyard-pixel-group.*`, with its prompt). Checked for headcount,
+  hands and sign spelling (dalex-studio `.claude/skills/cast-pictures`).
 - Two sizes (688 and 1376 px wide JPEGs, `srcset`), lazy-loaded, with width and height so the page does not jump.
-  The caption names everyone, left to right, as the photo shows them.
+  The caption names everyone, left to right.
