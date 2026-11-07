@@ -4,8 +4,8 @@
   "title": "WOLF",
   "machine": "ZX Spectrum 128K",
   "jsspeccy_machine": 128,
-  "tagline": "Dex is 49 and has joined the WOLF Pack for the first quarter of the year.",
-  "blurb": "Dex is 49 and has joined the WOLF Pack for the first quarter of the year. Pump O and P, hit SPACE on the lamps and keep the red dots off the board, because three dots means 500 metres on the bike or ski machine in a minute and a half. Miss it, or sneak for the door, and it's a strap for two sessions!",
+  "tagline": "A whole year at the gym!",
+  "blurb": "A whole year at the gym! Sweat it out in the summer heatwave, pull on a Christmas jumper for December, then face Stevo's end-of-year report card. Will you be Member of the Year? Pick up from any quarter with your password, or start a fresh year and do it all again.",
   "controls": [
     [
       "O / P",
@@ -13,63 +13,63 @@
     ],
     [
       "O and P in turn",
-      "Pump (in a set, on the sled, bike or ski machine, or to break away from a chat)"
+      "Pump"
     ],
     [
       "SPACE",
-      "Beat at the top and bottom of each rep"
-    ],
-    [
-      "SPACE",
-      "Start a set, drink, ring the bell, take on the finisher; start and skip on the title"
+      "Beat; start a set, drink, ring the bell"
     ],
     [
       "A",
-      "Ask for more weight (after a clean set)"
-    ],
-    [
-      "B",
-      "Sneak off (finisher card)"
+      "Ask for more weight"
     ],
     [
       "H",
-      "Pause: H resume, B board, M music, Q quit to title"
+      "Pause"
+    ],
+    [
+      "B",
+      "Bail out (finisher card)"
     ],
     [
       "M",
-      "Music on / off (title and pause)"
+      "Music on/off"
+    ],
+    [
+      "C",
+      "Continue with a password (title)"
     ]
   ],
   "release": {
-    "source_tape": "wolf-m5.tap",
-    "sha256": "ca8ca9c6c11f66259bf33583f2153e0c5b05c22fc503cb150e144987473361ca",
-    "size": 41125,
-    "milestone": 5,
-    "date": "2026-10-20"
+    "source_tape": "wolf-m7.tap",
+    "sha256": "3adcef5fff8f74f8daedd245a5af52a68b0529a01de72e9ddf66c774a1982362",
+    "size": 46929,
+    "milestone": 7,
+    "date": "2026-11-07"
   },
   "demo": {
     "src": "demo.bin",
-    "sha256": "b622fe5877658adbff61a53f57a43aa03275e1a78192c5cd60b28293cb79a416",
-    "size": 41314,
+    "sha256": "68e184f466e08f2affb8066abdeb3a2435b00b1f427af5d34e71c97ac9866ca1",
+    "size": 46789,
     "milestone": null,
     "source_tape": "wolf-demo.tap",
-    "contains": "Level 1 demo: January with Stevo"
+    "contains": "Single-session demo: January's session with Stevo"
   },
   "review": {
     "magazine": "INK & PAPER",
-    "overall": 64,
+    "overall": 66,
     "scores": {
-      "presentation": 64,
-      "graphics": 61,
-      "sound": 71,
+      "presentation": 61,
+      "graphics": 62,
+      "sound": 72,
       "playability": 64,
-      "addictive_qualities": 62,
-      "overall": 64
+      "addictive_qualities": 70,
+      "overall": 66
     },
     "award": null,
-    "verdict": "A cheery workout with a proper punishment at last, but too many rough edges and only three months of it. Worth a spot, not yet a personal best.",
+    "verdict": "",
     "quote": {
-      "text": "Three dots and up comes the card: FINISHER TIME",
+      "text": "Twelve months of waggling",
       "reviewer": "Mick Dunsby"
     }
   },
@@ -101,26 +101,26 @@
           320,
           240
         ],
-        "caption": "Three dots, and Stevo's bike awaits. Sneaking off is an option, sort of",
-        "alt": "WOLF screenshot: Three dots, and Stevo's bike awaits. Sneaking off is an option, sort of"
+        "caption": "Dex hoists the bar, Stevo cheers below and every key you need is listed on the right.",
+        "alt": "WOLF screenshot: Dex hoists the bar, Stevo cheers below and every key you need is listed on the right."
       },
       {
         "src": "shots/shot-2.png",
         "size": [
-          320,
-          240
+          256,
+          192
         ],
-        "caption": "Tim picks the ski machine, with a word about pyramids thrown in",
-        "alt": "WOLF screenshot: Tim picks the ski machine, with a word about pyramids thrown in"
+        "caption": "Quarter one: 80 up to 95 on the deadlift, and Stevo's proud of you.",
+        "alt": "WOLF screenshot: Quarter one: 80 up to 95 on the deadlift, and Stevo's proud of you."
       },
       {
         "src": "shots/shot-3.png",
         "size": [
-          320,
-          240
+          256,
+          192
         ],
-        "caption": "Four seconds to spare and the dots are wiped, but the PB board scribbles itself over the studio",
-        "alt": "WOLF screenshot: Four seconds to spare and the dots are wiped, but the PB board scribbles itself over the studio"
+        "caption": "The end-of-year report: no dots, no gains, and Stevo still says well done for turning up.",
+        "alt": "WOLF screenshot: The end-of-year report: no dots, no gains, and Stevo still says well done for turning up."
       },
       {
         "src": "shots/shot-4.png",
@@ -128,14 +128,14 @@
           256,
           192
         ],
-        "caption": "Weight up to 45 kilos at the pull-down. Dex looks thrilled",
-        "alt": "WOLF screenshot: Weight up to 45 kilos at the pull-down. Dex looks thrilled"
+        "caption": "Mo walks off with Member of the Year while Dex manages a heroic nought per cent.",
+        "alt": "WOLF screenshot: Mo walks off with Member of the Year while Dex manages a heroic nought per cent."
       }
     ]
   },
   "source": {
     "repo": "danielvaughan/zx-wolf",
-    "commit": "6fc0dbb24a4d62f32d76e310340145663fde4d6b",
-    "kit": "game/media-kit/m5"
+    "commit": "ec8e0e703c59aed2290278bd253f1d1ae1bba1a0",
+    "kit": "game/media-kit/m7"
   }
 }
