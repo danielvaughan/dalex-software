@@ -213,6 +213,9 @@ figcaption { color: var(--muted); font-size: .9rem; margin-top: 6px; }
 .film { margin: 1.5rem 0; }
 .film video { display: block; width: 100%; max-width: 960px; height: auto; aspect-ratio: 4 / 3; background: #000; image-rendering: pixelated; }
 .film figcaption { margin-top: .5rem; color: var(--muted); font-size: .9rem; max-width: 70ch; }
+/* The team photo on the About page (D-38) */
+.team-photo { margin: 1rem 0 1.5rem; max-width: 960px; }
+.team-photo img { display: block; width: 100%; height: auto; border: 3px solid #000; }
 .book-cover { float: right; margin: 0 0 1rem 1.5rem; max-width: 40%; }
 .book-cover img { display: block; width: 100%; height: auto; image-rendering: pixelated; }
 .book-cover figcaption { margin-top: .4rem; color: var(--muted); font-size: .9rem; text-align: center; }

@@ -549,3 +549,13 @@ The owner's idea, "the creation of a spec ... through a chat interface with the 
   widths, no console errors, no sideways scroll, the closed state within 5 s. CI keeps to the standard-library tests.
 - **Not yet:** Colin's and Mo's stages and the downloadable spec wait for the service to reach them; the page already
   shows their names and portraits when they speak.
+
+## D-38 The About page shows the whole team in the courtyard (owner, 2026-11-07)
+
+- The owner asked for the non-jumping group photo of the whole team, in the courtyard, on the website, perhaps on
+  the About page. It sits under "Who works here", before the list of people.
+- The picture is generated, like the portraits: Gemini, from the cast's 1987 portrait photos (dalex-studio
+  `assets/source/cast-photos/team/courtyard-photo-group.*`, with its prompts). The page's small print already says the
+  studio and its staff are fictional; the alt text calls it a photograph because it reads as one in the 1987 world.
+- Two sizes (688 and 1376 px wide JPEGs, `srcset`), lazy-loaded, with width and height so the page does not jump.
+  The caption names everyone, left to right, as the photo shows them.
