@@ -572,6 +572,6 @@ The owner's idea, "the creation of a spec ... through a chat interface with the 
   backdrop with hands out of frame, checked with the `cast-pictures` skill. Shown at 192 px square (384 px files).
 - The small print already says the studio and its staff are fictional; the photos are part of that world.
 
-## D-40 About uses the Production team scene (owner, 2026-11-08)
+## D-40 About uses a posed Production team portrait (owner, 2026-11-08)
 
-The owner asked that the pixel group use the actual Studio sprites and room assets, then replace the group picture on About. The pixel default is a deterministic composition of the Production v9 room, the current cast sprite strips, Percy and Omnibot, with source hashes in dalex-studio `assets/source/cast-photos/team/production-pixel-group-actual.json`. The 1987 photo toggle uses the companion Production group photograph. Both images show Daniel at the right edge. The earlier courtyard pair remains in source history; the About page now shows Production.
+The owner asked for a pixel group portrait like the courtyard picture, using the actual Studio sprites and Production room as references, then replacing the About picture. The first literal composition of sprite frames was rejected as a room screenshot. The accepted portrait is redrawn as one posed scene from a labelled sheet of the Studio sprites and Production v9 room art, with Percy corrected to match his dark-chocolate reference (`dalex-studio/assets/source/cast-photos/team/production-pixel-group-sprite-referenced-v2.*`). The pixel portrait is the default; the 1987 Production photograph remains the alternate under the About page switch. Daniel stands at the right edge.

@@ -111,6 +111,19 @@ class Podcast(unittest.TestCase):
         self.assertIn(f'url="{own}"', feed)
         self.assertNotIn('releases/download', feed)
 
+    def test_release_asset_lookup_uses_read_only_api_request(self):
+        import io
+        sys.path.insert(0, str(ROOT / 'tools'))
+        import fetch_audio
+        seen = []
+        def opener(request):
+            seen.append(request)
+            return io.BytesIO(b'{"assets":[{"name":"00-pilot.mp3","size":10,"url":"https://api.github.com/asset/1"}]}')
+        assets = fetch_audio.release_assets('test-token', opener)
+        self.assertEqual(assets['00-pilot.mp3']['size'], 10)
+        self.assertEqual(seen[0].full_url, fetch_audio.RELEASE)
+        self.assertEqual(seen[0].get_header('Authorization'), 'Bearer test-token')
+
     def test_fetch_audio_refuses_a_short_download(self):
         import io, contextlib
         sys.path.insert(0, str(ROOT / 'tools'))

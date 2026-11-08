@@ -31,6 +31,8 @@ jobs:
       - name: Copy the episodes' audio into the site
         # GitHub's download host sends release assets as octet-stream, which an iPhone will not play (D-32)
         if: github.event_name != 'pull_request'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: python3 tools/fetch_audio.py _site
       - name: Upload the Pages artifact
         if: github.event_name != 'pull_request'
