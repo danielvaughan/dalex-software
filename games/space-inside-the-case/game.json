@@ -1,0 +1,149 @@
+{
+  "schema": "dalex-site-game/1",
+  "slug": "space-inside-the-case",
+  "title": "Space Inside the Case",
+  "machine": "ZX Spectrum 128K",
+  "jsspeccy_machine": 128,
+  "tagline": "The museum's machines are dead and the doors open at nine.",
+  "blurb": "The museum's machines are dead and the doors open at nine. Fly your tiny probe inside a ZX Spectrum 128K, an NES, an arcade cabinet and the Elliott 903, landing each missing part gently in its socket. Wake all four for a dawn finale and a page of times to beat, or go Relaxed and take your time.",
+  "controls": [
+    [
+      "Q / 7",
+      "Thrust up"
+    ],
+    [
+      "O / 5",
+      "Thrust left"
+    ],
+    [
+      "P / 8",
+      "Thrust right"
+    ],
+    [
+      "SPACE / ENTER",
+      "Start / confirm"
+    ],
+    [
+      "R",
+      "Relaxed on/off (title page)"
+    ],
+    [
+      "H",
+      "Pause / resume"
+    ],
+    [
+      "X",
+      "Quit (while paused)"
+    ],
+    [
+      "M",
+      "Music on/off"
+    ],
+    [
+      "Kempston",
+      "Up or fire to thrust, left and right to steer"
+    ]
+  ],
+  "release": {
+    "source_tape": "space-inside-the-case-m5.tap",
+    "sha256": "d4afd8db0fc6e8bc48d3796404d272e415e19ee4ef7711e5a2384ea69f94e386",
+    "size": 35045,
+    "milestone": 5,
+    "date": "2026-11-09"
+  },
+  "demo": {
+    "src": "demo.bin",
+    "sha256": "afb196ffaac0647e0122ff1e3081ce8379bd8898653a8e17b8ab593d6a1b1096",
+    "size": 21467,
+    "milestone": null,
+    "source_tape": "space-inside-the-case-demo.tap",
+    "contains": "Level 1 demo"
+  },
+  "review": {
+    "magazine": "INK & PAPER",
+    "overall": 70,
+    "scores": {
+      "presentation": 73,
+      "graphics": 69,
+      "sound": 64,
+      "playability": 70,
+      "addictive_qualities": 67,
+      "overall": 70
+    },
+    "award": null,
+    "verdict": "An open-and-shut case, if you're patient with the tape and careful up the shafts.",
+    "quote": {
+      "text": "That's the whole game and it's a good one",
+      "reviewer": "Baz Pocket"
+    }
+  },
+  "credits": [
+    {
+      "role": "Published by",
+      "name": "Dalex Software"
+    },
+    {
+      "role": "Design",
+      "name": "Dalex Software, game specification 1.1"
+    },
+    {
+      "role": "Reviewed by",
+      "name": "Norm Crabtree, Prue Fairley and Baz Pocket for INK & PAPER"
+    }
+  ],
+  "in_game_credits": [],
+  "licenses": [],
+  "images": {
+    "cover": {
+      "src": "cover.jpg",
+      "size": [
+        896,
+        1200
+      ],
+      "alt": "Space Inside the Case cover painting"
+    },
+    "shots": [
+      {
+        "src": "shots/shot-1.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "The night before the big do. Not a soul about, and a lot of sleeping computers.",
+        "alt": "Space Inside the Case screenshot: The night before the big do. Not a soul about, and a lot of sleeping computers."
+      },
+      {
+        "src": "shots/shot-2.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Four cabinets in a row and just the one landing pad. Guess which needs mending.",
+        "alt": "Space Inside the Case screenshot: Four cabinets in a row and just the one landing pad. Guess which needs mending."
+      },
+      {
+        "src": "shots/shot-3.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Three parts fitted, battery on the red and that white line right on top of you.",
+        "alt": "Space Inside the Case screenshot: Three parts fitted, battery on the red and that white line right on top of you."
+      },
+      {
+        "src": "shots/shot-4.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Three parts down and the museum has the cheek to open anyway.",
+        "alt": "Space Inside the Case screenshot: Three parts down and the museum has the cheek to open anyway."
+      }
+    ]
+  },
+  "source": {
+    "repo": "danielvaughan/zx-space-inside-the-case",
+    "commit": "dba65ecb6eb87fe569644c293b7c006db514aaf8",
+    "kit": "game/media-kit/m5"
+  }
+}

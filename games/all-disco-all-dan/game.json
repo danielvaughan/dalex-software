@@ -1,0 +1,149 @@
+{
+  "schema": "dalex-site-game/1",
+  "slug": "all-disco-all-dan",
+  "title": "All Disco, All Dan",
+  "machine": "ZX Spectrum 128K",
+  "jsspeccy_machine": 128,
+  "tagline": "Four clubs, twelve stages and one night to light up every disc!",
+  "blurb": "Four clubs, twelve stages and one night to light up every disc! Hop Dan on the beat to pump up the multiplier, fill the Funk Meter and let rip a Boogie Point to freeze Ron the bouncer and Flat-Note Fred. Dodge the spotlight, beat the cassette counter or chill at your own pace, and dance all the way to the Starlight Rooftop.",
+  "controls": [
+    [
+      "Q",
+      "Hop up-left"
+    ],
+    [
+      "P",
+      "Hop up-right"
+    ],
+    [
+      "A",
+      "Hop down-left"
+    ],
+    [
+      "L",
+      "Hop down-right"
+    ],
+    [
+      "SPACE",
+      "Boogie Point / start"
+    ],
+    [
+      "T",
+      "Showtime or Chill Groove (title)"
+    ],
+    [
+      "M",
+      "Music on/off"
+    ],
+    [
+      "H",
+      "Pause / resume"
+    ],
+    [
+      "X",
+      "Quit to title (when paused)"
+    ]
+  ],
+  "release": {
+    "source_tape": "all-disco-all-dan-m4.tap",
+    "sha256": "f2d52e77d684888efd5a3e00b4bf2d757bcfd035d1b7e3a718de0f8d0a1de0dd",
+    "size": 20311,
+    "milestone": 4,
+    "date": "2026-11-06"
+  },
+  "demo": {
+    "src": "demo.bin",
+    "sha256": "7baca1a7d6edd2dbd0d12e63271f00522e075fbaa106c53eb288a683f71a9e25",
+    "size": 20307,
+    "milestone": null,
+    "source_tape": "all-disco-all-dan-demo.tap",
+    "contains": "Club 1 demo: the Velvet Basement, stages 1-1 to 1-3"
+  },
+  "review": {
+    "magazine": "INK & PAPER",
+    "overall": 78,
+    "scores": {
+      "presentation": 78,
+      "graphics": 76,
+      "sound": 78,
+      "playability": 79,
+      "addictive_qualities": 74,
+      "overall": 78
+    },
+    "award": null,
+    "verdict": "",
+    "quote": {
+      "text": "And the BEST on the title keeps points a rewind took away",
+      "reviewer": "Prue Fairley"
+    }
+  },
+  "credits": [
+    {
+      "role": "Published by",
+      "name": "Dalex Software"
+    },
+    {
+      "role": "Design",
+      "name": "Dalex Software, game specification 1.2"
+    },
+    {
+      "role": "Reviewed by",
+      "name": "Zippy Dee, Norm Crabtree and Prue Fairley for INK & PAPER"
+    }
+  ],
+  "in_game_credits": [],
+  "licenses": [],
+  "images": {
+    "cover": {
+      "src": "cover.jpg",
+      "size": [
+        896,
+        1200
+      ],
+      "alt": "All Disco, All Dan cover painting"
+    },
+    "shots": [
+      {
+        "src": "shots/shot-1.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Dan strikes a pose. The afro alone took two days to load.",
+        "alt": "All Disco, All Dan screenshot: Dan strikes a pose. The afro alone took two days to load."
+      },
+      {
+        "src": "shots/shot-2.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Two Rons on the roof. Keep an eye on both flashes, or else.",
+        "alt": "All Disco, All Dan screenshot: Two Rons on the roof. Keep an eye on both flashes, or else."
+      },
+      {
+        "src": "shots/shot-3.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Groove times four in the Mirrorball Lounge, and still Fred lurks.",
+        "alt": "All Disco, All Dan screenshot: Groove times four in the Mirrorball Lounge, and still Fred lurks."
+      },
+      {
+        "src": "shots/shot-4.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "The whole gang dances it out on the rooftop. Even Ron's smiling.",
+        "alt": "All Disco, All Dan screenshot: The whole gang dances it out on the rooftop. Even Ron's smiling."
+      }
+    ]
+  },
+  "source": {
+    "repo": "danielvaughan/zx-all-disco-all-dan",
+    "commit": "6ac3151823e8d7ccc95d0e07e94ebe7ceffea2b7",
+    "kit": "game/media-kit/m4"
+  }
+}
