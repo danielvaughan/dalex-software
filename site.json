@@ -54,7 +54,7 @@
       "featured": false,
       "demo": {
         "milestone": null,
-        "sha256": "9cb318f9d948a6d25cdcad5735fc648734af939b6ac9be575861251728d72640",
+        "sha256": "21d0aeb865a3e99fe04c967ae62c0452b37ec4c1f74dab1eb0cf5475a585f9ee",
         "contains": "Level 1 demo",
         "source_tape": "tiger-gorilla-demo.tap"
       },

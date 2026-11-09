@@ -4,81 +4,73 @@
   "title": "Tiger Gorilla",
   "machine": "ZX Spectrum 128K",
   "jsspeccy_machine": 128,
-  "tagline": "Swing through the jungle canopy, grab the parrots and feed the hungry babies back at the nest, while the photographers prowl below and the crocodiles lurk in the pools.",
-  "blurb": "Swing through the jungle canopy, grab the parrots and feed the hungry babies back at the nest, while the photographers prowl below and the crocodiles lurk in the pools. Twelve levels in three zones, a chilli-powered boost and a vanishing trick, all on the 128 with music. Nobody must see a thing!",
+  "tagline": "Swing through the jungle canopy, grab the macaws and fly them home to your hungry babies, all with a chilli-powered bottom!",
+  "blurb": "Swing through the jungle canopy, grab the macaws and fly them home to your hungry babies, all with a chilli-powered bottom! Vanish when the safari snappers come calling and dodge the crocs in the river. Twelve levels across three zones, a 128K title tune and music in play.",
   "controls": [
     [
       "O / P",
-      "Left / right (walk, swing, along a branch)"
+      "Left / right, pump the swing"
     ],
     [
       "SPACE",
-      "Let go of a branch or vine; start"
+      "Let go; start"
     ],
     [
       "A (hold)",
-      "Drop through, skip grabs"
+      "Drop"
     ],
     [
-      "Q",
-      "Boost up"
-    ],
-    [
-      "W",
-      "Dash"
-    ],
-    [
-      "S",
-      "Vanish on / off"
+      "Q / W / S",
+      "Boost up / dash / vanish"
     ],
     [
       "H",
       "Pause"
     ],
     [
-      "M",
-      "Music on / off (title and pause)"
+      "M / E",
+      "Music / effects on-off (title)"
     ],
     [
       "Z",
-      "Choose starting zone (title)"
+      "Starting zone (title)"
     ],
     [
       "3 / 4",
-      "Kempston / Sinclair joystick (title): two taps to dash, fire + down to vanish"
+      "Kempston / Sinclair joystick (title)"
     ]
   ],
   "release": {
-    "source_tape": "tiger-gorilla-m6-e1ef8254.tap",
-    "sha256": "e1ef8254e70a4e985817070ff4ab7f1abfbe414bc3a2a3e0871e625ccf049bcb",
-    "size": 37781,
-    "milestone": 6,
-    "date": "2026-11-05"
+    "source_tape": "tiger-gorilla-m7.tap",
+    "sha256": "727825a56813fe1d8a49cf75027c05ff857cc22765351a922d89d5c04735d638",
+    "size": 38070,
+    "milestone": 7,
+    "date": "2026-11-09"
   },
   "demo": {
     "src": "demo.bin",
-    "sha256": "9cb318f9d948a6d25cdcad5735fc648734af939b6ac9be575861251728d72640",
-    "size": 38129,
+    "sha256": "21d0aeb865a3e99fe04c967ae62c0452b37ec4c1f74dab1eb0cf5475a585f9ee",
+    "size": 38059,
     "milestone": null,
     "source_tape": "tiger-gorilla-demo.tap",
     "contains": "Level 1 demo"
   },
   "review": {
     "magazine": "INK & PAPER",
-    "overall": 75,
+    "overall": 76,
     "scores": {
-      "presentation": 79,
-      "graphics": 76,
-      "sound": 80,
-      "playability": 72,
+      "presentation": 77,
+      "graphics": 77,
+      "sound": 77,
+      "playability": 77,
       "addictive_qualities": 76,
-      "overall": 75
+      "overall": 76
     },
     "award": null,
-    "verdict": "A swinging good time up in the canopy, with a few hairy moments on the ground. Go ape.",
+    "verdict": "A cheeky, fair little jungle romp with a few colour hiccups.",
     "quote": {
-      "text": "I loved this from the very first swing",
-      "reviewer": "Zippy Dee"
+      "text": "There's real thinking under all the giggling",
+      "reviewer": "Marjorie Plunkett"
     }
   },
   "credits": [
@@ -87,8 +79,12 @@
       "name": "Dalex Software"
     },
     {
+      "role": "Design",
+      "name": "Dalex Software, game specification 0.3"
+    },
+    {
       "role": "Reviewed by",
-      "name": "Zippy Dee, Marjorie Plunkett and Norm Crabtree for INK & PAPER"
+      "name": "Marjorie Plunkett, Zippy Dee and Norm Crabtree for INK & PAPER"
     }
   ],
   "in_game_credits": [],
@@ -106,11 +102,11 @@
       {
         "src": "shots/shot-1.png",
         "size": [
-          320,
-          240
+          256,
+          192
         ],
-        "caption": "Pick your keys or your stick and swing into it. The parrot already looks nervous.",
-        "alt": "Tiger Gorilla screenshot: Pick your keys or your stick and swing into it. The parrot already looks nervous."
+        "caption": "Two crocs doze in the river below. Don't wake them, or do, it's your gorilla.",
+        "alt": "Tiger Gorilla screenshot: Two crocs doze in the river below. Don't wake them, or do, it's your gorilla."
       },
       {
         "src": "shots/shot-2.png",
@@ -118,8 +114,8 @@
           256,
           192
         ],
-        "caption": "A river full of crocs on level one, but this lot are only snoozing.",
-        "alt": "Tiger Gorilla screenshot: A river full of crocs on level one, but this lot are only snoozing."
+        "caption": "Out of the water, quick, before the chomp!",
+        "alt": "Tiger Gorilla screenshot: Out of the water, quick, before the chomp!"
       },
       {
         "src": "shots/shot-3.png",
@@ -127,8 +123,8 @@
           256,
           192
         ],
-        "caption": "YUM YUM! Babies fed, nobody looking, and a fat bonus for staying out of shot.",
-        "alt": "Tiger Gorilla screenshot: YUM YUM! Babies fed, nobody looking, and a fat bonus for staying out of shot."
+        "caption": "Level complete, an unseen bonus and a YUM YUM from the nest.",
+        "alt": "Tiger Gorilla screenshot: Level complete, an unseen bonus and a YUM YUM from the nest."
       },
       {
         "src": "shots/shot-4.png",
@@ -136,14 +132,14 @@
           256,
           192
         ],
-        "caption": "The family is safe and nobody saw a thing. Aww.",
-        "alt": "Tiger Gorilla screenshot: The family is safe and nobody saw a thing. Aww."
+        "caption": "Babies fed, parrots watching, and nobody saw a thing.",
+        "alt": "Tiger Gorilla screenshot: Babies fed, parrots watching, and nobody saw a thing."
       }
     ]
   },
   "source": {
     "repo": "danielvaughan/zx-tiger-gorilla",
-    "commit": "7ad07656edb8bb1918afd11117c807376b1f896b",
-    "kit": "game/media-kit/m6"
+    "commit": "cc40f4254b7678808c27ed629bd4ef6ff931590f",
+    "kit": "game/media-kit/m7"
   }
 }
