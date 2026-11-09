@@ -249,6 +249,141 @@
           }
         ]
       }
+    },
+    {
+      "slug": "space-inside-the-case",
+      "visible": true,
+      "order": 7,
+      "featured": false,
+      "demo": {
+        "milestone": null,
+        "sha256": "afb196ffaac0647e0122ff1e3081ce8379bd8898653a8e17b8ab593d6a1b1096",
+        "contains": "Level 1 demo",
+        "source_tape": "space-inside-the-case-demo.tap"
+      },
+      "touch": {
+        "dpad": {
+          "up": "Q",
+          "left": "O",
+          "right": "P"
+        },
+        "diagonals": true,
+        "buttons": [
+          {
+            "keys": "SPACE",
+            "label": "Start"
+          },
+          {
+            "keys": "R",
+            "label": "Relaxed"
+          },
+          {
+            "keys": "H",
+            "label": "Pause"
+          },
+          {
+            "keys": "M",
+            "label": "Music"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "megawatt",
+      "visible": true,
+      "order": 8,
+      "featured": false,
+      "demo": {
+        "milestone": null,
+        "sha256": "d35e5acda11542bd32784eed44e8c07e6ae7409951a94a08cbf5bbd4c6ad1396",
+        "contains": "Hall 1 demo: hall 1 of 8",
+        "source_tape": "megawatt-demo.tap"
+      },
+      "touch": {
+        "dpad": {
+          "up": "Q",
+          "down": "A",
+          "left": "O",
+          "right": "P"
+        },
+        "diagonals": false,
+        "buttons": [
+          {
+            "keys": "SPACE",
+            "label": "Build"
+          },
+          {
+            "keys": "X",
+            "label": "Next tool"
+          },
+          {
+            "keys": "Z",
+            "label": "Prev tool"
+          },
+          {
+            "keys": "C",
+            "label": "Clear"
+          },
+          {
+            "keys": "F",
+            "label": "Fast"
+          },
+          {
+            "keys": "H",
+            "label": "Pause"
+          },
+          {
+            "keys": "M",
+            "label": "Music"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "all-disco-all-dan",
+      "visible": true,
+      "order": 9,
+      "featured": false,
+      "demo": {
+        "milestone": null,
+        "sha256": "7baca1a7d6edd2dbd0d12e63271f00522e075fbaa106c53eb288a683f71a9e25",
+        "contains": "Club 1 demo: the Velvet Basement, stages 1-1 to 1-3",
+        "source_tape": "all-disco-all-dan-demo.tap"
+      },
+      "touch": {
+        "dpad": {},
+        "diagonals": false,
+        "buttons": [
+          {
+            "keys": "SPACE",
+            "label": "Boogie"
+          },
+          {
+            "keys": "Q",
+            "label": "Hop up-left"
+          },
+          {
+            "keys": "P",
+            "label": "Hop up-right"
+          },
+          {
+            "keys": "A",
+            "label": "Hop down-left"
+          },
+          {
+            "keys": "L",
+            "label": "Hop down-right"
+          },
+          {
+            "keys": "H",
+            "label": "Pause"
+          },
+          {
+            "keys": "M",
+            "label": "Music"
+          }
+        ]
+      }
     }
   ]
 }

@@ -1,0 +1,145 @@
+{
+  "schema": "dalex-site-game/1",
+  "slug": "megawatt",
+  "title": "Megawatt",
+  "machine": "ZX Spectrum 128K",
+  "jsspeccy_machine": 128,
+  "tagline": "Eight empty computer halls, two busy crews and a 500-megawatt campus to switch on.",
+  "blurb": "Eight empty computer halls, two busy crews and a 500-megawatt campus to switch on. Lay the cable, run the cooling pipe, ride out the grid maintenance days and light every rack, hall by hall, until the whole campus glows and the crew get their thank-you. Then start a fresh campus and beat your best!",
+  "controls": [
+    [
+      "Q / A / O / P or cursor keys",
+      "Move the cursor"
+    ],
+    [
+      "SPACE",
+      "Build (hold while moving to lay a run)"
+    ],
+    [
+      "X / Z",
+      "Next / previous tool"
+    ],
+    [
+      "C",
+      "Clear"
+    ],
+    [
+      "F",
+      "Fast forward"
+    ],
+    [
+      "H",
+      "Pause and plan / resume"
+    ],
+    [
+      "E",
+      "Quit to title (in pause, press twice)"
+    ],
+    [
+      "M",
+      "Music on / off"
+    ]
+  ],
+  "release": {
+    "source_tape": "megawatt-m4.tap",
+    "sha256": "e36d36cfe3f767667788980ec98874612d06494279bda0d9f68abc7800b82c4b",
+    "size": 17317,
+    "milestone": 4,
+    "date": "2026-10-30"
+  },
+  "demo": {
+    "src": "demo.bin",
+    "sha256": "d35e5acda11542bd32784eed44e8c07e6ae7409951a94a08cbf5bbd4c6ad1396",
+    "size": 17500,
+    "milestone": null,
+    "source_tape": "megawatt-demo.tap",
+    "contains": "Hall 1 demo: hall 1 of 8"
+  },
+  "review": {
+    "magazine": "INK & PAPER",
+    "overall": 75,
+    "scores": {
+      "presentation": 80,
+      "graphics": 68,
+      "sound": 72,
+      "playability": 74,
+      "addictive_qualities": 74,
+      "overall": 75
+    },
+    "award": null,
+    "verdict": "Eight halls, one happy ending: a current affair for planners, if still a power cut for blasters.",
+    "quote": {
+      "text": "A proper thinker's game",
+      "reviewer": "PENNY"
+    }
+  },
+  "credits": [
+    {
+      "role": "Published by",
+      "name": "Dalex Software"
+    },
+    {
+      "role": "Design",
+      "name": "Dalex Software, game specification 1.1"
+    },
+    {
+      "role": "Reviewed by",
+      "name": "PENNY, BAZ and MAURICE for INK & PAPER"
+    }
+  ],
+  "in_game_credits": [],
+  "licenses": [],
+  "images": {
+    "cover": {
+      "src": "cover.jpg",
+      "size": [
+        896,
+        1200
+      ],
+      "alt": "Megawatt cover painting"
+    },
+    "shots": [
+      {
+        "src": "shots/shot-1.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "A best of 43799 on the title page. Beat that before bedtime.",
+        "alt": "Megawatt screenshot: A best of 43799 on the title page. Beat that before bedtime."
+      },
+      {
+        "src": "shots/shot-2.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "All eight halls lit and a thank-you to the crew. Somebody put the kettle on.",
+        "alt": "Megawatt screenshot: All eight halls lit and a thank-you to the crew. Somebody put the kettle on."
+      },
+      {
+        "src": "shots/shot-3.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Grid work on day 20: half the supply and the turbine doing overtime.",
+        "alt": "Megawatt screenshot: Grid work on day 20: half the supply and the turbine doing overtime."
+      },
+      {
+        "src": "shots/shot-4.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "The hard hats out in force, and not one of them stops for a tea break.",
+        "alt": "Megawatt screenshot: The hard hats out in force, and not one of them stops for a tea break."
+      }
+    ]
+  },
+  "source": {
+    "repo": "danielvaughan/zx-megawatt",
+    "commit": "6f45c8057234449093c88d1c7e87a53f78c09055",
+    "kit": "game/media-kit/m4"
+  }
+}
