@@ -4,52 +4,48 @@
   "title": "Space Inside the Case",
   "machine": "ZX Spectrum 128K",
   "jsspeccy_machine": 128,
-  "tagline": "The museum's machines are dead and the doors open at nine.",
-  "blurb": "The museum's machines are dead and the doors open at nine. Fly your tiny probe inside a ZX Spectrum 128K, an NES, an arcade cabinet and the Elliott 903, landing each missing part gently in its socket. Wake all four for a dawn finale and a page of times to beat, or go Relaxed and take your time.",
+  "tagline": "The night before the festival, eight machines lie dead and the museum doors open at nine.",
+  "blurb": "The night before the festival, eight machines lie dead and the museum doors open at nine. Fly your little probe gently through their insides, lift out each part and land it in its socket before the clock runs out. Wake all eight and the whole museum lights up at dawn.",
   "controls": [
     [
-      "Q / 7",
+      "Q",
       "Thrust up"
     ],
     [
-      "O / 5",
+      "O",
       "Thrust left"
     ],
     [
-      "P / 8",
+      "P",
       "Thrust right"
     ],
     [
-      "SPACE / ENTER",
-      "Start / confirm"
-    ],
-    [
-      "R",
-      "Relaxed on/off (title page)"
-    ],
-    [
       "H",
-      "Pause / resume"
+      "Pause"
+    ],
+    [
+      "M",
+      "Music on/off (title and pause)"
     ],
     [
       "X",
       "Quit (while paused)"
     ],
     [
-      "M",
-      "Music on/off"
+      "R",
+      "Relaxed mode (title)"
     ],
     [
-      "Kempston",
-      "Up or fire to thrust, left and right to steer"
+      "SPACE",
+      "Start"
     ]
   ],
   "release": {
-    "source_tape": "space-inside-the-case-m5.tap",
-    "sha256": "d4afd8db0fc6e8bc48d3796404d272e415e19ee4ef7711e5a2384ea69f94e386",
-    "size": 35045,
-    "milestone": 5,
-    "date": "2026-11-09"
+    "source_tape": "space-inside-the-case-m9.tap",
+    "sha256": "58cff719c0633faa4ec96b942e65ceceaa16ea93ad7578b85a399087c6344378",
+    "size": 41968,
+    "milestone": 9,
+    "date": "2026-11-10"
   },
   "demo": {
     "src": "demo.bin",
@@ -61,20 +57,20 @@
   },
   "review": {
     "magazine": "INK & PAPER",
-    "overall": 70,
+    "overall": 72,
     "scores": {
-      "presentation": 73,
-      "graphics": 69,
-      "sound": 64,
-      "playability": 70,
-      "addictive_qualities": 67,
-      "overall": 70
+      "presentation": 78,
+      "graphics": 72,
+      "sound": 63,
+      "playability": 72,
+      "addictive_qualities": 68,
+      "overall": 72
     },
     "award": null,
-    "verdict": "An open-and-shut case, if you're patient with the tape and careful up the shafts.",
+    "verdict": "A gentle charmer that really gets inside your circuits. Bring a steady hand and a full kettle.",
     "quote": {
-      "text": "That's the whole game and it's a good one",
-      "reviewer": "Baz Pocket"
+      "text": "I like a game that tells you what's what",
+      "reviewer": "Prue Fairley"
     }
   },
   "credits": [
@@ -106,11 +102,11 @@
       {
         "src": "shots/shot-1.png",
         "size": [
-          256,
-          192
+          320,
+          240
         ],
-        "caption": "The night before the big do. Not a soul about, and a lot of sleeping computers.",
-        "alt": "Space Inside the Case screenshot: The night before the big do. Not a soul about, and a lot of sleeping computers."
+        "caption": "Land gently, says the title page. That eye has seen some bad landings.",
+        "alt": "Space Inside the Case screenshot: Land gently, says the title page. That eye has seen some bad landings."
       },
       {
         "src": "shots/shot-2.png",
@@ -118,8 +114,8 @@
           320,
           240
         ],
-        "caption": "Four cabinets in a row and just the one landing pad. Guess which needs mending.",
-        "alt": "Space Inside the Case screenshot: Four cabinets in a row and just the one landing pad. Guess which needs mending."
+        "caption": "Doors open at nine. Plenty of time to put the kettle on, then.",
+        "alt": "Space Inside the Case screenshot: Doors open at nine. Plenty of time to put the kettle on, then."
       },
       {
         "src": "shots/shot-3.png",
@@ -127,8 +123,8 @@
           320,
           240
         ],
-        "caption": "Three parts fitted, battery on the red and that white line right on top of you.",
-        "alt": "Space Inside the Case screenshot: Three parts fitted, battery on the red and that white line right on top of you."
+        "caption": "Four parts in and a minute and a bit on the clock. Steady on the Q key!",
+        "alt": "Space Inside the Case screenshot: Four parts in and a minute and a bit on the clock. Steady on the Q key!"
       },
       {
         "src": "shots/shot-4.png",
@@ -136,14 +132,14 @@
           320,
           240
         ],
-        "caption": "Three parts down and the museum has the cheek to open anyway.",
-        "alt": "Space Inside the Case screenshot: Three parts down and the museum has the cheek to open anyway."
+        "caption": "Good morning! All eight awake and not a single card found. Must try harder.",
+        "alt": "Space Inside the Case screenshot: Good morning! All eight awake and not a single card found. Must try harder."
       }
     ]
   },
   "source": {
     "repo": "danielvaughan/zx-space-inside-the-case",
-    "commit": "dba65ecb6eb87fe569644c293b7c006db514aaf8",
-    "kit": "game/media-kit/m5"
+    "commit": "2d387572a2663aa0cb9bce39b7ddc6120476274a",
+    "kit": "game/media-kit/m9"
   }
 }
