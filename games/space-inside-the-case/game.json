@@ -93,10 +93,10 @@
     "cover": {
       "src": "cover.jpg",
       "size": [
-        896,
-        1200
+        1200,
+        1490
       ],
-      "alt": "Space Inside the Case cover painting"
+      "alt": "Space Inside the Case cover"
     },
     "shots": [
       {
@@ -139,7 +139,7 @@
   },
   "source": {
     "repo": "danielvaughan/zx-space-inside-the-case",
-    "commit": "2d387572a2663aa0cb9bce39b7ddc6120476274a",
+    "commit": "108871a301e028d3bedc1d5b5d24e004cf287df9",
     "kit": "game/media-kit/m9"
   }
 }
