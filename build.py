@@ -85,7 +85,24 @@ def load(root: Path, config: Path):
     if len(featured) > 1:
         raise BuildError('site.json: more than one visible game is featured: '
                          + ', '.join(d['slug'] for d in featured))
-    return site, visible, (featured[0] if featured else (visible[0] if visible else None))
+    if featured:
+        return site, visible, featured[0]
+    best = best_reviewed(visible)
+    if best is not None and (best.get('review') or {}).get('overall') is not None:
+        best['_best'] = True                     # chosen by its review, not pinned (D-44)
+    return site, visible, best
+
+
+def best_reviewed(games):
+    """The home page's featured game (D-44): the visible game with the highest INK & PAPER Overall; a tie goes to the
+    newer release, then to site.json's order. A game with no review is featured only when none has one. site.json's
+    "featured": true pins a game instead, by the owner's choice."""
+    if not games:
+        return None
+    def key(d):
+        o = (d.get('review') or {}).get('overall')
+        return (o is not None, o or 0, str((d.get('release') or {}).get('date') or ''), -d['_entry']['order'])
+    return max(games, key=key)
 
 
 # ------------------------------------------------------------------ demo tapes
@@ -388,7 +405,7 @@ def home(site, games, featured, episodes=()):
         hero = f'''<section class="feature switcher" aria-labelledby="hero-title">
   <div class="feature-art"><a href="{g}" tabindex="-1">{cover_img(featured, g, lazy=False)}</a></div>
   <div class="feature-copy stack">
-    <p class="kicker">New release{date}</p>
+    <p class="kicker">{'Best reviewed · INK &amp; PAPER' if featured.get('_best') else 'New release' + date}</p>
     <h2 id="hero-title" class="hero-title">{e(featured["title"])}</h2>
     <p class="lede">{e(featured.get("tagline", ""))}</p>
     {review}

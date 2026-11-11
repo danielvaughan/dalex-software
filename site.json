@@ -12,7 +12,7 @@
       "slug": "gold-master",
       "visible": true,
       "order": 1,
-      "featured": true,
+      "featured": false,
       "demo": {
         "milestone": null,
         "sha256": "15c5bda22e00e209a72594b803361242171c23236de39632530165afd8e93bbc",

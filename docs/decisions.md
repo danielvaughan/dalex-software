@@ -623,3 +623,11 @@ The owner asked for a pixel group portrait like the courtyard picture, using the
   way to the kit's next price-free one.
 - The covers' titles sit at the top, so the games list and the home carousel show each cover at 4:5 from the top,
   cropped only at the foot.
+
+## D-44 The home page features the best-reviewed game (owner, 2026-11-11)
+
+- The owner: "The best reviewed game should be featured". The home page's feature is now chosen by the build: the
+  visible game with the highest INK & PAPER Overall, a tie going to the newer release and then to `site.json`'s
+  order. It follows the reviews as kits are republished, and is labelled "Best reviewed · INK & PAPER".
+- `site.json`'s `"featured": true` still pins a game by the owner's choice (labelled "New release" as before); Gold
+  Master's pin, set when it was the newest release (D-07), is removed. Today the feature is Tiger Gorilla, 76%.
