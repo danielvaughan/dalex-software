@@ -370,7 +370,8 @@ MUSIC_VIDEO = {'youtube': '-_4-1W9eWcM', 'making_of': 'g5PJrlRBw9k', 'title': 'P
 
 
 def home(site, games, featured, episodes=()):
-    """The front door: what Dalex is, the new release, the shelf of games, and a way into each section (D-35)."""
+    """The front door: what Dalex is, the new release, the other games, the music video and a way into each section
+    (D-35). Laid out with Every Layout's primitives on Utopia's fluid scale, one focal point per band (D-42)."""
     root = ''
     hero = ''
     if featured:
@@ -379,66 +380,76 @@ def home(site, games, featured, episodes=()):
         q = (featured.get('review') or {}).get('quote') or {}
         quote = (f'<blockquote><p>&ldquo;{e(q["text"])}&rdquo;</p><footer>{e(q.get("reviewer", ""))}, '
                  f'INK &amp; PAPER</footer></blockquote>' if q.get('text') else '')
-        hero = f'''<section class="hero" aria-labelledby="hero-title">
-  <div class="hero-art"><a href="{g}" tabindex="-1">{cover_img(featured, g, lazy=False)}</a></div>
-  <div class="hero-copy">
-    <p class="kicker">New release{(' · ' + e(nice_date(rel.get('date', '')))) if rel.get('date') else ''}</p>
+        badge = score_badge(featured)
+        review = f'<div class="cluster review">{badge}{quote}</div>' if (quote or badge) else ''
+        play = f'<a class="button primary" href="{g}#play-now">Play the demo</a>' if featured['_demo'] else ''
+        about_cls = 'more' if featured['_demo'] else 'button primary'
+        date = (' · ' + e(nice_date(rel.get('date', '')))) if rel.get('date') else ''
+        hero = f'''<section class="feature switcher" aria-labelledby="hero-title">
+  <div class="feature-art"><a href="{g}" tabindex="-1">{cover_img(featured, g, lazy=False)}</a></div>
+  <div class="feature-copy stack">
+    <p class="kicker">New release{date}</p>
     <h2 id="hero-title" class="hero-title">{e(featured["title"])}</h2>
     <p class="lede">{e(featured.get("tagline", ""))}</p>
-    <p class="meta"><span>{e(featured["machine"])}</span><span>{NO_PRICE}</span></p>
-    {score_badge(featured)}
-    {quote}
-    <p class="actions">{(f'<a class="button primary" href="{g}#play-now">Play the demo</a> ') if featured['_demo'] else ''}<a class="button{'' if featured['_demo'] else ' primary'}" href="{g}">About the game</a></p>
+    {review}
+    <p class="cluster actions">{play}<a class="{about_cls}" href="{g}">About the game</a></p>
   </div>
 </section>'''
+    others = [x for x in games if not featured or x['slug'] != featured['slug']]
     shelf = '\n'.join(f'''  <li><a href="games/{e(x["slug"])}/">{cover_img(x, f'games/{x["slug"]}/', cls='shelf-art')}<span>{e(x["title"])}</span></a></li>'''
-                      for x in games)
+                      for x in others)
+    shelf_title = 'More games' if featured else 'The games'
+    shelf_section = f'''<section class="stack" aria-labelledby="shelf-title">
+  <div class="band-head"><h2 id="shelf-title">{shelf_title}</h2><div class="reel-buttons" hidden><button type="button" data-reel="-1" aria-controls="shelf" aria-label="Previous games">&larr;</button><button type="button" data-reel="1" aria-controls="shelf" aria-label="Next games">&rarr;</button></div></div>
+  <ul class="shelf reel" id="shelf" tabindex="0" aria-label="{shelf_title}: scroll sideways for more">
+{shelf}
+  </ul>
+  <p class="more-link"><a class="more" href="games/">All the games, with their free demos and reviews</a></p>
+</section>''' if others else ''
     latest = episodes[0] if episodes else None
     listen = (f'Latest: episode {e(latest["number"])}, <em>{e(latest["title"])}</em>.' if latest
               else 'Bev and Gareth talk to the team about how the games were made.')
     team = ''.join(f'<img class="px" src="assets/people/{who}.png" width="48" height="96" alt=""{LAZY}>'
                    for who in ('malcolm', 'mo', 'gareth', 'hyunjoo', 'dez'))
     mv = MUSIC_VIDEO
-    music = f'''<section class="music" aria-labelledby="music-title">
-  <div class="video-embed" data-youtube="{e(mv['youtube'])}" data-title="{e(mv['title'])}: the music video">
-    <a href="https://www.youtube.com/watch?v={e(mv['youtube'])}"><img src="{e(mv['poster'])}" width="960" height="540" alt="Dez and Hyun-joo at the microphone in the courtyard, the whole team clapping behind them"{LAZY}><span class="play">Play the video</span></a>
-  </div>
-  <div>
-    <p class="kicker">Music video</p>
-    <h2 id="music-title">{e(mv['title'])}</h2>
-    <p class="lede">Dez and Hyun-joo sing the studio's own song, and the whole team joins in. Every game you see on screen is a real Dalex game.</p>
-    <p><a href="https://www.youtube.com/watch?v={e(mv['making_of'])}">How we made it, with no camera: Hyun-joo explains</a> (two-minute film on YouTube)</p>
-    <p class="small">Playing the music video here loads it from YouTube.</p>
+    yt = 'https://www.youtube.com/watch?v='
+    music = f'''<section class="screening" aria-labelledby="music-title">
+  <div class="stack screening-in">
+    <div class="stack screening-head">
+      <p class="kicker">Music video</p>
+      <h2 id="music-title">{e(mv['title'])}</h2>
+      <p class="lede">Dez and Hyun-joo sing the studio's own song, and the whole team joins in. Every game you see on screen is a real Dalex game.</p>
+    </div>
+    <div class="video-embed" data-youtube="{e(mv['youtube'])}" data-title="{e(mv['title'])}: the music video">
+      <a href="{yt}{e(mv['youtube'])}"><img src="{e(mv['poster'])}" width="960" height="540" alt="Dez and Hyun-joo at the microphone in the courtyard, the whole team clapping behind them"{LAZY}><span class="play">Play the video</span></a>
+    </div>
+    <p class="screening-foot"><a href="{yt}{e(mv['making_of'])}">How we made it, with no camera: Hyun-joo explains</a> <span class="small">(two-minute film on YouTube). Playing the music video here loads it from YouTube.</span></p>
   </div>
 </section>'''
-    body = f'''<section class="welcome" aria-labelledby="welcome-title">
+    body = f'''<div class="home stack">
+<section class="welcome stack" aria-labelledby="welcome-title">
   <p class="kicker">A Manchester software house</p>
   <h1 id="welcome-title" class="welcome-title">New games for the ZX Spectrum, and how to make your own</h1>
   <p class="lede">{e(site.get("intro", ""))}</p>
-  <p class="actions"><a class="button primary" href="games/">Play the games</a> <a class="button" href="book/">Learn how they were made</a></p>
+  <p class="cluster actions"><a class="button primary" href="games/">Play the games</a><a class="button" href="book/">Learn how they were made</a></p>
 </section>
 {hero}
-<section aria-labelledby="shelf-title">
-  <h2 id="shelf-title">The games</h2>
-  <ul class="shelf">
-{shelf}
-  </ul>
-  <p><a href="games/">All the games, with their free demos and reviews</a></p>
-</section>
+{shelf_section}
 {music}
-<section aria-labelledby="doors-title">
+<section class="stack" aria-labelledby="doors-title">
   <h2 id="doors-title">How they are made</h2>
   <ul class="doors">
-  <li class="door"><a href="studio/"><img src="assets/home/studio.jpg" width="480" height="360" alt="A frame from the studio film: the production room in pixel art, the team at their desks around the milestone board"{LAZY}><span class="kicker">Studio</span><strong>Watch the studio at work</strong><span>A five-minute film of a game going from the first idea to the magazine review.</span></a></li>
-  <li class="door"><a href="book/"><img src="{BOOK_COVER}" width="300" height="450" alt="The cover of Machine Code Mayhem"{LAZY}><span class="kicker">Book</span><strong>Machine Code Mayhem</strong><span>Learn to write Spectrum games in Z80 assembly from these six complete games, then make your own.</span></a></li>
-  <li class="door"><a href="podcast/"><img src="assets/home/podcast.jpg" width="360" height="360" alt="The cover of Dalex After Hours"{LAZY}><span class="kicker">Podcast · new on Thursdays</span><strong>Dalex After Hours</strong><span>{listen}</span></a></li>
-  <li class="door"><a href="about/"><span class="team">{team}</span><span class="kicker">About</span><strong>Meet the team</strong><span>The people who make the games, from commissioning to the review, and the cat.</span></a></li>
+  <li class="door"><a href="studio/"><img src="assets/home/studio.jpg" width="480" height="360" alt="A frame from the studio film: the production room in pixel art, the team at their desks around the milestone board"{LAZY}><span class="kicker">Studio</span><strong>Watch the studio at work</strong><span>A five-minute film: one game from the first idea to the review.</span></a></li>
+  <li class="door"><a href="book/"><img src="{BOOK_COVER}" width="300" height="450" alt="The cover of Machine Code Mayhem"{LAZY}><span class="kicker">Book</span><strong>Machine Code Mayhem</strong><span>Write Spectrum games in Z80 assembly from six complete games.</span></a></li>
+  <li class="door"><a href="podcast/"><img src="assets/home/podcast.jpg" width="360" height="360" alt="The cover of Dalex After Hours"{LAZY}><span class="kicker">Podcast · Thursdays</span><strong>Dalex After Hours</strong><span>{listen}</span></a></li>
+  <li class="door"><a href="about/"><span class="team">{team}</span><span class="kicker">About</span><strong>Meet the team</strong><span>The people who make the games, and the cat.</span></a></li>
   </ul>
-</section>'''
+</section>
+</div>'''
     ld = ld_json({'@type': 'WebSite', 'name': site['name'], 'url': site['base_url'],
                   'description': site.get('description', ''), 'inLanguage': 'en-GB'}, publisher(site))
     return page(site, root=root, path='', title=site['name'], body=body, current='home', ld=ld,
-                scripts='<script src="assets/video-embed.js" defer></script>\n',
+                scripts='<script src="assets/video-embed.js" defer></script>\n<script src="assets/reel.js" defer></script>\n',
                 head_title=f'{site["name"]}: new ZX Spectrum games to play in your browser')
 
 

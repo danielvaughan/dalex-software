@@ -227,29 +227,6 @@ html.photos .people img, html.photos .critic img { width: 192px; height: 192px; 
 .transcript { margin: 1.5rem 0; max-width: 70ch; }
 .transcript summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; }
 .studio-link { margin-top: 2rem; }
-/* home: the front door (D-35) */
-.welcome { margin: 22px 0 8px; max-width: 46rem; }
-.welcome-title { font-size: clamp(1.9rem, 5.2vw, 3rem); line-height: 1.1; margin: .15em 0 .35em; text-transform: none; letter-spacing: -.02em; }
-.welcome .lede { color: var(--muted); }
-.shelf { list-style: none; padding: 0; margin: 0 0 .6rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 14px; }
-.shelf a { display: block; color: inherit; text-decoration: none; }
-.shelf a:hover span { text-decoration: underline; }
-.shelf-art { display: block; width: 100%; aspect-ratio: 3 / 4; height: auto; object-fit: cover; border: 1px solid var(--line); background: #000; }
-.shelf span { display: block; margin-top: 6px; font-weight: 700; }
-.doors { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; }
-.door a { display: flex; flex-direction: column; gap: 6px; height: 100%; color: inherit; text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--z-cyan); padding: 0 0 14px; }
-.door:nth-child(1) a { border-top-color: var(--z-red); }
-.door:nth-child(2) a { border-top-color: var(--z-yellow); }
-.door:nth-child(3) a { border-top-color: var(--z-green); }
-.door a > * { margin: 0 14px; }
-.door a > img, .door .team { margin: 0; width: 100%; height: 170px; object-fit: cover; object-position: top; background: #000; }
-.door .team { display: flex; align-items: flex-end; justify-content: center; gap: 4px; padding-top: 18px; box-sizing: border-box; }
-.door .team img { width: 48px; height: 96px; }
-.door strong { font-size: 1.15rem; }
-.door a:hover strong { text-decoration: underline; }
-.door .kicker { margin-top: 10px; }
-@media (max-width: 600px) { .shelf { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; } .shelf span { font-size: .9rem; } }
-
 /* The player: focus ring, the stage (screen and touch pad, the full-screen element) and the pad (D-21, D-22) */
 .screen:focus-within { outline: 3px solid var(--focus); outline-offset: 3px; }
 #emulator:focus { outline: none; }
@@ -347,13 +324,110 @@ html.photos .people img, html.photos .critic img { width: 192px; height: 192px; 
 .desk-form label { display: block; font-weight: 700; margin: .8em 0 .3em; }
 .desk-form textarea { width: 100%; box-sizing: border-box; min-height: 5em; padding: 10px; font: inherit; color: var(--text); background: var(--bg); border: 2px solid var(--line); border-radius: 4px; }
 .desk-form textarea:focus { border-color: var(--focus); }
-/* home: the music video, played from YouTube only on a click (D-41) */
-.music { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--z-yellow); padding: 20px; margin: 26px 0 8px; }
-.music h2 { margin: .1em 0 .3em; }
-.video-embed { position: relative; aspect-ratio: 16 / 9; background: #000; border: 3px solid #000; }
+
+/* Fluid type and space scales from Utopia (utopia.fyi, D-42): 360 px at 16 px and ratio 1.2,
+   1240 px at 19 px and ratio 1.25. Every size on the home page is one of these steps. */
+:root {
+  --step--2: clamp(0.6944rem, 0.6676rem + 0.1192vw, 0.76rem);
+  --step--1: clamp(0.8333rem, 0.7856rem + 0.2121vw, 0.95rem);
+  --step-0: clamp(1rem, 0.9233rem + 0.3409vw, 1.1875rem);
+  --step-1: clamp(1.2rem, 1.0837rem + 0.5170vw, 1.4844rem);
+  --step-2: clamp(1.44rem, 1.27rem + 0.7554vw, 1.8555rem);
+  --step-3: clamp(1.728rem, 1.4861rem + 1.0752vw, 2.3193rem);
+  --step-4: clamp(2.0736rem, 1.7359rem + 1.5010vw, 2.8992rem);
+  --step-5: clamp(2.4883rem, 2.0237rem + 2.0648vw, 3.624rem);
+  --space-3xs: clamp(0.25rem, 0.2308rem + 0.0852vw, 0.2969rem);
+  --space-2xs: clamp(0.5rem, 0.4616rem + 0.1705vw, 0.5938rem);
+  --space-xs: clamp(0.75rem, 0.6925rem + 0.2557vw, 0.8906rem);
+  --space-s: clamp(1rem, 0.9233rem + 0.3409vw, 1.1875rem);
+  --space-m: clamp(1.5rem, 1.3849rem + 0.5114vw, 1.7812rem);
+  --space-l: clamp(2rem, 1.8466rem + 0.6818vw, 2.375rem);
+  --space-xl: clamp(3rem, 2.7699rem + 1.0227vw, 3.5625rem);
+  --space-2xl: clamp(4rem, 3.6932rem + 1.3636vw, 4.75rem);
+  --space-3xl: clamp(6rem, 5.5398rem + 2.0455vw, 7.125rem);
+  --space-s-l: clamp(1rem, 0.4375rem + 2.5000vw, 2.375rem);
+  --space-m-xl: clamp(1.5rem, 0.6562rem + 3.7500vw, 3.5625rem);
+  --space-l-2xl: clamp(2rem, 0.875rem + 5.0000vw, 4.75rem);
+  --space-xl-3xl: clamp(3rem, 1.3125rem + 7.5000vw, 7.125rem);
+}
+
+/* Layout primitives from Every Layout (every-layout.dev, D-42): Stack, Cluster and Switcher, spaced by Utopia steps */
+.stack { display: flex; flex-direction: column; justify-content: flex-start; }
+.stack > * { margin-block: 0; }
+.stack > * + * { margin-block-start: var(--stack-space, var(--space-s)); }
+.cluster { display: flex; flex-wrap: wrap; align-items: center; gap: var(--cluster-space, var(--space-s)); }
+.switcher { display: flex; flex-wrap: wrap; gap: var(--switcher-space, var(--space-l-2xl)); }
+.switcher > * { flex-grow: 1; flex-basis: calc((var(--switcher-threshold, 44rem) - 100%) * 999); }
+
+/* home: the front door (D-35), one focal point per band on the fluid scale (D-42) */
+.home { --stack-space: var(--space-l-2xl); padding-block: var(--space-m) var(--space-l); }
+.home h2 { margin: 0; font-size: var(--step-1); }
+.home .kicker { font-size: var(--step--2); }
+.home .lede { font-size: var(--step-0); color: var(--muted); max-width: 60ch; }
+.home .actions { --cluster-space: var(--space-xs); }
+.welcome { --stack-space: var(--space-xs); max-width: 54rem; }
+.welcome-title { font-size: var(--step-4); line-height: 1.08; text-transform: none; letter-spacing: -.02em; }
+.welcome .actions { margin-block-start: var(--space-m); }
+
+/* the new release: cover and copy side by side, stacked below 44rem; no frame, whitespace does the work */
+.feature { align-items: center; }
+.feature-art { flex-grow: 1; max-width: min(24rem, 80%); }
+.feature-art img { display: block; width: 100%; height: auto; border: 3px solid #000; box-shadow: 8px 8px 0 var(--surface-2); }
+.feature-copy { --stack-space: var(--space-xs); flex-grow: 1.25; }
+.feature .hero-title { font-size: var(--step-5); line-height: 1.02; text-transform: none; letter-spacing: -.03em; }
+.feature .review { --cluster-space: var(--space-m); margin-block-start: var(--space-s); flex-wrap: nowrap; }
+.feature .review blockquote { margin: 0; }
+.feature .badge { flex-shrink: 0; }
+.feature .actions { margin-block-start: var(--space-m); }
+.more { font-weight: 700; padding-block: 10px; }
+.more::after { content: " \2192"; }
+
+/* the other games: a carousel, Every Layout's Reel. It scrolls sideways and snaps to each cover; swipe, scroll or
+   use the arrow keys. reel.js adds previous and next buttons; it never moves by itself (D-42) */
+.band-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2xs) var(--space-m); }
+.reel + .more-link { margin-block-start: var(--space-2xs); font-size: var(--step--1); }
+.reel-buttons { display: flex; gap: var(--space-2xs); }
+.reel-buttons[hidden] { display: none; }
+.reel-buttons button { min-width: 44px; min-height: 44px; font: 700 1.2rem/1 ui-monospace, Menlo, Consolas, monospace; color: var(--text); background: var(--button); border: 2px solid var(--line); border-radius: 4px; cursor: pointer; }
+.reel-buttons button:hover:not(:disabled) { background: var(--button-hover); }
+.reel-buttons button:disabled { opacity: .35; cursor: default; }
+.reel { list-style: none; margin: 0; padding: 0 0 var(--space-s); display: flex; gap: var(--space-s); overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x mandatory; scroll-padding-inline: 0; scrollbar-width: thin; scrollbar-color: var(--line) transparent; overscroll-behavior-x: contain; }
+.reel > li { flex: 0 0 clamp(9.5rem, 21%, 14rem); scroll-snap-align: start; }
+.reel a { display: block; color: inherit; text-decoration: none; }
+.shelf-art { display: block; width: 100%; aspect-ratio: 3 / 4; height: auto; object-fit: cover; border: 1px solid var(--line); background: #000; transition: transform .15s ease; }
+.reel a:hover .shelf-art { transform: translateY(-3px); }
+.reel span { display: block; margin-top: var(--space-2xs); font-weight: 700; font-size: var(--step--1); }
+.reel a:hover span { text-decoration: underline; }
+@media (prefers-reduced-motion: reduce) { .shelf-art { transition: none; } .reel a:hover .shelf-art { transform: none; } }
+
+/* the music video: a full-width black screening band, a dark room in either colour scheme */
+.screening { --text: #f1f0ea; --muted: #b9b8c3; --link: #7ee6ff; --focus: #ffe14d; color: var(--text); background: #000;
+  box-shadow: 0 0 0 100vmax #000; clip-path: inset(0 -100vmax); padding-block: var(--space-xl-3xl); }
+.screening-in { --stack-space: var(--space-m); max-width: 56rem; margin-inline: auto; }
+.screening-head { --stack-space: var(--space-2xs); text-align: center; align-items: center; }
+.screening .kicker { color: #ffe14d; }
+.screening h2 { font-size: var(--step-3); text-transform: none; letter-spacing: -.02em; }
+.screening-foot { margin: 0; text-align: center; color: var(--muted); font-size: var(--step--1); }
+.video-embed { position: relative; aspect-ratio: 16 / 9; background: #000; }
 .video-embed a, .video-embed iframe { display: block; width: 100%; height: 100%; border: 0; }
 .video-embed img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.video-embed .play { position: absolute; left: 14px; bottom: 14px; white-space: nowrap; display: flex; align-items: center; gap: 10px; padding: 12px 20px; background: rgba(0, 0, 0, .78); color: #fff; font-weight: 700; border: 2px solid #fff; border-radius: 4px; }
+.video-embed .play { position: absolute; left: var(--space-s); bottom: var(--space-s); white-space: nowrap; display: flex; align-items: center; gap: 10px; padding: 12px 20px; background: #ffe14d; color: #111; font-weight: 700; border-radius: 4px; box-shadow: 4px 4px 0 #000; }
 .video-embed .play::before { content: ""; border-style: solid; border-width: 9px 0 9px 15px; border-color: transparent transparent transparent currentColor; }
-.video-embed a:hover .play, .video-embed a:focus-visible .play { background: #000; text-decoration: underline; }
-@media (max-width: 760px) { .music { grid-template-columns: 1fr; } }
+.video-embed a:hover .play, .video-embed a:focus-visible .play { text-decoration: underline; filter: brightness(1.08); }
+
+/* the four doors: same shape, same picture height, short lines */
+.doors { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(9.5rem, 100%), 1fr)); gap: var(--space-s-l); }
+@media (min-width: 48rem) { .doors { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.door a { display: flex; flex-direction: column; gap: var(--space-3xs); height: 100%; color: inherit; text-decoration: none; background: var(--surface); border-top: 4px solid var(--z-cyan); padding-bottom: var(--space-s); }
+.door:nth-child(1) a { border-top-color: var(--z-red); }
+.door:nth-child(2) a { border-top-color: var(--z-yellow); }
+.door:nth-child(3) a { border-top-color: var(--z-green); }
+.door a > * { margin-inline: var(--space-s); }
+.door a > img, .door .team { margin: 0 0 var(--space-2xs); width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; object-position: top; background: #000; }
+.door .team { display: flex; align-items: flex-end; justify-content: center; gap: 4px; padding-top: 18px; }
+.door .team { gap: 2px; padding-inline: 4px; }
+.door .team img { width: min(48px, 18%); height: auto; }
+.door strong { font-size: var(--step-0); }
+.door span:last-child { color: var(--muted); font-size: var(--step--1); }
+.door a:hover strong { text-decoration: underline; }

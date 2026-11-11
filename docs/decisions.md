@@ -590,3 +590,22 @@ The owner asked for a pixel group portrait like the courtyard picture, using the
   finale changes). It links the public making-of film, in which Hyun-joo explains how it was made with AI.
 - Checked in Chromium at 1280 and 390 px wide: no third-party request and no cookie before play, no sideways scroll,
   the player starts by keyboard; `tests/test_home_video.py` keeps the order, the poster and the no-third-party rule.
+
+## D-42 The home page is calmer: Utopia's scale, Every Layout's primitives and a games carousel (owner, 2026-11-11)
+
+- The owner found the home page "very busy" and asked for UI and UX techniques to make it beautiful, chose Utopia and
+  Every Layout as the design basis (over Open Props, Pico CSS and GOV.UK patterns), and asked for the games as a
+  carousel. Neither basis is a dependency: Utopia's fluid type and space scales are generated CSS variables
+  (360 px at 16 px, ratio 1.2; 1240 px at 19 px, ratio 1.25), and Stack, Cluster, Switcher and Reel are a few lines
+  of CSS in `site.css`. Other pages keep their styles for now and can move onto the same scale.
+- **One focal point per band**, separated by whitespace, not frames: the welcome (the headline on two lines on a
+  desktop), the new release without its box or price line, the other games, the music video on a full-width black
+  band in either colour scheme, then the four doors at one size and with short lines (two across on a phone).
+- **The new release appears once**: the carousel shows the other games (refines D-35's shelf of every game; the
+  featured game is linked from its own band).
+- **The carousel** is a plain list that scrolls sideways and snaps to each cover, so it works by swipe, scroll and
+  keyboard without script, and the next cover peeks in to show there is more. `static/assets/reel.js` adds previous
+  and next buttons, disabled at either end and hidden when everything fits. It never moves by itself, follows
+  reduced motion, and stores nothing. "All the games" follows it.
+- Checked in Chromium at 1280 px (dark and light) and 390 px: no sideways scroll, no console error, no third-party
+  request; the phone page is 30% shorter. `tests/test_home_layout.py` keeps these rules.
