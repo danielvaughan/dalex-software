@@ -46,6 +46,10 @@ class HomeVideo(unittest.TestCase):
         self.assertIn(f'<a href="https://www.youtube.com/watch?v={vid}">', self.html)
         self.assertIn('assets/video-embed.js', self.html)
 
+    def test_the_making_of_film_is_a_link_not_a_player(self):
+        self.assertIn(f'<a href="https://www.youtube.com/watch?v={build.MUSIC_VIDEO["making_of"]}">', self.html)
+        self.assertEqual(self.html.count('data-youtube='), 1)
+
     def test_the_player_is_youtube_nocookie_and_nothing_is_stored(self):
         self.assertIn('https://www.youtube-nocookie.com/embed/', CODE)
         self.assertNotRegex(CODE, r'cookie\s*=|localStorage|sessionStorage|indexedDB')

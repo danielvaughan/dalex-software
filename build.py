@@ -407,7 +407,8 @@ def home(site, games, featured, episodes=()):
     <p class="kicker">Music video</p>
     <h2 id="music-title">{e(mv['title'])}</h2>
     <p class="lede">Dez and Hyun-joo sing the studio's own song, and the whole team joins in. Every game you see on screen is a real Dalex game.</p>
-    <p class="small">Playing it loads the video from YouTube. <a href="https://www.youtube.com/watch?v={e(mv['making_of'])}">How it was made, with no camera: Hyun-joo explains</a></p>
+    <p><a href="https://www.youtube.com/watch?v={e(mv['making_of'])}">How we made it, with no camera: Hyun-joo explains</a> (two-minute film on YouTube)</p>
+    <p class="small">Playing the music video here loads it from YouTube.</p>
   </div>
 </section>'''
     body = f'''<section class="welcome" aria-labelledby="welcome-title">
