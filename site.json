@@ -296,7 +296,7 @@
       "demo": {
         "milestone": null,
         "sha256": "d35e5acda11542bd32784eed44e8c07e6ae7409951a94a08cbf5bbd4c6ad1396",
-        "contains": "Hall 1 demo: hall 1 of 8",
+        "contains": "Level 1 demo",
         "source_tape": "megawatt-demo.tap"
       },
       "touch": {

@@ -4,8 +4,8 @@
   "title": "Megawatt",
   "machine": "ZX Spectrum 128K",
   "jsspeccy_machine": 128,
-  "tagline": "Eight empty computer halls, two busy crews and a 500-megawatt campus to switch on.",
-  "blurb": "Eight empty computer halls, two busy crews and a 500-megawatt campus to switch on. Lay the cable, run the cooling pipe, ride out the grid maintenance days and light every rack, hall by hall, until the whole campus glows and the crew get their thank-you. Then start a fresh campus and beat your best!",
+  "tagline": "Eight bare computer halls and 500 megawatts to switch on.",
+  "blurb": "Eight bare computer halls and 500 megawatts to switch on. Lay cable and cooling pipe, set the racks and send your crew of electricians, pipefitters and riggers to work. Ride out the grid maintenance days, light every hall, then start a fresh site and beat your best!",
   "controls": [
     [
       "Q / A / O / P or cursor keys",
@@ -45,7 +45,7 @@
     "sha256": "e36d36cfe3f767667788980ec98874612d06494279bda0d9f68abc7800b82c4b",
     "size": 17317,
     "milestone": 4,
-    "date": "2026-10-30"
+    "date": "2026-11-09"
   },
   "demo": {
     "src": "demo.bin",
@@ -53,24 +53,24 @@
     "size": 17500,
     "milestone": null,
     "source_tape": "megawatt-demo.tap",
-    "contains": "Hall 1 demo: hall 1 of 8"
+    "contains": "Level 1 demo"
   },
   "review": {
     "magazine": "INK & PAPER",
-    "overall": 75,
+    "overall": 68,
     "scores": {
-      "presentation": 80,
-      "graphics": 68,
-      "sound": 72,
-      "playability": 74,
-      "addictive_qualities": 74,
-      "overall": 75
+      "presentation": 74,
+      "graphics": 66,
+      "sound": 63,
+      "playability": 70,
+      "addictive_qualities": 66,
+      "overall": 68
     },
     "award": null,
-    "verdict": "Eight halls, one happy ending: a current affair for planners, if still a power cut for blasters.",
+    "verdict": "",
     "quote": {
-      "text": "A proper thinker's game",
-      "reviewer": "PENNY"
+      "text": "Mine's a game that shows its working, and this one nearly always does",
+      "reviewer": "Prue Fairley"
     }
   },
   "credits": [
@@ -84,7 +84,7 @@
     },
     {
       "role": "Reviewed by",
-      "name": "PENNY, BAZ and MAURICE for INK & PAPER"
+      "name": "Prue Fairley, Baz Pocket and Norm Crabtree for INK & PAPER"
     }
   ],
   "in_game_credits": [],
@@ -93,10 +93,10 @@
     "cover": {
       "src": "cover.jpg",
       "size": [
-        896,
-        1200
+        1200,
+        1490
       ],
-      "alt": "Megawatt cover painting"
+      "alt": "Megawatt cover"
     },
     "shots": [
       {
@@ -105,8 +105,8 @@
           320,
           240
         ],
-        "caption": "A best of 43799 on the title page. Beat that before bedtime.",
-        "alt": "Megawatt screenshot: A best of 43799 on the title page. Beat that before bedtime."
+        "caption": "Three workmen and a lot of racks. The kettle should be boiling by now",
+        "alt": "Megawatt screenshot: Three workmen and a lot of racks. The kettle should be boiling by now"
       },
       {
         "src": "shots/shot-2.png",
@@ -114,8 +114,8 @@
           320,
           240
         ],
-        "caption": "All eight halls lit and a thank-you to the crew. Somebody put the kettle on.",
-        "alt": "Megawatt screenshot: All eight halls lit and a thank-you to the crew. Somebody put the kettle on."
+        "caption": "Day one: one yard, one substation and a yellow line telling you what to do",
+        "alt": "Megawatt screenshot: Day one: one yard, one substation and a yellow line telling you what to do"
       },
       {
         "src": "shots/shot-3.png",
@@ -123,23 +123,23 @@
           320,
           240
         ],
-        "caption": "Grid work on day 20: half the supply and the turbine doing overtime.",
-        "alt": "Megawatt screenshot: Grid work on day 20: half the supply and the turbine doing overtime."
+        "caption": "The cable heads for the bays in a dead straight line. It won't be going through them",
+        "alt": "Megawatt screenshot: The cable heads for the bays in a dead straight line. It won't be going through them"
       },
       {
         "src": "shots/shot-4.png",
         "size": [
-          256,
-          192
+          320,
+          240
         ],
-        "caption": "The hard hats out in force, and not one of them stops for a tea break.",
-        "alt": "Megawatt screenshot: The hard hats out in force, and not one of them stops for a tea break."
+        "caption": "Eight green squares and a thank you to the trades. Pass the hankies",
+        "alt": "Megawatt screenshot: Eight green squares and a thank you to the trades. Pass the hankies"
       }
     ]
   },
   "source": {
     "repo": "danielvaughan/zx-megawatt",
-    "commit": "6f45c8057234449093c88d1c7e87a53f78c09055",
+    "commit": "d93587efac24cce22d4c62c550c5df6feb86ffb8",
     "kit": "game/media-kit/m4"
   }
 }
