@@ -217,7 +217,7 @@
       "demo": {
         "milestone": null,
         "sha256": "68e184f466e08f2affb8066abdeb3a2435b00b1f427af5d34e71c97ac9866ca1",
-        "contains": "Single-session demo: January's session with Stevo",
+        "contains": "Level 1 demo",
         "source_tape": "wolf-demo.tap"
       },
       "touch": {

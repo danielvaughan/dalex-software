@@ -5,7 +5,7 @@
   "machine": "ZX Spectrum 128K",
   "jsspeccy_machine": 128,
   "tagline": "A whole year at the gym!",
-  "blurb": "A whole year at the gym! Sweat it out in the summer heatwave, pull on a Christmas jumper for December, then face Stevo's end-of-year report card. Will you be Member of the Year? Pick up from any quarter with your password, or start a fresh year and do it all again.",
+  "blurb": "A whole year at the gym! Twelve sessions and four big lifting days, with red dots for slackers and a bell to ring for every new best. Sweat through the summer heatwave, dress up for December and see who is Member of the Year. Pick up later with your password.",
   "controls": [
     [
       "O / P",
@@ -45,7 +45,7 @@
     "sha256": "3adcef5fff8f74f8daedd245a5af52a68b0529a01de72e9ddf66c774a1982362",
     "size": 46929,
     "milestone": 7,
-    "date": "2026-11-07"
+    "date": "2026-11-09"
   },
   "demo": {
     "src": "demo.bin",
@@ -53,24 +53,24 @@
     "size": 46789,
     "milestone": null,
     "source_tape": "wolf-demo.tap",
-    "contains": "Single-session demo: January's session with Stevo"
+    "contains": "Level 1 demo"
   },
   "review": {
     "magazine": "INK & PAPER",
-    "overall": 66,
+    "overall": 69,
     "scores": {
-      "presentation": 61,
-      "graphics": 62,
-      "sound": 72,
-      "playability": 64,
-      "addictive_qualities": 70,
-      "overall": 66
+      "presentation": 66,
+      "graphics": 66,
+      "sound": 65,
+      "playability": 67,
+      "addictive_qualities": 72,
+      "overall": 69
     },
     "award": null,
-    "verdict": "",
+    "verdict": "A whole year of muscle for your money, but it's flabby round the edges. A few more reps needed.",
     "quote": {
-      "text": "Twelve months of waggling",
-      "reviewer": "Mick Dunsby"
+      "text": "Put the work in, though, and the board does climb",
+      "reviewer": "Prue Fairley"
     }
   },
   "credits": [
@@ -80,7 +80,7 @@
     },
     {
       "role": "Reviewed by",
-      "name": "Mick Dunsby, Prue Fairley and Norm Crabtree for INK & PAPER"
+      "name": "Norm Crabtree, Prue Fairley and Mick Dunsby for INK & PAPER"
     }
   ],
   "in_game_credits": [],
@@ -89,10 +89,10 @@
     "cover": {
       "src": "cover.jpg",
       "size": [
-        848,
-        1264
+        1200,
+        1490
       ],
-      "alt": "WOLF cover painting"
+      "alt": "WOLF cover"
     },
     "shots": [
       {
@@ -101,8 +101,8 @@
           320,
           240
         ],
-        "caption": "Dex hoists the bar, Stevo cheers below and every key you need is listed on the right.",
-        "alt": "WOLF screenshot: Dex hoists the bar, Stevo cheers below and every key you need is listed on the right."
+        "caption": "C gets you back in with your password, though coming back from that page the line turns up last, half-printed.",
+        "alt": "WOLF screenshot: C gets you back in with your password, though coming back from that page the line turns up last, half-printed."
       },
       {
         "src": "shots/shot-2.png",
@@ -110,8 +110,8 @@
           256,
           192
         ],
-        "caption": "Quarter one: 80 up to 95 on the deadlift, and Stevo's proud of you.",
-        "alt": "WOLF screenshot: Quarter one: 80 up to 95 on the deadlift, and Stevo's proud of you."
+        "caption": "December, and the tinsel's up. Those jumpers look like a badge on a plain top, mind.",
+        "alt": "WOLF screenshot: December, and the tinsel's up. Those jumpers look like a badge on a plain top, mind."
       },
       {
         "src": "shots/shot-3.png",
@@ -119,8 +119,8 @@
           256,
           192
         ],
-        "caption": "The end-of-year report: no dots, no gains, and Stevo still says well done for turning up.",
-        "alt": "WOLF screenshot: The end-of-year report: no dots, no gains, and Stevo still says well done for turning up."
+        "caption": "Stevo's verdict on the year: turned up, and that's step one. Praise indeed.",
+        "alt": "WOLF screenshot: Stevo's verdict on the year: turned up, and that's step one. Praise indeed."
       },
       {
         "src": "shots/shot-4.png",
@@ -128,14 +128,14 @@
           256,
           192
         ],
-        "caption": "Mo walks off with Member of the Year while Dex manages a heroic nought per cent.",
-        "alt": "WOLF screenshot: Mo walks off with Member of the Year while Dex manages a heroic nought per cent."
+        "caption": "Mo takes Member of the Year, and Dex can only look at his plus nought per cent.",
+        "alt": "WOLF screenshot: Mo takes Member of the Year, and Dex can only look at his plus nought per cent."
       }
     ]
   },
   "source": {
     "repo": "danielvaughan/zx-wolf",
-    "commit": "ec8e0e703c59aed2290278bd253f1d1ae1bba1a0",
+    "commit": "7f2c38ad4de620fc6decd39a88f01599272b3b64",
     "kit": "game/media-kit/m7"
   }
 }
