@@ -136,7 +136,7 @@
       "demo": {
         "milestone": null,
         "sha256": "6cdcf48a96fd93c34fd141a6386c847c05e31024c258393eb3766cf8da69d682",
-        "contains": "Level 1 demo: the first 30 letters, at the opening speed",
+        "contains": "Level 1 demo",
         "source_tape": "wordris-demo.tap"
       },
       "touch": {

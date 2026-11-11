@@ -4,8 +4,8 @@
   "title": "Wordris",
   "machine": "ZX Spectrum 128K",
   "jsspeccy_machine": 128,
-  "tagline": "Letters tumble one at a time into a narrow well.",
-  "blurb": "Letters tumble one at a time into a narrow well. Steer each one home and spell a three- or four-letter word across or down to score and clear it, with treble-letter, double-letter and double-word squares to aim for. A shadow shows where it will land, falling letters can spell a fresh word for a cascade, and every thirty letters the pace quickens.",
+  "tagline": "Letters tumble one at a time down a narrow well.",
+  "blurb": "Letters tumble one at a time down a narrow well. Steer each one home and spell a three- or four-letter word, across or down, to score and clear it. Treble-letter and double-word squares reward the greedy, a shadow shows where each letter will land, and every thirty letters the pace quickens.",
   "controls": [
     [
       "O",
@@ -45,7 +45,7 @@
     "sha256": "ccdf44ed979e4c94313ac67ddffcb3458149cb3bebbcc467752e060c05583892",
     "size": 20794,
     "milestone": 3,
-    "date": "2026-10-29"
+    "date": "2026-11-09"
   },
   "demo": {
     "src": "demo.bin",
@@ -53,23 +53,23 @@
     "size": 20911,
     "milestone": null,
     "source_tape": "wordris-demo.tap",
-    "contains": "Level 1 demo: the first 30 letters, at the opening speed"
+    "contains": "Level 1 demo"
   },
   "review": {
     "magazine": "INK & PAPER",
-    "overall": 68,
+    "overall": 66,
     "scores": {
-      "presentation": 71,
+      "presentation": 74,
       "graphics": 70,
-      "sound": 66,
-      "playability": 72,
-      "addictive_qualities": 62,
-      "overall": 68
+      "sound": 62,
+      "playability": 71,
+      "addictive_qualities": 60,
+      "overall": 66
     },
     "award": null,
     "verdict": "",
     "quote": {
-      "text": "Clever, tidy and a touch unkind",
+      "text": "Sums and spelling in one go: somebody at Dalex has been reading my diary",
       "reviewer": "Mandy Pike"
     }
   },
@@ -80,11 +80,11 @@
     },
     {
       "role": "Design",
-      "name": "Dalex Software, game specification 0.6"
+      "name": "Dalex Software, game specification 0.5"
     },
     {
       "role": "Reviewed by",
-      "name": "Kev Driscoll, Mandy Pike and Stan Hollis for INK & PAPER"
+      "name": "Mandy Pike, Baz Pocket and Stan Hollis for INK & PAPER"
     }
   ],
   "in_game_credits": [
@@ -107,10 +107,10 @@
     "cover": {
       "src": "cover.jpg",
       "size": [
-        848,
-        1264
+        1200,
+        1490
       ],
-      "alt": "Wordris cover painting"
+      "alt": "Wordris cover"
     },
     "shots": [
       {
@@ -119,8 +119,8 @@
           320,
           240
         ],
-        "caption": "HEN pays fifteen once the H sits on a treble square. Egg-cellent.",
-        "alt": "Wordris screenshot: HEN pays fifteen once the H sits on a treble square. Egg-cellent."
+        "caption": "The owl has got his hat on, which is more than can be said for the letter D",
+        "alt": "Wordris screenshot: The owl has got his hat on, which is more than can be said for the letter D"
       },
       {
         "src": "shots/shot-2.png",
@@ -128,8 +128,8 @@
           256,
           192
         ],
-        "caption": "NOTE goes down for 32 while three Zeds snooze at the bottom of the well",
-        "alt": "Wordris screenshot: NOTE goes down for 32 while three Zeds snooze at the bottom of the well"
+        "caption": "NOTE nabs both double-word squares and pockets 32. Take note",
+        "alt": "Wordris screenshot: NOTE nabs both double-word squares and pockets 32. Take note"
       },
       {
         "src": "shots/shot-3.png",
@@ -137,8 +137,8 @@
           256,
           192
         ],
-        "caption": "CASCADE X2: APE drops into place for six more. Savour it, they're rare.",
-        "alt": "Wordris screenshot: CASCADE X2: APE drops into place for six more. Savour it, they're rare."
+        "caption": "A cascade! Have a good look, you won't see many",
+        "alt": "Wordris screenshot: A cascade! Have a good look, you won't see many"
       },
       {
         "src": "shots/shot-4.png",
@@ -146,14 +146,14 @@
           320,
           240
         ],
-        "caption": "A wise old owl in a mortarboard minds the letters while the tape loads",
-        "alt": "Wordris screenshot: A wise old owl in a mortarboard minds the letters while the tape loads"
+        "caption": "TLYQOERDCM is not in the word list. We looked",
+        "alt": "Wordris screenshot: TLYQOERDCM is not in the word list. We looked"
       }
     ]
   },
   "source": {
     "repo": "danielvaughan/zx-wordris",
-    "commit": "08a40e9b15e938017b8484f31bc6cd122b83bd9f",
+    "commit": "50553cc4a6fa72fc307d38279398373946e68b74",
     "kit": "game/media-kit/m3"
   }
 }
