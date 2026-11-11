@@ -609,3 +609,17 @@ The owner asked for a pixel group portrait like the courtyard picture, using the
   reduced motion, and stores nothing. "All the games" follows it.
 - Checked in Chromium at 1280 px (dark and light) and 390 px: no sideways scroll, no console error, no third-party
   request; the phone page is 30% shorter. `tests/test_home_layout.py` keeps these rules.
+
+## D-43 Covers carry their titles, and the games match their repositories (owner, 2026-11-11)
+
+- The owner: the games were shown "with artwork that does not include the titles"; make sure everything is up to date
+  with the game repositories. Every kit has had an accepted titled cover (`media-kit/cover-titled.png`, checked by
+  the kit's own title read) since 9 November, but the publisher took the untitled painting (`cover.png`).
+  `publish_site.py` (zx-plugins, zx-media-kit) now takes the titled cover when there is one.
+- All nine games were republished from fresh clones of each repository's GitHub `main`: the titled covers, and the
+  kits rebuilt upstream under the budget-tape review rules (new reviews, scores, blurbs and quotes; the demos are
+  unchanged).
+- Purchase talk is cut like a price (the site sells nothing): Gold Master's first pull-quote, "Go on, buy it", gives
+  way to the kit's next price-free one.
+- The covers' titles sit at the top, so the games list and the home carousel show each cover at 4:5 from the top,
+  cropped only at the foot.

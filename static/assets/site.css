@@ -119,9 +119,10 @@ blockquote footer { color: var(--muted); font-size: .9rem; }
 
 /* games index rows */
 .rows { list-style: none; padding: 0; margin: 0; display: grid; gap: 22px; }
-.row { display: grid; grid-template-columns: 220px minmax(0, 1fr) auto; gap: 20px; align-items: start; background: var(--surface); border: 1px solid var(--line); padding: 16px; }
+.row { display: grid; grid-template-columns: 168px minmax(0, 1fr) auto; gap: 20px; align-items: start; background: var(--surface); border: 1px solid var(--line); padding: 16px; }
 .row h2 { margin: 0 0 .2rem; text-transform: none; letter-spacing: 0; font-size: 1.5rem; }
-.row-art img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+/* covers carry their titles at the top (the kits' titled covers, D-43): show them whole, cropped only at the foot */
+.row-art img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; }
 
 /* game page */
 .crumbs { font-size: .9rem; color: var(--muted); }
@@ -202,6 +203,7 @@ figcaption { color: var(--muted); font-size: .9rem; margin-top: 6px; }
   .hero, .two-col, .review-grid { grid-template-columns: 1fr; }
   .row { grid-template-columns: 1fr; }
   .row .badge { justify-self: start; }
+  .row-art { max-width: 200px; }
 }
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; }
@@ -395,7 +397,7 @@ html.photos .people img, html.photos .critic img { width: 192px; height: 192px; 
   scroll-snap-type: x mandatory; scroll-padding-inline: 0; scrollbar-width: thin; scrollbar-color: var(--line) transparent; overscroll-behavior-x: contain; }
 .reel > li { flex: 0 0 clamp(9.5rem, 21%, 14rem); scroll-snap-align: start; }
 .reel a { display: block; color: inherit; text-decoration: none; }
-.shelf-art { display: block; width: 100%; aspect-ratio: 3 / 4; height: auto; object-fit: cover; border: 1px solid var(--line); background: #000; transition: transform .15s ease; }
+.shelf-art { display: block; width: 100%; aspect-ratio: 4 / 5; height: auto; object-fit: cover; object-position: top; border: 1px solid var(--line); background: #000; transition: transform .15s ease; }
 .reel a:hover .shelf-art { transform: translateY(-3px); }
 .reel span { display: block; margin-top: var(--space-2xs); font-weight: 700; font-size: var(--step--1); }
 .reel a:hover span { text-decoration: underline; }
