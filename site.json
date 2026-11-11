@@ -16,7 +16,7 @@
       "demo": {
         "milestone": null,
         "sha256": "15c5bda22e00e209a72594b803361242171c23236de39632530165afd8e93bbc",
-        "contains": "Level 1 demo: Captain Crumpet, level 1 of 4",
+        "contains": "Level 1 demo",
         "source_tape": "gold-master-demo.tap"
       },
       "touch": {

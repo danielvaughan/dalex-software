@@ -4,12 +4,12 @@
   "title": "Gold Master",
   "machine": "ZX Spectrum 128K",
   "jsspeccy_machine": 128,
-  "tagline": "The courier's at the door and the games aren't finished!",
-  "blurb": "The courier's at the door and the games aren't finished! Guide Mo round seven rooms of the Dalex office, carrying work from desk to desk, brewing tea, squashing bugs and shooing Percy the cat. Beat the courier's clock, or pick a relaxed game and let him wait. Every game you ship earns a review mark!",
+  "tagline": "Deadline day at Dalex Software, and the courier will not wait!",
+  "blurb": "Deadline day at Dalex Software, and the courier will not wait! Steer Mo round seven rooms on three floors, carrying the work from desk to desk, brewing the tea, squashing the bugs and shooing the cat. Four games to ship, a review mark for each, and a Relaxed game for those who hate a ticking clock.",
   "controls": [
     [
       "Q / A / O / P",
-      "Walk (two together for diagonals)"
+      "Walk up, down, left, right (two together for diagonals)"
     ],
     [
       "SPACE",
@@ -29,7 +29,7 @@
     ],
     [
       "D (title)",
-      "Deadline or relaxed game"
+      "Deadline or Relaxed game"
     ]
   ],
   "release": {
@@ -37,7 +37,7 @@
     "sha256": "6c39989adb21daf5043e78f893561a4ee03aad71a965cdbc96e52bf5a041c144",
     "size": 34437,
     "milestone": 4,
-    "date": "2026-10-29"
+    "date": "2026-11-09"
   },
   "demo": {
     "src": "demo.bin",
@@ -45,23 +45,23 @@
     "size": 34602,
     "milestone": null,
     "source_tape": "gold-master-demo.tap",
-    "contains": "Level 1 demo: Captain Crumpet, level 1 of 4"
+    "contains": "Level 1 demo"
   },
   "review": {
     "magazine": "INK & PAPER",
-    "overall": 71,
+    "overall": 67,
     "scores": {
-      "presentation": 76,
-      "graphics": 69,
-      "sound": 72,
-      "playability": 72,
-      "addictive_qualities": 66,
-      "overall": 71
+      "presentation": 74,
+      "graphics": 68,
+      "sound": 64,
+      "playability": 70,
+      "addictive_qualities": 62,
+      "overall": 67
     },
     "award": null,
-    "verdict": "Not quite solid gold, but this busy little office game is well worth a copy.",
+    "verdict": "",
     "quote": {
-      "text": "Still, I kept going back for one more go",
+      "text": "Go on, buy it",
       "reviewer": "Kev Mallin"
     }
   },
@@ -76,7 +76,7 @@
     },
     {
       "role": "Reviewed by",
-      "name": "Kev Mallin, Ruth Ashdown and Stan Thorley for INK & PAPER"
+      "name": "Kev Mallin, Prue Fairley and Stan Hollis for INK & PAPER"
     }
   ],
   "in_game_credits": [],
@@ -85,10 +85,10 @@
     "cover": {
       "src": "cover.jpg",
       "size": [
-        896,
-        1200
+        1200,
+        1490
       ],
-      "alt": "Gold Master cover painting"
+      "alt": "Gold Master cover"
     },
     "shots": [
       {
@@ -97,8 +97,8 @@
           320,
           240
         ],
-        "caption": "Mo, the cat and the courier strike a pose before the tea runs out.",
-        "alt": "Gold Master screenshot: Mo, the cat and the courier strike a pose before the tea runs out."
+        "caption": "Cat asleep, robot waiting, Mo legging it: just another day at Dalex",
+        "alt": "Gold Master screenshot: Cat asleep, robot waiting, Mo legging it: just another day at Dalex"
       },
       {
         "src": "shots/shot-2.png",
@@ -106,8 +106,8 @@
           320,
           240
         ],
-        "caption": "A bug on the loose and Percy on the prowl: just another Monday in the office.",
-        "alt": "Gold Master screenshot: A bug on the loose and Percy on the prowl: just another Monday in the office."
+        "caption": "A hundred and seventy-nine seconds left and nobody has made the tea yet",
+        "alt": "Gold Master screenshot: A hundred and seventy-nine seconds left and nobody has made the tea yet"
       },
       {
         "src": "shots/shot-3.png",
@@ -115,8 +115,8 @@
           320,
           240
         ],
-        "caption": "Shipped, and 89% from INK & PAPER. A reviewer of rare taste, clearly.",
-        "alt": "Gold Master screenshot: Shipped, and 89% from INK & PAPER. A reviewer of rare taste, clearly."
+        "caption": "Bugs by the desks and the cat on the prowl, so up goes the stop sign",
+        "alt": "Gold Master screenshot: Bugs by the desks and the cat on the prowl, so up goes the stop sign"
       },
       {
         "src": "shots/shot-4.png",
@@ -124,14 +124,14 @@
           320,
           240
         ],
-        "caption": "Exit stage left, and the bottom of the room blacks out early.",
-        "alt": "Gold Master screenshot: Exit stage left, and the bottom of the room blacks out early."
+        "caption": "SHIPPED! And 89% from this very magazine. We never said that, honest",
+        "alt": "Gold Master screenshot: SHIPPED! And 89% from this very magazine. We never said that, honest"
       }
     ]
   },
   "source": {
     "repo": "danielvaughan/zx-gold-master",
-    "commit": "b524e46c60199a40c585d205bfbf9e382021b960",
+    "commit": "db3b2921cf1f404f7f817bb387debb83c5c38f93",
     "kit": "game/media-kit/m4"
   }
 }
