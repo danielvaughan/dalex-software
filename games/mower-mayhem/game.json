@@ -4,8 +4,8 @@
   "title": "Mower Mayhem",
   "machine": "ZX Spectrum 128K",
   "jsspeccy_machine": 128,
-  "tagline": "Stripe ten walled lawns with your battery mower, zap the weeds with the trimmer and roll onto the dock before the power runs out.",
-  "blurb": "Stripe ten walled lawns with your battery mower, zap the weeds with the trimmer and roll onto the dock before the power runs out. Steer round the flower beds and never, ever touch the hedgehogs, the cat or the birds. Dock on Lawn 10 for the victory card and a high score to beat.",
+  "tagline": "Ten walled lawns, one battery mower and a garden full of wildlife you must never touch.",
+  "blurb": "Ten walled lawns, one battery mower and a garden full of wildlife you must never touch. Mow every stripe, zap the weeds with your trimmer, steer round the flower beds and roll onto the dock before the power dies. Finish Lawn 10 for the victory card and a high score to beat.",
   "controls": [
     [
       "Q",
@@ -49,7 +49,7 @@
     "sha256": "9683be0f353ba6aec28de5523b9c600ba999f5b2c39877bc6512b04447b8dd9f",
     "size": 21505,
     "milestone": 6,
-    "date": "2026-10-30"
+    "date": "2026-11-09"
   },
   "demo": {
     "src": "demo.bin",
@@ -57,24 +57,24 @@
     "size": 21654,
     "milestone": null,
     "source_tape": "mower-mayhem-demo.tap",
-    "contains": "Level 1 demo: Lawn 1 of 10"
+    "contains": "Level 1 demo"
   },
   "review": {
     "magazine": "INK & PAPER",
-    "overall": 72,
+    "overall": 69,
     "scores": {
-      "presentation": 77,
-      "graphics": 71,
-      "sound": 77,
-      "playability": 70,
-      "addictive_qualities": 71,
-      "overall": 72
+      "presentation": 76,
+      "graphics": 70,
+      "sound": 72,
+      "playability": 68,
+      "addictive_qualities": 65,
+      "overall": 69
     },
     "award": null,
-    "verdict": "",
+    "verdict": "Just keep the trimmer away from the hedgehogs.",
     "quote": {
-      "text": "The mower turns the instant you touch Q A O P, and two keys at once take it round the diagonals",
-      "reviewer": "Baz Pocket"
+      "text": "The tunes are a treat, and M shuts them up if the neighbours complain",
+      "reviewer": "Norm Crabtree"
     }
   },
   "credits": [
@@ -97,10 +97,10 @@
     "cover": {
       "src": "cover.jpg",
       "size": [
-        896,
-        1200
+        1200,
+        1607
       ],
-      "alt": "Mower Mayhem cover painting"
+      "alt": "Mower Mayhem cover"
     },
     "shots": [
       {
@@ -109,8 +109,8 @@
           320,
           240
         ],
-        "caption": "Hedgehog, cat and bird turn out to see the big mow. No pressure, then.",
-        "alt": "Mower Mayhem screenshot: Hedgehog, cat and bird turn out to see the big mow. No pressure, then."
+        "caption": "The title page, starring a hedgehog who looks as if he has read the rules",
+        "alt": "Mower Mayhem screenshot: The title page, starring a hedgehog who looks as if he has read the rules"
       },
       {
         "src": "shots/shot-2.png",
@@ -118,8 +118,8 @@
           320,
           240
         ],
-        "caption": "A black cat peeks in at the top corner. Time to keep that trimmer quiet.",
-        "alt": "Mower Mayhem screenshot: A black cat peeks in at the top corner. Time to keep that trimmer quiet."
+        "caption": "End of the top row, and the mower pulls up politely short of the hedgehog",
+        "alt": "Mower Mayhem screenshot: End of the top row, and the mower pulls up politely short of the hedgehog"
       },
       {
         "src": "shots/shot-3.png",
@@ -127,8 +127,8 @@
           320,
           240
         ],
-        "caption": "Zap! The yellow beam shoots up a whisker beside the weed it trims.",
-        "alt": "Mower Mayhem screenshot: Zap! The yellow beam shoots up a whisker beside the weed it trims."
+        "caption": "Red means no: the trimmer won't fire while Mr Hedgehog is in the way",
+        "alt": "Mower Mayhem screenshot: Red means no: the trimmer won't fire while Mr Hedgehog is in the way"
       },
       {
         "src": "shots/shot-4.png",
@@ -136,14 +136,14 @@
           256,
           192
         ],
-        "caption": "Lawn 8 and the flower beds are breeding like rabbits.",
-        "alt": "Mower Mayhem screenshot: Lawn 8 and the flower beds are breeding like rabbits."
+        "caption": "Lawn 8, and the flower beds are starting to take over the garden",
+        "alt": "Mower Mayhem screenshot: Lawn 8, and the flower beds are starting to take over the garden"
       }
     ]
   },
   "source": {
     "repo": "danielvaughan/zx-mower-mayhem",
-    "commit": "53144d166d032fbcf556ba8f9e8965fa55bb401b",
+    "commit": "7d2f90c413d9a028f484259eaaef80334e1210b6",
     "kit": "game/media-kit/m6"
   }
 }
