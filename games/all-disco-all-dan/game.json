@@ -4,8 +4,8 @@
   "title": "All Disco, All Dan",
   "machine": "ZX Spectrum 128K",
   "jsspeccy_machine": 128,
-  "tagline": "Four clubs, twelve stages and one night to light up every disc!",
-  "blurb": "Four clubs, twelve stages and one night to light up every disc! Hop Dan on the beat to pump up the multiplier, fill the Funk Meter and let rip a Boogie Point to freeze Ron the bouncer and Flat-Note Fred. Dodge the spotlight, beat the cassette counter or chill at your own pace, and dance all the way to the Starlight Rooftop.",
+  "tagline": "Four clubs, twelve stages and one night to light every disc!",
+  "blurb": "Four clubs, twelve stages and one night to light every disc! Hop Dan on the beat to build your Groove, fill the Funk Meter and let rip a Boogie Point to leave Ron the bouncer and Flat-Note Fred dancing on the spot. Race the cassette counter in Showtime or take it easy in Chill Groove.",
   "controls": [
     [
       "Q",
@@ -49,7 +49,7 @@
     "sha256": "f2d52e77d684888efd5a3e00b4bf2d757bcfd035d1b7e3a718de0f8d0a1de0dd",
     "size": 20311,
     "milestone": 4,
-    "date": "2026-11-06"
+    "date": "2026-11-09"
   },
   "demo": {
     "src": "demo.bin",
@@ -57,24 +57,24 @@
     "size": 20307,
     "milestone": null,
     "source_tape": "all-disco-all-dan-demo.tap",
-    "contains": "Club 1 demo: the Velvet Basement, stages 1-1 to 1-3"
+    "contains": "Level 1 demo"
   },
   "review": {
     "magazine": "INK & PAPER",
-    "overall": 78,
+    "overall": 70,
     "scores": {
-      "presentation": 78,
-      "graphics": 76,
-      "sound": 78,
-      "playability": 79,
-      "addictive_qualities": 74,
-      "overall": 78
+      "presentation": 74,
+      "graphics": 72,
+      "sound": 66,
+      "playability": 72,
+      "addictive_qualities": 68,
+      "overall": 70
     },
     "award": null,
-    "verdict": "",
+    "verdict": "Get down, and get it.",
     "quote": {
-      "text": "And the BEST on the title keeps points a rewind took away",
-      "reviewer": "Prue Fairley"
+      "text": "The title page then gives you the keys, the mode and the music switch without any fuss",
+      "reviewer": "Norm Crabtree"
     }
   },
   "credits": [
@@ -88,7 +88,7 @@
     },
     {
       "role": "Reviewed by",
-      "name": "Zippy Dee, Norm Crabtree and Prue Fairley for INK & PAPER"
+      "name": "Norm Crabtree, Baz Pocket and Prue Fairley for INK & PAPER"
     }
   ],
   "in_game_credits": [],
@@ -97,20 +97,20 @@
     "cover": {
       "src": "cover.jpg",
       "size": [
-        896,
-        1200
+        1200,
+        1490
       ],
-      "alt": "All Disco, All Dan cover painting"
+      "alt": "All Disco, All Dan cover"
     },
     "shots": [
       {
         "src": "shots/shot-1.png",
         "size": [
-          320,
-          240
+          256,
+          192
         ],
-        "caption": "Dan strikes a pose. The afro alone took two days to load.",
-        "alt": "All Disco, All Dan screenshot: Dan strikes a pose. The afro alone took two days to load."
+        "caption": "Thirteen on the counter and the mirrorball has gone red. Panic stations in the Velvet Basement.",
+        "alt": "All Disco, All Dan screenshot: Thirteen on the counter and the mirrorball has gone red. Panic stations in the Velvet Basement."
       },
       {
         "src": "shots/shot-2.png",
@@ -118,17 +118,17 @@
           320,
           240
         ],
-        "caption": "Two Rons on the roof. Keep an eye on both flashes, or else.",
-        "alt": "All Disco, All Dan screenshot: Two Rons on the roof. Keep an eye on both flashes, or else."
+        "caption": "Flat-Note Fred, stopped dead by a Boogie Point. Best thing for him.",
+        "alt": "All Disco, All Dan screenshot: Flat-Note Fred, stopped dead by a Boogie Point. Best thing for him."
       },
       {
         "src": "shots/shot-3.png",
         "size": [
-          256,
-          192
+          320,
+          240
         ],
-        "caption": "Groove times four in the Mirrorball Lounge, and still Fred lurks.",
-        "alt": "All Disco, All Dan screenshot: Groove times four in the Mirrorball Lounge, and still Fred lurks."
+        "caption": "TWO RONS! All that gold is only a promise: the floor goes back to plain the moment you start.",
+        "alt": "All Disco, All Dan screenshot: TWO RONS! All that gold is only a promise: the floor goes back to plain the moment you start."
       },
       {
         "src": "shots/shot-4.png",
@@ -136,14 +136,14 @@
           320,
           240
         ],
-        "caption": "The whole gang dances it out on the rooftop. Even Ron's smiling.",
-        "alt": "All Disco, All Dan screenshot: The whole gang dances it out on the rooftop. Even Ron's smiling."
+        "caption": "All five take a bow on the roof, including the two who spent all night undoing your good work.",
+        "alt": "All Disco, All Dan screenshot: All five take a bow on the roof, including the two who spent all night undoing your good work."
       }
     ]
   },
   "source": {
     "repo": "danielvaughan/zx-all-disco-all-dan",
-    "commit": "6ac3151823e8d7ccc95d0e07e94ebe7ceffea2b7",
+    "commit": "1c580200997ca12126c319cb677e7099fe5286ec",
     "kit": "game/media-kit/m4"
   }
 }

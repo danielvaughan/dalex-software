@@ -347,7 +347,7 @@
       "demo": {
         "milestone": null,
         "sha256": "7baca1a7d6edd2dbd0d12e63271f00522e075fbaa106c53eb288a683f71a9e25",
-        "contains": "Club 1 demo: the Velvet Basement, stages 1-1 to 1-3",
+        "contains": "Level 1 demo",
         "source_tape": "all-disco-all-dan-demo.tap"
       },
       "touch": {
