@@ -93,10 +93,10 @@
     "cover": {
       "src": "cover.jpg",
       "size": [
-        896,
-        1200
+        1200,
+        1607
       ],
-      "alt": "Tiger Gorilla cover painting"
+      "alt": "Tiger Gorilla cover"
     },
     "shots": [
       {
@@ -139,7 +139,7 @@
   },
   "source": {
     "repo": "danielvaughan/zx-tiger-gorilla",
-    "commit": "cc40f4254b7678808c27ed629bd4ef6ff931590f",
+    "commit": "603c7d7d83cad7cd26f99eedadff1cc7ef2199d0",
     "kit": "game/media-kit/m7"
   }
 }
