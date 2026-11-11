@@ -364,6 +364,11 @@ def card(game, root):
 
 # ------------------------------------------------------------------ pages
 
+# The music video on the home page (D-41): played from YouTube only when the visitor presses play
+MUSIC_VIDEO = {'youtube': '-_4-1W9eWcM', 'making_of': 'g5PJrlRBw9k', 'title': 'Press Play on Tape',
+               'poster': 'assets/home/press-play-on-tape.jpg'}
+
+
 def home(site, games, featured, episodes=()):
     """The front door: what Dalex is, the new release, the shelf of games, and a way into each section (D-35)."""
     root = ''
@@ -393,6 +398,18 @@ def home(site, games, featured, episodes=()):
               else 'Bev and Gareth talk to the team about how the games were made.')
     team = ''.join(f'<img class="px" src="assets/people/{who}.png" width="48" height="96" alt=""{LAZY}>'
                    for who in ('malcolm', 'mo', 'gareth', 'hyunjoo', 'dez'))
+    mv = MUSIC_VIDEO
+    music = f'''<section class="music" aria-labelledby="music-title">
+  <div class="video-embed" data-youtube="{e(mv['youtube'])}" data-title="{e(mv['title'])}: the music video">
+    <a href="https://www.youtube.com/watch?v={e(mv['youtube'])}"><img src="{e(mv['poster'])}" width="960" height="540" alt="Dez and Hyun-joo at the microphone in the courtyard, the whole team clapping behind them"{LAZY}><span class="play">Play the video</span></a>
+  </div>
+  <div>
+    <p class="kicker">Music video</p>
+    <h2 id="music-title">{e(mv['title'])}</h2>
+    <p class="lede">Dez and Hyun-joo sing the studio's own song, and the whole team joins in. Every game you see on screen is a real Dalex game.</p>
+    <p class="small">Playing it loads the video from YouTube. <a href="https://www.youtube.com/watch?v={e(mv['making_of'])}">How it was made, with no camera: Hyun-joo explains</a></p>
+  </div>
+</section>'''
     body = f'''<section class="welcome" aria-labelledby="welcome-title">
   <p class="kicker">A Manchester software house</p>
   <h1 id="welcome-title" class="welcome-title">New games for the ZX Spectrum, and how to make your own</h1>
@@ -407,6 +424,7 @@ def home(site, games, featured, episodes=()):
   </ul>
   <p><a href="games/">All the games, with their free demos and reviews</a></p>
 </section>
+{music}
 <section aria-labelledby="doors-title">
   <h2 id="doors-title">How they are made</h2>
   <ul class="doors">
@@ -419,6 +437,7 @@ def home(site, games, featured, episodes=()):
     ld = ld_json({'@type': 'WebSite', 'name': site['name'], 'url': site['base_url'],
                   'description': site.get('description', ''), 'inLanguage': 'en-GB'}, publisher(site))
     return page(site, root=root, path='', title=site['name'], body=body, current='home', ld=ld,
+                scripts='<script src="assets/video-embed.js" defer></script>\n',
                 head_title=f'{site["name"]}: new ZX Spectrum games to play in your browser')
 
 

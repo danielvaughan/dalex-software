@@ -575,3 +575,18 @@ The owner's idea, "the creation of a spec ... through a chat interface with the 
 ## D-40 About uses a posed Production team portrait (owner, 2026-11-08)
 
 The owner asked for a pixel group portrait like the courtyard picture, using the actual Studio sprites and Production room as references, then replacing the About picture. The first literal composition of sprite frames was rejected as a room screenshot. The accepted portrait is redrawn as one posed scene from a labelled sheet of the Studio sprites and Production v9 room art, with Percy corrected to match his dark-chocolate reference (`dalex-studio/assets/source/cast-photos/team/production-pixel-group-sprite-referenced-v2.*`). The pixel portrait is the default; the 1987 Production photograph remains the alternate under the About page switch. Daniel stands at the right edge.
+
+## D-41 The home page plays the Press Play on Tape music video (owner, 2026-11-11)
+
+- The owner asked for the current YouTube cut of *Press Play on Tape* (Dez Mulvaney and Hyun-joo Lee, v2.5,
+  <https://youtu.be/-_4-1W9eWcM>, made Public the same day) on the home page, placed where it fits best. It sits after the games
+  shelf and before "How they are made": the front door stays games first (D-35), and the song is the studio's own
+  showpiece rather than a way into one section, so it is a feature of its own, not a door.
+- **Nothing loads from YouTube until the visitor presses play.** The section shows the site's own poster (a frame of
+  the finale, `static/assets/home/press-play-on-tape.jpg`) inside a plain link to the video, so it works without
+  script. `static/assets/video-embed.js` swaps the link for a `youtube-nocookie.com` player only on a click or Enter,
+  and moves focus into it. The page says that playing loads the video from YouTube. No cookies or storage of our own.
+- The video's ID is `MUSIC_VIDEO` in `build.py`; a new cut on YouTube changes only that ID (and the poster if the
+  finale changes). It links the public making-of film, in which Hyun-joo explains how it was made with AI.
+- Checked in Chromium at 1280 and 390 px wide: no third-party request and no cookie before play, no sideways scroll,
+  the player starts by keyboard; `tests/test_home_video.py` keeps the order, the poster and the no-third-party rule.
