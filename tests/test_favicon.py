@@ -74,6 +74,21 @@ class Favicon(unittest.TestCase):
         self.assertIn('#ffe600', svg)
         self.assertIn('#ff2d2d', svg)
 
+    def test_every_page_asks_for_the_current_icons(self):
+        """Browsers cache a favicon by its URL for weeks; the owner still saw the broken icon days after the fix. Every
+        built page links all three icons with the version of the files that exist now (D-45)."""
+        import hashlib, re, subprocess, sys
+        subprocess.run([sys.executable, str(ROOT / 'build.py')], cwd=ROOT, check=True, capture_output=True)
+        v = hashlib.sha256(b''.join((ROOT / 'static' / f).read_bytes()
+                                    for f in ('favicon.ico', 'favicon.svg', 'favicon.png'))).hexdigest()[:8]
+        pages = list((ROOT / '_site').rglob('*.html'))
+        self.assertGreater(len(pages), 10)
+        for page in pages:
+            hrefs = re.findall(r'<link rel="icon" href="([^"]+)"', page.read_text(encoding='utf-8'))
+            self.assertEqual(len(hrefs), 3, page)
+            for h in hrefs:
+                self.assertTrue(h.endswith(f'?v={v}'), (page, h))
+
 
 if __name__ == '__main__':
     unittest.main()

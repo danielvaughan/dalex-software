@@ -631,3 +631,11 @@ The owner asked for a pixel group portrait like the courtyard picture, using the
   order. It follows the reviews as kits are republished, and is labelled "Best reviewed · INK & PAPER".
 - `site.json`'s `"featured": true` still pins a game by the owner's choice (labelled "New release" as before); Gold
   Master's pin, set when it was the newest release (D-07), is removed. Today the feature is Tiger Gorilla, 76%.
+
+## D-45 Favicon URLs carry the icons' version (owner, 2026-11-11)
+
+The owner saw the browser's broken-image icon in the tab on 11 November. The live icons were fine: the 7 November fix
+had replaced a broken PNG and ICO, but browsers keep a favicon under its URL for weeks. Every page now links
+`favicon.ico`, `.svg` and `.png` with `?v=` and the first 8 hex digits of the three files' SHA-256, so any change to the
+icons reaches every browser at once. `tests/test_favicon.py` checks every built page.
+

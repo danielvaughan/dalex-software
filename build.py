@@ -23,6 +23,11 @@ from pathlib import Path
 from urllib.parse import urlsplit
 import podcast  # Dalex After Hours: pages and feed (D-31)
 
+# Browsers keep a favicon for weeks under its URL: a broken icon from before the 7 November fix stayed in the owner's
+# tabs. The version is the icons' own hash, so any change to them reaches every browser at once (D-45).
+FAVICON_V = hashlib.sha256(b''.join((Path(__file__).resolve().parent / 'static' / f).read_bytes()
+                                    for f in ('favicon.ico', 'favicon.svg', 'favicon.png'))).hexdigest()[:8]
+
 ROOT = Path(__file__).resolve().parent
 # The only game files deployed: the cover, screen shots, licences and the obfuscated demo (D-16, D-19).
 GAME_FILES = re.compile(r'^(cover\.jpg|shots/[\w.-]+\.png|licenses/[^/]+)$')
@@ -314,9 +319,9 @@ def page(site, *, root, path, title, body, description='', current='', extra_hea
 <meta name="description" content="{e(description)}">
 <meta name="color-scheme" content="dark light">
 <link rel="canonical" href="{e(site['base_url'] + path)}">
-<link rel="icon" href="{root}favicon.ico" sizes="any">
-<link rel="icon" href="{root}favicon.svg" type="image/svg+xml">
-<link rel="icon" href="{root}favicon.png" type="image/png">
+<link rel="icon" href="{root}favicon.ico?v={FAVICON_V}" sizes="any">
+<link rel="icon" href="{root}favicon.svg?v={FAVICON_V}" type="image/svg+xml">
+<link rel="icon" href="{root}favicon.png?v={FAVICON_V}" type="image/png">
 <link rel="alternate" type="application/atom+xml" title="{e(site['name'])} releases" href="{root}feed.xml">
 <link rel="stylesheet" href="{root}assets/site.css">
 {social(site, path=path, title=title, description=description, image=image, og_type=og_type)}{ld}{extra_head}</head>
