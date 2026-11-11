@@ -98,7 +98,7 @@
       "demo": {
         "milestone": null,
         "sha256": "d759f88211f6c4afe88a30ca45b6ea5c34c7891cee192f509d8c3556dafe801b",
-        "contains": "Level 1 demo: Sector 01 of 10",
+        "contains": "Level 1 demo",
         "source_tape": "antigravity-demo.tap"
       },
       "touch": {

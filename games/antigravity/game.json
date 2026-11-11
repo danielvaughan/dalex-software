@@ -4,11 +4,11 @@
   "title": "Antigravity",
   "machine": "ZX Spectrum 128K",
   "jsspeccy_machine": 128,
-  "tagline": "Gravity has turned upside down aboard the Helios-7 space station!",
-  "blurb": "Gravity has turned upside down aboard the Helios-7 space station! Feather your down-thrust, brake hard and grab three power cores in every bay before the oxygen runs out. Ten sectors across three decks, sweeping lasers, sentry drones and an S, A, B or C rank for every bay.",
+  "tagline": "Gravity's gone the wrong way aboard the Helios-7 space station, and the ceiling is deadly!",
+  "blurb": "Gravity's gone the wrong way aboard the Helios-7 space station, and the ceiling is deadly! Feather your down-thrust, brake hard and grab three power cores in every bay before your minute of oxygen runs out. Ten sectors on three decks, with sweeping lasers, sentry drones and an S, A, B or C rank for every bay.",
   "controls": [
     [
-      "S / A",
+      "S",
       "Down-thrust"
     ],
     [
@@ -34,6 +34,10 @@
     [
       "M",
       "Music on/off"
+    ],
+    [
+      "E",
+      "Effects on/off"
     ]
   ],
   "release": {
@@ -41,7 +45,7 @@
     "sha256": "36deccc378e4e1b04726ce5e4ff17a37ac38a288dccdf93ccf4f104abe421a5a",
     "size": 14495,
     "milestone": 4,
-    "date": "2026-10-26"
+    "date": "2026-11-09"
   },
   "demo": {
     "src": "demo.bin",
@@ -49,24 +53,24 @@
     "size": 14333,
     "milestone": null,
     "source_tape": "antigravity-demo.tap",
-    "contains": "Level 1 demo: Sector 01 of 10"
+    "contains": "Level 1 demo"
   },
   "review": {
     "magazine": "INK & PAPER",
-    "overall": 74,
+    "overall": 67,
     "scores": {
-      "presentation": 77,
-      "graphics": 69,
-      "sound": 70,
-      "playability": 76,
-      "addictive_qualities": 72,
-      "overall": 74
+      "presentation": 75,
+      "graphics": 65,
+      "sound": 62,
+      "playability": 68,
+      "addictive_qualities": 63,
+      "overall": 67
     },
     "award": null,
-    "verdict": "",
+    "verdict": "Keep your finger on S and it will let you down gently, which is more than the ceiling will.",
     "quote": {
-      "text": "Neat and honest, if a bit plain",
-      "reviewer": "GRIFF"
+      "text": "SPACE is the brake and S is all that stops you sailing up into that red ceiling",
+      "reviewer": "Baz Pocket"
     }
   },
   "credits": [
@@ -80,7 +84,7 @@
     },
     {
       "role": "Reviewed by",
-      "name": "ZAK, PRU and GRIFF for INK & PAPER"
+      "name": "Baz Pocket, Prue Fairley and Norm Crabtree for INK & PAPER"
     }
   ],
   "in_game_credits": [],
@@ -89,20 +93,20 @@
     "cover": {
       "src": "cover.jpg",
       "size": [
-        896,
-        1200
+        1200,
+        1490
       ],
-      "alt": "Antigravity cover painting"
+      "alt": "Antigravity cover"
     },
     "shots": [
       {
         "src": "shots/shot-1.png",
         "size": [
-          256,
-          192
+          320,
+          240
         ],
-        "caption": "Sector 10: three pillars, one laser and a drone in a hurry. Good luck.",
-        "alt": "Antigravity screenshot: Sector 10: three pillars, one laser and a drone in a hurry. Good luck."
+        "caption": "Our hero reaches for the shiny bit. Everything after this is smaller.",
+        "alt": "Antigravity screenshot: Our hero reaches for the shiny bit. Everything after this is smaller."
       },
       {
         "src": "shots/shot-2.png",
@@ -110,8 +114,8 @@
           256,
           192
         ],
-        "caption": "Three cores in, hatch gone green, and an S rank to show for it.",
-        "alt": "Antigravity screenshot: Three cores in, hatch gone green, and an S rank to show for it."
+        "caption": "Sector 9: one gap in the pillars and two red nasties to guard it.",
+        "alt": "Antigravity screenshot: Sector 9: one gap in the pillars and two red nasties to guard it."
       },
       {
         "src": "shots/shot-3.png",
@@ -119,8 +123,8 @@
           256,
           192
         ],
-        "caption": "The tally at the end lists every sector's score and grade. Frame it.",
-        "alt": "Antigravity screenshot: The tally at the end lists every sector's score and grade. Frame it."
+        "caption": "Sector 10, and a red nasty paints a stripe across the pillar.",
+        "alt": "Antigravity screenshot: Sector 10, and a red nasty paints a stripe across the pillar."
       },
       {
         "src": "shots/shot-4.png",
@@ -128,14 +132,14 @@
           256,
           192
         ],
-        "caption": "The title page spells out every key, so no excuses.",
-        "alt": "Antigravity screenshot: The title page spells out every key, so no excuses."
+        "caption": "Ten sectors and a wall of S and A ranks. Smug? Us?",
+        "alt": "Antigravity screenshot: Ten sectors and a wall of S and A ranks. Smug? Us?"
       }
     ]
   },
   "source": {
     "repo": "danielvaughan/zx-antigravity",
-    "commit": "299f761244d012a5c3b01abc2f1ebb40071d9b25",
+    "commit": "252bdb58605476af7acd070d9e8ad915346b1b04",
     "kit": "game/media-kit/m4"
   }
 }
