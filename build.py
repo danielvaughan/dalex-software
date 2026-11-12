@@ -387,7 +387,7 @@ def card(game, root):
 # ------------------------------------------------------------------ pages
 
 # The music video on the home page (D-41): played from YouTube only when the visitor presses play
-MUSIC_VIDEO = {'youtube': '-_4-1W9eWcM', 'making_of': 'g5PJrlRBw9k', 'title': 'Press Play on Tape',
+MUSIC_VIDEO = {'youtube': 'isDhCXqy8Aw', 'making_of': 'g5PJrlRBw9k', 'title': 'Press Play on Tape',
                'poster': 'assets/home/press-play-on-tape.jpg'}
 
 

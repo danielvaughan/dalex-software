@@ -588,6 +588,8 @@ The owner asked for a pixel group portrait like the courtyard picture, using the
   and moves focus into it. The page says that playing loads the video from YouTube. No cookies or storage of our own.
 - The video's ID is `MUSIC_VIDEO` in `build.py`; a new cut on YouTube changes only that ID (and the poster if the
   finale changes). It links the public making-of film, in which Hyun-joo explains how it was made with AI.
+- **v2.5.1 replaces v2.5 (owner, 12 November 2026).** v2.5.1 re-lip-syncs one shot (a blob beside Dez's face at 2:02).
+  It is Public at <https://youtu.be/isDhCXqy8Aw>; v2.5 is now Unlisted. The poster is unchanged: the finale is the same.
 - Checked in Chromium at 1280 and 390 px wide: no third-party request and no cookie before play, no sideways scroll,
   the player starts by keyboard; `tests/test_home_video.py` keeps the order, the poster and the no-third-party rule.
 
