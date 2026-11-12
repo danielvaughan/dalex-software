@@ -639,3 +639,10 @@ had replaced a broken PNG and ICO, but browsers keep a favicon under its URL for
 `favicon.ico`, `.svg` and `.png` with `?v=` and the first 8 hex digits of the three files' SHA-256, so any change to the
 icons reaches every browser at once. `tests/test_favicon.py` checks every built page.
 
+
+## D-46 The colour scheme stays as it is (owner, 2026-11-12)
+
+Asked whether the site should be dark, light or follow the device, the owner said on 12 November: "It should stay as it
+is". The site is dark by default and switches to its light palette when the device asks for light
+(`prefers-color-scheme: light` in `static/assets/site.css`); the music-video band stays dark in both. There is no
+theme switch on the page.
