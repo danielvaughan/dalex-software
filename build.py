@@ -81,6 +81,7 @@ def load(root: Path, config: Path):
         data['_demo'] = demo_of(root, slug, g, data)
         data['_touch'] = touch_of(slug, g, data)    # checked now, shown only with a demo
         data['_entry'] = g
+        data['_extras'] = load_extras(root, slug)    # timeline, genre and archive links (D-47, dev preview)
         if g['visible']:
             check_no_price(slug, data)
         entries.append(data)
@@ -244,6 +245,11 @@ def check_no_price(slug: str, data: dict):
     texts = [data.get('title'), data.get('tagline'), data.get('blurb'), rev.get('verdict'), rev.get('award'),
              (rev.get('quote') or {}).get('text'), ((data.get('_demo') or {}).get('contains'))]
     texts += [s.get('caption') for s in (data.get('images') or {}).get('shots') or []]
+    ex = data.get('_extras') or {}
+    texts += [(ex.get('genre') or {}).get('text')]
+    texts += [m.get('title') for m in ex.get('milestones') or []]
+    texts += [(m.get('shot') or {}).get('caption') for m in ex.get('milestones') or []]
+    texts += [a.get(k) for a in ex.get('archive') or [] for k in ('title', 'note')]
     for t in texts:
         if t and PRICE_RE.search(str(t)):
             raise BuildError(f'games/{slug}/game.json: text states a price ({t!r}); republish with the zx-website skill')
@@ -505,7 +511,216 @@ def games_index(site, games):
                             'All Dalex Software games for the ZX Spectrum.')
 
 
-def game_page(site, game):
+# ------------------------------------------------------------------ game extras (D-47, proposed, dev preview)
+# Per-game data that the zx-website skill does not publish yet. content/extras/<slug>/milestones.json and its
+# m<n>.png are written by tools/game_extras.py from the game's own repository at the published commit;
+# content/extras/<slug>/extras.json is hand-curated (links to the book, podcast, film and articles). In production
+# both belong in games/<slug>/, written by the zx-website skill.
+
+EXTRAS = 'content/extras'
+EXTRA_FILES = re.compile(r'^m\d+\.png$')
+ARCHIVE_KINDS = ('book', 'podcast', 'film', 'article')
+BOOK_TITLE = 'Machine Code Mayhem'
+COVER_ROLE = re.compile(r'\b(cover|artwork|art|illustrat\w*|paint\w*)\b', re.I)
+
+
+def load_extras(root: Path, slug: str) -> dict:
+    d = root / EXTRAS / slug
+    out = {'milestones': [], 'genre': None, 'archive': []}
+    gen, cur = d / 'milestones.json', d / 'extras.json'
+    if gen.is_file():
+        g = json.loads(gen.read_text(encoding='utf-8'))
+        out['milestones'] = g.get('milestones') or []
+        out['genre'] = g.get('genre')
+        for m in out['milestones']:
+            shot = m.get('shot')
+            if shot and not (EXTRA_FILES.match(shot['src']) and (d / shot['src']).is_file()):
+                raise BuildError(f'{EXTRAS}/{slug}/milestones.json: missing picture {shot["src"]}')
+    if cur.is_file():
+        out['archive'] = json.loads(cur.read_text(encoding='utf-8')).get('archive') or []
+        for a in out['archive']:
+            if a.get('kind') not in ARCHIVE_KINDS:
+                raise BuildError(f'{EXTRAS}/{slug}/extras.json: unknown archive kind {a.get("kind")!r}')
+    return out
+
+
+def cap(s: str) -> str:
+    return s[:1].upper() + s[1:]
+
+
+def glance(site, game) -> str:
+    """Game at a glance: only facts the game's own records hold."""
+    rel = game.get('release') or {}
+    rev = game.get('review') or {}
+    ex = game.get('_extras') or {}
+    credits = {c['role']: c['name'] for c in game.get('credits') or []}
+    rows = []
+    if rel.get('date'):
+        rows.append(('Released', f'<time datetime="{e(rel["date"])}">{e(nice_date(rel["date"]))}</time>'))
+    rows.append(('Machine', e(game['machine'])))
+    if ex.get('genre'):
+        rows.append(('Genre', e(ex['genre']['text'])))
+    rows.append(('Developer', e(site['name'])))
+    if credits.get('Published by'):
+        rows.append(('Publisher', e(credits['Published by'])))
+    n = len(ex.get('milestones') or [])
+    status = 'Finished' + (f', in {n} milestones' if n > 1 else '')
+    status += '; free demo to play here' if game['_demo'] else '; demo coming soon'
+    rows.append(('Status', status))
+    if rev.get('overall') is not None:
+        rows.append(('Reviewed', f'<a href="#review-h">{e(rev["overall"])}% in <em>INK &amp; PAPER</em></a>'))
+    items = ''.join(f'<div><dt>{k}</dt><dd>{v}</dd></div>' for k, v in rows)
+    return f'''<section class="glance" aria-labelledby="glance-h">
+  <h2 id="glance-h" class="kicker">Game at a glance</h2>
+  <dl>{items}</dl>
+</section>'''
+
+
+def shot_figure(src, w, h, alt, caption, i, n, group) -> str:
+    """A screen shot that opens full size: a plain link without script, the lightbox with it (lightbox.js)."""
+    cap_html = f'<figcaption>{e(caption)}</figcaption>' if caption else ''
+    return (f'<figure><a class="zoom" href="{e(src)}" data-gallery="{group}" '
+            f'aria-label="Image {i} of {n}, full size: {e(alt)}">'
+            f'<img class="px" src="{e(src)}" width="{w}" height="{h}" alt="{e(alt)}" loading="lazy"></a>{cap_html}</figure>')
+
+
+def timeline(game) -> str:
+    ms = (game.get('_extras') or {}).get('milestones') or []
+    if not ms:
+        return ''
+    shots = [m for m in ms if m.get('shot')]
+    items, k = [], 0
+    for m in ms:
+        when = (f' <time class="tl-date" datetime="{e(m["date"])}">{e(nice_date(m["date"]))}</time>'
+                if m.get('date') else '')
+        pic = ''
+        if m.get('shot'):
+            k += 1
+            sh = m['shot']
+            alt = f'{game["title"]} at milestone {m["milestone"]}: {sh["caption"]}'
+            pic = shot_figure(f'milestones/{sh["src"]}', sh['size'][0], sh['size'][1], alt, sh['caption'], k,
+                              len(shots), 'milestones')
+        items.append(f'''<li>
+    <p class="tl-head"><span class="tl-m">M{e(m["milestone"])}</span> <strong>{e(cap(m["title"]))}</strong>{when}</p>
+    {pic}
+  </li>''')
+    return f'''<section aria-labelledby="made-h">
+  <h2 id="made-h">How it was made</h2>
+  <p class="intro">Every Dalex game is built in milestones, each one a tape that loads and plays. These are
+  {e(game["title"])}&rsquo;s, from its milestone plan. Each date is the day that milestone&rsquo;s tape was finished;
+  the pictures and captions are from <em>INK &amp; PAPER</em>&rsquo;s look at that tape.</p>
+  <ol class="timeline">{"".join(items)}</ol>
+</section>'''
+
+
+def archive(game, episodes=(), arts=()) -> str:
+    """From the archive: links to things about this game that the site already has. Unreleased podcast episodes
+    and missing articles are left out, so every card leads somewhere."""
+    root = '../../'
+    eps = {ep['slug']: ep for ep in episodes}
+    by_slug = {a['slug']: a for a in arts}
+    cards = []
+    for a in (game.get('_extras') or {}).get('archive') or []:
+        kind = a['kind']
+        if kind == 'book':
+            ch = a.get('chapters') or []
+            which = (f'Chapter {ch[0]}' if len(ch) == 1 else f'Chapters {ch[0]} to {ch[-1]}') if ch else ''
+            cards.append((f'{root}book/#chapters', f'The book · {BOOK_TITLE}', a['title'],
+                          f'{which}, by {a["by"]}.' if which else f'By {a["by"]}.',
+                          ('assets/book/machine-code-mayhem.jpg', 600, 900)))
+        elif kind == 'podcast' and a.get('episode') in eps:
+            ep = eps[a['episode']]
+            cards.append((f'{root}podcast/{ep["slug"]}/', 'Dalex After Hours',
+                          f'Episode {ep["number"]}: {ep["title"]}', ep['summary'],
+                          ('assets/podcast/cover-1400.jpg', 1400, 1400)))
+        elif kind == 'film':
+            cards.append((f'{root}studio/', 'The studio film', 'How the studio works', a.get('note') or '',
+                          (FILM + '-poster.jpg', 1280, 960)))
+        elif kind == 'article' and a.get('slug') in by_slug:
+            art = by_slug[a['slug']]
+            cards.append((f'{root}studio/{art["slug"]}/', art.get('kicker') or 'Feature', art['title'],
+                          art.get('tease') or '', None))
+    if not cards:
+        return ''
+    lis = []
+    for href, kicker, title, text, img in cards:
+        art_html = (f'<div class="card-art"><img src="{root}{e(img[0])}" width="{img[1]}" height="{img[2]}" '
+                    f'alt=""{LAZY}></div>' if img else '')
+        lis.append(f'''<li class="card">
+  <a class="card-link" href="{href}">
+    {art_html}
+    <div class="card-body">
+      <p class="kicker">{e(kicker)}</p>
+      <h3>{e(title)}</h3>
+      <p>{e(text)}</p>
+    </div>
+  </a>
+</li>''')
+    return f'''<section aria-labelledby="archive-h">
+  <h2 id="archive-h">From the archive</h2>
+  <ul class="grid archive">{"".join(lis)}</ul>
+</section>'''
+
+
+def documents(game) -> str:
+    """Original documents: the INK & PAPER review as a printed page, and the front of the box. Only the review's
+    own words and marks; no price, which the kit's inlay and printed review carry (D-19)."""
+    rev = game.get('review') or {}
+    cover = (game.get('images') or {}).get('cover')
+    credits = game.get('credits') or []
+    reviewers = next((c['name'] for c in credits if c['role'] == 'Reviewed by'), '')
+    reviewers = re.sub(r'\s+for INK & PAPER$', '', reviewers)
+    artist = next((c for c in credits if COVER_ROLE.search(c['role'])), None)
+    page_html = ''
+    if rev.get('overall') is not None:
+        scores = rev.get('scores') or {}
+        score_rows = ''.join(
+            f'<tr><th scope="row">{label}</th><td><span class="bar" style="--pct:{int(scores[k])}%"></span></td>'
+            f'<td class="num">{int(scores[k])}%</td></tr>'
+            for k, label in SCORE_NAMES if isinstance(scores.get(k), (int, float)))
+        q = rev.get('quote') or {}
+        quote = (f'<blockquote><p>&ldquo;{e(q["text"])}&rdquo;</p><footer>{e(q.get("reviewer", ""))}</footer></blockquote>'
+                 if q.get('text') else '')
+        award = f'<p class="award">{e(rev["award"])}</p>' if rev.get('award') else ''
+        verdict = f'<p class="verdict">{e(rev["verdict"])}</p>' if rev.get('verdict') else ''
+        by = f' &middot; Reviewed by {e(reviewers)}' if reviewers else ''
+        page_html = f'''<article class="mag" aria-labelledby="review-h">
+    <header class="mag-head"><span class="mag-name">INK &amp; PAPER</span><span class="mag-sect">Reviews</span></header>
+    <h3 id="review-h" class="mag-title">{e(game["title"])}</h3>
+    <p class="mag-by">{e(game["machine"])}{by}</p>
+    <div class="mag-body">
+      <div class="mag-words">{quote}{verdict}</div>
+      <div class="mag-box">
+        <table class="scores"><caption>Ratings</caption><tbody>{score_rows}</tbody></table>
+        <div class="overall"><span class="overall-num">{e(rev["overall"])}%</span><span>Overall</span>{award}</div>
+      </div>
+    </div>
+  </article>'''
+    cover_html = ''
+    if cover:
+        credit = f' Cover art: {e(artist["name"])}.' if artist else ''
+        cover_html = (f'<figure class="doc-cover"><a href="{e(cover["src"])}"><img src="{e(cover["src"])}" '
+                      f'width="{cover["size"][0]}" height="{cover["size"][1]}" alt="{e(cover["alt"])}" loading="lazy"></a>'
+                      f'<figcaption>The front of the tape box.{credit}</figcaption></figure>')
+    if not (page_html or cover_html):
+        return ''
+    return f'''<section class="documents" aria-labelledby="docs-h">
+  <h2 id="docs-h">Original documents</h2>
+  <div class="docs">{page_html}{cover_html}</div>
+</section>'''
+
+
+def more_games(game, games) -> str:
+    others = [x for x in games if x['slug'] != game['slug']]
+    if not others:
+        return ''
+    return f'''<section aria-labelledby="more-h">
+  <h2 id="more-h">More from Dalex</h2>
+  <ul class="grid more-games">{"".join(card(x, "../../") for x in others)}</ul>
+</section>'''
+
+
+def game_page(site, game, games=(), episodes=(), arts=()):
     root = '../../'
     imgs = game.get('images') or {}
     rel = game.get('release') or {}
@@ -515,30 +730,9 @@ def game_page(site, game):
     cover_style = (f' style="background-image:url(\'{e(cover["src"])}\')"' if cover else '')
     controls = ''.join(f'<div><dt>{"<kbd>" + e(k) + "</kbd>" if k else ""}</dt><dd>{e(v)}</dd></div>'
                        for k, v in game.get('controls') or [])
-    shots = ''.join(f'''<figure><img class="px" src="{e(s["src"])}" width="{s["size"][0]}" height="{s["size"][1]}" alt="{e(s["alt"])}" loading="lazy">{('<figcaption>' + e(s["caption"]) + '</figcaption>') if s.get("caption") else ''}</figure>'''
-                    for s in imgs.get('shots') or [])
-    scores = rev.get('scores') or {}
-    score_rows = ''.join(
-        f'<tr><th scope="row">{label}</th><td><span class="bar" style="--pct:{int(scores[k])}%"></span></td>'
-        f'<td class="num">{int(scores[k])}%</td></tr>'
-        for k, label in SCORE_NAMES if isinstance(scores.get(k), (int, float)))
-    q = rev.get('quote') or {}
-    quote = (f'<blockquote><p>&ldquo;{e(q["text"])}&rdquo;</p><footer>{e(q.get("reviewer", ""))}</footer></blockquote>'
-             if q.get('text') else '')
-    award = f'<p class="award">{e(rev["award"])}</p>' if rev.get('award') else ''
-    review = ''
-    if rev.get('overall') is not None:
-        review = f'''<section class="panel review" aria-labelledby="review-h">
-  <h2 id="review-h">What INK &amp; PAPER said</h2>
-  <div class="review-grid">
-    <div class="overall"><span class="overall-num">{e(rev["overall"])}%</span><span>Overall</span>{award}</div>
-    <div>
-      {quote}
-      {('<p class="verdict">' + e(rev["verdict"]) + '</p>') if rev.get("verdict") else ''}
-      <table class="scores"><caption>Ratings</caption><tbody>{score_rows}</tbody></table>
-    </div>
-  </div>
-</section>'''
+    shot_list = imgs.get('shots') or []
+    shots = ''.join(shot_figure(x['src'], x['size'][0], x['size'][1], x['alt'], x.get('caption'), n, len(shot_list),
+                                'shots') for n, x in enumerate(shot_list, 1))
     credits = ''.join(f'<div><dt>{e(c["role"])}</dt><dd>{e(c["name"])}</dd></div>' for c in game.get('credits') or [])
     igc = game.get('in_game_credits') or []
     igc_html = (f'<div class="screen-credits"><p class="kicker">From the game&rsquo;s credits page</p><pre>{e(chr(10).join(igc))}</pre></div>'
@@ -606,6 +800,7 @@ def game_page(site, game):
   </div>
   {score_badge(game)}
 </div>
+{glance(site, game)}
 {player}
 <div class="two-col">
   <section aria-labelledby="about-h">
@@ -619,9 +814,10 @@ def game_page(site, game):
 </div>
 <section aria-labelledby="shots-h">
   <h2 id="shots-h">Screen shots</h2>
-  <div class="gallery">{shots}</div>
+  <div class="gallery" data-lightbox>{shots}</div>
 </section>
-{review}
+{documents(game)}
+{timeline(game)}
 <div class="two-col">
   <section class="panel tape" aria-labelledby="tape-h">
     <h2 id="tape-h">The tape</h2>
@@ -634,7 +830,9 @@ def game_page(site, game):
     {igc_html}
     {lic_html}
   </section>
-</div>'''
+</div>
+{archive(game, episodes, arts)}
+{more_games(game, games)}'''
     path = f'games/{game["slug"]}/'
     art = cover or (imgs.get('shots') or [None])[0]
     image = (path + art['src'], art['alt'], art['size'][0], art['size'][1]) if art else None
@@ -656,7 +854,7 @@ def game_page(site, game):
                             else f'{game["title"]} for the ZX Spectrum · {site["name"]}'),
                 description=description, image=image, ld=ld_json(vg, breadcrumbs(
                     site, ('Games', 'games/'), (game['title'], path))),
-                scripts=scripts)
+                scripts=scripts + f'<script src="{root}assets/lightbox.js" defer></script>\n')
 
 
 def about(site, root_dir: Path):
@@ -1028,6 +1226,8 @@ def build(root: Path = ROOT, config: Path = None, out: Path = None) -> Path:
         shutil.copyfile(root / 'CNAME', out / 'CNAME')
     write(out, 'index.html', home(site, games, featured, podcast.load(root)[1]))
     write(out, 'games/index.html', games_index(site, games))
+    arts = load_articles(root)
+    episodes_now = podcast.load(root)[1]
     for g in games:
         src = root / 'games' / g['slug']
         for f in sorted(src.rglob('*')):
@@ -1036,9 +1236,14 @@ def build(root: Path = ROOT, config: Path = None, out: Path = None) -> Path:
                 d = out / 'games' / g['slug'] / f.relative_to(src)
                 d.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(f, d)
-        write(out, f'games/{g["slug"]}/index.html', game_page(site, g))
+        ex = root / EXTRAS / g['slug']          # milestone pictures (D-47), for shown games only
+        for m in (g.get('_extras') or {}).get('milestones') or []:
+            if m.get('shot'):
+                d = out / 'games' / g['slug'] / 'milestones' / m['shot']['src']
+                d.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(ex / m['shot']['src'], d)
+        write(out, f'games/{g["slug"]}/index.html', game_page(site, g, games, episodes_now, arts))
     write(out, 'about/index.html', about(site, root))
-    arts = load_articles(root)
     write(out, 'studio/index.html', studio(site, root, games, arts))
     write(out, 'book/index.html', book(site, root, games))
     write(out, 'studio/spec-desk/index.html', spec_desk(site, root))

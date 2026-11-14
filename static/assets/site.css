@@ -433,3 +433,49 @@ html.photos .people img, html.photos .critic img { width: 192px; height: 192px; 
 .door strong { font-size: var(--step-0); }
 .door span:last-child { color: var(--muted); font-size: var(--step--1); }
 .door a:hover strong { text-decoration: underline; }
+
+/* Game page extras (D-47, proposed, dev preview): at a glance, the lightbox, original documents, the milestone
+   timeline, the archive and more games. */
+.glance { border-top: 2px solid var(--line); border-bottom: 2px solid var(--line); padding: 8px 0 10px; margin: 6px 0 14px; }
+.glance h2 { margin: 0 0 6px; font-size: .78rem; letter-spacing: .14em; }
+.glance dl { display: flex; flex-wrap: wrap; gap: 6px 26px; }
+.glance dt { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-weight: 400; }
+.glance dd { color: var(--text); font-size: .95rem; }
+
+.zoom { display: block; cursor: zoom-in; }
+.lightbox { padding: 0; border: 3px solid #000; background: var(--surface); color: var(--text); max-width: min(96vw, 1000px); width: 100%; }
+.lightbox::backdrop { background: rgba(0, 0, 0, .85); }
+.lightbox-in { padding: 14px 16px 16px; }
+.lightbox img { display: block; width: 100%; height: auto; max-height: 72vh; object-fit: contain; background: #000; }
+.lightbox .kicker { margin-bottom: 8px; }
+
+.docs { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+/* The review as the magazine printed it: newsprint and black ink in either colour scheme */
+.mag { --text: #17161a; --muted: #4c4a55; --link: #0b4fa8; background: #f3eedf; color: var(--text); border: 1px solid #000; box-shadow: 6px 6px 0 #000; padding: 0 22px 20px; font-family: Charter, "Iowan Old Style", Georgia, "Times New Roman", serif; }
+.mag-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; background: #000; color: #fff; margin: 0 -22px 14px; padding: 6px 22px; font-family: ui-monospace, Menlo, Consolas, monospace; text-transform: uppercase; letter-spacing: .14em; font-size: .8rem; }
+.mag-name { font-weight: 800; font-size: 1.05rem; letter-spacing: .08em; }
+.mag-title { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1; margin: 0; text-transform: uppercase; letter-spacing: -.01em; }
+.mag-by { margin: 6px 0 14px; font-size: .9rem; color: var(--muted); font-style: italic; }
+.mag-body { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.mag blockquote { border-left-color: #b30000; margin-top: 0; }
+.mag blockquote p { font-size: 1.3rem; line-height: 1.35; }
+.mag-box { display: grid; gap: 12px; justify-items: start; border: 2px solid #000; padding: 10px 12px; background: #fff; }
+.mag .scores caption { color: var(--muted); }
+.doc-cover img { display: block; width: 100%; border: 3px solid #000; }
+
+.timeline { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; align-items: start; }
+.timeline li { border-top: 4px solid var(--z-cyan); background: var(--surface); border-left: 1px solid var(--line); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 10px 12px 12px; }
+.timeline li:nth-child(4n+2) { border-top-color: var(--z-green); }
+.timeline li:nth-child(4n+3) { border-top-color: var(--z-yellow); }
+.timeline li:nth-child(4n+4) { border-top-color: var(--z-red); }
+.tl-head { margin: 0 0 8px; display: flex; flex-wrap: wrap; gap: 2px 8px; align-items: baseline; }
+.tl-m { font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 800; background: #000; color: #fff; padding: 0 6px; }
+.tl-date { flex-basis: 100%; color: var(--muted); font-size: .85rem; font-family: ui-monospace, Menlo, Consolas, monospace; }
+.timeline img { display: block; width: 100%; border: 3px solid #000; background: #000; }
+.archive .card-art { aspect-ratio: 16 / 9; }
+.archive .card-art img { object-position: top; }
+.more-games .card-art img { object-position: top; }
+@media (max-width: 760px) {
+  .docs, .mag-body { grid-template-columns: minmax(0, 1fr); }
+  .doc-cover { max-width: 320px; }
+}
