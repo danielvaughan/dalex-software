@@ -1,0 +1,21 @@
+{
+  "schema": "dalex-site-extras-curated/1",
+  "slug": "mower-mayhem",
+  "archive": [
+    {
+      "kind": "book",
+      "chapters": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "title": "The engine room",
+      "by": "Gareth, Colin, Hyun-joo and Dez"
+    },
+    {
+      "kind": "podcast",
+      "episode": "07-dez"
+    }
+  ]
+}

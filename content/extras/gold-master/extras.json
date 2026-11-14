@@ -1,0 +1,26 @@
+{
+  "schema": "dalex-site-extras-curated/1",
+  "slug": "gold-master",
+  "archive": [
+    {
+      "kind": "book",
+      "chapters": [
+        12
+      ],
+      "title": "Gold Master: Rooms, People and Words",
+      "by": "Mo"
+    },
+    {
+      "kind": "podcast",
+      "episode": "01-mo"
+    },
+    {
+      "kind": "film",
+      "note": "The studio film follows a game from the first idea to the review, and Gold Master is its worked example."
+    },
+    {
+      "kind": "article",
+      "slug": "how-the-games-are-really-made"
+    }
+  ]
+}

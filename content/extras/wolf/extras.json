@@ -1,0 +1,18 @@
+{
+  "schema": "dalex-site-extras-curated/1",
+  "slug": "wolf",
+  "archive": [
+    {
+      "kind": "book",
+      "chapters": [
+        13
+      ],
+      "title": "WOLF: Timing, Waggling and Scripted Characters",
+      "by": "Emeka"
+    },
+    {
+      "kind": "podcast",
+      "episode": "10-emeka"
+    }
+  ]
+}

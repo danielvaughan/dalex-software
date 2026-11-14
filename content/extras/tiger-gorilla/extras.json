@@ -1,0 +1,18 @@
+{
+  "schema": "dalex-site-extras-curated/1",
+  "slug": "tiger-gorilla",
+  "archive": [
+    {
+      "kind": "book",
+      "chapters": [
+        11
+      ],
+      "title": "Tiger Gorilla: Scrolling a Jungle",
+      "by": "Neil"
+    },
+    {
+      "kind": "podcast",
+      "episode": "09-neil"
+    }
+  ]
+}

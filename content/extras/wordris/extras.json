@@ -1,0 +1,14 @@
+{
+  "schema": "dalex-site-extras-curated/1",
+  "slug": "wordris",
+  "archive": [
+    {
+      "kind": "book",
+      "chapters": [
+        9
+      ],
+      "title": "Wordris: A Dictionary in a Few Kilobytes",
+      "by": "Colin"
+    }
+  ]
+}
