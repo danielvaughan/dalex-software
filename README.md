@@ -113,6 +113,7 @@ tests, commits and pushes. Do not edit `games/<slug>/` by hand: the next publish
 | [`site.json`](site.json) | site settings and the list of games: which are shown, in what order, which is featured |
 | [`games/`](games/) | one folder per game, written by the toolkit's `zx-website` skill: `game.json`, `demo.bin` (the obfuscated demo tape, when there is a demo), cover, screen shots and any licences |
 | [`content/`](content/) | the About, Studio and Book page bodies, and the articles (`content/articles/`: `articles.json` and one HTML fragment each, shown as the Studio page's Learn more and also printed in *INK & PAPER*) |
+| [`content/extras/`](content/extras/) | proposed on the dev preview ([D-47](docs/decisions.md)): each game's milestone timeline, written by [`tools/game_extras.py`](tools/game_extras.py) from the game's repository, and its hand-picked archive links (`extras.json`) |
 | [`static/`](static/) | CSS, the player script (which holds the demo key), the Dalex logo, people sprites, favicons, the studio film and the vendored JSSpeccy 3.2 |
 | [`assets/source/`](assets/source/) | source sheets for the About page's people, cut by [`tools/people.py`](tools/people.py) |
 | [`build.py`](build.py) | the generator (Python 3 standard library only) that writes `_site/` |

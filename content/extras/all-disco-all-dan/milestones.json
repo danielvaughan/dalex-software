@@ -1,0 +1,68 @@
+{
+  "schema": "dalex-site-extras/1",
+  "slug": "all-disco-all-dan",
+  "source": {
+    "repo": "danielvaughan/zx-all-disco-all-dan",
+    "commit": "1c580200997ca12126c319cb677e7099fe5286ec",
+    "plan": "game/milestones.md",
+    "kits": "game/media-kit"
+  },
+  "genre": {
+    "text": "Beat-boosted disc-hopping arcade puzzle",
+    "source": "specs/all-disco-all-dan-spec.md"
+  },
+  "milestones": [
+    {
+      "milestone": 1,
+      "title": "Club 1 vertical slice",
+      "date": "2026-11-05",
+      "shot": {
+        "src": "m1.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Dan strikes a pose, while the little robot in the corner looks like he's checking the guest list."
+      }
+    },
+    {
+      "milestone": 2,
+      "title": "Club 2, the Mirrorball Lounge",
+      "date": "2026-11-05",
+      "shot": {
+        "src": "m2.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "White suit, shades and an afro you could lose a comb in. Ron waits at the bottom."
+      }
+    },
+    {
+      "milestone": 3,
+      "title": "Club 3, the Laser Penthouse",
+      "date": "2026-11-05",
+      "shot": {
+        "src": "m3.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "STAGE CLEAR! in the Laser Penthouse, and the floor is a rainbow of stars."
+      }
+    },
+    {
+      "milestone": 4,
+      "title": "final, the Starlight Rooftop and the Ending",
+      "date": "2026-11-09",
+      "shot": {
+        "src": "m4.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Thirteen on the counter and the mirrorball has gone red. Panic stations in the Velvet Basement."
+      }
+    }
+  ]
+}

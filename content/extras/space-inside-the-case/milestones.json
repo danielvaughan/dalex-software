@@ -1,0 +1,133 @@
+{
+  "schema": "dalex-site-extras/1",
+  "slug": "space-inside-the-case",
+  "source": {
+    "repo": "danielvaughan/zx-space-inside-the-case",
+    "commit": "108871a301e028d3bedc1d5b5d24e004cf287df9",
+    "plan": "game/milestones.md",
+    "kits": "game/media-kit"
+  },
+  "genre": {
+    "text": "A gentle thrust-and-gravity cave-flying and landing game",
+    "source": "specs/space-inside-the-case-spec.md"
+  },
+  "milestones": [
+    {
+      "milestone": 1,
+      "title": "the Foyer and the ZX Spectrum 128K",
+      "date": "2026-11-06",
+      "shot": {
+        "src": "m1.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "The probe pulls its best face for the title page. Land gently, it says. Easier said."
+      }
+    },
+    {
+      "milestone": 2,
+      "title": "the Video Game Zone and the NES",
+      "date": "2026-11-07",
+      "shot": {
+        "src": "m2.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "The museum the night before: the moon's up and the machines are snoring"
+      }
+    },
+    {
+      "milestone": 3,
+      "title": "the Main Gallery and the Elliott 903",
+      "date": "2026-11-07",
+      "shot": {
+        "src": "m3.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Our hero peers out of the case. Mind the aerials, they bend."
+      }
+    },
+    {
+      "milestone": 4,
+      "title": "the festival build",
+      "date": "2026-11-07",
+      "shot": {
+        "src": "m4.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "The probe poses on the title page, keeping one big eye on the controls."
+      }
+    },
+    {
+      "milestone": 5,
+      "title": "the Retro Arcade and the arcade cabinet",
+      "date": "2026-11-09",
+      "shot": {
+        "src": "m5.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Inside the Spectrum itself, one part in and the Z80 socket right under my nose."
+      }
+    },
+    {
+      "milestone": 6,
+      "title": "the Atari ST and the Raspberry Pi bonus",
+      "date": "2026-11-09",
+      "shot": {
+        "src": "m6.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Land gently, says the title page. Easy for it to say."
+      }
+    },
+    {
+      "milestone": 7,
+      "title": "the MITS Altair 8800 and the 1980s classroom",
+      "date": "2026-11-09",
+      "shot": {
+        "src": "m7.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Four minutes of waiting, and this is what you get to stare at. Not bad at all."
+      }
+    },
+    {
+      "milestone": 8,
+      "title": "the BBC Domesday System",
+      "date": "2026-11-10",
+      "shot": {
+        "src": "m8.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "All aboard: the probe takes a ride on the rim of the big disc"
+      }
+    },
+    {
+      "milestone": 9,
+      "title": "the MegaProcessor and the full game",
+      "date": "2026-11-10",
+      "shot": {
+        "src": "m9.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Land gently, says the title page. That eye has seen some bad landings."
+      }
+    }
+  ]
+}

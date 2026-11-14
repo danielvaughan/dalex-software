@@ -1,0 +1,80 @@
+{
+  "schema": "dalex-site-extras/1",
+  "slug": "mower-mayhem",
+  "source": {
+    "repo": "danielvaughan/zx-mower-mayhem",
+    "commit": "7d2f90c413d9a028f484259eaaef80334e1210b6",
+    "plan": "game/milestones.md",
+    "kits": "game/media-kit"
+  },
+  "genre": {
+    "text": "Single-screen action / coverage arcade game",
+    "source": "specs/mower-mayhem-spec.md"
+  },
+  "milestones": [
+    {
+      "milestone": 1,
+      "title": "vertical slice",
+      "date": null,
+      "shot": null
+    },
+    {
+      "milestone": 2,
+      "title": "the whole run",
+      "date": "2026-10-18",
+      "shot": {
+        "src": "m2.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Zap! The yellow-and-black Trimmer beam reaches for a Weed, the F-3 fix in action. Gardeners' World it isn't."
+      }
+    },
+    {
+      "milestone": 3,
+      "title": "polish and spec qualification",
+      "date": null,
+      "shot": null
+    },
+    {
+      "milestone": 4,
+      "title": "complete game, music option, playtest fixes",
+      "date": "2026-10-18",
+      "shot": {
+        "src": "m4.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Red on the Hedgehog, no beam, no points. It's the safety interlock saying no, not a hit (F-14)."
+      }
+    },
+    {
+      "milestone": 5,
+      "title": "playability release: direct drive, synth-pop, no-harm hardening, house style",
+      "date": "2026-10-20",
+      "shot": {
+        "src": "m5.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "The Hedgehog keeps watch while the Cat legs it along the fence. Nobody gets mown."
+      }
+    },
+    {
+      "milestone": 6,
+      "title": "review lift: docking, Weeds, feel, attribute polish, later Lawns",
+      "date": "2026-11-09",
+      "shot": {
+        "src": "m6.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "End of the top row, and the mower pulls up politely short of the hedgehog"
+      }
+    }
+  ]
+}

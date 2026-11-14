@@ -1,0 +1,104 @@
+{
+  "schema": "dalex-site-extras/1",
+  "slug": "wolf",
+  "source": {
+    "repo": "danielvaughan/zx-wolf",
+    "commit": "7f2c38ad4de620fc6decd39a88f01599272b3b64",
+    "plan": "game/milestones.md",
+    "kits": "game/media-kit"
+  },
+  "genre": null,
+  "milestones": [
+    {
+      "milestone": 1,
+      "title": "vertical slice",
+      "date": "2026-10-19",
+      "shot": {
+        "src": "m1.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "MEET THE COACHES: three friendly faces, and not one of them will let Dex have a lie-in."
+      }
+    },
+    {
+      "milestone": 2,
+      "title": "the full session",
+      "date": "2026-10-19",
+      "shot": {
+        "src": "m2.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Dex's bell cord stops short of the bell. He's laughing anyway."
+      }
+    },
+    {
+      "milestone": 3,
+      "title": "the three coaches, red dots and Q1",
+      "date": "2026-10-19",
+      "shot": {
+        "src": "m3.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Tim spots a scrappy rep. The aliens are watching, apparently"
+      }
+    },
+    {
+      "milestone": 4,
+      "title": "the Pack's habits",
+      "date": "2026-10-20",
+      "shot": {
+        "src": "m4.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Coach! Kev's off to tell tales, and Dex is the tale"
+      }
+    },
+    {
+      "milestone": 5,
+      "title": "three dots: the finisher and injury",
+      "date": "2026-11-05",
+      "shot": {
+        "src": "m5.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Session over, and Dex's new bests go up in red. Lovely stuff!"
+      }
+    },
+    {
+      "milestone": 6,
+      "title": "testing day, Member of the Month and the rivals",
+      "date": "2026-11-06",
+      "shot": {
+        "src": "m6.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "FULL HOUSE! Every lift a PB, and Stevo wants that bell rung"
+      }
+    },
+    {
+      "milestone": 7,
+      "title": "final",
+      "date": "2026-11-09",
+      "shot": {
+        "src": "m7.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "C gets you back in with your password, though coming back from that page the line turns up last, half-printed."
+      }
+    }
+  ]
+}

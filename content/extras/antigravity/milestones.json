@@ -1,0 +1,61 @@
+{
+  "schema": "dalex-site-extras/1",
+  "slug": "antigravity",
+  "source": {
+    "repo": "danielvaughan/zx-antigravity",
+    "commit": "252bdb58605476af7acd070d9e8ad915346b1b04",
+    "plan": "game/milestones.md",
+    "kits": "game/media-kit"
+  },
+  "genre": {
+    "text": "Single-screen precision thrust / arcade action",
+    "source": "specs/antigravity-spec.md"
+  },
+  "milestones": [
+    {
+      "milestone": 1,
+      "title": "Flight and escape",
+      "date": "2026-10-21",
+      "shot": {
+        "src": "m1.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Mind your head! One careless nudge into the ceiling and your suit pops."
+      }
+    },
+    {
+      "milestone": 2,
+      "title": "Moving threats and mission",
+      "date": "2026-10-21",
+      "shot": {
+        "src": "m2.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Robin prepares to pulse downward and retrieve the scattered data canisters."
+      }
+    },
+    {
+      "milestone": 3,
+      "title": "Complete mission",
+      "date": "2026-10-21",
+      "shot": {
+        "src": "m3.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "A minute and a half of this. Griff stopped complaining after ten seconds."
+      }
+    },
+    {
+      "milestone": 4,
+      "title": "10-Sector Extended Campaign",
+      "date": "2026-11-09",
+      "shot": null
+    }
+  ]
+}

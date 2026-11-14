@@ -1,0 +1,90 @@
+{
+  "schema": "dalex-site-extras/1",
+  "slug": "tiger-gorilla",
+  "source": {
+    "repo": "danielvaughan/zx-tiger-gorilla",
+    "commit": "603c7d7d83cad7cd26f99eedadff1cc7ef2199d0",
+    "plan": "game/milestones.md",
+    "kits": "game/media-kit"
+  },
+  "genre": null,
+  "milestones": [
+    {
+      "milestone": 1,
+      "title": "vertical slice",
+      "date": null,
+      "shot": null
+    },
+    {
+      "milestone": 2,
+      "title": "zone 1 complete",
+      "date": "2026-10-18",
+      "shot": {
+        "src": "m2.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Swinging on a vine: the bit where it all clicks."
+      }
+    },
+    {
+      "milestone": 3,
+      "title": "zone 2",
+      "date": null,
+      "shot": null
+    },
+    {
+      "milestone": 4,
+      "title": "zone 3 + ending",
+      "date": "2026-10-30",
+      "shot": {
+        "src": "m4.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Did you hear that?! Our hero drops right into the cameraman's line of fire."
+      }
+    },
+    {
+      "milestone": 5,
+      "title": "enhancements from the pattern cards",
+      "date": "2026-11-04",
+      "shot": {
+        "src": "m5.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "A sleepy croc, and a gorilla who isn't worried in the slightest. Wait till level 3."
+      }
+    },
+    {
+      "milestone": 6,
+      "title": "what the INK & PAPER review found",
+      "date": "2026-11-05",
+      "shot": {
+        "src": "m6.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Pick your keys or your stick and swing into it. The parrot already looks nervous."
+      }
+    },
+    {
+      "milestone": 7,
+      "title": "what the M6 review found",
+      "date": "2026-11-09",
+      "shot": {
+        "src": "m7.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Two crocs doze in the river below. Don't wake them, or do, it's your gorilla."
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schema": "dalex-site-extras/1",
+  "slug": "wordris",
+  "source": {
+    "repo": "danielvaughan/zx-wordris",
+    "commit": "50553cc4a6fa72fc307d38279398373946e68b74",
+    "plan": "game/milestones.md",
+    "kits": "game/media-kit"
+  },
+  "genre": null,
+  "milestones": [
+    {
+      "milestone": 1,
+      "title": "vertical slice",
+      "date": "2026-10-19",
+      "shot": {
+        "src": "m1.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "PIE scores 7 with the very first word. Not exactly a feast."
+      }
+    },
+    {
+      "milestone": 2,
+      "title": "states and session",
+      "date": "2026-10-19",
+      "shot": {
+        "src": "m2.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "ROTI scores 24 off a double-word square, and Kev still swears it isn't a word."
+      }
+    },
+    {
+      "milestone": 3,
+      "title": "final",
+      "date": "2026-11-09",
+      "shot": {
+        "src": "m3.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "The owl has got his hat on, which is more than can be said for the letter D"
+      }
+    }
+  ]
+}

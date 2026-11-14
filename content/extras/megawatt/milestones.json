@@ -1,0 +1,68 @@
+{
+  "schema": "dalex-site-extras/1",
+  "slug": "megawatt",
+  "source": {
+    "repo": "danielvaughan/zx-megawatt",
+    "commit": "d93587efac24cce22d4c62c550c5df6feb86ffb8",
+    "plan": "game/milestones.md",
+    "kits": "game/media-kit"
+  },
+  "genre": {
+    "text": "A calm real-time build-and-route game",
+    "source": "specs/megawatt-spec.md"
+  },
+  "milestones": [
+    {
+      "milestone": 1,
+      "title": "hall 1 vertical slice",
+      "date": "2026-10-29",
+      "shot": {
+        "src": "m1.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Three racks planned, one bay waiting. Very neat, very orderly."
+      }
+    },
+    {
+      "milestone": 2,
+      "title": "halls 1-3, solar, cooling units, full report",
+      "date": "2026-10-29",
+      "shot": {
+        "src": "m2.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Over the connection already? The sun will settle the bill in the morning."
+      }
+    },
+    {
+      "milestone": 3,
+      "title": "halls 4-8, gas turbine, grid maintenance",
+      "date": "2026-10-30",
+      "shot": {
+        "src": "m3.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Grid work day: the last racks wait on standby until supply allows"
+      }
+    },
+    {
+      "milestone": 4,
+      "title": "final",
+      "date": "2026-11-09",
+      "shot": {
+        "src": "m4.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Three workmen and a lot of racks. The kettle should be boiling by now"
+      }
+    }
+  ]
+}

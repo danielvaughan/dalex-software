@@ -641,10 +641,44 @@ had replaced a broken PNG and ICO, but browsers keep a favicon under its URL for
 `favicon.ico`, `.svg` and `.png` with `?v=` and the first 8 hex digits of the three files' SHA-256, so any change to the
 icons reaches every browser at once. `tests/test_favicon.py` checks every built page.
 
-
 ## D-46 The colour scheme stays as it is (owner, 2026-11-12)
 
 Asked whether the site should be dark, light or follow the device, the owner said on 12 November: "It should stay as it
 is". The site is dark by default and switches to its light palette when the device asks for light
 (`prefers-color-scheme: light` in `static/assets/site.css`); the music-video band stays dark in both. There is no
 theme switch on the page.
+
+## D-47 Game pages: at a glance, how it was made, the archive and more (proposed, dev preview, 2026-11-14)
+
+Proposed for the dev preview (`dev` branch, dev.dalex-software.co.uk), after the owner liked the Dizzy page on the
+Oliver Twins' site. Not on the live site until the owner accepts it.
+
+- **Game at a glance** under the title: released, machine, genre (only where the game's specification has a
+  `Genre` line, so not for WOLF, Tiger Gorilla or Wordris), developer, publisher (the `Published by` credit), status
+  (finished, how many milestones, demo or not) and the INK & PAPER Overall. Nothing that is not in the records.
+- **Screen shots open full size**: each is a plain link to the picture without script; `static/assets/lightbox.js`
+  opens a `<dialog>` with "Image 2 of 4", the caption, Previous, Next, the arrow keys, Esc or Close, and gives focus
+  back to the picture. It stores nothing and loads nothing from elsewhere. No game has a loading screen in its
+  folder yet, so none is shown.
+- **Original documents**: the existing INK & PAPER review (the same quote, verdict and marks) is set as a printed
+  magazine page, beside the front of the tape box (the cover the page already has). The kit's inlay is not shown: it
+  carries a price (D-06, D-19). A cover-art credit is printed when a game's credits name one; none do yet.
+- **How it was made**: the game's milestones from `game/milestones.md` in its own repository, at the commit the page
+  was published from, up to the release milestone, with trailing notes for the team (owner, dates, issue numbers)
+  cut. GitHub's milestone lists are empty for every game, so the repository is the source. Dates are real 2026
+  dates, shown plainly as the release date is (D-06): the day the milestone's media kit was made, else the commit
+  that added its review, else its last gate; milestones with none are undated. One picture per milestone, the first
+  the milestone's review captions, with that caption, when it is a native Spectrum frame and not a repeat. The
+  milestone titles are the team's own words ("vertical slice", "spec qualification"); whether they suit the 1987
+  voice is the owner's call.
+- **From the archive**: hand-picked links to what the site already has about the game: its book chapter, the
+  podcast episode about it (shown only once the episode is out, D-31), the studio film and the making-of article for
+  Gold Master. No game has a video of its own, so none is linked.
+- **More from Dalex**: the other shown games' cards. Hidden games never appear (D-03).
+- **Where the data lives.** `games/<slug>/` stays the zx-website skill's alone. The generated part
+  (`content/extras/<slug>/milestones.json` and its `m<n>.png`) is written by `tools/game_extras.py` from the local
+  `zx-<slug>` clones and committed; the hand-picked links are `content/extras/<slug>/extras.json`. The build copies
+  the pictures only for shown games and runs the price check over the new text. **In production this should move
+  into the zx-website skill**, which would publish the timeline and links into `games/<slug>/` with the rest.
+- `tests/test_game_extras.py` checks the sections on every page, the lightbox's alt text and counter, the timeline's
+  order, that every archive link leads to a built page, and that a hidden game never reaches More from Dalex.

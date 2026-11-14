@@ -1,0 +1,47 @@
+{
+  "schema": "dalex-site-extras/1",
+  "slug": "gold-master",
+  "source": {
+    "repo": "danielvaughan/zx-gold-master",
+    "commit": "db3b2921cf1f404f7f817bb387debb83c5c38f93",
+    "plan": "game/milestones.md",
+    "kits": "game/media-kit"
+  },
+  "genre": {
+    "text": "A busy single-room-at-a-time arcade errand game",
+    "source": "specs/gold-master-spec.md"
+  },
+  "milestones": [
+    {
+      "milestone": 1,
+      "title": "Production only: level 1 from title to shipped",
+      "date": "2026-10-29",
+      "shot": null
+    },
+    {
+      "milestone": 2,
+      "title": "The whole studio",
+      "date": "2026-10-29",
+      "shot": null
+    },
+    {
+      "milestone": 3,
+      "title": "Percy and the full game",
+      "date": "2026-10-29",
+      "shot": null
+    },
+    {
+      "milestone": 4,
+      "title": "Polish",
+      "date": "2026-11-09",
+      "shot": {
+        "src": "m4.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Cat asleep, robot waiting, Mo legging it: just another day at Dalex"
+      }
+    }
+  ]
+}
