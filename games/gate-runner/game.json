@@ -1,0 +1,133 @@
+{
+  "schema": "dalex-site-game/1",
+  "slug": "gate-runner",
+  "title": "Gate Runner",
+  "machine": "ZX Spectrum 128K",
+  "jsspeccy_machine": 128,
+  "tagline": "Lead a squad of little blue robots up the road against a tide of red junk-robots.",
+  "blurb": "Lead a squad of little blue robots up the road against a tide of red junk-robots. Pick the blue gates, shoot the red ones up and grow your army into the hundreds. Beat the mech at the end of the city, the factory and the space dock, then round again, faster. Then put your initials on the high-score table!",
+  "controls": [
+    [
+      "O",
+      "Steer left"
+    ],
+    [
+      "P",
+      "Steer right"
+    ],
+    [
+      "SPACE",
+      "Start"
+    ],
+    [
+      "H",
+      "Pause / resume"
+    ],
+    [
+      "M",
+      "Music on / off"
+    ]
+  ],
+  "release": {
+    "source_tape": "gate-runner-m6.tap",
+    "sha256": "94542456303e7af9e94daabe5ac169437780c0897ed1ef4450492980fe6500ae",
+    "size": 25850,
+    "milestone": 6,
+    "date": "2026-11-19"
+  },
+  "demo": {
+    "src": "demo.bin",
+    "sha256": "a58ea0d1407f095c6e19130463a7206ed0cfaa514f6d9392c05d278eaecd8c23",
+    "size": 25841,
+    "milestone": null,
+    "source_tape": "gate-runner-demo.tap",
+    "contains": "Level 1 demo: stage 1 of 3, the city skyway"
+  },
+  "review": {
+    "magazine": "INK & PAPER",
+    "overall": 68,
+    "scores": {
+      "presentation": 70,
+      "graphics": 63,
+      "sound": 64,
+      "playability": 67,
+      "addictive_qualities": 70,
+      "overall": 68
+    },
+    "award": null,
+    "verdict": "",
+    "quote": {
+      "text": "watching my number swell past three hundred before the factory mech was a real buzz",
+      "reviewer": "Baz Pocket"
+    }
+  },
+  "credits": [
+    {
+      "role": "Published by",
+      "name": "Dalex Software"
+    },
+    {
+      "role": "Design",
+      "name": "Dalex Software, game specification 3.4"
+    },
+    {
+      "role": "Reviewed by",
+      "name": "Baz Pocket, Prue Fairley and Norm Crabtree for INK & PAPER"
+    }
+  ],
+  "in_game_credits": [],
+  "licenses": [],
+  "images": {
+    "cover": {
+      "src": "cover.jpg",
+      "size": [
+        848,
+        1264
+      ],
+      "alt": "Gate Runner cover painting"
+    },
+    "shots": [
+      {
+        "src": "shots/shot-1.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Swirly eyes and a grin like a toaster: the factory mech fancies your 351 robots.",
+        "alt": "Gate Runner screenshot: Swirly eyes and a grin like a toaster: the factory mech fancies your 351 robots."
+      },
+      {
+        "src": "shots/shot-2.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "Plus six or plus two? For once there's no wrong answer, so go left.",
+        "alt": "Gate Runner screenshot: Plus six or plus two? For once there's no wrong answer, so go left."
+      },
+      {
+        "src": "shots/shot-3.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "The space dock, with ringed planets hung on the girders like Christmas baubles.",
+        "alt": "Gate Runner screenshot: The space dock, with ringed planets hung on the girders like Christmas baubles."
+      },
+      {
+        "src": "shots/shot-4.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "NEW HIGH SCORE! Three letters, and CBC is in the hall of fame.",
+        "alt": "Gate Runner screenshot: NEW HIGH SCORE! Three letters, and CBC is in the hall of fame."
+      }
+    ]
+  },
+  "source": {
+    "repo": "danielvaughan/zx-gate-runner",
+    "commit": "460e0c61f990be03b5868c85d27a9f590c7ccc07",
+    "kit": "game/media-kit/m6"
+  }
+}

@@ -384,6 +384,39 @@
           }
         ]
       }
+    },
+    {
+      "slug": "gate-runner",
+      "visible": true,
+      "order": 10,
+      "featured": false,
+      "demo": {
+        "milestone": null,
+        "sha256": "a58ea0d1407f095c6e19130463a7206ed0cfaa514f6d9392c05d278eaecd8c23",
+        "contains": "Level 1 demo: stage 1 of 3, the city skyway",
+        "source_tape": "gate-runner-demo.tap"
+      },
+      "touch": {
+        "dpad": {
+          "left": "O",
+          "right": "P"
+        },
+        "diagonals": false,
+        "buttons": [
+          {
+            "keys": "SPACE",
+            "label": "Start"
+          },
+          {
+            "keys": "H",
+            "label": "Pause"
+          },
+          {
+            "keys": "M",
+            "label": "Music"
+          }
+        ]
+      }
     }
   ]
 }
