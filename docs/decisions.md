@@ -665,3 +665,11 @@ theme switch on the page.
 - `Merch` sits in the main navigation between Podcast and About; the page's own styles are in
   `static/assets/merch.css`, so `site.css` is unchanged. `tests/test_merch.py` checks every price, that nothing is
   offered for sale, the pictures and their alt text, and that games still state no price.
+
+## D-48 The merch page is called Kit (owner, 2026-11-20)
+
+The owner asked for "kit rather than merch" on the website. The page is now `Kit` in the main navigation, at `/kit/`,
+with "Kit" in its breadcrumb and "studio kit" in its description; its heading was already "Studio kit". The first
+address, `/merch/`, is a stub that sends readers on to `/kit/` (as D-30 and D-33 did for old addresses), and only
+`/kit/` is in the sitemap. File names (`content/merch.html`, `static/assets/merch.css`, `static/assets/merch/`) are
+unchanged, as visitors never see them.

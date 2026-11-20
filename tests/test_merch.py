@@ -1,4 +1,4 @@
-"""The merch page (D-47): the range with retail prices, nothing for sale, every picture present and described."""
+"""The Kit page (D-47, D-48): the range with retail prices, nothing for sale, every picture present and described."""
 import re
 import subprocess
 import sys
@@ -16,7 +16,12 @@ class MerchPage(unittest.TestCase):
         cls.out = Path(cls.tmp.name) / '_site'
         subprocess.run([sys.executable, str(ROOT / 'build.py'), '--out', str(cls.out)], check=True, cwd=ROOT,
                        capture_output=True)
-        cls.html = (cls.out / 'merch' / 'index.html').read_text(encoding='utf-8')
+        cls.html = (cls.out / 'kit' / 'index.html').read_text(encoding='utf-8')
+
+    def test_old_merch_address_sends_readers_to_kit(self):
+        old = (self.out / 'merch' / 'index.html').read_text(encoding='utf-8')
+        self.assertIn('url=../kit/', old)
+        self.assertNotIn('&pound;', old)
 
     @classmethod
     def tearDownClass(cls):
@@ -42,9 +47,9 @@ class MerchPage(unittest.TestCase):
                 self.assertTrue((self.out / src[3:]).is_file(), src)
 
     def test_in_the_navigation_and_sitemap(self):
-        self.assertIn('<a href="../merch/" aria-current="page">Merch</a>', self.html)
-        self.assertIn('/merch/</loc>', (self.out / 'sitemap.xml').read_text(encoding='utf-8'))
-        self.assertIn('href="merch/">Merch</a>', (self.out / 'index.html').read_text(encoding='utf-8'))
+        self.assertIn('<a href="../kit/" aria-current="page">Kit</a>', self.html)
+        self.assertIn('/kit/</loc>', (self.out / 'sitemap.xml').read_text(encoding='utf-8'))
+        self.assertIn('href="kit/">Kit</a>', (self.out / 'index.html').read_text(encoding='utf-8'))
 
     def test_games_still_state_no_price(self):
         for page in (self.out / 'games').rglob('index.html'):
@@ -53,3 +58,4 @@ class MerchPage(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

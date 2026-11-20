@@ -200,8 +200,8 @@ class Built(unittest.TestCase):
         files = text_files(self.out)
         self.assertGreater(len(files), 10)
         for p in files:
-            if p.relative_to(self.out).as_posix() in ('book/index.html', 'merch/index.html'):
-                continue   # D-28 and D-47: the book's and the merch range's own prices are shown on their pages
+            if p.relative_to(self.out).as_posix() in ('book/index.html', 'kit/index.html'):
+                continue   # D-28 and D-47: the book's and the kit range's own prices are shown on their pages
             text = p.read_text(encoding='utf-8')
             m = PRICE.search(text)
             self.assertIsNone(m, f'{p.relative_to(self.out)}: price {text[max(0, m.start() - 40):m.end() + 20]!r}'
