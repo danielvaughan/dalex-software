@@ -648,3 +648,20 @@ Asked whether the site should be dark, light or follow the device, the owner sai
 is". The site is dark by default and switches to its light palette when the device asks for light
 (`prefers-color-scheme: light` in `static/assets/site.css`); the music-video band stays dark in both. There is no
 theme switch on the page.
+
+## D-47 A Merch page shows the range with its retail prices (owner, 2026-11-20)
+
+- The owner asked for the Dalex merch range on the website, and chose to show its retail prices: an exception to
+  D-19 for merch only. Games still show no price, and the build and tests still refuse one anywhere but the Book
+  (D-28) and Merch pages.
+- Nothing is on sale yet (D-18 stands): no buy button, basket, store link or shop wording, and no `offers` in the
+  structured data. The page says so and that prices include VAT, with delivery extra.
+- The products are made to order by Inkthreadable (UK print on demand). The pictures are the supplier's own previews
+  of each product with the production artwork (dalex-studio `assets/source/dalex-merch/products/inkthreadable/`),
+  shown on white; the sticker sheet is our own mock-up. Retail is cost before VAT plus 20 % profit, plus 20 % VAT,
+  rounded up to whole pounds (dalex-studio `plugins/cast-production/skills/dalex-merch`).
+- The calendar is shown by its cover and October, not a month with a bare-chested pose, to keep the site family
+  friendly.
+- `Merch` sits in the main navigation between Podcast and About; the page's own styles are in
+  `static/assets/merch.css`, so `site.css` is unchanged. `tests/test_merch.py` checks every price, that nothing is
+  offered for sale, the pictures and their alt text, and that games still state no price.

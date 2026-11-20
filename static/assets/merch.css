@@ -1,0 +1,17 @@
+/* The merch page (D-47): the range in black, each card topped with the Spectrum stripe in turn. */
+.merch-note { color: var(--muted); max-width: 68ch; }
+.merch-price { font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 700; font-size: 1.35rem; color: var(--accent); margin: .4rem 0 0; }
+.merch-feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; align-items: center; margin: 2rem 0; }
+.merch-feature h2 { margin-top: .2rem; }
+.merch-feature-art { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.merch-feature-art img, .merch-card img { display: block; width: 100%; height: auto; background: #fff; }
+.merch-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
+.merch-card { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--z-red); display: flex; flex-direction: column; min-width: 0; }
+.merch-card:nth-child(4n+2) { border-top-color: var(--z-yellow); }
+.merch-card:nth-child(4n+3) { border-top-color: var(--z-green); }
+.merch-card:nth-child(4n+4) { border-top-color: var(--z-cyan); }
+.merch-body { padding: 12px 14px 16px; display: flex; flex-direction: column; gap: .3rem; flex: 1; }
+.merch-body h3 { margin: 0; font-size: 1.1rem; }
+.merch-body p { margin: 0; }
+.merch-body .merch-price { margin-top: auto; padding-top: .4rem; }
+@media (max-width: 760px) { .merch-feature { grid-template-columns: 1fr; } }

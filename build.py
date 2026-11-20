@@ -306,7 +306,7 @@ def page(site, *, root, path, title, body, description='', current='', extra_hea
     full_title = head_title or (f'{title} · {site["name"]}' if title != site['name'] else title)
     description = description or site.get('description', '')
     nav = [('', 'Home', 'home'), ('games/', 'Games', 'games'), ('studio/', 'Studio', 'studio'), ('book/', 'Book', 'book'),
-           ('podcast/', 'Podcast', 'podcast'), ('about/', 'About', 'about')]
+           ('podcast/', 'Podcast', 'podcast'), ('merch/', 'Merch', 'merch'), ('about/', 'About', 'about')]
     links = ''.join(
         f'<li><a href="{root}{href}"{CURRENT if key == current else ""}>{label}</a></li>'
         for href, label, key in nav)
@@ -667,6 +667,18 @@ def about(site, root_dir: Path):
                 description='Dalex Software, a small Spectrum games house in a Manchester mill, and the people who make its games.')
 
 
+def merch(site, root_dir: Path):
+    """Merch: the studio's range with its retail prices (D-47). The one page besides the Book allowed to state a price;
+    nothing is on sale, so there is no buy button, store link or offer in the structured data."""
+    frag = (root_dir / 'content' / 'merch.html').read_text(encoding='utf-8')
+    return page(site, root='../', path='merch/', title='Studio kit', body=frag, current='merch',
+                extra_head='<link rel="stylesheet" href="../assets/merch.css">\n',
+                image=('assets/merch/mug-800.jpg', 'The Dalex mug, black with the Dalex Software logo', 800, 939),
+                ld=ld_json(breadcrumbs(site, ('Merch', 'merch/'))),
+                description='Dalex Software merch: T-shirt, sweatshirt, polo, cap, softshell jacket, tote, mug, stickers and '
+                            'the 1987 staff calendar, all in black with the Dalex logo. Not on sale yet.')
+
+
 BOOK_COVER = 'assets/book/machine-code-mayhem.jpg'   # the book's cover, 600 x 900
 BOOK_PRICE = {'minimum': 19, 'suggested': 29}   # US dollars, as set on Leanpub (D-28); change both there and here
 
@@ -922,7 +934,7 @@ def not_found(site):
 
 
 def sitemap(site, games, arts=(), episodes=()):
-    urls = [('', None), ('games/', None), ('studio/', None), ('book/', None), ('about/', None)]
+    urls = [('', None), ('games/', None), ('studio/', None), ('book/', None), ('merch/', None), ('about/', None)]
     urls += [('studio/spec-desk/', None)] if spec_desk_api(site) else []
     urls += [(f'studio/{a["slug"]}/', a['date']) for a in arts]
     urls += [('podcast/', None)] + [(f'podcast/{ep["slug"]}/', ep['date']) for ep in episodes]
@@ -1041,6 +1053,7 @@ def build(root: Path = ROOT, config: Path = None, out: Path = None) -> Path:
     arts = load_articles(root)
     write(out, 'studio/index.html', studio(site, root, games, arts))
     write(out, 'book/index.html', book(site, root, games))
+    write(out, 'merch/index.html', merch(site, root))
     write(out, 'studio/spec-desk/index.html', spec_desk(site, root))
     # The articles are the Studio's Learn more (D-33): no Articles section; its old addresses and the Blog's send
     # readers on, and the feed is also left at its old address for anyone subscribed to it.
