@@ -1,0 +1,137 @@
+{
+  "schema": "dalex-site-game/1",
+  "slug": "saffron-rush",
+  "title": "Saffron Rush",
+  "machine": "ZX Spectrum 128K",
+  "jsspeccy_machine": 128,
+  "tagline": "Monday afternoon in Saffron Walden, 1987: milk to fetch, Alex to collect at half past three, home for tea.",
+  "blurb": "Monday afternoon in Saffron Walden, 1987: milk to fetch, Alex to collect at half past three, home for tea. The whole town is yours to drive, with landmarks named as you pass, roadworks and temporary lights, queues at the pinch points, a stately colonel, horse riders and boy racers. Mind the clock!",
+  "controls": [
+    [
+      "Q / A",
+      "Faster / slower (reverse from a stop)"
+    ],
+    [
+      "O / P",
+      "Turn left / right"
+    ],
+    [
+      "SPACE",
+      "Horn"
+    ],
+    [
+      "ENTER",
+      "Get out / in"
+    ],
+    [
+      "N",
+      "Next errand"
+    ],
+    [
+      "SPACE or ENTER",
+      "Start"
+    ],
+    [
+      "H",
+      "Pause"
+    ],
+    [
+      "M",
+      "Music on/off"
+    ]
+  ],
+  "release": {
+    "source_tape": "saffron-rush-m4-8defa47f.tap",
+    "sha256": "8defa47fdacedfa9fb6203f6476592af19192653e27ee52a7d8a3a67c95c03b2",
+    "size": 91681,
+    "milestone": 4,
+    "date": "2026-11-21"
+  },
+  "demo": {
+    "src": "demo.bin",
+    "sha256": "a95355303b6ef53bf6f80b1683e43a6ff9b267145bed240d5d4237722a37282e",
+    "size": 103597,
+    "milestone": null,
+    "source_tape": "saffron-rush-demo.tap",
+    "contains": "Level 1 demo: Monday, milk from Waitrose and Alex from school"
+  },
+  "review": {
+    "magazine": "INK & PAPER",
+    "overall": 55,
+    "scores": {
+      "presentation": 50,
+      "graphics": 58,
+      "sound": 44,
+      "playability": 58,
+      "addictive_qualities": 57,
+      "overall": 55
+    },
+    "award": null,
+    "verdict": "A whole market town to potter round and a lovely idea at its heart, but it needs more polish before it earns its parking space. Mind how you go.",
+    "quote": {
+      "text": "Over eight and a half minutes to load, so that's two cups of tea and a digestive",
+      "reviewer": "Norm Crabtree"
+    }
+  },
+  "credits": [
+    {
+      "role": "Published by",
+      "name": "Dalex Software"
+    },
+    {
+      "role": "Design",
+      "name": "Dalex Software, game specification 2.8"
+    },
+    {
+      "role": "Reviewed by",
+      "name": "Norm Crabtree, Baz Pocket and Prue Fairley for INK & PAPER"
+    }
+  ],
+  "in_game_credits": [],
+  "licenses": [],
+  "images": {
+    "shots": [
+      {
+        "src": "shots/shot-1.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "The Crocus Courier is furious about yellow lines. So is everyone with a car.",
+        "alt": "Saffron Rush screenshot: The Crocus Courier is furious about yellow lines. So is everyone with a car."
+      },
+      {
+        "src": "shots/shot-2.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Half past two in the Market Square, and the clock is already running.",
+        "alt": "Saffron Rush screenshot: Half past two in the Market Square, and the clock is already running."
+      },
+      {
+        "src": "shots/shot-3.png",
+        "size": [
+          256,
+          192
+        ],
+        "caption": "St Mary's in its churchyard. Parking on the grass is not advised.",
+        "alt": "Saffron Rush screenshot: St Mary's in its churchyard. Parking on the grass is not advised."
+      },
+      {
+        "src": "shots/shot-4.png",
+        "size": [
+          320,
+          240
+        ],
+        "caption": "Milk got, crossed off and a hundred points banked. Now, where's Alex?",
+        "alt": "Saffron Rush screenshot: Milk got, crossed off and a hundred points banked. Now, where's Alex?"
+      }
+    ]
+  },
+  "source": {
+    "repo": "danielvaughan/zx-saffron-rush",
+    "commit": "e25c663874d1a1d09dedb6a34b9882d12b916f63",
+    "kit": "game/media-kit/m4"
+  }
+}
